@@ -3,20 +3,19 @@
     display: flex;
     flex-direction: column;
 }
-.landBlock1{
+
+.landBlock1 {
     width: 100%;
     height: 620px;
     z-index: 1;
-    /* position: absolute;
-    top: 60px;
-    left: 0; */
+    margin-top: 60px;
 }
 
 #loginBg {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0);
     width: 100%;
-    height: 560px;
-    z-index: 1;
+    height: 590px;
+    z-index: 2;
     position: absolute;
     top: 60px;
     left: 0;
@@ -24,10 +23,8 @@
 
 .landImage {
     z-index: 1;
-    /* height: 590px;
-    position: absolute;
-    top: 60px;
-    left: 0; */
+    opacity: 0.4;
+    overflow: hidden;
 }
 
 .landFlex {
@@ -87,12 +84,11 @@
 
 .landAbout {
     /* margin-top:590px; */
-    margin-left:12vw;
+    margin-left: 12vw;
+    padding-top: 32px;
 }
 
 .aboutScroll {
-    margin-top:48px;
-    margin-left:27vw;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -101,23 +97,31 @@
     text-align: center;
     letter-spacing: 0.08em;
     color: #252525;
-    width: 320px;
-    height: 72px;
+    /* width: 24vw; */
+    padding-bottom: 2px;
     border: 2px solid #252525;
-    padding-top:10px;
+    padding-top: 10px;
+    transform: rotate(2deg);
+    position: relative;
+    z-index: 4;
 }
-.text1Border{
+
+#text1Border {
+    margin-left: 26vw;
     display: block;
     border: 2px solid #FAC949;
-    transform: rotateX('30deg');
-    width: 320px;
+    transform: rotate(-2deg);
+    width: 22vw;
     height: 72px;
+    position: relative;
+    z-index: 2;
 }
+
 .aboutHead {
     width: 41vw;
     height: 38px;
-    margin-left:18vw;
-  margin-top:24px;
+    margin-left: 17vw;
+    margin-top: 24px;
     font-family: 'Bahnschrift';
     font-style: normal;
     font-weight: 400;
@@ -130,8 +134,8 @@
 .aboutText {
     width: 75vw;
     height: 312px;
-    margin-top:28px;
-    margin-left:1vw;
+    margin-top: 32px;
+    margin-left: 1vw;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -139,4 +143,260 @@
     line-height: 24px;
     text-align: center;
     color: #000000;
+    margin-bottom: 40px;
+}
+
+/* Domains */
+
+.landDomain {
+    background: #F6F6F6;
+    padding-left: 6vw;
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+#domainBorder {
+    margin-left: 35vw;
+    display: block;
+    border: 2px solid #FAC949;
+    transform: rotate(-2deg);
+    width: 18vw;
+    height: 72px;
+    position: relative;
+    z-index: 2;
+}
+
+.domainCards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.domainCard1 {
+    width: 25vw;
+    height: 270px;
+    background: #333333;
+    box-shadow: 0px 8px 24px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 6vw;
+    margin-top: 50px;
+}
+
+.domainLogo1 {
+    height: 60px;
+    width: 65px;
+    margin: 64px auto;
+}
+
+.domainText1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 36px;
+    color: #FFFFFF;
+}
+
+.domainCard2 {
+    width: 25vw;
+    height: 270px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 24px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 6vw;
+    margin-top: 50px;
+}
+
+.domainLogo2 {
+    height: 60px;
+    width: 65px;
+    margin: 64px auto;
+}
+
+.domainText2 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 36px;
+}
+
+/* FOOTER */
+
+.landFooter {
+    width: 100%;
+    height: 300px;
+    background: #191919;
+    padding-top: 32px;
+    padding-left: 4vw;
+    overflow: hidden;
+}
+
+.footHead {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 42px;
+    color: #FFFFFF;
+    margin-bottom: 0;
+}
+
+.footIcons {
+    margin-left: 75vw;
+    margin-top: -44px;
+}
+
+.footIconFlex2 {
+    margin-left: 3vw;
+}
+
+.footIcon {
+    margin-right: 2vw;
+    cursor: pointer;
+}
+
+.footSendicon {
+    margin-left: 65vw;
+    margin-top: -25px;
+}
+
+.footText {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    margin-top: -48px;
+    text-align: center;
+}
+
+#siIcon {
+    margin-left: 2px;
+    margin-top: -25px;
+}
+
+#software {
+    text-transform: uppercase;
+    color: #2499F9;
+    margin-left: 2px;
+}
+
+#incubator {
+    text-transform: uppercase;
+    margin-left: 2px;
+}
+
+/* TIMELINE */
+
+.landTimeline {
+    padding-left: 5vw;
+    padding-bottom: 40px;
+    padding-top: 56px;
+}
+#timelineBorder{
+    margin-left: 35vw;
+    display: block;
+    border: 2px solid #FAC949;
+    transform: rotate(-2deg);
+    height: 72px;
+    margin-bottom: 40px;
+    width: 20vw;
+    position: relative;
+    z-index: 2;
+}
+#rotatedGroup {
+    transform: rotate(180deg);
+    transform: scaleY(-1);
+    margin-top: 50px;
+}
+
+#rotatedText {
+    transform: rotate(180deg);
+    transform: scaleY(-1);
+}
+
+.group {
+    display: flex;
+    margin-right: 3vw;
+    z-index: 4;
+}
+
+.timeline {
+    padding-left: 6vw;
+}
+
+.timelineHR {
+    width: 106%;
+    height: 4px;
+    position: relative;
+    bottom: 200px;
+    left: -5vw;
+    background: #252525;
+    z-index: 2;
+}
+
+#circle1 {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #252525;
+}
+
+#line1 {
+    width: 2px;
+    height: 156px;
+    margin-left: 2px;
+    background: #D9D9D9;
+}
+
+#circle2 {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-left: -30px;
+    background: #F0C63D;
+}
+
+#line2 {
+    width: 2px;
+    height: 80px;
+    background: #D9D9D9;
+}
+
+#line3 {
+    width: 2px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: 2.85vw;
+    background: #D9D9D9;
+    transform: rotate(-90deg);
+}
+
+#circle3 {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-top: -72px;
+    margin-left: 5.85vw;
+    background: #2499F9;
+}
+
+.timelineText {
+    width: 140px;
+    height: 126px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #999999;
+    margin-left: -9vw;
 }
