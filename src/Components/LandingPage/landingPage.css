@@ -1,0 +1,142 @@
+.landingPage {
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+}
+.landBlock1{
+    width: 100%;
+    height: 620px;
+    z-index: 1;
+    /* position: absolute;
+    top: 60px;
+    left: 0; */
+}
+
+#loginBg {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 560px;
+    z-index: 1;
+    position: absolute;
+    top: 60px;
+    left: 0;
+}
+
+.landImage {
+    z-index: 1;
+    /* height: 590px;
+    position: absolute;
+    top: 60px;
+    left: 0; */
+}
+
+.landFlex {
+    position: absolute;
+    top: 120px;
+    left: 20vw;
+    text-align: center;
+    z-index: 2;
+}
+
+.landText1 {
+    z-index: 2;
+    width: 60vw;
+    height: 216px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 4.1rem;
+    line-height: 108px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.landText2 {
+    z-index: 2;
+    width: 60vw;
+    height: 48px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.landRegister {
+    z-index: 2;
+    margin-top: 36px;
+    margin-left: 1vw;
+    width: 15vw;
+    height: 48px;
+    background: #FAC949;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 24px;
+    color: #252525;
+    margin-right: 1.5vw;
+}
+
+/* ABOUT US */
+
+.landAbout {
+    /* margin-top:590px; */
+    margin-left:12vw;
+}
+
+.aboutScroll {
+    margin-top:48px;
+    margin-left:27vw;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+    letter-spacing: 0.08em;
+    color: #252525;
+    width: 320px;
+    height: 72px;
+    border: 2px solid #252525;
+    padding-top:10px;
+}
+.text1Border{
+    display: block;
+    border: 2px solid #FAC949;
+    transform: rotateX('30deg');
+    width: 320px;
+    height: 72px;
+}
+.aboutHead {
+    width: 41vw;
+    height: 38px;
+    margin-left:18vw;
+  margin-top:24px;
+    font-family: 'Bahnschrift';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #252525;
+}
+
+.aboutText {
+    width: 75vw;
+    height: 312px;
+    margin-top:28px;
+    margin-left:1vw;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+}
