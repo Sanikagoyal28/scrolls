@@ -1,12 +1,15 @@
 import React from "react"
 import LandingPage from "./Components/LandingPage/landingPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MemberRegister from "./Components/Register/memberRegister";
 
 function App() {
   return <>
-   {/* <LandingPage /> */}
-   <MemberRegister />
-   {/* <Browser */}
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" exact element={<LandingPage /> } />
+    </Routes>
+  </BrowserRouter>
   </>
 }
 

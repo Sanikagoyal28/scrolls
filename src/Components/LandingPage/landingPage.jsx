@@ -8,9 +8,362 @@ import linkedin from "../Assets/linkedIn.svg"
 import sendIcon from "../Assets/letter_send.svg"
 import SI from "../Assets/SI_logo.svg"
 import Navbar from "../Navbar/Navbar"
+import cross from "../Assets/cross.svg"
+import arrow from "../Assets/arrow.svg"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
+import { Dialog } from "@mui/material";
 import "./landingPage.css"
+import "./register.css"
+
+import { useDispatch, useSelector } from "react-redux"
+import { RegCACheck, RegCAThunk, RegMemberThunk, RegTeamThunk } from "../Redux/registerSlice";
+import { Spinner } from 'react-bootstrap';
+import FormData from "form-data";
 
 function LandingPage() {
+
+    const [dialogg, setDialogg] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const dispatch = useDispatch()
+    const reducer = useSelector((s) => s.register)
+    const fd = new FormData();
+    console.log(reducer)
+
+    // register 1
+    const [redirect, setRedirect] = useState({
+        asMember: false,
+        asTeam: false,
+        asCA: false
+    })
+
+    // register 2
+    const rightName = /^[a-z ,.'-]+$/i;
+    const rightemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const rightpass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const isnum = /^\d+$/;
+    const [isCorrect, setIsCorrect] = useState(false);
+    const [show1, setShow1] = useState(false)
+    const [show2, setShow2] = useState(false)
+
+    const inputState ={
+        name: '',
+        email: '',
+        pass: '',
+        confirmPass: '',
+        gender: '',
+        mobile: '',
+        college: '',
+        course: '',
+        branch: '',
+        year: ''
+    }
+    const [input, setInput] = useState(inputState)
+    function handleShow1() {
+        setShow1(!show1)
+    }
+    function handleShow2() {
+        setShow2(!show2)
+    }
+
+    useEffect(() => {
+        if (rightName.test(input.name)) {
+            document.getElementById("wrongName").style.display = "none";
+            setIsCorrect(true);
+        } else if (input.name) {
+            document.getElementById("wrongName").style.display = "block";
+            setIsCorrect(false);
+        }
+    }, [input.name]);
+
+    useEffect(() => {
+        if (rightemail.test(input.email)) {
+            document.getElementById("wrongEmail").style.display = "none";
+            setIsCorrect(true)
+        }
+        else if (input.email) {
+            document.getElementById("wrongEmail").style.display = "block";
+            setIsCorrect(false)
+        }
+    }, [input.email])
+
+    useEffect(() => {
+        if (rightpass.test(input.pass)) {
+            document.getElementById("WrongPwd1").style.display = "none";
+            setIsCorrect(true)
+        } else if (input.pass) {
+            document.getElementById("WrongPwd1").style.display = "block";
+            setIsCorrect(false)
+        }
+    }, [input.pass]);
+
+    useEffect(() => {
+        if (input.pass || input.confirmPass) {
+            if (input.pass == input.confirmPass) {
+                setIsCorrect(true)
+                document.getElementById("WrongPwd2").style.display = "none";
+            }
+            else if(input.confirmPass) {
+                setIsCorrect(false)
+                document.getElementById("WrongPwd2").style.display = "block";
+            }
+        }
+    }, [input.confirmPass, input.pass])
+
+    useEffect(() => {
+        if (rightName.test(input.branch)) {
+            document.getElementById("wrongBranch").style.display = "none";
+            setIsCorrect(true);
+        } else if (input.branch) {
+            document.getElementById("wrongBranch").style.display = "block";
+            setIsCorrect(false);
+        }
+    }, [input.branch]);
+
+    useEffect(() => {
+        if (isnum.test(input.mobile)) {
+            document.getElementById("wrongNum").style.display = "none";
+            setIsCorrect(true)
+        }
+        else if (input.mobile) {
+            document.getElementById("wrongNum").style.display = "block";
+            setIsCorrect(false)
+        }
+    }, [input.mobile])
+
+    useEffect(() => {
+        if (input.course) {
+            if (input.course == "others")
+                document.getElementById("otherOption").style.display = 'block'
+            else
+                document.getElementById("otherOption").style.display = 'none'
+        }
+    }, [input.course])
+
+    function chooseGender(index, gender) {
+        var l = document.getElementsByClassName("regGender")
+        for (var i = 0; i < l.length; i++) {
+            if (i == index) {
+                l[i].style.color = "#FAC949"
+                l[i].style.borderColor = "#FAC949"
+            }
+            else {
+                l[i].style.color = "rgba(0,0,0,0.5)"
+                l[i].style.borderColor = "rgba(0,0,0,0.5)"
+            }
+        }
+        setInput({...input, gender: gender })
+    }
+    
+    function RegAsMember() {
+        const data = {
+            "name": input.name,
+            "email": input.email,
+            "password": input.pass,
+            "gender": input.gender,
+            "mobile": input.mobile,
+            "course": input.course,
+            "college": input.college,
+            "year_of_study": input.year
+        }
+        console.log(data)
+        if(isCorrect){
+            dispatch(RegMemberThunk(data))
+        }
+    }
+
+    // team registration
+    const teamState = {
+        name: '',
+        size: '',
+        leaderId: '',
+        member3: '',
+        member2: '',
+        referral: '',
+        pass: '',
+        cPass: ''
+    }
+    const [team, setTeam] = useState(teamState)
+    useEffect(() => {
+        if (rightpass.test(team.pass)) {
+            document.getElementById("WrongPwdTeam1").style.display = "none";
+        } else if (team.pass) {
+            document.getElementById("WrongPwdTeam1").style.display = "block";
+        }
+    }, [team.pass]);
+
+    useEffect(() => {
+        if (team.pass || team.cPass) {
+            if (team.pass == team.cPass) {
+                document.getElementById("WrongPwdTeam2").style.display = "none";
+            }
+            else {
+                document.getElementById("WrongPwdTeam2").style.display = "block";
+            }
+        }
+    }, [team.cPass])
+
+    function RegAsTeam() {
+        const data = {
+            "name": team.name,
+            "size": team.size,
+            "leader_id": team.leaderId,
+            "member_2": team.member2,
+            "member_3": team.member3,
+            "referral_used": team.referral,
+            "password": team.pass
+        }
+        console.log(data)
+        if(team.name && team.size && team.leaderId && team.referral && team.pass){
+            dispatch(RegTeamThunk(data))
+        }
+    }
+
+    // ca registration
+    const [caEemail, setCAEmail] = useState('')
+
+    useEffect(() => {
+        if (rightemail.test(caEemail)) {
+            document.getElementById("wrongCAEmail").style.display = "none";
+        }
+        else if (caEemail) {
+            document.getElementById("wrongCAEmail").style.display = "block";
+        }
+    }, [caEemail])
+
+    function CAEmailCheck() {
+        localStorage.setItem("email", caEemail)
+        setOpenCA(true)
+        if(caEemail){
+            dispatch(RegCACheck(caEemail))
+        }
+    }
+
+    // register 5
+
+    const [openCA, setOpenCA] = useState(false)
+    const [isCA, setIsCA] = useState(false)
+
+    const caState ={
+        name: '',
+        email: localStorage.getItem("email"),
+        pass: '',
+        confirmPass: '',
+        gender: '',
+        mobile: '',
+        college: '',
+        course: '',
+        branch: '',
+        year: ''
+    }
+    const [ca, setCA] = useState(caState)
+    useEffect(() => {
+        if (rightName.test(ca.name)) {
+            document.getElementById("wrongNameCA").style.display = "none";
+            setIsCA(true);
+        } else if (ca.name) {
+            document.getElementById("wrongNameCA").style.display = "block";
+            setIsCA(false);
+        }
+    }, [ca.name]);
+
+    useEffect(() => {
+        if (rightpass.test(ca.pass)) {
+            document.getElementById("WrongPwdCA1").style.display = "none";
+            setIsCA(true);
+        } else if (ca.pass) {
+            document.getElementById("WrongPwdCA1").style.display = "block";
+            setIsCA(false);
+        }
+    }, [ca.pass]);
+
+    useEffect(() => {
+        if (ca.pass) {
+            if (ca.pass == ca.confirmPass) {
+                document.getElementById("WrongPwdCA2").style.display = "none";
+                setIsCA(true);
+            }
+            else if (ca.confirmPass) {
+                document.getElementById("WrongPwdCA2").style.display = "block";
+                setIsCA(false);
+            }
+        }
+    }, [ca.confirmPass])
+
+    useEffect(() => {
+        if (rightName.test(ca.branch)) {
+            document.getElementById("wrongBranchCA").style.display = "none";
+            setIsCA(true);
+        } else if (ca.branch) {
+            document.getElementById("wrongBranchCA").style.display = "block";
+            setIsCA(false);
+        }
+    }, [ca.branch]);
+
+    useEffect(() => {
+        if (isnum.test(ca.mobile)) {
+            document.getElementById("wrongNumCA").style.display = "none";
+            setIsCA(true);
+        }
+        else if (ca.mobile) {
+            document.getElementById("wrongNumCA").style.display = "block";
+            setIsCA(false);
+        }
+    }, [ca.mobile])
+
+    useEffect(() => {
+        if (ca.course) {
+            if (ca.course == "others")
+                document.getElementById("otherCA").style.display = 'block'
+
+            else
+                document.getElementById("otherCA").style.display = 'none'
+        }
+    }, [ca.course])
+    function chooseGenderCA(index, gender) {
+        var l = document.getElementsByClassName("regGender")
+        for (var i = 0; i < l.length; i++) {
+            if (i == index) {
+                l[i].style.color = "#FAC949"
+                l[i].style.borderColor = "#FAC949"
+            }
+            else {
+                l[i].style.color = "rgba(0,0,0,0.5)"
+                l[i].style.borderColor = "rgba(0,0,0,0.5)"
+            }
+        }
+        setCA({ ...ca, gender: gender })
+    }
+
+    function RegAsCA() {
+        const data = {
+            "name": ca.name,
+            "email": ca.email,
+            "password": ca.pass,
+            "gender": ca.gender,
+            "mobile": ca.mobile,
+            "course": ca.course,
+            "college": ca.college,
+            "year_of_study": ca.year
+        }
+        console.log(data)
+        if(isCA){
+            dispatch(RegCAThunk(data))
+        }
+    }
+
+    useEffect(() => {
+        if (reducer.loading) {
+            setLoading(true)
+            document.body.style.opacity = 0.5;
+        }
+        else {
+            setLoading(false)
+            document.body.style.opacity = 1;
+        }
+    }, [reducer.loading])
+
     return <>
         <Navbar />
         <div className="landingPage">
@@ -25,7 +378,7 @@ function LandingPage() {
                     <p className="landText2">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo. Pellentesque nec porta erat. Donec venenatis massa
                     </p>
-                    <button className="landRegister">Register Now</button>
+                    <button className="landRegister" onClick={() => { setDialogg(true) }} >Register Now</button>
                 </div>
             </div>
             <div className="landAbout">
@@ -43,8 +396,8 @@ function LandingPage() {
                 </p>
             </div>
             <div className="landDomain">
-            <div id="domainBorder">
-                <p className="aboutScroll">Domains</p>
+                <div id="domainBorder">
+                    <p className="aboutScroll">Domains</p>
                 </div>
                 <div className="domainCards">
                     <div className="domainCard1">
@@ -74,64 +427,64 @@ function LandingPage() {
                 </div>
             </div>
             <div className="landTimeline">
-            <div id="timelineBorder">
-                <p className="aboutScroll" id="timelineHeading">Timeline</p>
+                <div id="timelineBorder">
+                    <p className="aboutScroll" id="timelineHeading">Timeline</p>
                 </div>
                 <div className="group">
-                <div className="group">
-                    <div className="timeline">
-                        <div id="circle1" />
-                        <hr id="line1" />
-                        <div id="circle2" />
-                        <hr id="line2" />
-                        <hr id="line3" />
-                        <div id="circle3" />
+                    <div className="group">
+                        <div className="timeline">
+                            <div id="circle1" />
+                            <hr id="line1" />
+                            <div id="circle2" />
+                            <hr id="line2" />
+                            <hr id="line3" />
+                            <div id="circle3" />
+                        </div>
+                        <p className="timelineText">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
+                        </p>
                     </div>
-                    <p className="timelineText">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
-                    </p>
-                </div>
-                <div className="group" id="rotatedGroup">
-                    <div className="timeline">
-                        <div id="circle1" />
-                        <hr id="line1" />
-                        <div id="circle2" />
-                        <hr id="line2" />
-                        <hr id="line3" />
-                        <div id="circle3" />
+                    <div className="group" id="rotatedGroup">
+                        <div className="timeline">
+                            <div id="circle1" />
+                            <hr id="line1" />
+                            <div id="circle2" />
+                            <hr id="line2" />
+                            <hr id="line3" />
+                            <div id="circle3" />
+                        </div>
+                        <p className="timelineText" id="rotatedText">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
+                        </p>
                     </div>
-                    <p className="timelineText" id="rotatedText">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
-                    </p>
-                </div>
-                <div className="group">
-                    <div className="timeline">
-                        <div id="circle1" />
-                        <hr id="line1" />
-                        <div id="circle2" />
-                        <hr id="line2" />
-                        <hr id="line3" />
-                        <div id="circle3" />
+                    <div className="group">
+                        <div className="timeline">
+                            <div id="circle1" />
+                            <hr id="line1" />
+                            <div id="circle2" />
+                            <hr id="line2" />
+                            <hr id="line3" />
+                            <div id="circle3" />
+                        </div>
+                        <p className="timelineText">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
+                        </p>
                     </div>
-                    <p className="timelineText">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
-                    </p>
-                </div>
-                <div className="group" id="rotatedGroup">
-                    <div className="timeline">
-                        <div id="circle1" />
-                        <hr id="line1" />
-                        <div id="circle2" />
-                        <hr id="line2" />
-                        <hr id="line3" />
-                        <div id="circle3" />
+                    <div className="group" id="rotatedGroup">
+                        <div className="timeline">
+                            <div id="circle1" />
+                            <hr id="line1" />
+                            <div id="circle2" />
+                            <hr id="line2" />
+                            <hr id="line3" />
+                            <div id="circle3" />
+                        </div>
+                        <p className="timelineText" id="rotatedText">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
+                        </p>
                     </div>
-                    <p className="timelineText" id="rotatedText">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
-                    </p>
                 </div>
-                </div>
-              <hr className="timelineHR" />
+                <hr className="timelineHR" />
             </div>
             <div className="landFooter">
                 <p className="footHead">Contact Us</p>
@@ -150,6 +503,238 @@ function LandingPage() {
                 <p className="footText">Powered by <span id="siIcon" ><img src={SI} /></span><span id="software">SOFTWARE</span><span id="incubator">INCUBATOR</span></p>
             </div>
         </div>
+
+        {/* register 1 */}
+        <Dialog open={dialogg} >
+            <div className="register" id="regDiv">
+                <div className="regFlex">
+                    <img className="arrow" src={arrow} />
+                    <p className="heading" id="registerAs">Register as</p>
+                    <img className="cross" src={cross} onClick={() => { setDialogg(false) }} />
+                </div>
+                <button className="asRegister" id="regMember" onClick={() => { setRedirect({ asMember: true }) }} >Member</button>
+                <button className="asRegister" onClick={() => { setRedirect({ asTeam: true }) }} >Team</button>
+                <button className="asRegister" id="CA" onClick={() => { setRedirect({ asCA: true }) }} >Campus Ambassador</button>
+            </div>
+            {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+        </Dialog>
+
+        {/* register 2 */}
+        <Dialog open={redirect.asMember} PaperProps={{
+            sx: {
+                maxHeight: 1240,
+                marginTop: 94
+            }
+        }} >
+            <div className="register">
+                <div className="regFlex">
+                    <img className="arrow" src={arrow} onClick={() => { setDialogg(true); setRedirect({ asMember: false }) }} />
+                    <p className="heading">Register as <span id="member">Member</span></p>
+                    <img className="cross" src={cross} onClick={() => { setDialogg(false); setRedirect({ asMember: false }) }} />
+                </div>
+                <p className="regName">Name</p>
+                <input type="text" className="regInputname" id="input" placeholder="Enter your name" value={input.name} onChange={(e) => setInput({...input, name: e.target.value })} />
+                <p id="wrongName">Name must contain only alphabetic characters.</p>
+                <p className="regName">Email</p>
+                <input type="text" className="regInputname" placeholder="Enter your email" value={input.email} onChange={(e) => setInput({...input, email: e.target.value })} />
+                <p id="wrongEmail">Please enter a valid Email address</p>
+                <p className="regName">Password</p>
+                {show1 ? (
+                    <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow1} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow1} />
+                )}
+                <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={input.pass} onChange={(e) => setInput({...input, pass: e.target.value })} />
+                <p id="WrongPwd1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
+                <p className="regName">Confirm Password</p>
+                {show2 ? (
+                    <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow2} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow2} />
+                )}
+                <input type={show2 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={input.confirmPass} onChange={(e) => setInput({...input, confirmPass: e.target.value })} />
+                <p id="WrongPwd2">Password entered in two fields must be same.</p>
+                <p className="regName">Select your gender</p>
+                <div className="genders">
+                    <button className="regGender" onClick={() => { chooseGender(0, "M") }} >Male</button>
+                    <button className="regGender" onClick={() => { chooseGender(1, "F") }}>Female</button>
+                    <button className="regGender" onClick={() => { chooseGender(2, "O") }}>Others</button>
+                </div>
+                <p className="regName">Mobile Number</p>
+                <input type="text" className="regInputname" placeholder="Enter phone number" value={input.mobile} onChange={(e) => setInput({...input, mobile: e.target.value })} />
+                <p id="wrongNum">Number must contain only numeric characters.</p>
+                <p className="regName">College Name</p>
+                <input type="text" className="regInputname" placeholder="Enter your college name" value={input.college} onChange={(e) => setInput({...input, college: e.target.value })} />
+                <p className="regName">Course</p>
+                <select className="regInputname" value={input.course} onChange={(e) => { setInput({...input, course: e.target.value }) }} >
+                    <option id="option">--select--</option>
+                    <option value="BE/BTech">BE/BTech</option>
+                    <option value="MTech">M.Tech</option>
+                    <option value="MCA">MCA</option>
+                    <option value="MBA">MBA</option>
+                    <option id="other" value="others">Others</option>
+                </select>
+                <input type="text" id="otherOption" placeholder="Enter course name" value={input.course} onChange={(e) => { setInput({...input, course: e.target.value }) }} />
+                <p className="regName">Branch</p>
+                <input type="text" className="regInputname" placeholder="Enter your branch" value={input.branch} onChange={(e) => { setInput({...input, branch: e.target.value }) }} />
+                <p id="wrongBranch">Please enter a valid branch.</p>
+                <p className="regName">Year of study</p>
+                <select className="regInputname" value={input.year} onChange={(e) => { setInput({...input, year: e.target.value }) }}>
+                    <option >--select--</option>
+                    {(input.course == "BE/BTech" || input.course == "others") ? <>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </> : <>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </>}
+                </select>
+                <button className="regButton" onClick={RegAsMember}>Register</button>
+            </div>
+            {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+        </Dialog>
+
+        {/* register 3 */}
+        <Dialog open={redirect.asTeam} PaperProps={{
+            sx: {
+                maxHeight: 1100,
+                marginTop: 76
+            }
+        }}>
+            <div className="register">
+                <div className="regFlex">
+                    <img className="arrow" src={arrow} onClick={() => { setDialogg(true); setRedirect({ asTeam: false }) }} />
+                    <p className="heading">Register as <span id="member">Team</span></p>
+                    <img className="cross" src={cross} onClick={() => { setDialogg(false); setRedirect({ asTeam: false }) }} />
+                </div>
+                <p className="regName">Team Name</p>
+                <input type="text" className="regInputname" placeholder="Enter team name" value={team.name} onChange={(e) => { setTeam({...team, name: e.target.value }) }} />
+                <p className="regName">Team Size</p>
+                <select className="regInputname" value={team.size} onChange={(e) => { setTeam({...team, size: e.target.value }) }}>
+                    <option >--select--</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <p className="regName">Referral Code</p>
+                <input type="text" className="regInputname" placeholder="Enter referral code" value={team.referral} onChange={(e) => { setTeam({...team, referral: e.target.value }) }} />
+                <p className="regName">Password</p>
+                {show1 ? (
+                    <FontAwesomeIcon icon={faEye} id="TEye" onClick={handleShow1} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="TEye" onClick={handleShow1} />
+                )}
+                <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={team.pass} onChange={(e) => { setTeam({...team, pass: e.target.value }) }} />
+                <p id="WrongPwdTeam1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
+                <p className="regName">Confirm Password</p>
+                {show2 ? (
+                    <FontAwesomeIcon icon={faEye} id="TEye" onClick={handleShow2} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="TEye" onClick={handleShow2} />
+                )}
+                <input type={show2 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={team.cPass} onChange={(e) => { setTeam({...team, cPass: e.target.value }) }} />
+                <p id="WrongPwdTeam2">Password entered in two fields must be same.</p>
+                <p className="regName">Team Leader ID</p>
+                <input type="text" className="regInputname" placeholder="Enter team name" value={team.leaderId} onChange={(e) => { setTeam({...team, leaderId: e.target.value }) }} />
+                <p className="regName">Member 2 ID</p>
+                <input type="text" className="regInputname" placeholder="Enter team name" value={team.member2} onChange={(e) => { setTeam({...team, member2: e.target.value }) }} />
+                <p className="regName">Member 3 ID</p>
+                <input type="text" className="regInputname" placeholder="Enter team name" value={team.member3} onChange={(e) => { setTeam({...team, member3: e.target.value }) }} />
+                <button className="regButton" onClick={RegAsTeam}>Register</button>
+            </div>
+            {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+        </Dialog>
+
+        {/* register 4 */}
+        <Dialog open={redirect.asCA}>
+            <div className="register" id="regDiv">
+                <div className="regFlex">
+                    <img className="arrow" src={arrow} onClick={() => { setDialogg(true); setRedirect({ asCA: false }) }} />
+                    <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
+                    <img className="cross" src={cross} onClick={() => { setDialogg(false); setRedirect({ asCA: false }) }} />
+                </div>
+                <p className="regName">Email</p>
+                <input type="text" className="regInputname" placeholder="Enter your email" value={caEemail} onChange={(e) => setCAEmail(e.target.value)} />
+                <p id="wrongCAEmail">Please enter a valid Email address</p>
+                <button className="regContinue" onClick={() => { CAEmailCheck() }}>Continue</button>
+            </div>
+            {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+        </Dialog>
+
+        {/* register 5 */}
+        <Dialog open={openCA} PaperProps={{
+            sx: {
+                maxHeight: 1240,
+                marginTop: 94
+            }
+        }} >
+            <div className="register">
+                <div className="regFlex">
+                    <img className="arrow" src={arrow} onClick={() => { setDialogg(true); setOpenCA(false) }} />
+                    <p className="heading">Register as <span id="member">Member</span></p>
+                    <img className="cross" src={cross} onClick={() => { setDialogg(false); setOpenCA(false) }} />
+                </div>
+                <p className="regName">Name</p>
+                <input type="text" className="regInputname" id="input" placeholder="Enter your name" value={ca.name} onChange={(e) => setCA({...ca, name: e.target.value })} />
+                <p id="wrongNameCA">Name must contain only alphabetic characters.</p>
+                <p className="regName">Password</p>
+                {show1 ? (
+                    <FontAwesomeIcon icon={faEye} id="CEye" onClick={handleShow1} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="CEye" onClick={handleShow1} />
+                )}
+                <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={ca.pass} onChange={(e) => setCA({ ...ca, pass: e.target.value })} />
+                <p id="WrongPwdCA1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
+                <p className="regName">Confirm Password</p>
+                {show2 ? (
+                    <FontAwesomeIcon icon={faEye} id="CEye" onClick={handleShow2} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="CEye" onClick={handleShow2} />
+                )}
+                <input type={show2 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={ca.confirmPass} onChange={(e) => setCA({ ...ca, confirmPass: e.target.value })} />
+                <p id="WrongPwdCA2">Password entered in two fields must be same.</p>
+                <p className="regName">Select your gender</p>
+                <div className="genders">
+                    <button className="regGender" onClick={() => { chooseGenderCA(0, "M") }} >Male</button>
+                    <button className="regGender" onClick={() => { chooseGenderCA(1, "F") }}>Female</button>
+                    <button className="regGender" onClick={() => { chooseGenderCA(2, "O") }}>Others</button>
+                </div>
+                <p className="regName">Mobile Number</p>
+                <input type="text" className="regInputname" placeholder="Enter phone number" value={ca.mobile} onChange={(e) => setCA({...ca,  mobile: e.target.value })} />
+                <p id="wrongNumCA">Number must contain only numeric characters.</p>
+                <p className="regName">College Name</p>
+                <input type="text" className="regInputname" placeholder="Enter your college name" value={ca.college} onChange={(e) => setCA({...ca,  college: e.target.value })} />
+                <p className="regName">Course</p>
+                <select className="regInputname" value={ca.course} onChange={(e) => { setCA({ ...ca, course: e.target.value }) }} >
+                    <option id="option">--select--</option>
+                    <option value="BE/BTech">BE/BTech</option>
+                    <option value="MTech">M.Tech</option>
+                    <option value="MCA">MCA</option>
+                    <option value="MBA">MBA</option>
+                    <option id="other" value="others">Others</option>
+                </select>
+                <input type="text" id="otherCA" placeholder="Enter course name" value={ca.course} onChange={(e) => { setCA({ ...ca, course: e.target.value }) }} />
+                <p className="regName">Branch</p>
+                <input type="text" className="regInputname" placeholder="Enter your branch" value={ca.branch} onChange={(e) => { setCA({...ca,  branch: e.target.value }) }} />
+                <p id="wrongBranchCA">Please enter a valid branch.</p>
+                <p className="regName">Year of study</p>
+                <select className="regInputname" value={ca.year} onChange={(e) => { setCA({...ca,  year: e.target.value }) }}>
+                    <option >--select--</option>
+                    {(ca.course == "BE/BTech" || ca.course == "others") ? <>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </> : <>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </>}
+                </select>
+                <button className="regButton" onClick={RegAsCA}>Register</button>
+            </div>
+            {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+        </Dialog>
 
     </>
 }

@@ -1,3 +1,11 @@
+
+#loadSpinner {
+    z-index: 9999;
+    position: fixed;
+    top: 45vh;
+    left: 50vw;
+}
+
 .landingPage {
     z-index: 5;
     display: flex;
@@ -78,6 +86,7 @@
     line-height: 24px;
     color: #252525;
     margin-right: 1.5vw;
+    cursor: pointer;
 }
 
 /* ABOUT US */
