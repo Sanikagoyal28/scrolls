@@ -16,10 +16,11 @@ import { useEffect, useState } from "react";
 import { Dialog } from "@mui/material";
 import "./landingPage.css"
 import "./register.css"
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from "react-redux"
 import { RegCACheck, RegCAThunk, RegMemberThunk, RegTeamThunk } from "../Redux/registerSlice";
-import { Spinner } from 'react-bootstrap';
+import { Spinner, Toast } from 'react-bootstrap';
 import FormData from "form-data";
 
 function LandingPage() {
@@ -47,7 +48,7 @@ function LandingPage() {
     const [show1, setShow1] = useState(false)
     const [show2, setShow2] = useState(false)
 
-    const inputState ={
+    const inputState = {
         name: '',
         email: '',
         pass: '',
@@ -104,7 +105,7 @@ function LandingPage() {
                 setIsCorrect(true)
                 document.getElementById("WrongPwd2").style.display = "none";
             }
-            else if(input.confirmPass) {
+            else if (input.confirmPass) {
                 setIsCorrect(false)
                 document.getElementById("WrongPwd2").style.display = "block";
             }
@@ -153,9 +154,9 @@ function LandingPage() {
                 l[i].style.borderColor = "rgba(0,0,0,0.5)"
             }
         }
-        setInput({...input, gender: gender })
+        setInput({ ...input, gender: gender })
     }
-    
+
     function RegAsMember() {
         const data = {
             "name": input.name,
@@ -168,8 +169,29 @@ function LandingPage() {
             "year_of_study": input.year
         }
         console.log(data)
-        if(isCorrect){
-            dispatch(RegMemberThunk(data))
+        if (isCorrect) {
+            dispatch(RegMemberThunk(data)).
+                then((res) => {
+                    if (res.payload.status === 201) {
+                        toast.success(`${res.payload.data[0]}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                        setDialogg(false);
+                        setRedirect({ asMember: false })
+                    }
+                    else {
+                        toast.error(`${res.payload.data[0]}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
     }
 
@@ -208,15 +230,26 @@ function LandingPage() {
         const data = {
             "name": team.name,
             "size": team.size,
-            "leader_id": team.leaderId,
-            "member_2": team.member2,
-            "member_3": team.member3,
+            "leader_id": parseInt(team.leaderId),
+            "member_2": parseInt(team.member2),
+            "member_3": parseInt(team.member3),
             "referral_used": team.referral,
             "password": team.pass
         }
         console.log(data)
-        if(team.name && team.size && team.leaderId && team.referral && team.pass){
-            dispatch(RegTeamThunk(data))
+        if (team.name && team.size && team.leaderId && team.referral && team.pass) {
+            dispatch(RegTeamThunk(data)).
+            then((res)=>{
+                console.log(res)
+                toast.error(`${res.payload.data[0]}`, {
+                    position: "top-right",
+                    theme: "light",
+                    autoClose: 5000,
+                });
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
         }
     }
 
@@ -234,18 +267,59 @@ function LandingPage() {
 
     function CAEmailCheck() {
         localStorage.setItem("email", caEemail)
-        setOpenCA(true)
-        if(caEemail){
-            dispatch(RegCACheck(caEemail))
+        if (caEemail) {
+            dispatch(RegCACheck(caEemail)).
+                then((res) => {
+                    console.log(res)
+                    if (res.payload.status === 200) {
+                        toast.success(`${res.payload.data[0]}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                        setDialogg(false);
+                        setRedirect({ asCA: false })
+                    }
+                    else if (res.payload.status === 409) {
+                        toast.success(`${res.payload.data[0]}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                        setDialogg(false);
+                        setRedirect({ asCA: false })
+                    }
+                    else if (res.payload.status === 400){ 
+                        toast.info(`${res.payload.data[0]}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                        setDialogg(false);
+                        setRedirect({ asCA: false })
+                        setOpenCA(true)
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
     }
+    // useEffect(() => {
+    //     if (reducer.msg) {
+    //         toast.success(`${reducer.msg}`, {
+    //             position: "top-right",
+    //             theme: "light",
+    //         });
+    //     }
+    // }, [reducer.msg])
 
     // register 5
 
     const [openCA, setOpenCA] = useState(false)
     const [isCA, setIsCA] = useState(false)
 
-    const caState ={
+    const caState = {
         name: '',
         email: localStorage.getItem("email"),
         pass: '',
@@ -348,8 +422,29 @@ function LandingPage() {
             "year_of_study": ca.year
         }
         console.log(data)
-        if(isCA){
-            dispatch(RegCAThunk(data))
+        if (isCA) {
+            dispatch(RegCAThunk(data)).
+                then((res) => {
+                    if (res.payload.status === 201) {
+                        toast.success(`${res.payload.data[0]}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                        setDialogg(false); 
+                        setOpenCA(false) 
+                    }
+                    else {
+                        toast.error(`${res.payload.data[0]}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
     }
 
@@ -533,10 +628,10 @@ function LandingPage() {
                     <img className="cross" src={cross} onClick={() => { setDialogg(false); setRedirect({ asMember: false }) }} />
                 </div>
                 <p className="regName">Name</p>
-                <input type="text" className="regInputname" id="input" placeholder="Enter your name" value={input.name} onChange={(e) => setInput({...input, name: e.target.value })} />
+                <input type="text" className="regInputname" id="input" placeholder="Enter your name" value={input.name} onChange={(e) => setInput({ ...input, name: e.target.value })} />
                 <p id="wrongName">Name must contain only alphabetic characters.</p>
                 <p className="regName">Email</p>
-                <input type="text" className="regInputname" placeholder="Enter your email" value={input.email} onChange={(e) => setInput({...input, email: e.target.value })} />
+                <input type="text" className="regInputname" placeholder="Enter your email" value={input.email} onChange={(e) => setInput({ ...input, email: e.target.value })} />
                 <p id="wrongEmail">Please enter a valid Email address</p>
                 <p className="regName">Password</p>
                 {show1 ? (
@@ -544,7 +639,7 @@ function LandingPage() {
                 ) : (
                     <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow1} />
                 )}
-                <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={input.pass} onChange={(e) => setInput({...input, pass: e.target.value })} />
+                <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={input.pass} onChange={(e) => setInput({ ...input, pass: e.target.value })} />
                 <p id="WrongPwd1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
                 <p className="regName">Confirm Password</p>
                 {show2 ? (
@@ -552,7 +647,7 @@ function LandingPage() {
                 ) : (
                     <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow2} />
                 )}
-                <input type={show2 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={input.confirmPass} onChange={(e) => setInput({...input, confirmPass: e.target.value })} />
+                <input type={show2 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={input.confirmPass} onChange={(e) => setInput({ ...input, confirmPass: e.target.value })} />
                 <p id="WrongPwd2">Password entered in two fields must be same.</p>
                 <p className="regName">Select your gender</p>
                 <div className="genders">
@@ -561,12 +656,12 @@ function LandingPage() {
                     <button className="regGender" onClick={() => { chooseGender(2, "O") }}>Others</button>
                 </div>
                 <p className="regName">Mobile Number</p>
-                <input type="text" className="regInputname" placeholder="Enter phone number" value={input.mobile} onChange={(e) => setInput({...input, mobile: e.target.value })} />
+                <input type="text" className="regInputname" placeholder="Enter phone number" value={input.mobile} onChange={(e) => setInput({ ...input, mobile: e.target.value })} />
                 <p id="wrongNum">Number must contain only numeric characters.</p>
                 <p className="regName">College Name</p>
-                <input type="text" className="regInputname" placeholder="Enter your college name" value={input.college} onChange={(e) => setInput({...input, college: e.target.value })} />
+                <input type="text" className="regInputname" placeholder="Enter your college name" value={input.college} onChange={(e) => setInput({ ...input, college: e.target.value })} />
                 <p className="regName">Course</p>
-                <select className="regInputname" value={input.course} onChange={(e) => { setInput({...input, course: e.target.value }) }} >
+                <select className="regInputname" value={input.course} onChange={(e) => { setInput({ ...input, course: e.target.value }) }} >
                     <option id="option">--select--</option>
                     <option value="BE/BTech">BE/BTech</option>
                     <option value="MTech">M.Tech</option>
@@ -574,12 +669,12 @@ function LandingPage() {
                     <option value="MBA">MBA</option>
                     <option id="other" value="others">Others</option>
                 </select>
-                <input type="text" id="otherOption" placeholder="Enter course name" value={input.course} onChange={(e) => { setInput({...input, course: e.target.value }) }} />
+                <input type="text" id="otherOption" placeholder="Enter course name" onChange={(e) => { setInput({ ...input, course: e.target.value }) }} />
                 <p className="regName">Branch</p>
-                <input type="text" className="regInputname" placeholder="Enter your branch" value={input.branch} onChange={(e) => { setInput({...input, branch: e.target.value }) }} />
+                <input type="text" className="regInputname" placeholder="Enter your branch" value={input.branch} onChange={(e) => { setInput({ ...input, branch: e.target.value }) }} />
                 <p id="wrongBranch">Please enter a valid branch.</p>
                 <p className="regName">Year of study</p>
-                <select className="regInputname" value={input.year} onChange={(e) => { setInput({...input, year: e.target.value }) }}>
+                <select className="regInputname" value={input.year} onChange={(e) => { setInput({ ...input, year: e.target.value }) }}>
                     <option >--select--</option>
                     {(input.course == "BE/BTech" || input.course == "others") ? <>
                         <option value="1">1</option>
@@ -593,7 +688,8 @@ function LandingPage() {
                 </select>
                 <button className="regButton" onClick={RegAsMember}>Register</button>
             </div>
-            {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+            <ToastContainer />
+            {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         </Dialog>
 
         {/* register 3 */}
@@ -610,22 +706,22 @@ function LandingPage() {
                     <img className="cross" src={cross} onClick={() => { setDialogg(false); setRedirect({ asTeam: false }) }} />
                 </div>
                 <p className="regName">Team Name</p>
-                <input type="text" className="regInputname" placeholder="Enter team name" value={team.name} onChange={(e) => { setTeam({...team, name: e.target.value }) }} />
+                <input type="text" className="regInputname" placeholder="Enter team name" value={team.name} onChange={(e) => { setTeam({ ...team, name: e.target.value }) }} />
                 <p className="regName">Team Size</p>
-                <select className="regInputname" value={team.size} onChange={(e) => { setTeam({...team, size: e.target.value }) }}>
+                <select className="regInputname" value={team.size} onChange={(e) => { setTeam({ ...team, size: e.target.value }) }}>
                     <option >--select--</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
                 <p className="regName">Referral Code</p>
-                <input type="text" className="regInputname" placeholder="Enter referral code" value={team.referral} onChange={(e) => { setTeam({...team, referral: e.target.value }) }} />
+                <input type="text" className="regInputname" placeholder="Enter referral code" value={team.referral} onChange={(e) => { setTeam({ ...team, referral: e.target.value }) }} />
                 <p className="regName">Password</p>
                 {show1 ? (
                     <FontAwesomeIcon icon={faEye} id="TEye" onClick={handleShow1} />
                 ) : (
                     <FontAwesomeIcon icon={faEyeSlash} id="TEye" onClick={handleShow1} />
                 )}
-                <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={team.pass} onChange={(e) => { setTeam({...team, pass: e.target.value }) }} />
+                <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={team.pass} onChange={(e) => { setTeam({ ...team, pass: e.target.value }) }} />
                 <p id="WrongPwdTeam1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
                 <p className="regName">Confirm Password</p>
                 {show2 ? (
@@ -633,17 +729,18 @@ function LandingPage() {
                 ) : (
                     <FontAwesomeIcon icon={faEyeSlash} id="TEye" onClick={handleShow2} />
                 )}
-                <input type={show2 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={team.cPass} onChange={(e) => { setTeam({...team, cPass: e.target.value }) }} />
+                <input type={show2 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={team.cPass} onChange={(e) => { setTeam({ ...team, cPass: e.target.value }) }} />
                 <p id="WrongPwdTeam2">Password entered in two fields must be same.</p>
                 <p className="regName">Team Leader ID</p>
-                <input type="text" className="regInputname" placeholder="Enter team name" value={team.leaderId} onChange={(e) => { setTeam({...team, leaderId: e.target.value }) }} />
+                <input type="text" className="regInputname" placeholder="Enter ID" value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
                 <p className="regName">Member 2 ID</p>
-                <input type="text" className="regInputname" placeholder="Enter team name" value={team.member2} onChange={(e) => { setTeam({...team, member2: e.target.value }) }} />
+                <input type="text" className="regInputname" placeholder="Enter ID" value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
                 <p className="regName">Member 3 ID</p>
-                <input type="text" className="regInputname" placeholder="Enter team name" value={team.member3} onChange={(e) => { setTeam({...team, member3: e.target.value }) }} />
+                <input type="text" className="regInputname" placeholder="Enter ID" value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
                 <button className="regButton" onClick={RegAsTeam}>Register</button>
             </div>
-            {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+            <ToastContainer />
+            {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         </Dialog>
 
         {/* register 4 */}
@@ -659,7 +756,8 @@ function LandingPage() {
                 <p id="wrongCAEmail">Please enter a valid Email address</p>
                 <button className="regContinue" onClick={() => { CAEmailCheck() }}>Continue</button>
             </div>
-            {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+            <ToastContainer />
+            {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         </Dialog>
 
         {/* register 5 */}
@@ -676,7 +774,7 @@ function LandingPage() {
                     <img className="cross" src={cross} onClick={() => { setDialogg(false); setOpenCA(false) }} />
                 </div>
                 <p className="regName">Name</p>
-                <input type="text" className="regInputname" id="input" placeholder="Enter your name" value={ca.name} onChange={(e) => setCA({...ca, name: e.target.value })} />
+                <input type="text" className="regInputname" id="input" placeholder="Enter your name" value={ca.name} onChange={(e) => setCA({ ...ca, name: e.target.value })} />
                 <p id="wrongNameCA">Name must contain only alphabetic characters.</p>
                 <p className="regName">Password</p>
                 {show1 ? (
@@ -701,10 +799,10 @@ function LandingPage() {
                     <button className="regGender" onClick={() => { chooseGenderCA(2, "O") }}>Others</button>
                 </div>
                 <p className="regName">Mobile Number</p>
-                <input type="text" className="regInputname" placeholder="Enter phone number" value={ca.mobile} onChange={(e) => setCA({...ca,  mobile: e.target.value })} />
+                <input type="text" className="regInputname" placeholder="Enter phone number" value={ca.mobile} onChange={(e) => setCA({ ...ca, mobile: e.target.value })} />
                 <p id="wrongNumCA">Number must contain only numeric characters.</p>
                 <p className="regName">College Name</p>
-                <input type="text" className="regInputname" placeholder="Enter your college name" value={ca.college} onChange={(e) => setCA({...ca,  college: e.target.value })} />
+                <input type="text" className="regInputname" placeholder="Enter your college name" value={ca.college} onChange={(e) => setCA({ ...ca, college: e.target.value })} />
                 <p className="regName">Course</p>
                 <select className="regInputname" value={ca.course} onChange={(e) => { setCA({ ...ca, course: e.target.value }) }} >
                     <option id="option">--select--</option>
@@ -716,10 +814,10 @@ function LandingPage() {
                 </select>
                 <input type="text" id="otherCA" placeholder="Enter course name" value={ca.course} onChange={(e) => { setCA({ ...ca, course: e.target.value }) }} />
                 <p className="regName">Branch</p>
-                <input type="text" className="regInputname" placeholder="Enter your branch" value={ca.branch} onChange={(e) => { setCA({...ca,  branch: e.target.value }) }} />
+                <input type="text" className="regInputname" placeholder="Enter your branch" value={ca.branch} onChange={(e) => { setCA({ ...ca, branch: e.target.value }) }} />
                 <p id="wrongBranchCA">Please enter a valid branch.</p>
                 <p className="regName">Year of study</p>
-                <select className="regInputname" value={ca.year} onChange={(e) => { setCA({...ca,  year: e.target.value }) }}>
+                <select className="regInputname" value={ca.year} onChange={(e) => { setCA({ ...ca, year: e.target.value }) }}>
                     <option >--select--</option>
                     {(ca.course == "BE/BTech" || ca.course == "others") ? <>
                         <option value="1">1</option>
@@ -733,7 +831,8 @@ function LandingPage() {
                 </select>
                 <button className="regButton" onClick={RegAsCA}>Register</button>
             </div>
-            {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+            <ToastContainer />
+            {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         </Dialog>
 
     </>

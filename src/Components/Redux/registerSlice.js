@@ -6,8 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
     loading: false,
-    response: '',
-    error: '',
+    msg: '',
 }
 
 const RegMemberThunk = createAsyncThunk("register/member", async (data) => {
@@ -35,7 +34,7 @@ const RegTeamThunk = createAsyncThunk("register/team", async (data) => {
 })
 
 const RegCACheck = createAsyncThunk("register/check", async (caEmail) => {
-    return await Baseurl.post("participants/register/", {email:caEmail})
+    return await Baseurl.patch("participants/register/", {email:caEmail})
         .then((res) => {
             console.log(res)
             return res
@@ -70,15 +69,7 @@ const RegisterSlice = createSlice({
         })
         builder.addCase(RegMemberThunk.fulfilled, (state, action) => {
             state.loading = false;
-            console.log(action)
-            // if (action.payload.data.success) {
-            //     // state.response = action.payload.data.msg;
-            //     state.error = '';
-            // }
-            // else {
-            //     state.response = ''
-            //     state.error = action.payload.data.msg;
-            // }
+            state.msg = action.payload.data[0] 
         })
         builder.addCase(RegMemberThunk.rejected, (state, action) => {
             state.loading = false;
@@ -90,15 +81,7 @@ const RegisterSlice = createSlice({
         })
         builder.addCase(RegTeamThunk.fulfilled, (state, action) => {
             state.loading = false;
-            console.log(action)
-            if (action.payload.data.success) {
-                state.response = action.payload.data.msg;
-                state.error = '';
-            }
-            else {
-                state.response = ''
-                state.error = action.payload.data.msg;
-            }
+            state.msg = action.payload.data[0]
         })
         builder.addCase(RegTeamThunk.rejected, (state, action) => {
             state.loading = false;
@@ -110,15 +93,7 @@ const RegisterSlice = createSlice({
         })
         builder.addCase(RegCAThunk.fulfilled, (state, action) => {
             state.loading = false;
-            console.log(action)
-            if (action.payload.data.success) {
-                state.response = action.payload.data.msg;
-                state.error = '';
-            }
-            else {
-                state.response = ''
-                state.error = action.payload.data.msg;
-            }
+            state.msg = action.payload.data[0]
         })
         builder.addCase(RegCAThunk.rejected, (state, action) => {
             state.loading = false;
@@ -130,15 +105,7 @@ const RegisterSlice = createSlice({
         })
         builder.addCase(RegCACheck.fulfilled, (state, action) => {
             state.loading = false;
-            console.log(action)
-            if (action.payload.data.success) {
-                state.response = action.payload.data.msg;
-                state.error = '';
-            }
-            else {
-                state.response = ''
-                state.error = action.payload.data.msg;
-            }
+            state.msg = action.payload.data[0]
         })
         builder.addCase(RegCACheck.rejected, (state, action) => {
             state.loading = false;
