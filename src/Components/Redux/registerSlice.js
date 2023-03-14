@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import Baseurl from "./Baseurl";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
     loading: false,
@@ -12,11 +10,9 @@ const initialState = {
 const RegMemberThunk = createAsyncThunk("register/member", async (data) => {
     return await Baseurl.post("participants/register/0", data)
         .then((res) => {
-            console.log(res)
             return res
         })
         .catch((Err) => {
-            console.log(Err)
             return Err.response
         })
 })
@@ -24,11 +20,9 @@ const RegMemberThunk = createAsyncThunk("register/member", async (data) => {
 const RegTeamThunk = createAsyncThunk("register/team", async (data) => {
     return await Baseurl.post("participants/team_register/", data)
         .then((res) => {
-            console.log(res)
             return res
         })
         .catch((Err) => {
-            console.log(Err)
             return Err.response
         })
 })
@@ -36,11 +30,9 @@ const RegTeamThunk = createAsyncThunk("register/team", async (data) => {
 const RegCACheck = createAsyncThunk("register/check", async (caEmail) => {
     return await Baseurl.patch("participants/register/", {email:caEmail})
         .then((res) => {
-            console.log(res)
             return res
         })
         .catch((Err) => {
-            console.log(Err)
             return Err.response
         })
 })
@@ -49,11 +41,9 @@ const RegCACheck = createAsyncThunk("register/check", async (caEmail) => {
 const RegCAThunk = createAsyncThunk("register/ca", async (data) => {
     return await Baseurl.post("participants/register/1", data)
         .then((res) => {
-            console.log(res)
             return res
         })
         .catch((Err) => {
-            console.log(Err)
             return Err.response
         })
 })

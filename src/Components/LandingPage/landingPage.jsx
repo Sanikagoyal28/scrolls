@@ -15,13 +15,15 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { Dialog } from "@mui/material";
 import "./landingPage.css"
-import "./register.css"
+import "../Register/register.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from "react-redux"
 import { RegCACheck, RegCAThunk, RegMemberThunk, RegTeamThunk } from "../Redux/registerSlice";
 import { Spinner, Toast } from 'react-bootstrap';
 import FormData from "form-data";
+import { LoginTeamThunk } from "../Redux/loginSlice";
+// import Member from "../Register/member";
 
 function LandingPage() {
 
@@ -57,6 +59,7 @@ function LandingPage() {
         mobile: '',
         college: '',
         course: '',
+        otherCourse: '',
         branch: '',
         year: ''
     }
@@ -158,15 +161,30 @@ function LandingPage() {
     }
 
     function RegAsMember() {
-        const data = {
-            "name": input.name,
-            "email": input.email,
-            "password": input.pass,
-            "gender": input.gender,
-            "mobile": input.mobile,
-            "course": input.course,
-            "college": input.college,
-            "year_of_study": input.year
+        var data;
+        if (input.course == "others") {
+            data = {
+                "name": input.name,
+                "email": input.email,
+                "password": input.pass,
+                "gender": input.gender,
+                "mobile": input.mobile,
+                "course": input.otherCourse,
+                "college": input.college,
+                "year_of_study": input.year
+            }
+        }
+        else {
+            data = {
+                "name": input.name,
+                "email": input.email,
+                "password": input.pass,
+                "gender": input.gender,
+                "mobile": input.mobile,
+                "course": input.course,
+                "college": input.college,
+                "year_of_study": input.year
+            }
         }
         console.log(data)
         if (isCorrect) {
@@ -226,30 +244,128 @@ function LandingPage() {
         }
     }, [team.cPass])
 
+    useEffect(() => {
+        if (team.size) {
+            if (team.size == 1) {
+                document.getElementsByClassName("teamLeader")[0].style.display = "block";
+                document.getElementsByClassName("teamLeader")[1].style.display = "none";
+                document.getElementsByClassName("teamLeader")[2].style.display = "none";
+            }
+            if (team.size == 2) {
+                document.getElementsByClassName("teamLeader")[0].style.display = "block";
+                document.getElementsByClassName("teamLeader")[1].style.display = "block";
+                document.getElementsByClassName("teamLeader")[2].style.display = "none";
+            }
+            if (team.size == 3) {
+                document.getElementsByClassName("teamLeader")[0].style.display = "block";
+                document.getElementsByClassName("teamLeader")[1].style.display = "block";
+                document.getElementsByClassName("teamLeader")[2].style.display = "block";
+            }
+        }
+    }, [team.size])
+
     function RegAsTeam() {
-        const data = {
-            "name": team.name,
-            "size": team.size,
-            "leader_id": parseInt(team.leaderId),
-            "member_2": parseInt(team.member2),
-            "member_3": parseInt(team.member3),
-            "referral_used": team.referral,
-            "password": team.pass
+        var data;
+        if (team.size == 1) {
+            data = {
+                "name": team.name,
+                "size": parseInt(team.size),
+                "leader_id": parseInt(team.leaderId),
+                "referral_used": team.referral,
+                "password": team.pass
+            }
+        }
+        if (team.size == 2) {
+            data = {
+                "name": team.name,
+                "size": parseInt(team.size),
+                "leader_id": parseInt(team.leaderId),
+                "member_2": parseInt(team.member2),
+                "referral_used": team.referral,
+                "password": team.pass
+            }
+        }
+        if (team.size == 3) {
+            data = {
+                "name": team.name,
+                "size": parseInt(team.size),
+                "leader_id": parseInt(team.leaderId),
+                "member_2": parseInt(team.member2),
+                "member_3": parseInt(team.member3),
+                "referral_used": team.referral,
+                "password": team.pass
+            }
         }
         console.log(data)
         if (team.name && team.size && team.leaderId && team.referral && team.pass) {
             dispatch(RegTeamThunk(data)).
-            then((res)=>{
-                console.log(res)
-                toast.error(`${res.payload.data[0]}`, {
-                    position: "top-right",
-                    theme: "light",
-                    autoClose: 5000,
-                });
-            })
-            .catch((err)=>{
-                console.log(err)
-            })
+                then((res) => {
+                    console.log(res)
+                    if (res.payload.status === 201) {
+                        toast.success(`${res.payload.data[0]}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                    else if (res.payload.status === 400) {
+                        console.log(data)
+                        console.log(data[0])
+
+                        if (data[0]) {
+                            toast.error(`${res.payload.data[0]}`, {
+                                position: "top-right",
+                                theme: "light",
+                                autoClose: 5000,
+                            });
+                        }
+                        if (data.leader_id) {
+                            toast.error(`${res.payload.data.leader_id[0]}`, {
+                                position: "top-right",
+                                theme: "light",
+                                autoClose: 5000,
+                            });
+                        }
+                        else if (data.name) {
+                            toast.error(`${res.payload.data.name[0]}`, {
+                                position: "top-right",
+                                theme: "light",
+                                autoClose: 5000,
+                            });
+                        }
+                        else if (data.member_2) {
+                            toast.error(`${res.payload.data.member_2[0]}`, {
+                                position: "top-right",
+                                theme: "light",
+                                autoClose: 5000,
+                            });
+                        }
+                        else if (data.member_3) {
+                            toast.error(`${res.payload.data.member_3[0]}`, {
+                                position: "top-right",
+                                theme: "light",
+                                autoClose: 5000,
+                            });
+                        }
+                        else {
+                            toast.error(`${res.payload.data[0]}`, {
+                                position: "top-right",
+                                theme: "light",
+                                autoClose: 5000,
+                            });
+                        }
+                    }
+                    else {
+                        toast.error(`${res.payload.data[0]}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
     }
 
@@ -289,7 +405,7 @@ function LandingPage() {
                         setDialogg(false);
                         setRedirect({ asCA: false })
                     }
-                    else if (res.payload.status === 400){ 
+                    else if (res.payload.status === 400) {
                         toast.info(`${res.payload.data[0]}`, {
                             position: "top-right",
                             theme: "light",
@@ -328,6 +444,7 @@ function LandingPage() {
         mobile: '',
         college: '',
         course: '',
+        otherCourse: '',
         branch: '',
         year: ''
     }
@@ -411,15 +528,31 @@ function LandingPage() {
     }
 
     function RegAsCA() {
-        const data = {
-            "name": ca.name,
-            "email": ca.email,
-            "password": ca.pass,
-            "gender": ca.gender,
-            "mobile": ca.mobile,
-            "course": ca.course,
-            "college": ca.college,
-            "year_of_study": ca.year
+
+        var data;
+        if (ca.course == "others") {
+            data = {
+                "name": ca.name,
+                "email": ca.email,
+                "password": ca.pass,
+                "gender": ca.gender,
+                "mobile": ca.mobile,
+                "course": ca.otherCourse,
+                "college": ca.college,
+                "year_of_study": ca.year
+            }
+        }
+        else {
+            data = {
+                "name": ca.name,
+                "email": ca.email,
+                "password": ca.pass,
+                "gender": ca.gender,
+                "mobile": ca.mobile,
+                "course": ca.course,
+                "college": ca.college,
+                "year_of_study": ca.year
+            }
         }
         console.log(data)
         if (isCA) {
@@ -431,8 +564,8 @@ function LandingPage() {
                             theme: "light",
                             autoClose: 5000,
                         });
-                        setDialogg(false); 
-                        setOpenCA(false) 
+                        setDialogg(false);
+                        setOpenCA(false)
                     }
                     else {
                         toast.error(`${res.payload.data[0]}`, {
@@ -446,6 +579,47 @@ function LandingPage() {
                     console.log(err)
                 })
         }
+    }
+
+    // login 1
+
+    const [dialogLogin, setDialogLogin] = useState(true)
+
+    const [redirectLogin, setRedirectLogin ] = useState({
+        asCA:false,
+        asTeam:false
+    })
+
+    const loginState1 ={
+        email:'',
+        password:''
+    }
+    const [login1, setLogin1] = useState(loginState1)
+
+    useEffect(() => {
+        if (rightemail.test(login1.email)) {
+            document.getElementById("wrongEmailLog1").style.display = "none";
+        } else if (login1.email) {
+            document.getElementById("wrongEmailLog1").style.display = "block";
+        }
+    }, [login1.email]);
+
+    // useEffect(() => {
+    //     if (rightpass.test(login1.password)) {
+    //         document.getElementById("wrongPwdLog1").style.display = "none";
+    //     }
+    //     else if (login1.password) {
+    //         document.getElementById("wrongPwdLog1").style.display = "block";
+    //     }
+    // }, [login1.password])
+
+    function LoginCA1 () {
+        const data = {
+           "email":login1.email,
+           "password": login1.password
+        }
+        console.log(data)
+        dispatch(LoginTeamThunk(data))
     }
 
     useEffect(() => {
@@ -621,6 +795,7 @@ function LandingPage() {
                 marginTop: 94
             }
         }} >
+            {/* <Member redirectTo={as} */}
             <div className="register">
                 <div className="regFlex">
                     <img className="arrow" src={arrow} onClick={() => { setDialogg(true); setRedirect({ asMember: false }) }} />
@@ -669,7 +844,7 @@ function LandingPage() {
                     <option value="MBA">MBA</option>
                     <option id="other" value="others">Others</option>
                 </select>
-                <input type="text" id="otherOption" placeholder="Enter course name" onChange={(e) => { setInput({ ...input, course: e.target.value }) }} />
+                <input type="text" id="otherOption" placeholder="Enter course name" value={input.otherCourse} onChange={(e) => { setInput({ ...input, otherCourse: e.target.value }) }} />
                 <p className="regName">Branch</p>
                 <input type="text" className="regInputname" placeholder="Enter your branch" value={input.branch} onChange={(e) => { setInput({ ...input, branch: e.target.value }) }} />
                 <p id="wrongBranch">Please enter a valid branch.</p>
@@ -710,6 +885,7 @@ function LandingPage() {
                 <p className="regName">Team Size</p>
                 <select className="regInputname" value={team.size} onChange={(e) => { setTeam({ ...team, size: e.target.value }) }}>
                     <option >--select--</option>
+                    <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
@@ -731,12 +907,18 @@ function LandingPage() {
                 )}
                 <input type={show2 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={team.cPass} onChange={(e) => { setTeam({ ...team, cPass: e.target.value }) }} />
                 <p id="WrongPwdTeam2">Password entered in two fields must be same.</p>
-                <p className="regName">Team Leader ID</p>
-                <input type="text" className="regInputname" placeholder="Enter ID" value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
-                <p className="regName">Member 2 ID</p>
-                <input type="text" className="regInputname" placeholder="Enter ID" value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
-                <p className="regName">Member 3 ID</p>
-                <input type="text" className="regInputname" placeholder="Enter ID" value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
+                <div className="teamLeader">
+                    <p className="regName">Team Leader ID</p>
+                    <input type="text" className="regInputname" placeholder="Enter ID" value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
+                </div>
+                <div className="teamLeader">
+                    <p className="regName">Member 2 ID</p>
+                    <input type="text" className="regInputname" placeholder="Enter ID" value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
+                </div>
+                <div className="teamLeader">
+                    <p className="regName">Member 3 ID</p>
+                    <input type="text" className="regInputname" placeholder="Enter ID" value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
+                </div>
                 <button className="regButton" onClick={RegAsTeam}>Register</button>
             </div>
             <ToastContainer />
@@ -812,7 +994,7 @@ function LandingPage() {
                     <option value="MBA">MBA</option>
                     <option id="other" value="others">Others</option>
                 </select>
-                <input type="text" id="otherCA" placeholder="Enter course name" value={ca.course} onChange={(e) => { setCA({ ...ca, course: e.target.value }) }} />
+                <input type="text" id="otherCA" placeholder="Enter course name" value={ca.otherCourse} onChange={(e) => { setCA({ ...ca, otherCourse: e.target.value }) }} />
                 <p className="regName">Branch</p>
                 <input type="text" className="regInputname" placeholder="Enter your branch" value={ca.branch} onChange={(e) => { setCA({ ...ca, branch: e.target.value }) }} />
                 <p id="wrongBranchCA">Please enter a valid branch.</p>
@@ -835,6 +1017,45 @@ function LandingPage() {
             {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         </Dialog>
 
+        {/*login 1 */}
+        <Dialog open={dialogLogin} PaperProps={{
+            sx: { maxHeight: 400} }}>
+            <div className="register" id="regDiv">
+                <div className="regFlex">
+                    <img className="arrow" src={arrow} />
+                    <p className="heading" id="registerAs">Login as</p>
+                    <img className="cross" src={cross} onClick={() => { setDialogLogin(false) }} />
+                </div>
+                <button className="asRegister" id="regMember" onClick={() => { setRedirectLogin({ asTeam: true }) }} >Team</button>
+                <button className="asRegister" onClick={() => { setRedirectLogin({ asCA: true }) }} >Campus Ambassador</button>
+            </div>
+            {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+        </Dialog>
+
+        {/* login 2 */}
+        <Dialog open={redirectLogin.asCA}>
+            <div className="register" id="regDiv">
+                <div className="regFlex">
+                    <img className="arrow" src={arrow} onClick={() => { setDialogLogin(true); setRedirectLogin({ asCA: false }) }} />
+                    <p className="heading" id="registerCA">Login as <span id="member">Campus Ambassador</span></p>
+                    <img className="cross" src={cross} onClick={() => { setDialogLogin(false); setRedirectLogin({ asCA: false }) }} />
+                </div>
+                <p className="regName">Email</p>
+                <input type="text" className="regInputname" placeholder="Enter your email" value={login1.email} onChange={(e) => setLogin1({ ...login1, email: e.target.value })} />
+                <p id="wrongEmailLog1">Please enter a valid Email address</p>
+                <p className="regName">Password</p>
+                {show1 ? (
+                    <FontAwesomeIcon icon={faEye} id="LogEye" onClick={handleShow1} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="LogEye" onClick={handleShow1} />
+                )}
+                <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={login1.password} onChange={(e) => setLogin1({ ...login1, password: e.target.value })} />
+                {/* <p id="wrongPwdLog1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p> */}
+                <button className="regContinue" onClick={() => { LoginCA1() }}>Continue</button>
+            </div>
+            <ToastContainer />
+            {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
+        </Dialog>
     </>
 }
 
