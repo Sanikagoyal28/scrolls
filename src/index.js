@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
-import { persistor } from './Components/Redux/store';
-import store from './Components/Redux/store';
+import { persistor } from './Redux/store';
+import store from './Redux/store';
 
 store.subscribe(()=>console.log(store.getState()))
 

@@ -27,22 +27,25 @@
     cursor: pointer;
 }
 
-.asRegister:hover{
+.asRegister:hover {
     border: 1px solid #FAC949;
     color: #FAC949;
 }
-#registerCA{
+
+#registerCA {
     font-size: 1.5rem;
-    margin-right:2vw;
-    margin-left:2vw;
+    margin-right: 2vw;
+    margin-left: 2vw;
 }
+
 #regMember {
     margin-top: 48px;
-    margin-bottom:12px;
+    margin-bottom: 12px;
 
 }
-#CA{
-margin-top:36px;
+
+#CA {
+    margin-top: 36px;
 }
 
 /* #member{
@@ -163,10 +166,12 @@ margin-top:36px;
     text-align: center;
     cursor: pointer;
 }
-.regGender:hover{
+
+.regGender:hover {
     border: 1px solid #FAC949;
     color: #FAC949;
 }
+
 ::placeholder {
     font-family: 'Montserrat';
     font-style: normal;
@@ -176,7 +181,8 @@ margin-top:36px;
     color: rgba(0, 0, 0, 0.5);
 }
 
-#otherOption, #otherCA {
+#otherOption,
+#otherCA {
     display: none;
     width: 25vw;
     background: none;
@@ -214,8 +220,7 @@ margin-top:36px;
 #wrongBranchCA,
 #wrongNumCA,
 #wrongEmailLog1,
-#wrongPwdLog1
- {
+#wrongPwdLog1 {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -228,7 +233,10 @@ margin-top:36px;
     margin-left: 7vw;
 }
 
-#LEye, #TEye , #CEye, #LogEye{
+#LEye,
+#TEye,
+#CEye,
+#LogEye {
     position: relative;
     top: 32px;
     margin-left: 21vw;
@@ -251,4 +259,80 @@ margin-top:36px;
     outline: none;
     margin-top: 32px;
     cursor: pointer;
+}
+
+.forgotPass {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #252525;
+    text-decoration: underline;
+    margin-top: 8px;
+    margin-left: 22.5vw;
+    cursor: pointer;
+}
+
+.forgotText {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+    margin-left: 7vw;
+    color: #252525;
+    width: 25vw;
+    margin-bottom: 0;
+    margin-top: 16px;
+
+}
+
+.otpInputFlex {
+    display: flex;
+    margin-left: 3.5vw;
+}
+
+.otpInput {
+    width: 2.5vw;
+    height: 36px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    margin-bottom: 4px;
+    margin-right: 1vw;
+    padding: 4px 18px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 18px;
+    margin-top: 16px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.resend {
+    display: flex;
+    margin-left: 7vw;
+    margin-top:8px;
+}
+#resendOtp{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 1rem;
+line-height: 20px;
+letter-spacing: 0.05em;
+color: #000000;
+margin-right:1vw;
+}
+
+#timer {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+    color: #000000;
 }
