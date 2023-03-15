@@ -29,6 +29,7 @@ import OtpTeam from "../Login/TEAM/otpTeam";
 import ForgotTeam from "../Login/TEAM/fgtTeam";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import InstagramEmbed from 'react-instagram-embed';
 
 function LandingPage() {
 
@@ -141,7 +142,22 @@ function LandingPage() {
 
     return <>
 
+        {/* <InstagramEmbed
+            url='https://instagr.am/p/Zw9o4/'
+            clientAccessToken='123|456'
+            maxWidth={320}
+            hideCaption={false}
+            containerTagName='div'
+            protocol=''
+            injectScript
+            onLoading={() => { }}
+            onSuccess={() => { }}
+            onAfterRender={() => { }}
+            onFailure={() => { }}
+        /> */}
+
         {/* navbar */}
+
         <div className="navbar">
             <p className="navScroll">Scrolls<span className="navDot">.</span></p>
             <div className="navFlex1">

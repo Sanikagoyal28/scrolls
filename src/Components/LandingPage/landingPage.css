@@ -416,3 +416,10 @@
     color: #999999;
     margin-left: -9vw;
 }
+
+
+@media (max-width:2000px){
+    .landImage{
+        width:100vw;
+    }
+}

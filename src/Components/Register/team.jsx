@@ -123,9 +123,8 @@ function Team() {
                     }
                     else if (res.payload.status === 400) {
                         console.log(res.payload.data)
-                        
                         if (data.leader_id) {
-                            console.log(res.payload.data)
+                            console.log(res.payload.data.leader_id)
                             toast.error(`${res.payload.data.leader_id}`, {
                                 position: "top-right",
                                 theme: "light",
