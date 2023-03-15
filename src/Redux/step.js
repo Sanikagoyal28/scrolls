@@ -45,11 +45,23 @@ const StepSlice = createSlice({
         dialog10:function (state){
             state.step = 10 ;
         },
+        dialog11:function (state){
+            state.step = 11 ;
+        },
+        dialog12:function (state){
+            state.step = 12 ;
+        },
+        dialog13:function (state){
+            state.step = 13 ;
+        },
+        dialog14:function (state){
+            state.step = 14 ;
+        },
     }
 })
 
 export default StepSlice;
-export const {dialog0, dialog1, dialog2, dialog3, dialog4, dialog5, dialog6, dialog7, dialog8, dialog9, dialog10} = StepSlice.actions;
+export const {dialog0, dialog1, dialog2, dialog3, dialog4, dialog5, dialog6, dialog7, dialog8, dialog9, dialog10, dialog11, dialog12, dialog13, dialog14} = StepSlice.actions;
 
 
 // 1. register 1
@@ -62,3 +74,7 @@ export const {dialog0, dialog1, dialog2, dialog3, dialog4, dialog5, dialog6, dia
 // 8. login 2
 // 9. login 3
 // 10. login 4
+//  11. login team
+// 12. fgt team
+// 13. otp team
+//  14. reset team

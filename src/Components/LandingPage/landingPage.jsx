@@ -9,7 +9,6 @@ import sendIcon from "../Assets/letter_send.svg"
 import SI from "../Assets/SI_logo.svg"
 import { useEffect, useState } from "react";
 import { Dialog } from "@mui/material";
-import { LoginCAThunk, LoginTeamThunk } from "../../Redux/loginSlice";
 import { dialog1, dialog6 } from "../../Redux/step";
 import Register from "../Register/Register";
 import Member from "../Register/member";
@@ -18,15 +17,23 @@ import CA1 from "../Register/CA1";
 import CA2 from "../Register/CA2";
 import Login1 from "../Login/login1";
 import { useDispatch, useSelector } from "react-redux"
-import Login from "../Login/login";
+import Login from "../Login/CA/login";
 import "./landingPage.css"
 import "./Navbar.css"
-import Reset from "../Login/reset";
-import Otp from "../Login/otp";
-import Forgot from "../Login/fgtPwd";
+import Reset from "../Login/CA/reset";
+import Otp from "../Login/CA/otp";
+import Forgot from "../Login/CA/fgtPwd";
+import LoginTeam from "../Login/TEAM/loginTeam";
+import ResetTeam from "../Login/TEAM/resetTeam";
+import OtpTeam from "../Login/TEAM/otpTeam";
+import ForgotTeam from "../Login/TEAM/fgtTeam";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function LandingPage() {
 
+    const reducer = useSelector((s) => s.login)
+    const reducerReg = useSelector((s) => s.register)
     const [dialogg, setDialogg] = useState(false)
     const [login, setLogin] = useState(false)
     const dispatch = useDispatch()
@@ -40,9 +47,13 @@ function LandingPage() {
         five: false,
         six: false,
         seven: false,
-        eight:false,
-        nine:false,
-        ten:false
+        eight: false,
+        nine: false,
+        ten: false,
+        eleven: false,
+        twelve: false,
+        thirteen: false,
+        fourteen: false
     })
 
     useEffect(() => {
@@ -55,9 +66,13 @@ function LandingPage() {
                 five: false,
                 six: false,
                 seven: false,
-                eight:false,
-                nine:false,
-                ten:false
+                eight: false,
+                nine: false,
+                ten: false,
+                eleven: false,
+                twelve: false,
+                thirteen: false,
+                fourteen: false
             })
         }
         if (step.step == 1 && dialogg) {
@@ -90,8 +105,39 @@ function LandingPage() {
         if (step.step == 10 && login) {
             setStepDialog({ ten: true })
         }
+        if (step.step == 11 && login) {
+            setStepDialog({ eleven: true })
+        }
+        if (step.step == 12 && login) {
+            setStepDialog({ twelve: true })
+        }
+        if (step.step == 13 && login) {
+            setStepDialog({ thirteen: true })
+        }
+        if (step.step == 14 && login) {
+            setStepDialog({ fourteen: true })
+        }
 
     }, [step, dialogg])
+
+
+    // useEffect(() => {
+    //     if (reducer.msg  && login) {
+    //         toast.info(`${reducer.msg}`, {
+    //             position: "top-right",
+    //             theme: "light",
+    //         });
+    //     }
+    // }, [reducer])
+
+    // useEffect(() => {
+    //     if (reducerReg.msg && dialogg) {
+    //         toast.info(`${reducerReg.msg}`, {
+    //             position: "top-right",
+    //             theme: "light",
+    //         });
+    //     }
+    // }, [reducerReg])
 
     return <>
 
@@ -314,6 +360,33 @@ function LandingPage() {
         }} >
             <Reset />
         </Dialog>
+
+        <Dialog open={stepDialog.eleven} PaperProps={{
+            sx: { maxHeight: 500 }
+        }} >
+            <LoginTeam />
+        </Dialog>
+
+
+        <Dialog open={stepDialog.twelve} PaperProps={{
+            sx: { maxHeight: 500 }
+        }}>
+            <ForgotTeam />
+        </Dialog>
+
+        <Dialog open={stepDialog.thirteen} PaperProps={{
+            sx: { maxHeight: 500 }
+        }}>
+            <OtpTeam />
+        </Dialog>
+
+        <Dialog open={stepDialog.fourteen} PaperProps={{
+            sx: { maxHeight: 500 }
+        }} >
+            <ResetTeam />
+        </Dialog>
+
+        <ToastContainer />
     </>
 }
 

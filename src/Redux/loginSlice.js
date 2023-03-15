@@ -8,7 +8,7 @@ const initialState = {
 }
 
 const LoginTeamThunk = createAsyncThunk("login/team", async (data) => {
-    return await Baseurl.post("participants/team_login", data)
+    return await Baseurl.post("participants/team_login/", data)
         .then((res) => {
             return res
         })
@@ -18,7 +18,7 @@ const LoginTeamThunk = createAsyncThunk("login/team", async (data) => {
 })
 
 const FgtTeamThunk = createAsyncThunk("fgt/team", async (email) => {
-    return await Baseurl.post("participants/forgot_password/1/", {email})
+    return await Baseurl.post("participants/forgot_password/1", {email})
         .then((res) => {
             return res
         })
@@ -28,7 +28,7 @@ const FgtTeamThunk = createAsyncThunk("fgt/team", async (email) => {
 })
 
 const OtpTeamThunk = createAsyncThunk("otp/team", async (data) => {
-    return await Baseurl.post("participants/verify_otp/1/", data)
+    return await Baseurl.post("participants/verify_otp/1", data)
         .then((res) => {
             return res
         })
@@ -79,7 +79,7 @@ const OtpCAThunk = createAsyncThunk("otp/ca", async (data) => {
 })
 
 const ResetCAThunk = createAsyncThunk("reset/ca", async (data) => {
-    return await Baseurl.patch("participants/forgot_password/1", data)
+    return await Baseurl.patch("participants/forgot_password/0", data)
         .then((res) => {
             return res
         })
@@ -100,7 +100,7 @@ const LoginSlice = createSlice({
         })
         builder.addCase(LoginTeamThunk.fulfilled, (state, action) => {
             state.loading = false;
-            state.msg = action.payload.data[0] 
+            state.msg = action.payload.data.msg 
         })
         builder.addCase(LoginTeamThunk.rejected, (state, action) => {
             state.loading = false;
@@ -112,7 +112,7 @@ const LoginSlice = createSlice({
         })
         builder.addCase(LoginCAThunk.fulfilled, (state, action) => {
             state.loading = false;
-            state.msg = action.payload.data[0] 
+            state.msg = action.payload.data.msg  
         })
         builder.addCase(LoginCAThunk.rejected, (state, action) => {
             state.loading = false;
@@ -124,7 +124,7 @@ const LoginSlice = createSlice({
         })
         builder.addCase(FgtTeamThunk.fulfilled, (state, action) => {
             state.loading = false;
-            state.msg = action.payload.data[0] 
+            state.msg = action.payload.data.msg 
         })
         builder.addCase(FgtTeamThunk.rejected, (state, action) => {
             state.loading = false;
@@ -136,7 +136,7 @@ const LoginSlice = createSlice({
         })
         builder.addCase(OtpTeamThunk.fulfilled, (state, action) => {
             state.loading = false;
-            state.msg = action.payload.data[0] 
+            state.msg = action.payload.data.msg 
         })
         builder.addCase(OtpTeamThunk.rejected, (state, action) => {
             state.loading = false;
@@ -148,7 +148,7 @@ const LoginSlice = createSlice({
         })
         builder.addCase(ResetTeamThunk.fulfilled, (state, action) => {
             state.loading = false;
-            state.msg = action.payload.data[0] 
+            state.msg = action.payload.data.msg 
         })
         builder.addCase(ResetTeamThunk.rejected, (state, action) => {
             state.loading = false;
@@ -160,7 +160,7 @@ const LoginSlice = createSlice({
         })
         builder.addCase(FgtCAThunk.fulfilled, (state, action) => {
             state.loading = false;
-            state.msg = action.payload.data[0] 
+            state.msg = action.payload.data.msg 
         })
         builder.addCase(FgtCAThunk.rejected, (state, action) => {
             state.loading = false;
@@ -172,7 +172,7 @@ const LoginSlice = createSlice({
         })
         builder.addCase(OtpCAThunk.fulfilled, (state, action) => {
             state.loading = false;
-            state.msg = action.payload.data[0] 
+            state.msg = action.payload.data.msg  
         })
         builder.addCase(OtpCAThunk.rejected, (state, action) => {
             state.loading = false;
@@ -184,7 +184,7 @@ const LoginSlice = createSlice({
         })
         builder.addCase(ResetCAThunk.fulfilled, (state, action) => {
             state.loading = false;
-            state.msg = action.payload.data[0] 
+            state.msg = action.payload.data.msg  
         })
         builder.addCase(ResetCAThunk.rejected, (state, action) => {
             state.loading = false;

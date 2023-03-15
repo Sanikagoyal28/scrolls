@@ -1,12 +1,12 @@
-import cross from "../Assets/cross.svg"
-import arrow from "../Assets/arrow.svg"
+import cross from "../../Assets/cross.svg"
+import arrow from "../../Assets/arrow.svg"
 import { useEffect, useState } from "react";
 import { Spinner } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from "react-redux"
-import { dialog7, dialog0, dialog9 } from "../../Redux/step";
-import { FgtCAThunk } from "../../Redux/loginSlice";
+import { dialog7, dialog0, dialog9 } from "../../../Redux/step";
+import { FgtCAThunk } from "../../../Redux/loginSlice";
 
 function Forgot() {
 
@@ -30,8 +30,21 @@ function Forgot() {
         if (email) {
             dispatch(FgtCAThunk(email)).
                 then((res) => {
-                    dispatch(dialog9())
-                    console.log(res)
+                    if (res.payload.status == 400) {
+                        toast.error(`${res.payload.data.msg}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                    if (res.payload.status == 201) {
+                        dispatch(dialog9())
+                        toast.success(`${res.payload.data.msg}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
                 })
         }
     }

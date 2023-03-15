@@ -122,46 +122,43 @@ function Team() {
                         });
                     }
                     else if (res.payload.status === 400) {
-                        console.log(data)
-                        console.log(data[0])
-
-                        if (data[0]) {
-                            toast.error(`${res.payload.data[0]}`, {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                        }
+                        console.log(res.payload.data)
+                        
                         if (data.leader_id) {
-                            toast.error(`${res.payload.data.leader_id[0]}`, {
+                            console.log(res.payload.data)
+                            toast.error(`${res.payload.data.leader_id}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,
                             });
                         }
                         else if (data.name) {
-                            toast.error(`${res.payload.data.name[0]}`, {
+                            console.log(res.payload.data)
+                            toast.error(`${res.payload.data.name}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,
                             });
                         }
                         else if (data.member_2) {
-                            toast.error(`${res.payload.data.member_2[0]}`, {
+                            console.log(res.payload.data)
+                            toast.error(`${res.payload.data.member_2}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,
                             });
                         }
                         else if (data.member_3) {
-                            toast.error(`${res.payload.data.member_3[0]}`, {
+                            console.log(res.payload.data)
+                            toast.error(`${res.payload.data.member_3}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,
                             });
                         }
                         else {
-                            toast.error(`${res.payload.data[0]}`, {
+                            console.log(res.payload.data)
+                            toast.error(`${res.payload.data}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,
@@ -169,7 +166,8 @@ function Team() {
                         }
                     }
                     else {
-                        toast.error(`${res.payload.data[0]}`, {
+                        console.log(res.payload.data)
+                        toast.error(`${res.payload.data}`, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,

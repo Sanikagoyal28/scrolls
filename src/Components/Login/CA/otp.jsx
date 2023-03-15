@@ -1,12 +1,12 @@
-import cross from "../Assets/cross.svg"
-import arrow from "../Assets/arrow.svg"
+import cross from "../../Assets/cross.svg"
+import arrow from "../../Assets/arrow.svg"
 import { useEffect, useState } from "react";
 import { Spinner } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from "react-redux"
-import { dialog8, dialog0, dialog10 } from "../../Redux/step";
-import { FgtCAThunk, OtpCAThunk } from "../../Redux/loginSlice";
+import { dialog8, dialog0, dialog10 } from "../../../Redux/step";
+import { FgtCAThunk, OtpCAThunk } from "../../../Redux/loginSlice";
 import OtpField from "react-otp-field"
 
 function Otp() {
@@ -35,6 +35,7 @@ function Otp() {
 
     function Otp() {
 
+        localStorage.setItem("login_otp", value)
         const data = {
             "email": email,
             "otp": value
@@ -43,8 +44,22 @@ function Otp() {
         if (value) {
             dispatch(OtpCAThunk(data)).
                 then((res) => {
-                      dispatch(dialog10())
-                    console.log(res)
+                  
+                    if (res.payload.status == 400) {
+                        toast.error(`${res.payload.data.msg}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                    if (res.payload.status == 200) {
+                        dispatch(dialog10())
+                        toast.success(`${res.payload.data.msg}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
                 })
         }
     }

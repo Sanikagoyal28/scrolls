@@ -44,7 +44,7 @@ function CA1 () {
                             dispatch(dialog0())
                         }
                         else if (res.payload.status === 409) {
-                            toast.success(`${res.payload.data[0]}`, {
+                            toast.info(`${res.payload.data[0]}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,
@@ -52,7 +52,7 @@ function CA1 () {
                             dispatch(dialog0())
                         }
                         else if (res.payload.status === 400) {
-                            toast.info(`${res.payload.data[0]}`, {
+                            toast.info("Fill the following form to complete registration process.", {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,

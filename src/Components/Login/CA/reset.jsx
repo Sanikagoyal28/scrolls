@@ -1,5 +1,5 @@
-import cross from "../Assets/cross.svg"
-import arrow from "../Assets/arrow.svg"
+import cross from "../../Assets/cross.svg"
+import arrow from "../../Assets/arrow.svg"
 import { useEffect, useState } from "react";
 import { Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,8 +7,8 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from "react-redux"
-import { ResetCAThunk } from "../../Redux/loginSlice";
-import { dialog9 , dialog0} from "../../Redux/step";
+import { ResetCAThunk } from "../../../Redux/loginSlice";
+import { dialog9, dialog0, dialog7 } from "../../../Redux/step";
 
 function Reset() {
 
@@ -61,15 +61,32 @@ function Reset() {
         }
     }, [reducer.loading])
 
-    function ResetPassword () {
+    function ResetPassword() {
         const data = {
             "email": localStorage.getItem("login_email"),
-            "otp":localStorage.getItem("login_otp"),
-            "password":input.pass
+            "otp": localStorage.getItem("login_otp"),
+            "password": input.pass
         }
         console.log(data)
-        if(input.pass && input.confirmPass){
-            dispatch(ResetCAThunk(data))
+        if (input.pass && input.confirmPass) {
+            dispatch(ResetCAThunk(data)).
+                then((res) => {
+                    if (res.payload.status == 400) {
+                        toast.error(`${res.payload.data.msg}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                    if (res.payload.status == 200) {
+                        dispatch(dialog7())
+                        toast.success(`${res.payload.data.msg}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                })
         }
     }
 

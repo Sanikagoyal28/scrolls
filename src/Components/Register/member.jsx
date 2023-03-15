@@ -165,6 +165,7 @@ function Member() {
             dispatch(RegMemberThunk(data)).
                 then((res) => {
                     if (res.payload.status === 201) {
+                        dispatch(dialog0())
                         toast.success(`${res.payload.data[0]}`, {
                             position: "top-right",
                             theme: "light",
