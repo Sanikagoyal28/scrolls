@@ -123,32 +123,33 @@ function Team() {
                     }
                     else if (res.payload.status === 400) {
                         console.log(res.payload.data)
+                        console.log(typeof(res.payload.data))
                         if (data.leader_id) {
-                            console.log(res.payload.data.leader_id)
+                            console.log("leader id")
                             toast.error(`${res.payload.data.leader_id}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,
                             });
                         }
-                        else if (data.name) {
-                            console.log(res.payload.data)
+                        if (data.name) {
+                            console.log("name")
                             toast.error(`${res.payload.data.name}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,
                             });
                         }
-                        else if (data.member_2) {
-                            console.log(res.payload.data)
+                        if (data.member_2) {
+                            console.log("member2")
                             toast.error(`${res.payload.data.member_2}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,
                             });
                         }
-                        else if (data.member_3) {
-                            console.log(res.payload.data)
+                        if (data.member_3) {
+                            console.log("member 3")
                             toast.error(`${res.payload.data.member_3}`, {
                                 position: "top-right",
                                 theme: "light",
@@ -156,7 +157,7 @@ function Team() {
                             });
                         }
                         else {
-                            console.log(res.payload.data)
+                            console.log(" data[]")
                             toast.error(`${res.payload.data}`, {
                                 position: "top-right",
                                 theme: "light",
@@ -165,6 +166,7 @@ function Team() {
                         }
                     }
                     else {
+                        console.log("datatttt")
                         console.log(res.payload.data)
                         toast.error(`${res.payload.data}`, {
                             position: "top-right",

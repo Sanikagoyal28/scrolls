@@ -5,12 +5,12 @@ import TeamDB from "./Components/Dashboard/teamDB";
 
 function App() {
   return <>
-  {/* <BrowserRouter>
+  <BrowserRouter>
     <Routes>
       <Route path="/" exact element={<LandingPage /> } />
     </Routes>
-  </BrowserRouter> */}
-  <TeamDB />
+  </BrowserRouter>
+  {/* <TeamDB /> */}
   </>
 }
 

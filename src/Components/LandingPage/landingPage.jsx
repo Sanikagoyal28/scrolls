@@ -29,7 +29,7 @@ import OtpTeam from "../Login/TEAM/otpTeam";
 import ForgotTeam from "../Login/TEAM/fgtTeam";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import InstagramEmbed from 'react-instagram-embed';
+import { InstagramEmbed } from 'react-social-media-embed';
 
 function LandingPage() {
 
@@ -142,20 +142,11 @@ function LandingPage() {
 
     return <>
 
-        {/* <InstagramEmbed
-            url='https://instagr.am/p/Zw9o4/'
-            clientAccessToken='123|456'
-            maxWidth={320}
-            hideCaption={false}
-            containerTagName='div'
-            protocol=''
-            injectScript
-            onLoading={() => { }}
-            onSuccess={() => { }}
-            onAfterRender={() => { }}
-            onFailure={() => { }}
-        /> */}
 
+        <div style={{ display: 'flex', justifyContent: 'center', zIndex:"20", position:'fixed' }}>
+            <InstagramEmbed url="https://www.instagram.com/p/CUbHfhpswxt/" width={328} />
+        </div>
+        
         {/* navbar */}
 
         <div className="navbar">
