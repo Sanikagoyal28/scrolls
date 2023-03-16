@@ -161,7 +161,7 @@ function Team() {
                 <p className="heading">Register as <span id="member">Team</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form>
+            <form onSubmit={(e)=>e.preventDefault()}>
                 <p className="regName">Team Name</p>
                 <input required type="text" className="regInputname" placeholder="Enter team name" value={team.name} onChange={(e) => { setTeam({ ...team, name: e.target.value }) }} />
                 <p className="regName">Team Size</p>

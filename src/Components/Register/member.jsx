@@ -162,31 +162,31 @@ function Member() {
             }
         }
         console.log(data)
-        // if (input.name && input.email && input.pass && input.gender && input.mobile && input.course && input.college && input.year) {
-        //     dispatch(RegMemberThunk(data)).
-        //         then((res) => {
-        //             console.log(res)
-        //             if (res.payload.status === 201) {
-        //                 dispatch(dialog0())
-        //                 toast.success(`${res.payload.data.msg}`, {
-        //                     position: "top-right",
-        //                     theme: "light",
-        //                     autoClose: 5000,
-        //                 });
+        if (input.name && input.email && input.pass && input.gender && input.mobile && input.course && input.college && input.year) {
+            dispatch(RegMemberThunk(data)).
+                then((res) => {
+                    console.log(res)
+                    if (res.payload.status === 201) {
+                        dispatch(dialog0())
+                        toast.success(`${res.payload.data.msg}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
                        
-        //             }
-        //             else {
-        //                 toast.error(`${res.payload.data.msg}`, {
-        //                     position: "top-right",
-        //                     theme: "light",
-        //                     autoClose: 5000,
-        //                 });
-        //             }
-        //         })
-        //         .catch((err) => {
-        //             console.log(err)
-        //         })
-        // }
+                    }
+                    else {
+                        toast.error(`${res.payload.data.msg}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
     }
 
     useEffect(() => {
@@ -207,7 +207,7 @@ function Member() {
                 <p className="heading">Register as <span id="member">Member</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form>
+            <form onSubmit={(e)=>e.preventDefault()}>
                 <p className="regName">Name</p>
                 <input required type="text" className="regInputname" id="input" placeholder="Enter your name" value={input.name} onChange={(e) => setInput({ ...input, name: e.target.value })} />
                 <p id="wrongName">Name must contain only alphabetic characters.</p>
