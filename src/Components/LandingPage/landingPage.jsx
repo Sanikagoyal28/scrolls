@@ -156,8 +156,7 @@ function LandingPage() {
         {/* <div style={{ display: 'flex', justifyContent: 'center', zIndex:"20", position:'fixed' }}>
             <InstagramEmbed url="https://www.instagram.com/p/CUbHfhpswxt/" width={328} />
         </div> */}
-        
-        {/* <Navbar /> */}
+
         {/* navbar */}
 
         <div id='uli'>

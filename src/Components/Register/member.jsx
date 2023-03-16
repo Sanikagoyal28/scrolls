@@ -18,7 +18,7 @@ function Member() {
     const reducer = useSelector((s) => s.register)
     const rightName = /^[a-z ,.'-]+$/i;
     const rightemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    const rightpass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const rightpass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@#$!%*?&]{8,}$/;
     const isnum = /^\d+$/;
     const [isCorrect, setIsCorrect] = useState(false);
     const [show1, setShow1] = useState(false)
@@ -136,28 +136,6 @@ function Member() {
     }
 
     function RegAsMember() {
-
-        // if (!input.name) {
-        //     document.getElementById("wrongName").style.display = "block";
-        //     document.getElementById("wrongName").innerHTML = "Name is required";
-        // }
-        // if (!input.email) {
-        //     document.getElementById("wrongEmail").style.display = "block";
-        //     document.getElementById("wrongEmail").innerHTML = "Email is required";
-        // }
-        // if (!input.pass) {
-        //     document.getElementById("WrongPwd1").style.display = "block";
-        //     document.getElementById("WrongPwd1").innerHTML = "Password is required";
-        // }
-        // if (!input.confirmPass) {
-        //     document.getElementById("WrongPwd2").innerHTML = "Password is required";
-        //     document.getElementById("WrongPwd2").style.display = "block";
-        // }
-        // if (!input.mobile) {
-        //     document.getElementById("wrongNum").style.display = "block";
-        //     document.getElementById("wrongNum").innerHTML = "Contact number is required";
-        // }
-
         var data;
         if (input.course == "others") {
             data = {
@@ -184,31 +162,31 @@ function Member() {
             }
         }
         console.log(data)
-        if (input.name && input.email && input.pass && input.gender && input.mobile && input.course && input.college && input.year) {
-            dispatch(RegMemberThunk(data)).
-                then((res) => {
-                    console.log(res)
-                    if (res.payload.status === 201) {
-                        dispatch(dialog0())
-                        toast.success(`${res.payload.data.msg}`, {
-                            position: "top-right",
-                            theme: "light",
-                            autoClose: 5000,
-                        });
+        // if (input.name && input.email && input.pass && input.gender && input.mobile && input.course && input.college && input.year) {
+        //     dispatch(RegMemberThunk(data)).
+        //         then((res) => {
+        //             console.log(res)
+        //             if (res.payload.status === 201) {
+        //                 dispatch(dialog0())
+        //                 toast.success(`${res.payload.data.msg}`, {
+        //                     position: "top-right",
+        //                     theme: "light",
+        //                     autoClose: 5000,
+        //                 });
                        
-                    }
-                    else {
-                        toast.error(`${res.payload.data.msg}`, {
-                            position: "top-right",
-                            theme: "light",
-                            autoClose: 5000,
-                        });
-                    }
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
-        }
+        //             }
+        //             else {
+        //                 toast.error(`${res.payload.data.msg}`, {
+        //                     position: "top-right",
+        //                     theme: "light",
+        //                     autoClose: 5000,
+        //                 });
+        //             }
+        //         })
+        //         .catch((err) => {
+        //             console.log(err)
+        //         })
+        // }
     }
 
     useEffect(() => {
@@ -289,7 +267,7 @@ function Member() {
                         <option value="2">2</option>
                     </>}
                 </select>
-                <button className="regButton" onClick={RegAsMember}>Register</button>
+                <button className="regButton" onClick={()=>{RegAsMember()}}>Register</button>
             </form>
         </div>
         <ToastContainer />

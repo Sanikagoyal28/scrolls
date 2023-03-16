@@ -14,9 +14,10 @@ function Team() {
 
     // team registration
     const [loading, setLoading] = useState(false)
+    const [referralCode, setRefferalCode] = useState('')
     const dispatch = useDispatch()
     const reducer = useSelector((s) => s.register)
-    const rightpass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const rightpass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$#!%*?&]{8,}$/;
     const [show1, setShow1] = useState(false)
     const [show2, setShow2] = useState(false)
 
@@ -78,13 +79,17 @@ function Team() {
     }, [team.size])
 
     function RegAsTeam() {
+
+        if (team.referral) {
+            setRefferalCode(team.referral)
+        }
         var data;
         if (team.size == 1) {
             data = {
                 "name": team.name,
                 "size": parseInt(team.size),
                 "leader_id": parseInt(team.leaderId),
-                "referral_used": team.referral,
+                "referral_used": referralCode,
                 "password": team.pass
             }
         }
@@ -94,7 +99,7 @@ function Team() {
                 "size": parseInt(team.size),
                 "leader_id": parseInt(team.leaderId),
                 "member_2": parseInt(team.member2),
-                "referral_used": team.referral,
+                "referral_used": referralCode,
                 "password": team.pass
             }
         }
@@ -105,7 +110,7 @@ function Team() {
                 "leader_id": parseInt(team.leaderId),
                 "member_2": parseInt(team.member2),
                 "member_3": parseInt(team.member3),
-                "referral_used": team.referral,
+                "referral_used": referralCode,
                 "password": team.pass
             }
         }
@@ -131,64 +136,7 @@ function Team() {
                             autoClose: 5000,
                         });
                     }
-                        //     if (data.msg != "") {
-                        //         console.log("message")
-                        //         toast.error(`${res.payload.data.msg}`, {
-                        //             position: "top-right",
-                        //             theme: "light",
-                        //             autoClose: 5000,
-                        //         });
-                        //     }
-                        //     else if (data.leader_id != "") {
-                        //         console.log("leader id")
-                        //         toast.error(`${res.payload.data.leader_id}`, {
-                        //             position: "top-right",
-                        //             theme: "light",
-                        //             autoClose: 5000,
-                        //         });
-                        //     }
-                        //     else if (data.name != "") {
-                        //         console.log("name")
-                        //         toast.error(`${res.payload.data.name}`, {
-                        //             position: "top-right",
-                        //             theme: "light",
-                        //             autoClose: 5000,
-                        //         });
-                        //     }
-                        //     else if (data.member_2 != "") {
-                        //         console.log("member2")
-                        //         toast.error(`${res.payload.data.member_2}`, {
-                        //             position: "top-right",
-                        //             theme: "light",
-                        //             autoClose: 5000,
-                        //         });
-                        //     }
-                        //     else if (data.member_3 != "") {
-                        //         console.log("member 3")
-                        //         toast.error(`${res.payload.data.member_3}`, {
-                        //             position: "top-right",
-                        //             theme: "light",
-                        //             autoClose: 5000,
-                        //         });
-                        //     }
-                        //     else {
-                        //         console.log("else")
-                        //         toast.error(`${res.payload.data.msg}`, {
-                        //             position: "top-right",
-                        //             theme: "light",
-                        //             autoClose: 5000,
-                        //         });
-                        //     }
-                        // }
-                        // else {
-                        //     console.log(res.payload.data)
-                        //     toast.error(`${res.payload.data}`, {
-                        //         position: "top-right",
-                        //         theme: "light",
-                        //         autoClose: 5000,
-                        //     });
-                        // }
-                    })
+                })
                 .catch((err) => {
                     console.log(err)
                 })
@@ -224,7 +172,7 @@ function Team() {
                     <option value="3">3</option>
                 </select>
                 <p className="regName">Referral Code</p>
-                <input required type="text" className="regInputname" placeholder="Enter referral code" value={team.referral} onChange={(e) => { setTeam({ ...team, referral: e.target.value }) }} />
+                <input type="text" className="regInputname" placeholder="Enter referral code" value={team.referral} onChange={(e) => { setTeam({ ...team, referral: e.target.value }) }} />
                 <p className="regName">Password</p>
                 {show1 ? (
                     <FontAwesomeIcon icon={faEye} id="TEye" onClick={handleShow1} />
@@ -243,15 +191,15 @@ function Team() {
                 <p id="WrongPwdTeam2">Password entered in two fields must be same.</p>
                 <div className="teamLeader">
                     <p className="regName">Team Leader ID</p>
-                    <input required type="text" className="regInputname" placeholder="Enter ID" value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
+                    <input type="text" className="regInputname" placeholder="Enter ID" value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
                 </div>
                 <div className="teamLeader">
                     <p className="regName">Member 2 ID</p>
-                    <input required type="text" className="regInputname" placeholder="Enter ID" value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
+                    <input type="text" className="regInputname" placeholder="Enter ID" value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
                 </div>
                 <div className="teamLeader">
                     <p className="regName">Member 3 ID</p>
-                    <input required type="text" className="regInputname" placeholder="Enter ID" value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
+                    <input type="text" className="regInputname" placeholder="Enter ID" value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
                 </div>
                 <button className="regButton" onClick={RegAsTeam}>Register</button>
             </form>

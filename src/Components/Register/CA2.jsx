@@ -20,7 +20,7 @@ function CA2() {
     const [isCA, setIsCA] = useState(false)
     const rightName = /^[a-z ,.'-]+$/i;
     const rightemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    const rightpass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const rightpass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@#$!%*?&]{8,}$/;
     const isnum = /^\d+$/;
     const [show1, setShow1] = useState(false)
     const [show2, setShow2] = useState(false)

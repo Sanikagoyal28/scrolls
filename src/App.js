@@ -9,8 +9,8 @@ import Contact from "./Components/contactUS/contact";
 
 function App() {
   return <>
-  {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
+  {/* <BrowserRouter> */}
     <Routes>
       <Route path="/" exact element={<LandingPage /> } />
       <Route path="/ca_db" exact element={<CaDB />} />
