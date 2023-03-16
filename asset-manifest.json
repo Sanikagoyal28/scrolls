@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/scrolls_college_project/static/css/main.d8fa0475.css",
-    "main.js": "/scrolls_college_project/static/js/main.5727d9cc.js",
+    "main.css": "/scrolls_college_project/static/css/main.4d229313.css",
+    "main.js": "/scrolls_college_project/static/js/main.0e3bda09.js",
     "static/js/787.e78ddfb4.chunk.js": "/scrolls_college_project/static/js/787.e78ddfb4.chunk.js",
     "static/media/scroll_bg.svg": "/scrolls_college_project/static/media/scroll_bg.a5332bc736c91899b3263afddc9cd408.svg",
     "static/media/letter_send.svg": "/scrolls_college_project/static/media/letter_send.d70b2efbadc6e2c989b416b183c99f95.svg",
@@ -15,13 +15,15 @@
     "static/media/Facebook.svg": "/scrolls_college_project/static/media/Facebook.3e6c89bc1fbb7a113d996b250526faae.svg",
     "static/media/domainLogo.svg": "/scrolls_college_project/static/media/domainLogo.48e2f6f14828204bd6f503ebfbc08179.svg",
     "static/media/file.svg": "/scrolls_college_project/static/media/file.31634ae102c0e84b368de7b352b3e386.svg",
+    "static/media/navCross.svg": "/scrolls_college_project/static/media/navCross.2aac367cd382eb4ff70664a318025b96.svg",
+    "static/media/menu.svg": "/scrolls_college_project/static/media/menu.5a9b2b6f6b04dede72fad9938fd9e1a4.svg",
     "static/media/arrow.svg": "/scrolls_college_project/static/media/arrow.3b6ad76ad782eec2f9e785dbdb25fbea.svg",
-    "main.d8fa0475.css.map": "/scrolls_college_project/static/css/main.d8fa0475.css.map",
-    "main.5727d9cc.js.map": "/scrolls_college_project/static/js/main.5727d9cc.js.map",
+    "main.4d229313.css.map": "/scrolls_college_project/static/css/main.4d229313.css.map",
+    "main.0e3bda09.js.map": "/scrolls_college_project/static/js/main.0e3bda09.js.map",
     "787.e78ddfb4.chunk.js.map": "/scrolls_college_project/static/js/787.e78ddfb4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d8fa0475.css",
-    "static/js/main.5727d9cc.js"
+    "static/css/main.4d229313.css",
+    "static/js/main.0e3bda09.js"
   ]
 }
