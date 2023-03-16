@@ -2,7 +2,7 @@
   "homepage": "https://Sanikagoyal28.github.io/scrolls_college_project",
   "name": "scrolls",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",

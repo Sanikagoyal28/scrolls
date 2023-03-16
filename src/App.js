@@ -6,7 +6,7 @@ import CaDB from "./Components/Dashboard/CaDB";
 
 function App() {
   return <>
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Routes>
       <Route path="/" exact element={<LandingPage /> } />
       <Route path="/ca_db" exact element={<CaDB />} />
