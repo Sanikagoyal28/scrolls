@@ -115,7 +115,7 @@ function Team() {
                 then((res) => {
                     console.log(res)
                     if (res.payload.status === 201) {
-                        toast.success(`${res.payload.data[0]}`, {
+                        toast.success(`${res.payload.data.msg}`, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -123,8 +123,15 @@ function Team() {
                     }
                     else if (res.payload.status === 400) {
                         console.log(res.payload.data)
-                        console.log(typeof(res.payload.data))
-                        if (data.leader_id) {
+                        if (data.msg != "") {
+                            console.log("message")
+                            toast.error(`${res.payload.data.msg}`, {
+                                position: "top-right",
+                                theme: "light",
+                                autoClose: 5000,
+                            });
+                        }
+                        else if (data.leader_id != "") {
                             console.log("leader id")
                             toast.error(`${res.payload.data.leader_id}`, {
                                 position: "top-right",
@@ -132,7 +139,7 @@ function Team() {
                                 autoClose: 5000,
                             });
                         }
-                        if (data.name) {
+                        else if (data.name != "") {
                             console.log("name")
                             toast.error(`${res.payload.data.name}`, {
                                 position: "top-right",
@@ -140,7 +147,7 @@ function Team() {
                                 autoClose: 5000,
                             });
                         }
-                        if (data.member_2) {
+                        else if (data.member_2 != "") {
                             console.log("member2")
                             toast.error(`${res.payload.data.member_2}`, {
                                 position: "top-right",
@@ -148,7 +155,7 @@ function Team() {
                                 autoClose: 5000,
                             });
                         }
-                        if (data.member_3) {
+                        else if (data.member_3 != "") {
                             console.log("member 3")
                             toast.error(`${res.payload.data.member_3}`, {
                                 position: "top-right",
@@ -157,8 +164,8 @@ function Team() {
                             });
                         }
                         else {
-                            console.log(" data[]")
-                            toast.error(`${res.payload.data}`, {
+                            console.log("else")
+                            toast.error(`${res.payload.data.msg}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,
@@ -166,7 +173,6 @@ function Team() {
                         }
                     }
                     else {
-                        console.log("datatttt")
                         console.log(res.payload.data)
                         toast.error(`${res.payload.data}`, {
                             position: "top-right",

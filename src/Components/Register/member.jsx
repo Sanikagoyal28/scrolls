@@ -164,9 +164,10 @@ function Member() {
         if (isCorrect) {
             dispatch(RegMemberThunk(data)).
                 then((res) => {
+                    console.log(res)
                     if (res.payload.status === 201) {
                         dispatch(dialog0())
-                        toast.success(`${res.payload.data[0]}`, {
+                        toast.success(`${res.payload.data.msg}`, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -174,7 +175,7 @@ function Member() {
                        dispatch(dialog0())
                     }
                     else {
-                        toast.error(`${res.payload.data[0]}`, {
+                        toast.error(`${res.payload.data.msg}`, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,

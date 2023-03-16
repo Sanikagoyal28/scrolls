@@ -156,7 +156,7 @@ function CA2() {
             dispatch(RegCAThunk(data)).
                 then((res) => {
                     if (res.payload.status === 201) {
-                        toast.success(`${res.payload.data[0]}`, {
+                        toast.success(`${res.payload.data.msg}`, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -164,7 +164,7 @@ function CA2() {
                        dispatch(dialog0())
                     }
                     else {
-                        toast.error(`${res.payload.data[0]}`, {
+                        toast.error(`${res.payload.data.msg}`, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,

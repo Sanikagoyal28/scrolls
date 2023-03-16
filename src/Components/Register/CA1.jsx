@@ -36,7 +36,7 @@ function CA1 () {
                     then((res) => {
                         console.log(res)
                         if (res.payload.status === 200) {
-                            toast.success(`${res.payload.data[0]}`, {
+                            toast.success(`${res.payload.data.msg}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,
@@ -44,7 +44,7 @@ function CA1 () {
                             dispatch(dialog0())
                         }
                         else if (res.payload.status === 409) {
-                            toast.info(`${res.payload.data[0]}`, {
+                            toast.info(`${res.payload.data.msg}`, {
                                 position: "top-right",
                                 theme: "light",
                                 autoClose: 5000,

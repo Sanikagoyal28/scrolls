@@ -2,7 +2,6 @@ import Navbar from "../Navbar/navbar"
 import "./teamDB.css"
 import file from "../Assets/file.svg"
 
-
 function TeamDB() {
     return <>
         <Navbar />
