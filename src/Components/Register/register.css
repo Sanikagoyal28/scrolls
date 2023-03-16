@@ -250,7 +250,10 @@
     left: 50vw; */
     position:relative;
     left:10.4vw;
-    top: -32px;
+    top: 16px;
+}
+#loginPwd{
+    margin-top:-16px;
 }
 .inputPwd{
     margin-left:5.6vw;

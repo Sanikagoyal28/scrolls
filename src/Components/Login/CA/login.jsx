@@ -98,7 +98,7 @@ function Login() {
             ) : (
                 <FontAwesomeIcon icon={faEyeSlash} id="LogEye" onClick={handleShow1} />
             )}
-            <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={login1.password} onChange={(e) => setLogin1({ ...login1, password: e.target.value })} />
+            <input type={show1 ? "text" : "password"} className="regInputname" id="loginPwd" placeholder="Enter password" value={login1.password} onChange={(e) => setLogin1({ ...login1, password: e.target.value })} />
             <p className="forgotPass" onClick={() => { dispatch(dialog8()) }}>Forgot Password ?</p>
             {/* <p id="wrongPwdLog1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p> */}
             <button className="regContinue" onClick={() => { LoginCA1() }}>Continue</button>
