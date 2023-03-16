@@ -64,7 +64,7 @@
     margin-left: 14vw;
 }
 
-.navRegister {
+.navRegister, .liRegister {
     width: 8.5vw;
     height: 38px;
     background: #FAC949;
@@ -81,7 +81,7 @@
     margin-bottom: 12px;
 }
 
-.navLogin {
+.navLogin , .liLogin{
     width: 8.5vw;
     height: 38px;
     border: 1px solid #FAC949;
@@ -290,6 +290,13 @@
 
     .navScroll {
         font-size: 1.8rem;
+    }
+    .liRegister, .liLogin{
+        width:30vw;
+        color:#000;
+    }
+    .liRegister{
+        margin-bottom:0;
     }
 }
 

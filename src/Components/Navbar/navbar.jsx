@@ -21,8 +21,8 @@ function Navbar() {
                 <li>Domains</li>
                 <li>Previous Year</li>
                 <li>Contacts</li>
-                <li> <button className="navRegister" >Register</button></li>
-                <li><button className="navLogin" >Login</button></li>
+                <li> <button className="liRegister" >Register</button></li>
+                <li><button className="liLogin" >Login</button></li>
             </ul>
         </div>
 

@@ -31,6 +31,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { InstagramEmbed } from 'react-social-media-embed';
 import Navbar from "../Navbar/navbar";
+import menu from "../Assets/menu.svg"
+import cross from "../Assets/navCross.svg"
 
 function LandingPage() {
 
@@ -141,9 +143,13 @@ function LandingPage() {
     //     }
     // }, [reducerReg])
 
-    function showmenu(){
-        document.getElementById('uli').style.width="75vw";
-}
+    function showmenu() {
+        document.getElementById('uli').style.width = "60vw";
+    }
+
+    function close() {
+        document.getElementById('uli').style.width = 0;
+    }
 
     return <>
 
@@ -151,24 +157,38 @@ function LandingPage() {
             <InstagramEmbed url="https://www.instagram.com/p/CUbHfhpswxt/" width={328} />
         </div> */}
         
-        <Navbar />
+        {/* <Navbar /> */}
         {/* navbar */}
 
-        {/* <div className="navbar">
+        <div id='uli'>
+            <img src={cross} id='crossimg' onClick={close}></img>
+            <ul>
+                <li>Home</li>
+                <li>Domains</li>
+                <li>Previous Year</li>
+                <li>Contacts</li>
+                <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li>
+                <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
+            </ul>
+        </div>
+
+        <div className="navbar">
             <p className="navScroll">Scrolls<span className="navDot">.</span></p>
             <div className="navFlex1">
                 <p className="navHead">Home</p>
                 <p className="navHead">Domains</p>
                 <p className="navHead">Previous Year</p>
+                <p className="navHead">Updates</p>
                 <p className="navHead">Contact Us</p>
+
             </div>
             <div className="navFlex2">
-                <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }}>Register</button>
-                <button className="navLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }}>Login</button>
-                
+                <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button>
+                <button className="navLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button>
+                <img src={menu} id="menu" onClick={showmenu}></img>
             </div>
-        </div> */}
 
+        </div>
         {/* landing page */}
         <div className="landingPage">
             <div className="landBlock1">
@@ -318,7 +338,7 @@ function LandingPage() {
                 marginTop: 94
             }
         }} >
-            <Member />
+             <Member />
         </Dialog>
 
         <Dialog open={stepDialog.three} PaperProps={{
