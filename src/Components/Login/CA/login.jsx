@@ -59,8 +59,6 @@ function Login() {
                     }
                     if (res.payload.status == 200) {
                         localStorage.setItem("CA_ID",res.payload.data.id)
-                        localStorage.setItem("CA_accessToken", res.payload.data.tokens.access)
-                        localStorage.setItem("CA_refreshToken", res.payload.data.tokens.refresh)
                         dispatch(dialog0())
                         toast.success(`${res.payload.data.msg}`, {
                             position: "top-right",

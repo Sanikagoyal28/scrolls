@@ -237,14 +237,21 @@
 
 #LEye,
 #TEye,
-#CEye,
-#LogEye {
+#CEye
+ {
     position: relative;
     /* top: 32px; */
     left: 30vw;
     /* margin-top: -48px; */
 }
-
+#LogEye{
+    /* position: relative;
+    
+    left: 50vw; */
+    position:relative;
+    left:10.4vw;
+    top: -32px;
+}
 .inputPwd{
     margin-left:5.6vw;
 }
