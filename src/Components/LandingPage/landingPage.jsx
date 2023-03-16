@@ -30,6 +30,7 @@ import ForgotTeam from "../Login/TEAM/fgtTeam";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { InstagramEmbed } from 'react-social-media-embed';
+import Navbar from "../Navbar/navbar";
 
 function LandingPage() {
 
@@ -140,15 +141,20 @@ function LandingPage() {
     //     }
     // }, [reducerReg])
 
+    function showmenu(){
+        document.getElementById('uli').style.width="75vw";
+}
+
     return <>
 
         {/* <div style={{ display: 'flex', justifyContent: 'center', zIndex:"20", position:'fixed' }}>
             <InstagramEmbed url="https://www.instagram.com/p/CUbHfhpswxt/" width={328} />
         </div> */}
         
+        <Navbar />
         {/* navbar */}
 
-        <div className="navbar">
+        {/* <div className="navbar">
             <p className="navScroll">Scrolls<span className="navDot">.</span></p>
             <div className="navFlex1">
                 <p className="navHead">Home</p>
@@ -159,9 +165,9 @@ function LandingPage() {
             <div className="navFlex2">
                 <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }}>Register</button>
                 <button className="navLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }}>Login</button>
+                
             </div>
-            <p className="navFaq">FAQs</p>
-        </div>
+        </div> */}
 
         {/* landing page */}
         <div className="landingPage">
@@ -228,7 +234,7 @@ function LandingPage() {
                 <div id="timelineBorder">
                     <p className="aboutScroll" id="timelineHeading">Timeline</p>
                 </div>
-                <div className="group">
+                <div className="group1">
                     <div className="group">
                         <div className="timeline">
                             <div id="circle1" />

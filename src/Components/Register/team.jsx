@@ -114,6 +114,7 @@ function Team() {
             dispatch(RegTeamThunk(data)).
                 then((res) => {
                     console.log(res)
+
                     if (res.payload.status === 201) {
                         toast.success(`${res.payload.data.msg}`, {
                             position: "top-right",
@@ -122,65 +123,72 @@ function Team() {
                         });
                     }
                     else if (res.payload.status === 400) {
-                        console.log(res.payload.data)
-                        if (data.msg != "") {
-                            console.log("message")
-                            toast.error(`${res.payload.data.msg}`, {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                        }
-                        else if (data.leader_id != "") {
-                            console.log("leader id")
-                            toast.error(`${res.payload.data.leader_id}`, {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                        }
-                        else if (data.name != "") {
-                            console.log("name")
-                            toast.error(`${res.payload.data.name}`, {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                        }
-                        else if (data.member_2 != "") {
-                            console.log("member2")
-                            toast.error(`${res.payload.data.member_2}`, {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                        }
-                        else if (data.member_3 != "") {
-                            console.log("member 3")
-                            toast.error(`${res.payload.data.member_3}`, {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                        }
-                        else {
-                            console.log("else")
-                            toast.error(`${res.payload.data.msg}`, {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                        }
-                    }
-                    else {
-                        console.log(res.payload.data)
+                        console.log(Object.keys(data))
+                        console.log(Object.keys(data.first))
                         toast.error(`${res.payload.data}`, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
                         });
                     }
-                })
+                        //     if (data.msg != "") {
+                        //         console.log("message")
+                        //         toast.error(`${res.payload.data.msg}`, {
+                        //             position: "top-right",
+                        //             theme: "light",
+                        //             autoClose: 5000,
+                        //         });
+                        //     }
+                        //     else if (data.leader_id != "") {
+                        //         console.log("leader id")
+                        //         toast.error(`${res.payload.data.leader_id}`, {
+                        //             position: "top-right",
+                        //             theme: "light",
+                        //             autoClose: 5000,
+                        //         });
+                        //     }
+                        //     else if (data.name != "") {
+                        //         console.log("name")
+                        //         toast.error(`${res.payload.data.name}`, {
+                        //             position: "top-right",
+                        //             theme: "light",
+                        //             autoClose: 5000,
+                        //         });
+                        //     }
+                        //     else if (data.member_2 != "") {
+                        //         console.log("member2")
+                        //         toast.error(`${res.payload.data.member_2}`, {
+                        //             position: "top-right",
+                        //             theme: "light",
+                        //             autoClose: 5000,
+                        //         });
+                        //     }
+                        //     else if (data.member_3 != "") {
+                        //         console.log("member 3")
+                        //         toast.error(`${res.payload.data.member_3}`, {
+                        //             position: "top-right",
+                        //             theme: "light",
+                        //             autoClose: 5000,
+                        //         });
+                        //     }
+                        //     else {
+                        //         console.log("else")
+                        //         toast.error(`${res.payload.data.msg}`, {
+                        //             position: "top-right",
+                        //             theme: "light",
+                        //             autoClose: 5000,
+                        //         });
+                        //     }
+                        // }
+                        // else {
+                        //     console.log(res.payload.data)
+                        //     toast.error(`${res.payload.data}`, {
+                        //         position: "top-right",
+                        //         theme: "light",
+                        //         autoClose: 5000,
+                        //     });
+                        // }
+                    })
                 .catch((err) => {
                     console.log(err)
                 })
@@ -205,46 +213,48 @@ function Team() {
                 <p className="heading">Register as <span id="member">Team</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <p className="regName">Team Name</p>
-            <input type="text" className="regInputname" placeholder="Enter team name" value={team.name} onChange={(e) => { setTeam({ ...team, name: e.target.value }) }} />
-            <p className="regName">Team Size</p>
-            <select className="regInputname" value={team.size} onChange={(e) => { setTeam({ ...team, size: e.target.value }) }}>
-                <option >--select--</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-            <p className="regName">Referral Code</p>
-            <input type="text" className="regInputname" placeholder="Enter referral code" value={team.referral} onChange={(e) => { setTeam({ ...team, referral: e.target.value }) }} />
-            <p className="regName">Password</p>
-            {show1 ? (
-                <FontAwesomeIcon icon={faEye} id="TEye" onClick={handleShow1} />
-            ) : (
-                <FontAwesomeIcon icon={faEyeSlash} id="TEye" onClick={handleShow1} />
-            )}
-            <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={team.pass} onChange={(e) => { setTeam({ ...team, pass: e.target.value }) }} />
-            <p id="WrongPwdTeam1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
-            <p className="regName">Confirm Password</p>
-            {show2 ? (
-                <FontAwesomeIcon icon={faEye} id="TEye" onClick={handleShow2} />
-            ) : (
-                <FontAwesomeIcon icon={faEyeSlash} id="TEye" onClick={handleShow2} />
-            )}
-            <input type={show2 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={team.cPass} onChange={(e) => { setTeam({ ...team, cPass: e.target.value }) }} />
-            <p id="WrongPwdTeam2">Password entered in two fields must be same.</p>
-            <div className="teamLeader">
-                <p className="regName">Team Leader ID</p>
-                <input type="text" className="regInputname" placeholder="Enter ID" value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
-            </div>
-            <div className="teamLeader">
-                <p className="regName">Member 2 ID</p>
-                <input type="text" className="regInputname" placeholder="Enter ID" value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
-            </div>
-            <div className="teamLeader">
-                <p className="regName">Member 3 ID</p>
-                <input type="text" className="regInputname" placeholder="Enter ID" value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
-            </div>
-            <button className="regButton" onClick={RegAsTeam}>Register</button>
+            <form>
+                <p className="regName">Team Name</p>
+                <input required type="text" className="regInputname" placeholder="Enter team name" value={team.name} onChange={(e) => { setTeam({ ...team, name: e.target.value }) }} />
+                <p className="regName">Team Size</p>
+                <select required className="regInputname" value={team.size} onChange={(e) => { setTeam({ ...team, size: e.target.value }) }}>
+                    <option >--select--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <p className="regName">Referral Code</p>
+                <input required type="text" className="regInputname" placeholder="Enter referral code" value={team.referral} onChange={(e) => { setTeam({ ...team, referral: e.target.value }) }} />
+                <p className="regName">Password</p>
+                {show1 ? (
+                    <FontAwesomeIcon icon={faEye} id="TEye" onClick={handleShow1} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="TEye" onClick={handleShow1} />
+                )}
+                <input required type={show1 ? "text" : "password"} className="regInputname inputPwd" placeholder="Enter password" value={team.pass} onChange={(e) => { setTeam({ ...team, pass: e.target.value }) }} />
+                <p id="WrongPwdTeam1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
+                <p className="regName">Confirm Password</p>
+                {show2 ? (
+                    <FontAwesomeIcon icon={faEye} id="TEye" onClick={handleShow2} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="TEye" onClick={handleShow2} />
+                )}
+                <input required type={show2 ? "text" : "password"} className="regInputname inputPwd" placeholder="Enter password" value={team.cPass} onChange={(e) => { setTeam({ ...team, cPass: e.target.value }) }} />
+                <p id="WrongPwdTeam2">Password entered in two fields must be same.</p>
+                <div className="teamLeader">
+                    <p className="regName">Team Leader ID</p>
+                    <input required type="text" className="regInputname" placeholder="Enter ID" value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
+                </div>
+                <div className="teamLeader">
+                    <p className="regName">Member 2 ID</p>
+                    <input required type="text" className="regInputname" placeholder="Enter ID" value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
+                </div>
+                <div className="teamLeader">
+                    <p className="regName">Member 3 ID</p>
+                    <input required type="text" className="regInputname" placeholder="Enter ID" value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
+                </div>
+                <button className="regButton" onClick={RegAsTeam}>Register</button>
+            </form>
         </div>
         <ToastContainer />
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}

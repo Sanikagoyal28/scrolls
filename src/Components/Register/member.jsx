@@ -49,7 +49,8 @@ function Member() {
         if (rightName.test(input.name)) {
             document.getElementById("wrongName").style.display = "none";
             setIsCorrect(true);
-        } else if (input.name) {
+        }
+        else if (input.name) {
             document.getElementById("wrongName").style.display = "block";
             setIsCorrect(false);
         }
@@ -135,6 +136,28 @@ function Member() {
     }
 
     function RegAsMember() {
+
+        // if (!input.name) {
+        //     document.getElementById("wrongName").style.display = "block";
+        //     document.getElementById("wrongName").innerHTML = "Name is required";
+        // }
+        // if (!input.email) {
+        //     document.getElementById("wrongEmail").style.display = "block";
+        //     document.getElementById("wrongEmail").innerHTML = "Email is required";
+        // }
+        // if (!input.pass) {
+        //     document.getElementById("WrongPwd1").style.display = "block";
+        //     document.getElementById("WrongPwd1").innerHTML = "Password is required";
+        // }
+        // if (!input.confirmPass) {
+        //     document.getElementById("WrongPwd2").innerHTML = "Password is required";
+        //     document.getElementById("WrongPwd2").style.display = "block";
+        // }
+        // if (!input.mobile) {
+        //     document.getElementById("wrongNum").style.display = "block";
+        //     document.getElementById("wrongNum").innerHTML = "Contact number is required";
+        // }
+
         var data;
         if (input.course == "others") {
             data = {
@@ -161,7 +184,7 @@ function Member() {
             }
         }
         console.log(data)
-        if (isCorrect) {
+        if (input.name && input.email && input.pass && input.gender && input.mobile && input.course && input.college && input.year) {
             dispatch(RegMemberThunk(data)).
                 then((res) => {
                     console.log(res)
@@ -172,7 +195,7 @@ function Member() {
                             theme: "light",
                             autoClose: 5000,
                         });
-                       dispatch(dialog0())
+                        dispatch(dialog0())
                     }
                     else {
                         toast.error(`${res.payload.data.msg}`, {
@@ -206,66 +229,68 @@ function Member() {
                 <p className="heading">Register as <span id="member">Member</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <p className="regName">Name</p>
-            <input type="text" className="regInputname" id="input" placeholder="Enter your name" value={input.name} onChange={(e) => setInput({ ...input, name: e.target.value })} />
-            <p id="wrongName">Name must contain only alphabetic characters.</p>
-            <p className="regName">Email</p>
-            <input type="text" className="regInputname" placeholder="Enter your email" value={input.email} onChange={(e) => setInput({ ...input, email: e.target.value })} />
-            <p id="wrongEmail">Please enter a valid Email address</p>
-            <p className="regName">Password</p>
-            {show1 ? (
-                <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow1} />
-            ) : (
-                <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow1} />
-            )}
-            <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={input.pass} onChange={(e) => setInput({ ...input, pass: e.target.value })} />
-            <p id="WrongPwd1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
-            <p className="regName">Confirm Password</p>
-            {show2 ? (
-                <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow2} />
-            ) : (
-                <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow2} />
-            )}
-            <input type={show2 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={input.confirmPass} onChange={(e) => setInput({ ...input, confirmPass: e.target.value })} />
-            <p id="WrongPwd2">Password entered in two fields must be same.</p>
-            <p className="regName">Select your gender</p>
-            <div className="genders">
-                <button className="regGender" onClick={() => { chooseGender(0, "M") }} >Male</button>
-                <button className="regGender" onClick={() => { chooseGender(1, "F") }}>Female</button>
-                <button className="regGender" onClick={() => { chooseGender(2, "O") }}>Others</button>
-            </div>
-            <p className="regName">Mobile Number</p>
-            <input type="text" className="regInputname" placeholder="Enter phone number" value={input.mobile} onChange={(e) => setInput({ ...input, mobile: e.target.value })} />
-            <p id="wrongNum">Number must contain only numeric characters.</p>
-            <p className="regName">College Name</p>
-            <input type="text" className="regInputname" placeholder="Enter your college name" value={input.college} onChange={(e) => setInput({ ...input, college: e.target.value })} />
-            <p className="regName">Course</p>
-            <select className="regInputname" value={input.course} onChange={(e) => { setInput({ ...input, course: e.target.value }) }} >
-                <option id="option">--select--</option>
-                <option value="BE/BTech">BE/BTech</option>
-                <option value="MTech">M.Tech</option>
-                <option value="MCA">MCA</option>
-                <option value="MBA">MBA</option>
-                <option id="other" value="others">Others</option>
-            </select>
-            <input type="text" id="otherOption" placeholder="Enter course name" value={input.otherCourse} onChange={(e) => { setInput({ ...input, otherCourse: e.target.value }) }} />
-            <p className="regName">Branch</p>
-            <input type="text" className="regInputname" placeholder="Enter your branch" value={input.branch} onChange={(e) => { setInput({ ...input, branch: e.target.value }) }} />
-            <p id="wrongBranch">Please enter a valid branch.</p>
-            <p className="regName">Year of study</p>
-            <select className="regInputname" value={input.year} onChange={(e) => { setInput({ ...input, year: e.target.value }) }}>
-                <option >--select--</option>
-                {(input.course == "BE/BTech" || input.course == "others") ? <>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </> : <>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </>}
-            </select>
-            <button className="regButton" onClick={RegAsMember}>Register</button>
+            <form>
+                <p className="regName">Name</p>
+                <input required type="text" className="regInputname" id="input" placeholder="Enter your name" value={input.name} onChange={(e) => setInput({ ...input, name: e.target.value })} />
+                <p id="wrongName">Name must contain only alphabetic characters.</p>
+                <p className="regName">Email</p>
+                <input required type="text" className="regInputname" placeholder="Enter your email" value={input.email} onChange={(e) => setInput({ ...input, email: e.target.value })} />
+                <p id="wrongEmail">Please enter a valid Email address</p>
+                <p className="regName">Password</p>
+                {show1 ? (
+                    <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow1} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow1} />
+                )}
+                <input required type={show1 ? "text" : "password"} className="regInputname inputPwd" placeholder="Enter password" value={input.pass} onChange={(e) => setInput({ ...input, pass: e.target.value })} />
+                <p id="WrongPwd1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
+                <p className="regName">Confirm Password</p>
+                {show2 ? (
+                    <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow2} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow2} />
+                )}
+                <input required type={show2 ? "text" : "password"} className="regInputname inputPwd" placeholder="Enter password" value={input.confirmPass} onChange={(e) => setInput({ ...input, confirmPass: e.target.value })} />
+                <p id="WrongPwd2">Password entered in two fields must be same.</p>
+                <p className="regName">Select your gender</p>
+                <div className="genders">
+                    <button className="regGender" onClick={() => { chooseGender(0, "M") }} >Male</button>
+                    <button className="regGender" onClick={() => { chooseGender(1, "F") }}>Female</button>
+                    <button className="regGender" onClick={() => { chooseGender(2, "O") }}>Others</button>
+                </div>
+                <p className="regName">Mobile Number</p>
+                <input required type="text" className="regInputname" placeholder="Enter phone number" value={input.mobile} onChange={(e) => setInput({ ...input, mobile: e.target.value })} />
+                <p id="wrongNum">Number must contain only numeric characters.</p>
+                <p className="regName">College Name</p>
+                <input required type="text" className="regInputname" placeholder="Enter your college name" value={input.college} onChange={(e) => setInput({ ...input, college: e.target.value })} />
+                <p className="regName">Course</p>
+                <select required className="regInputname" value={input.course} onChange={(e) => { setInput({ ...input, course: e.target.value }) }} >
+                    <option id="option">--select--</option>
+                    <option value="BE/BTech">BE/BTech</option>
+                    <option value="MTech">M.Tech</option>
+                    <option value="MCA">MCA</option>
+                    <option value="MBA">MBA</option>
+                    <option id="other" value="others">Others</option>
+                </select>
+                <input type="text" id="otherOption" placeholder="Enter course name" value={input.otherCourse} onChange={(e) => { setInput({ ...input, otherCourse: e.target.value }) }} />
+                <p className="regName">Branch</p>
+                <input type="text" className="regInputname" placeholder="Enter your branch" value={input.branch} onChange={(e) => { setInput({ ...input, branch: e.target.value }) }} />
+                <p id="wrongBranch">Please enter a valid branch.</p>
+                <p className="regName">Year of study</p>
+                <select required className="regInputname" value={input.year} onChange={(e) => { setInput({ ...input, year: e.target.value }) }}>
+                    <option >--select--</option>
+                    {(input.course == "BE/BTech" || input.course == "others") ? <>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </> : <>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </>}
+                </select>
+                <button className="regButton" onClick={RegAsMember}>Register</button>
+            </form>
         </div>
         <ToastContainer />
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}

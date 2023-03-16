@@ -161,7 +161,7 @@ function CA2() {
                             theme: "light",
                             autoClose: 5000,
                         });
-                       dispatch(dialog0())
+                        dispatch(dialog0())
                     }
                     else {
                         toast.error(`${res.payload.data.msg}`, {
@@ -195,67 +195,68 @@ function CA2() {
                 <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <p className="regName">Name</p>
-            <input type="text" className="regInputname" id="input" placeholder="Enter your name" value={ca.name} onChange={(e) => setCA({ ...ca, name: e.target.value })} />
-            <p id="wrongNameCA">Name must contain only alphabetic characters.</p>
-            <p className="regName">Password</p>
-            {show1 ? (
-                <FontAwesomeIcon icon={faEye} id="CEye" onClick={handleShow1} />
-            ) : (
-                <FontAwesomeIcon icon={faEyeSlash} id="CEye" onClick={handleShow1} />
-            )}
-            <input type={show1 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={ca.pass} onChange={(e) => setCA({ ...ca, pass: e.target.value })} />
-            <p id="WrongPwdCA1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
-            <p className="regName">Confirm Password</p>
-            {show2 ? (
-                <FontAwesomeIcon icon={faEye} id="CEye" onClick={handleShow2} />
-            ) : (
-                <FontAwesomeIcon icon={faEyeSlash} id="CEye" onClick={handleShow2} />
-            )}
-            <input type={show2 ? "text" : "password"} className="regInputname" placeholder="Enter password" value={ca.confirmPass} onChange={(e) => setCA({ ...ca, confirmPass: e.target.value })} />
-            <p id="WrongPwdCA2">Password entered in two fields must be same.</p>
-            <p className="regName">Select your gender</p>
-            <div className="genders">
-                <button className="regGender" onClick={() => { chooseGenderCA(0, "M") }} >Male</button>
-                <button className="regGender" onClick={() => { chooseGenderCA(1, "F") }}>Female</button>
-                <button className="regGender" onClick={() => { chooseGenderCA(2, "O") }}>Others</button>
-            </div>
-            <p className="regName">Mobile Number</p>
-            <input type="text" className="regInputname" placeholder="Enter phone number" value={ca.mobile} onChange={(e) => setCA({ ...ca, mobile: e.target.value })} />
-            <p id="wrongNumCA">Number must contain only numeric characters.</p>
-            <p className="regName">College Name</p>
-            <input type="text" className="regInputname" placeholder="Enter your college name" value={ca.college} onChange={(e) => setCA({ ...ca, college: e.target.value })} />
-            <p className="regName">Course</p>
-            <select className="regInputname" value={ca.course} onChange={(e) => { setCA({ ...ca, course: e.target.value }) }} >
-                <option id="option">--select--</option>
-                <option value="BE/BTech">BE/BTech</option>
-                <option value="MTech">M.Tech</option>
-                <option value="MCA">MCA</option>
-                <option value="MBA">MBA</option>
-                <option id="other" value="others">Others</option>
-            </select>
-            <input type="text" id="otherCA" placeholder="Enter course name" value={ca.otherCourse} onChange={(e) => { setCA({ ...ca, otherCourse: e.target.value }) }} />
-            <p className="regName">Branch</p>
-            <input type="text" className="regInputname" placeholder="Enter your branch" value={ca.branch} onChange={(e) => { setCA({ ...ca, branch: e.target.value }) }} />
-            <p id="wrongBranchCA">Please enter a valid branch.</p>
-            <p className="regName">Year of study</p>
-            <select className="regInputname" value={ca.year} onChange={(e) => { setCA({ ...ca, year: e.target.value }) }}>
-                <option >--select--</option>
-                {(ca.course == "BE/BTech" || ca.course == "others") ? <>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </> : <>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </>}
-            </select>
-            <button className="regButton" onClick={RegAsCA}>Register</button>
+            <form>
+                <p className="regName">Name</p>
+                <input required type="text" className="regInputname" id="input" placeholder="Enter your name" value={ca.name} onChange={(e) => setCA({ ...ca, name: e.target.value })} />
+                <p id="wrongNameCA">Name must contain only alphabetic characters.</p>
+                <p className="regName">Password</p>
+                {show1 ? (
+                    <FontAwesomeIcon icon={faEye} id="CEye" onClick={handleShow1} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="CEye" onClick={handleShow1} />
+                )}
+                <input required type={show1 ? "text" : "password"} className="regInputname inputPwd" placeholder="Enter password" value={ca.pass} onChange={(e) => setCA({ ...ca, pass: e.target.value })} />
+                <p id="WrongPwdCA1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
+                <p className="regName">Confirm Password</p>
+                {show2 ? (
+                    <FontAwesomeIcon icon={faEye} id="CEye" onClick={handleShow2} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="CEye" onClick={handleShow2} />
+                )}
+                <input required type={show2 ? "text" : "password"} className="regInputname inputPwd" placeholder="Enter password" value={ca.confirmPass} onChange={(e) => setCA({ ...ca, confirmPass: e.target.value })} />
+                <p id="WrongPwdCA2">Password entered in two fields must be same.</p>
+                <p className="regName">Select your gender</p>
+                <div className="genders">
+                    <button className="regGender" onClick={() => { chooseGenderCA(0, "M") }} >Male</button>
+                    <button className="regGender" onClick={() => { chooseGenderCA(1, "F") }}>Female</button>
+                    <button className="regGender" onClick={() => { chooseGenderCA(2, "O") }}>Others</button>
+                </div>
+                <p className="regName">Mobile Number</p>
+                <input required type="text" className="regInputname" placeholder="Enter phone number" value={ca.mobile} onChange={(e) => setCA({ ...ca, mobile: e.target.value })} />
+                <p id="wrongNumCA">Number must contain only numeric characters.</p>
+                <p className="regName">College Name</p>
+                <input required type="text" className="regInputname" placeholder="Enter your college name" value={ca.college} onChange={(e) => setCA({ ...ca, college: e.target.value })} />
+                <p className="regName">Course</p>
+                <select required className="regInputname" value={ca.course} onChange={(e) => { setCA({ ...ca, course: e.target.value }) }} >
+                    <option id="option">--select--</option>
+                    <option value="BE/BTech">BE/BTech</option>
+                    <option value="MTech">M.Tech</option>
+                    <option value="MCA">MCA</option>
+                    <option value="MBA">MBA</option>
+                    <option id="other" value="others">Others</option>
+                </select>
+                <input required type="text" id="otherCA" placeholder="Enter course name" value={ca.otherCourse} onChange={(e) => { setCA({ ...ca, otherCourse: e.target.value }) }} />
+                <p className="regName">Branch</p>
+                <input required type="text" className="regInputname" placeholder="Enter your branch" value={ca.branch} onChange={(e) => { setCA({ ...ca, branch: e.target.value }) }} />
+                <p id="wrongBranchCA">Please enter a valid branch.</p>
+                <p className="regName">Year of study</p>
+                <select required className="regInputname" value={ca.year} onChange={(e) => { setCA({ ...ca, year: e.target.value }) }}>
+                    <option >--select--</option>
+                    {(ca.course == "BE/BTech" || ca.course == "others") ? <>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </> : <>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </>}
+                </select>
+                <button className="regButton" onClick={RegAsCA}>Register</button>
+            </form>
         </div>
         <ToastContainer />
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
-        {/* </Dialog> */}
 
     </>
 }
