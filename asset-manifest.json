@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/scrolls_college_project/static/css/main.d8fa0475.css",
-    "main.js": "/scrolls_college_project/static/js/main.09678a83.js",
+    "main.js": "/scrolls_college_project/static/js/main.5727d9cc.js",
     "static/js/787.e78ddfb4.chunk.js": "/scrolls_college_project/static/js/787.e78ddfb4.chunk.js",
     "static/media/scroll_bg.svg": "/scrolls_college_project/static/media/scroll_bg.a5332bc736c91899b3263afddc9cd408.svg",
     "static/media/letter_send.svg": "/scrolls_college_project/static/media/letter_send.d70b2efbadc6e2c989b416b183c99f95.svg",
@@ -17,11 +17,11 @@
     "static/media/file.svg": "/scrolls_college_project/static/media/file.31634ae102c0e84b368de7b352b3e386.svg",
     "static/media/arrow.svg": "/scrolls_college_project/static/media/arrow.3b6ad76ad782eec2f9e785dbdb25fbea.svg",
     "main.d8fa0475.css.map": "/scrolls_college_project/static/css/main.d8fa0475.css.map",
-    "main.09678a83.js.map": "/scrolls_college_project/static/js/main.09678a83.js.map",
+    "main.5727d9cc.js.map": "/scrolls_college_project/static/js/main.5727d9cc.js.map",
     "787.e78ddfb4.chunk.js.map": "/scrolls_college_project/static/js/787.e78ddfb4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d8fa0475.css",
-    "static/js/main.09678a83.js"
+    "static/js/main.5727d9cc.js"
   ]
 }
