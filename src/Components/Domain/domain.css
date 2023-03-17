@@ -1,0 +1,23 @@
+.Domain{
+    display: flex;
+    flex-direction: column;
+    padding:116px 10vw 10vw 80px;
+}
+
+.domainHead{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 2rem;
+line-height: 37px;
+color: #FAC949;
+}
+.domainText{
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 1rem;
+line-height: 20px;
+
+color: #000000;
+}

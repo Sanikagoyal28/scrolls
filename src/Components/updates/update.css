@@ -1,9 +1,7 @@
 .updates {
     display: flex;
     flex-direction: column;
-    padding-top: 116px;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    padding:116px 10vw 10vw 80px;
 }
 
 .updCard {

@@ -23,8 +23,8 @@ function TeamDB() {
     const [topic, setTopic] = useState('')
     const [uplDom, setUplDom] = useState('')
     const [uplTop, setUplTop] = useState('')
-    const [uplSyn, setUplSyn] = useState('')
-    const [uplPaper, setUplPaper] = useState('')
+    const [uplSyn, setUplSyn] = useState([])
+    const [uplPaper, setUplPaper] = useState([])
     const fd = new FormData()
     console.log(reducer)
     useEffect(() => {
@@ -46,15 +46,32 @@ function TeamDB() {
         setUplSyn('')
         setUplTop('')
     }
-    console.log(uplPaper, uplSyn)
     function handleSave() {
         fd.append('synopsis', uplSyn)
         fd.append('paper', uplPaper)
         fd.append('domain', uplDom)
         fd.append('topic', uplTop)
-        console.log(uplPaper, uplSyn)
+        dispatch(TeamDBDataThunk(fd)).
+            then((res) => {
+                console.log(res)
+                if (res.payload.status === 200) {
+                    toast.success(`${res.payload.data.msg}`, {
+                        position: "top-right",
+                        theme: "light",
+                        autoClose: 5000,
+                    });
+                } else {
+                    toast.error(`${res.payload.data.msg}`, {
+                        position: "top-right",
+                        theme: "light",
+                        autoClose: 5000,
+                    });
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
 
-        // dispatch(TeamDBDataThunk(data))
     }
 
     useEffect(() => {
@@ -68,15 +85,10 @@ function TeamDB() {
         }
     }, [reducer.loading])
 
-    useEffect(() => {
-        if (uplPaper) {
-            document.getElementById('uplPaper2').style.display = "flex"
-            document.getElementById('uplPaper1').style.display = "none"
-        } else {
-            document.getElementById('uplPaper2').style.display = "none"
-            document.getElementById('uplPaper1').style.display = "flex"
-        }
-    }, [uplPaper])
+    function handleChange(e) {
+        setUplPaper(e.target.files[0])
+    }
+    console.log(leader)
 
     return <>
         <Navbar />
@@ -115,21 +127,18 @@ function TeamDB() {
                 <p>Role</p>
                 <p>Scroll ID</p>
             </div>
-            <div className="member_box_data">
-                {/* {(leader != '' || leader != null) ? <> <p>{leader.name}</p>
-                    <p>Leader</p>
-                    <p>210000220</p></> : null} */}
-            </div>
-            {/* <div className="member_box_data">
-                {(member2 === '' || member2 === null) ? null : <> <p>{member2.name}</p>
-                    <p>Member</p>
-                    <p>210000220</p></>}
-            </div>
-            <div className="member_box_data">
-                {(member3 != '' || member3 != null) ? null : <> <p>{member3.name}</p>
-                    <p>Member</p>
-                    <p>210000220</p></>}
-            </div> */}
+
+            {(leader != '' || leader != null) ? <div className="team_box_data"><p>{leader.name}</p>
+                <p>Leader</p>
+                <p>210000220</p></div> : null}
+
+            {(member2 === '' || member2 === null) ? null : <div className="team_box_data"><p>{member2.name}</p>
+                <p>Member</p>
+                <p>210000220</p> </div>}
+
+            {(member3 === '' || member3 === null) ? null : <div className="member_box_data"><p>{member3.name}</p>
+                <p>Member</p>
+                <p>210000220</p></div>}
 
             <hr className="dbHR2" />
 
@@ -139,13 +148,15 @@ function TeamDB() {
                     <p className="dbText">Select Team Domain</p>
                 </div>
                 {domain === "" ? <>
-                    <select className="teamID_box" >
+                    <select className="teamID_box" onChange={(e) => { setUplDom(e.target.value) }} >
                         <option id="option">--select--</option>
-                        <option value="BE/BTech">Management Science</option>
-                        <option value="MTech">Electronics and Communication Engineering</option>
-                        <option value="MCA">Civil Engineering</option>
-                        <option value="MBA">Electrical and Electronics Engineering</option>
-                        <option id="other" value="others">Computer Science and Information Technology</option>
+                        <option value="Management Science">Management Science</option>
+                        <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Electrical and Electronics Engineering">Electrical and Electronics Engineering</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Information Technology">Information Technology</option>
+
                         <option value="MBA">Mechanical Engineering</option>
                     </select>
                 </> : <div className="teamID_box">{domain}</div>}
@@ -159,14 +170,14 @@ function TeamDB() {
                     <p className="dbText">Select Topic</p>
                 </div>
                 {topic === '' ? <>
-                    <select className="teamID_box" >
+                    <select className="teamID_box" onChange={(e) => { setUplTop(e.target.value) }}  >
                         <option id="option">--select--</option>
-                        <option value="BE/BTech">Management Science</option>
-                        <option value="MTech">Electronics and Communication Engineering</option>
-                        <option value="MCA">Civil Engineering</option>
-                        <option value="MBA">Electrical and Electronics Engineering</option>
-                        <option id="other" value="others">Computer Science and Information Technology</option>
-                        <option value="MBA">Mechanical Engineering</option>
+                        <option value="Django">Django</option>
+                        {/* <option value="MTech">Electronics and Communication Engineering</option> */}
+                        {/* <option value="MCA">Civil Engineering</option> */}
+                        {/* <option value="MBA">Electrical and Electronics Engineering</option> */}
+                        {/* <option id="other" value="others">Computer Science and Information Technology</option> */}
+                        {/* <option value="MBA">Mechanical Engineering</option> */}
                     </select>
                 </> : <div className="teamID_box">{topic}</div>}
             </div>
@@ -178,11 +189,14 @@ function TeamDB() {
                     <p className="dbHead">Synopsis</p>
                     <p className="dbText">Note: You can upload the document only once. Please carefully recheck your document while uploading.</p>
                 </div>
-                <div className="file_box">
-                    <label for="uploadFile"><img src={file} className="fileIcon" /></label>
-                    <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
-                    <p className="uploadText">Click to upload</p>
-                </div>
+                {(uplSyn.length == 0) ?
+                    <div className="file_box">
+                        <label for="uploadSyn"><img src={file} className="fileIcon" /></label>
+                        <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
+                        <p className="uploadText">Click to upload</p>
+                    </div> :
+                    <div className="teamID_box">{uplSyn.name}</div>}
+
             </div>
 
             <hr className="dbHR2" />
@@ -192,12 +206,13 @@ function TeamDB() {
                     <p className="dbHead">Paper</p>
                     <p className="dbText">Note: You can upload the document only once. Please carefully recheck your document while uploading.</p>
                 </div>
-                <div id="uplPaper1">
-                    <label for="uploadFile"><img src={file} className="fileIcon" /></label>
-                    <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" onChange={(e) => { setUplPaper(e.target.files[0]) }} hidden />
-                    <p className="uploadText">Click to upload</p>
-                </div>
-                <div id="uplPaper2">{uplPaper.name}</div>
+                {(uplPaper.length == 0) ?
+                    <div className="file_box">
+                        <label for="uploadFile"><img src={file} className="fileIcon" /></label>
+                        <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" onChange={(e) => { handleChange(e) }} hidden />
+                        <p className="uploadText">Click to upload</p>
+                    </div> :
+                    <div className="teamID_box">{uplPaper.name}</div>}
             </div>
 
             <hr className="dbHR2" />

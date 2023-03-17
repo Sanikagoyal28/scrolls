@@ -306,7 +306,7 @@
 /* TIMELINE */
 
 .landTimeline {
-    padding-left: 5vw;
+    /* padding-left: 5vw; */
     padding-bottom: 40px;
     padding-top: 56px;
 }
@@ -343,6 +343,7 @@
 
 .group {
     display: flex;
+    /* gap:2; */
     margin-right: 3vw;
     z-index: 4;
 }
@@ -425,7 +426,47 @@
     margin-left: -9vw;
 }
 
+/* timeline */
 
+.GrpTL{
+    /* display: flex; */
+}
+.TL1{
+display:flex;
+justify-content: space-around;
+}
+.TLCirc1{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #F0C63D;
+    z-index:4;
+}
+.TLh1{
+    width: 106%;
+    height: 4px;
+    position: relative;
+    bottom: 50px;
+    /* left: -5vw; */
+    background: #252525;
+    z-index: 2;
+}
+
+.grp1{
+
+}
+.circle1{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #252525;
+}
+.line1{
+    width: 2px;
+    height: 156px;
+    /* margin-left: 2px; */
+    background: #7c7b7b;
+}
 @media (max-width:1500px) {
     .landImage {
         /* width: 100vw; */
@@ -449,6 +490,9 @@
     .aboutText {
         margin-left: 0;
     }
+    /* .Dialogue1{
+        width:100vw;
+    } */
 }
 
 @media(max-width:1350px) {

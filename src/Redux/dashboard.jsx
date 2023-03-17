@@ -35,9 +35,11 @@ const TeamDBDataThunk = createAsyncThunk("db_data/team", async (data) => {
    
     return await Baseurl.patch("participants/team_dashboard/", data, config)
         .then((res) => {
+            console.log(res)
             return res
         })
         .catch((Err) => {
+            console.log(Err)
             return Err.response
         })
 })

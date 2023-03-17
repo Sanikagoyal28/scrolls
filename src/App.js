@@ -5,6 +5,7 @@ import TeamDB from "./Components/Dashboard/teamDB";
 import CaDB from "./Components/Dashboard/CaDB";
 import Update from "./Components/updates/update";
 import PreviousYear from "./Components/PreviousYear/year";
+import Domain1 from "./Components/Domain/cs";
 
 function App() {
   return <>
@@ -16,6 +17,7 @@ function App() {
       <Route path="/team_db" exact element={<TeamDB />} />
       <Route path="/updates" exact element={<Update />} />
       <Route path="/previous_year" exact element={<PreviousYear />} />
+      <Route path="/domain" exact element={<Domain1 />} />
     </Routes>
   </BrowserRouter>
   </>

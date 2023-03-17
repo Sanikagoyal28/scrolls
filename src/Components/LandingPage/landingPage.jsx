@@ -30,9 +30,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { InstagramEmbed } from 'react-social-media-embed';
 import Navbar from "../Navbar/navbar";
-import menu from "../Assets/menu.svg"
-import cross from "../Assets/navCross.svg"
-import { NavLink } from "react-router-dom";
 
 function LandingPage() {
 
@@ -132,7 +129,7 @@ function LandingPage() {
 
         {/* navbar */}
         <Navbar />
-      
+
         {/* landing page */}
         <div className="landingPage">
             <div className="landBlock1">
@@ -198,61 +195,77 @@ function LandingPage() {
                 <div id="timelineBorder">
                     <p className="aboutScroll" id="timelineHeading">Timeline</p>
                 </div>
-                <div className="group1">
-                    <div className="group">
-                        <div className="timeline">
-                            <div id="circle1" />
-                            <hr id="line1" />
-                            <div id="circle2" />
-                            <hr id="line2" />
-                            <hr id="line3" />
-                            <div id="circle3" />
-                        </div>
-                        <p className="timelineText">
+                <div className="GrpTL">
+                    <div className="TL1">
+                        <div className="TLCirc1" />
+                        <div className="TLCirc1" />
+                        <div className="TLCirc1" />
+                        <div className="TLCirc1" />
+                    </div>
+                    <div className="grp1">
+                        <div className="circle1" />
+                        <hr className="line1" />
+                    </div>
+                    <hr className="TLh1" />
+                    <p className="TlText">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
                         </p>
-                    </div>
-                    <div className="group" id="rotatedGroup">
-                        <div className="timeline">
-                            <div id="circle1" />
-                            <hr id="line1" />
-                            <div id="circle2" />
-                            <hr id="line2" />
-                            <hr id="line3" />
-                            <div id="circle3" />
-                        </div>
-                        <p className="timelineText" id="rotatedText">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
-                        </p>
-                    </div>
-                    <div className="group">
-                        <div className="timeline">
-                            <div id="circle1" />
-                            <hr id="line1" />
-                            <div id="circle2" />
-                            <hr id="line2" />
-                            <hr id="line3" />
-                            <div id="circle3" />
-                        </div>
-                        <p className="timelineText">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
-                        </p>
-                    </div>
-                    <div className="group" id="rotatedGroup">
-                        <div className="timeline">
-                            <div id="circle1" />
-                            <hr id="line1" />
-                            <div id="circle2" />
-                            <hr id="line2" />
-                            <hr id="line3" />
-                            <div id="circle3" />
-                        </div>
-                        <p className="timelineText" id="rotatedText">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
-                        </p>
-                    </div>
                 </div>
-                <hr className="timelineHR" />
+                {/* <div className="group1">
+                    <div className="group">
+                        <div className="timeline">
+                            <div id="circle1" />
+                            <hr id="line1" />
+                            <div id="circle2" />
+                            <hr id="line2" />
+                            <hr id="line3" />
+                            <div id="circle3" />
+                        </div>
+                        <p className="timelineText">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
+                        </p>
+                    </div>
+                    <div className="group" id="rotatedGroup">
+                        <div className="timeline">
+                            <div id="circle1" />
+                            <hr id="line1" />
+                            <div id="circle2" />
+                            <hr id="line2" />
+                            <hr id="line3" />
+                            <div id="circle3" />
+                        </div>
+                        <p className="timelineText" id="rotatedText">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
+                        </p>
+                    </div>
+                    <div className="group">
+                        <div className="timeline">
+                            <div id="circle1" />
+                            <hr id="line1" />
+                            <div id="circle2" />
+                            <hr id="line2" />
+                            <hr id="line3" />
+                            <div id="circle3" />
+                        </div>
+                        <p className="timelineText">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
+                        </p>
+                    </div>
+                    <div className="group" id="rotatedGroup">
+                        <div className="timeline">
+                            <div id="circle1" />
+                            <hr id="line1" />
+                            <div id="circle2" />
+                            <hr id="line2" />
+                            <hr id="line3" />
+                            <div id="circle3" />
+                        </div>
+                        <p className="timelineText" id="rotatedText">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
+                        </p>
+                    </div>
+                </div> */}
+                {/* <hr className="timelineHR" /> */}
             </div>
             <div className="landFooter">
                 <p className="footHead">Contact Us</p>
@@ -272,17 +285,18 @@ function LandingPage() {
             </div>
         </div>
 
+<div className="Dialogue1">
         <Dialog open={stepDialog.one}>
             <Register />
         </Dialog>
-
+</div>
         <Dialog open={stepDialog.two} PaperProps={{
             sx: {
                 maxHeight: 1240,
                 marginTop: 94
             }
         }} >
-             <Member />
+            <Member />
         </Dialog>
 
         <Dialog open={stepDialog.three} PaperProps={{
