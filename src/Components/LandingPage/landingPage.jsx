@@ -19,6 +19,7 @@ import Login1 from "../Login/login1";
 import { useDispatch, useSelector } from "react-redux"
 import Login from "../Login/CA/login";
 import "./landingPage.css"
+import "./timeline.css";
 import Reset from "../Login/CA/reset";
 import Otp from "../Login/CA/otp";
 import Forgot from "../Login/CA/fgtPwd";
@@ -196,21 +197,68 @@ function LandingPage() {
                     <p className="aboutScroll" id="timelineHeading">Timeline</p>
                 </div>
                 <div className="GrpTL">
-                    <div className="TL1">
-                        <div className="TLCirc1" />
-                        <div className="TLCirc1" />
-                        <div className="TLCirc1" />
-                        <div className="TLCirc1" />
-                    </div>
-                    <div className="grp1">
-                        <div className="circle1" />
-                        <hr className="line1" />
-                    </div>
-                    <hr className="TLh1" />
-                    <p className="TlText">
+                    <div className="tl_group2">
+                        <div className="tl_group1">
+                            <div id="tl_circle1" />
+                            <hr id="tl_line1" />
+                            <div id="tl_circle2" />
+                            <hr id="tl_line2" />
+                            <div id="tl_row">
+                                <hr id="tl_line3" />
+                                <div id="tl_circle3" />
+                            </div>
+                        </div>
+                        <p className="tl_Text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
                         </p>
+                    </div>
+                    <div className="tl_group2" id="tl_rotate_group">
+                        <div className="tl_group1">
+                            <div id="tl_circle1" />
+                            <hr id="tl_line1" />
+                            <div id="tl_circle2" />
+                            <hr id="tl_line2" />
+                            <div id="tl_row">
+                                <hr id="tl_line3" />
+                                <div id="tl_circle3" />
+                            </div>
+                        </div>
+                        <p className="tl_Text"  id="tl_rotate_text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
+                        </p>
+                    </div>
+                    <div className="tl_group2">
+                        <div className="tl_group1">
+                            <div id="tl_circle1" />
+                            <hr id="tl_line1" />
+                            <div id="tl_circle2" />
+                            <hr id="tl_line2" />
+                            <div id="tl_row">
+                                <hr id="tl_line3" />
+                                <div id="tl_circle3" />
+                            </div>
+                        </div>
+                        <p className="tl_Text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
+                        </p>
+                    </div>
+                    <div className="tl_group2" id="tl_rotate_group">
+                        <div className="tl_group1">
+                            <div id="tl_circle1" />
+                            <hr id="tl_line1" />
+                            <div id="tl_circle2" />
+                            <hr id="tl_line2" />
+                            <div id="tl_row">
+                                <hr id="tl_line3" />
+                                <div id="tl_circle3" />
+                            </div>
+                        </div>
+                        <p className="tl_Text"  id="tl_rotate_text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet fermentum eros. Nunc cursus mattis tellus sed commodo.
+                        </p>
+                    </div>
                 </div>
+                <hr className="tl_hr" />
                 {/* <div className="group1">
                     <div className="group">
                         <div className="timeline">
@@ -285,11 +333,11 @@ function LandingPage() {
             </div>
         </div>
 
-<div className="Dialogue1">
-        <Dialog open={stepDialog.one}>
-            <Register />
-        </Dialog>
-</div>
+        <div className="Dialogue1">
+            <Dialog open={stepDialog.one}>
+                <Register />
+            </Dialog>
+        </div>
         <Dialog open={stepDialog.two} PaperProps={{
             sx: {
                 maxHeight: 1240,

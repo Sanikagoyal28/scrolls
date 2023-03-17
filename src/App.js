@@ -6,6 +6,7 @@ import CaDB from "./Components/Dashboard/CaDB";
 import Update from "./Components/updates/update";
 import PreviousYear from "./Components/PreviousYear/year";
 import Domain1 from "./Components/Domain/cs";
+import Register from "./Components/Register/Register";
 
 function App() {
   return <>
@@ -20,6 +21,7 @@ function App() {
       <Route path="/domain" exact element={<Domain1 />} />
     </Routes>
   </BrowserRouter>
+  {/* <Register /> */}
   </>
 }
 

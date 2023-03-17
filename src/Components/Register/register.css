@@ -14,7 +14,7 @@
     outline: none;
     border: 1px solid #D9D9D9;
     border-radius: 5px;
-    margin-left: 7vw;
+    /* margin-left: 7vw; */
     padding-left: 1vw;
     font-family: 'Montserrat';
     font-style: normal;
@@ -80,10 +80,15 @@
     border-radius: 8px;
     padding-top: 24px;
     z-index: 5;
+    /* background-color: aqua; */
+    margin: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .regFlex {
     display: flex;
+    margin-top:-100px;
 }
 
 .cross {
@@ -353,12 +358,101 @@ margin-right:1vw;
     color: #000000;
 }
 
-
-@media (max-width:1250px){
-    .heading{
-        width:18vw;
+@media(max-width:1500px){
+    .register{
+        width:45vw;
     }
-    .asRegister{
+    .asRegister, .regInputname{
         width:30vw;
     }
+    
+}
+@media (max-width:1250px){
+    /* .heading{
+        width:18vw;
+    } */
+    .register{
+        width:48vw;
+    }
+    .asRegister, .regInputname{
+        width:33vw;
+    }
+}
+
+@media (max-width:1000px){
+    /* .heading{
+        width:18vw;
+    } */
+    .register{
+        width:52vw;
+    }
+    .asRegister, .regInputname{
+        width:37vw;
+    }
+}
+@media (max-width:850px){
+    /* .heading{
+        width:18vw;
+    } */
+    .register{
+        width:56vw;
+    }
+    .asRegister, .regInputname{
+        width:41vw;
+    }
+}
+
+@media (max-width:1250px){
+    .register{
+        width:55vw;
+    }
+    .asRegister, .regInputname{
+        width:35vw;
+    }
+}
+@media (max-width:750px){
+    .register{
+        width:64vw;
+    }
+    .asRegister, .regInputname{
+        width:47vw;
+    }
+  
+}
+@media (max-width:600px){
+    .heading{
+        font-size: 1.6rem;
+    }
+    .register{
+        width:68vw;
+    }
+    .asRegister, .regInputname{
+        width:51vw;
+    }
+  
+}
+
+@media (max-width:530px){
+    .heading{
+        font-size: 1.6rem;
+    }
+    .register{
+        width:74vw;
+    }
+    .asRegister, .regInputname{
+        width:55vw;
+    }
+}
+
+@media (max-width:450px){
+    .heading{
+        font-size: 1.5rem;
+    }
+    .register{
+        width:78vw;
+    }
+    .asRegister, .regInputname{
+        width:55vw;
+    }
+  
 }

@@ -33,6 +33,8 @@
     z-index: 1;
     opacity: 0.4;
     overflow: hidden;
+    background-size: cover ;
+    background: no-repeat center fixed;
 }
 
 .landFlex {

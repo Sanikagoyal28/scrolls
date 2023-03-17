@@ -1,7 +1,7 @@
 .Domain{
     display: flex;
     flex-direction: column;
-    padding:116px 10vw 10vw 80px;
+    padding:116px 10vw 8vw 80px;
 }
 
 .domainHead{
