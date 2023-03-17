@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { dialog0, dialog12, dialog6 , dialog8} from '../../../Redux/step';
 import { LoginTeamThunk } from '../../../Redux/loginSlice';
 import { Spinner } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 
 function LoginTeam () {
 
@@ -18,6 +19,7 @@ function LoginTeam () {
     const [show2, setShow2] = useState(false)
  
     const dispatch = useDispatch()
+    const navigate = useNavigate();
     const reducer = useSelector((s) => s.login)
 
     function handleShow1() {
@@ -58,15 +60,16 @@ function LoginTeam () {
                     });
                 }
                 if (res.payload.status == 200) {
-                    localStorage.setItem("CA_ID",res.payload.data.id)
-                    localStorage.setItem("CA_accessToken", res.payload.data.tokens.access)
-                    localStorage.setItem("CA_refreshToken", res.payload.data.tokens.refresh)
+                    localStorage.setItem("team_ID",res.payload.data.id)
+                    localStorage.setItem("accessToken", res.payload.data.tokens.access)
+                    localStorage.setItem("refreshToken", res.payload.data.tokens.refresh)
                     dispatch(dialog0())
                     toast.success(`${res.payload.data.msg}`, {
                         position: "top-right",
                         theme: "light",
                         autoClose: 5000,
                     });
+                    navigate('/team_db')
                 }
             })
     }

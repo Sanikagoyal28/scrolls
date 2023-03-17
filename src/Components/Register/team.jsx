@@ -80,42 +80,70 @@ function Team() {
 
     function RegAsTeam() {
 
-        if (team.referral) {
-            setRefferalCode(team.referral)
-        }
         var data;
-        if (team.size == 1) {
-            data = {
-                "name": team.name,
-                "size": parseInt(team.size),
-                "leader_id": parseInt(team.leaderId),
-                "referral_used": referralCode,
-                "password": team.pass
+        if (team.referral) {
+            if (team.size == 1) {
+                data = {
+                    "name": team.name,
+                    "size": parseInt(team.size),
+                    "leader_id": parseInt(team.leaderId),
+                    "referral_used": team.referral,
+                    "password": team.pass
+                }
+            }
+            if (team.size == 2) {
+                data = {
+                    "name": team.name,
+                    "size": parseInt(team.size),
+                    "leader_id": parseInt(team.leaderId),
+                    "member_2": parseInt(team.member2),
+                    "referral_used": team.referral,
+                    "password": team.pass
+                }
+            }
+            if (team.size == 3) {
+                data = {
+                    "name": team.name,
+                    "size": parseInt(team.size),
+                    "leader_id": parseInt(team.leaderId),
+                    "member_2": parseInt(team.member2),
+                    "member_3": parseInt(team.member3),
+                    "referral_used": team.referral,
+                    "password": team.pass
+                }
             }
         }
-        if (team.size == 2) {
-            data = {
-                "name": team.name,
-                "size": parseInt(team.size),
-                "leader_id": parseInt(team.leaderId),
-                "member_2": parseInt(team.member2),
-                "referral_used": referralCode,
-                "password": team.pass
+        else {
+            if (team.size == 1) {
+                data = {
+                    "name": team.name,
+                    "size": parseInt(team.size),
+                    "leader_id": parseInt(team.leaderId),
+                    "password": team.pass
+                }
             }
-        }
-        if (team.size == 3) {
-            data = {
-                "name": team.name,
-                "size": parseInt(team.size),
-                "leader_id": parseInt(team.leaderId),
-                "member_2": parseInt(team.member2),
-                "member_3": parseInt(team.member3),
-                "referral_used": referralCode,
-                "password": team.pass
+            if (team.size == 2) {
+                data = {
+                    "name": team.name,
+                    "size": parseInt(team.size),
+                    "leader_id": parseInt(team.leaderId),
+                    "member_2": parseInt(team.member2),
+                    "password": team.pass
+                }
+            }
+            if (team.size == 3) {
+                data = {
+                    "name": team.name,
+                    "size": parseInt(team.size),
+                    "leader_id": parseInt(team.leaderId),
+                    "member_2": parseInt(team.member2),
+                    "member_3": parseInt(team.member3),
+                    "password": team.pass
+                }
             }
         }
         console.log(data)
-        if (team.name && team.size && team.leaderId && team.referral && team.pass) {
+        if (team.name && team.size && team.leaderId && team.pass) {
             dispatch(RegTeamThunk(data)).
                 then((res) => {
                     console.log(res)
@@ -126,11 +154,14 @@ function Team() {
                             theme: "light",
                             autoClose: 5000,
                         });
+                        dispatch(dialog0())
                     }
-                    else if (res.payload.status === 400) {
-                        console.log(Object.keys(data))
-                        console.log(Object.keys(data.first))
-                        toast.error(`${res.payload.data}`, {
+                    if (res.payload.status === 400) {
+                        console.log(Object.keys(res.payload.data))
+                        let x = Object.keys(res.payload.data)
+                        console.log(typeof(x))
+                        console.log(res.payload.data[Object.keys(res.payload.data)[0]])
+                        toast.error(`${res.payload.data[Object.keys(res.payload.data)[0]]}`, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -161,7 +192,7 @@ function Team() {
                 <p className="heading">Register as <span id="member">Team</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form onSubmit={(e)=>e.preventDefault()}>
+            <form onSubmit={(e) => e.preventDefault()}>
                 <p className="regName">Team Name</p>
                 <input required type="text" className="regInputname" placeholder="Enter team name" value={team.name} onChange={(e) => { setTeam({ ...team, name: e.target.value }) }} />
                 <p className="regName">Team Size</p>

@@ -33,6 +33,7 @@ import { InstagramEmbed } from 'react-social-media-embed';
 import Navbar from "../Navbar/navbar";
 import menu from "../Assets/menu.svg"
 import cross from "../Assets/navCross.svg"
+import { NavLink } from "react-router-dom";
 
 function LandingPage() {
 
@@ -124,25 +125,6 @@ function LandingPage() {
 
     }, [step, dialogg])
 
-
-    // useEffect(() => {
-    //     if (reducer.msg  && login) {
-    //         toast.info(`${reducer.msg}`, {
-    //             position: "top-right",
-    //             theme: "light",
-    //         });
-    //     }
-    // }, [reducer])
-
-    // useEffect(() => {
-    //     if (reducerReg.msg && dialogg) {
-    //         toast.info(`${reducerReg.msg}`, {
-    //             position: "top-right",
-    //             theme: "light",
-    //         });
-    //     }
-    // }, [reducerReg])
-
     function showmenu() {
         document.getElementById('uli').style.width = "60vw";
     }
@@ -174,11 +156,11 @@ function LandingPage() {
         <div className="navbar">
             <p className="navScroll">Scrolls<span className="navDot">.</span></p>
             <div className="navFlex1">
-                <p className="navHead">Home</p>
-                <p className="navHead">Domains</p>
-                <p className="navHead">Previous Year</p>
-                <p className="navHead">Updates</p>
-                <p className="navHead">Contact Us</p>
+            <NavLink to="/"> <p className="navHead">Home</p></NavLink>
+                <NavLink to="/"><p className="navHead">Domains</p></NavLink>
+                <NavLink to="/previous_year"> <p className="navHead">Previous Year</p></NavLink>
+                <NavLink to="/updates"> <p className="navHead">Updates</p></NavLink>
+                <NavLink to="/"> <p className="navHead">Contact Us</p></NavLink>
 
             </div>
             <div className="navFlex2">

@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { dialog0, dialog6, dialog8 } from '../../../Redux/step';
 import { LoginCAThunk } from '../../../Redux/loginSlice';
 import { Spinner } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 
 function Login() {
 
@@ -17,6 +18,7 @@ function Login() {
     const [show1, setShow1] = useState(false)
     const [show2, setShow2] = useState(false)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const reducer = useSelector((s) => s.login)
 
     function handleShow1() {
@@ -65,6 +67,7 @@ function Login() {
                             theme: "light",
                             autoClose: 5000,
                         });
+                        navigate('/ca_db')
                     }
                 })
         }
