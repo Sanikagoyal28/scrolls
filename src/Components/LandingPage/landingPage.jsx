@@ -19,7 +19,6 @@ import Login1 from "../Login/login1";
 import { useDispatch, useSelector } from "react-redux"
 import Login from "../Login/CA/login";
 import "./landingPage.css"
-import "./Navbar.css"
 import Reset from "../Login/CA/reset";
 import Otp from "../Login/CA/otp";
 import Forgot from "../Login/CA/fgtPwd";
@@ -125,14 +124,6 @@ function LandingPage() {
 
     }, [step, dialogg])
 
-    function showmenu() {
-        document.getElementById('uli').style.width = "60vw";
-    }
-
-    function close() {
-        document.getElementById('uli').style.width = 0;
-    }
-
     return <>
 
         {/* <div style={{ display: 'flex', justifyContent: 'center', zIndex:"20", position:'fixed' }}>
@@ -140,36 +131,8 @@ function LandingPage() {
         </div> */}
 
         {/* navbar */}
-
-        <div id='uli'>
-            <img src={cross} id='crossimg' onClick={close}></img>
-            <ul>
-                <li>Home</li>
-                <li>Domains</li>
-                <li>Previous Year</li>
-                <li>Contacts</li>
-                <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li>
-                <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
-            </ul>
-        </div>
-
-        <div className="navbar">
-            <p className="navScroll">Scrolls<span className="navDot">.</span></p>
-            <div className="navFlex1">
-            <NavLink to="/"> <p className="navHead">Home</p></NavLink>
-                <NavLink to="/"><p className="navHead">Domains</p></NavLink>
-                <NavLink to="/previous_year"> <p className="navHead">Previous Year</p></NavLink>
-                <NavLink to="/updates"> <p className="navHead">Updates</p></NavLink>
-                <NavLink to="/"> <p className="navHead">Contact Us</p></NavLink>
-
-            </div>
-            <div className="navFlex2">
-                <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button>
-                <button className="navLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button>
-                <img src={menu} id="menu" onClick={showmenu}></img>
-            </div>
-
-        </div>
+        <Navbar />
+      
         {/* landing page */}
         <div className="landingPage">
             <div className="landBlock1">
@@ -379,7 +342,6 @@ function LandingPage() {
         }} >
             <LoginTeam />
         </Dialog>
-
 
         <Dialog open={stepDialog.twelve} PaperProps={{
             sx: { maxHeight: 500 }
