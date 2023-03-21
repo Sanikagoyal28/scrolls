@@ -31,6 +31,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { InstagramEmbed } from 'react-social-media-embed';
 import Navbar from "../Navbar/navbar";
+import TimeLine from "../TimeLine/timeLine";
 
 function LandingPage() {
 
@@ -196,7 +197,7 @@ function LandingPage() {
                 <div id="timelineBorder">
                     <p className="aboutScroll" id="timelineHeading">Timeline</p>
                 </div>
-                <div className="GrpTL">
+                {/* <div className="GrpTL">
                     <div className="tl_group2">
                         <div className="tl_group1">
                             <div id="tl_circle1" />
@@ -258,7 +259,7 @@ function LandingPage() {
                         </p>
                     </div>
                 </div>
-                <hr className="tl_hr" />
+                <hr className="tl_hr" /> */}
                 {/* <div className="group1">
                     <div className="group">
                         <div className="timeline">
@@ -315,6 +316,7 @@ function LandingPage() {
                 </div> */}
                 {/* <hr className="timelineHR" /> */}
             </div>
+            <TimeLine />
             <div className="landFooter">
                 <p className="footHead">Contact Us</p>
                 <div className="footIcons">

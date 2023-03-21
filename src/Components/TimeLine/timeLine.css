@@ -1,0 +1,29 @@
+.yellowCircle {
+    border-radius: 50%;
+    background-color: #F0C63D;
+    width: 4.44vw;
+    height: 4.44vw;
+}
+
+.timeline {
+    width: 100vw;
+    margin-left: -5vw;
+    margin-bottom: 5vw;
+}
+
+.mob_timeline{
+    display: none;
+}
+
+@media(max-width:600px) {
+    .timeline{
+        display: none;
+    }
+
+    .mob_timeline{
+        margin-top: -10vh;
+        margin-left: 10vw;
+        width: 80vw;
+        display: block ;
+    }
+}

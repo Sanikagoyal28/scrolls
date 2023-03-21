@@ -7,6 +7,7 @@ import Update from "./Components/updates/update";
 import PreviousYear from "./Components/PreviousYear/year";
 import Domain1 from "./Components/Domain/cs";
 import Register from "./Components/Register/Register";
+import TimeLine from "./Components/TimeLine/timeLine";
 
 function App() {
   return <>
@@ -19,6 +20,7 @@ function App() {
       <Route path="/updates" exact element={<Update />} />
       <Route path="/previous_year" exact element={<PreviousYear />} />
       <Route path="/domain" exact element={<Domain1 />} />
+      <Route path="timeline" exact element={<TimeLine />} />
     </Routes>
   </BrowserRouter>
   {/* <Register /> */}
