@@ -68,11 +68,14 @@ function ForgotTeam() {
                 <p className="heading">Forgot Password ?</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
+           
+            <form onSubmit={(e)=>e.preventDefault()} id="loginForm">
             <p className="forgotText">We’ll send you a One Time Password on this email.</p>
             <p className="regName">Email</p>
-            <input type="text" className="regInputname" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="text" required className="regInputname" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
             <p id="wrongEmailLog1">Please enter a valid Email address</p>
             <button className="regButton" onClick={ForgotPassword}>Continue</button>
+            </form>
         </div>
         <ToastContainer />
         {(loader) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}

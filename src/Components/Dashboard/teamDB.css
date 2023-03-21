@@ -37,9 +37,9 @@
 }
 
 .dbBtns{
-    margin-left:66vw;
-    width:20vw;
-    margin-top:-16px;
+    /* margin-left:66vw; */
+    /* width:20vw; */
+    /* margin-top:-16px; */
     display: flex;
 
 }
@@ -242,13 +242,16 @@
     .member_box {
         padding-top:8px;
     }
+    .dbCancel, .dbSave{
+        width:10vw;
+    }
 }
 @media(max-width:1000px){
     .dbCancel, .dbSave{
         width:10vw;
     }
     .dbBtns{
-        margin-left:64vw;
+        /* margin-left:64vw; */
     }
     .file_box{
         width:14vw;
@@ -267,10 +270,17 @@
     .teamID_box{
         margin-left: 6vw;
     }
+    .dbCancel, .dbSave{
+        width:12vw;
+    }
 }
 @media(max-width:900px){
     .teamID_box{
         margin-left: 6vw;
+    }
+    .teamID_box{
+        margin-left: 6vw;
+        width:34vw;
     }
 }
 @media(max-width:800px){
@@ -279,17 +289,8 @@
     }
     .teamID_box{
         margin-left: 6vw;
-        width:40vw;
+        width:36vw;
     }
-    /* .dbCancel{
-        width:60vw;
-    }
-    .dbBtns{
-        margin-left:40vw;
-    }
-    .dbSave{
-        width:100vw;
-    } */
     .file_box{
         width:18vw;
     }
@@ -297,10 +298,10 @@
         font-size: 0.9rem;
     }
     .member_box, .team_box_data{
-        width:68vw;
+        width:64vw;
     }
     .member_box_data{
-        width:68vw;
+        width:64vw;
     }
 }
 
@@ -315,10 +316,13 @@
         width:22vw;
     }
     .member_box, .team_box_data{
-        width:60vw;
+        width:64vw;
     }
     .member_box_data{
-        width:60vw;
+        width:64vw;
+    }
+    .dbSave, .dbCancel{
+        width:14vw;
     }
 }
 @media(max-width:500px){
@@ -327,16 +331,21 @@
         margin-left: 4vw;
     }
     .member_box, .team_box_data{
-        width:76vw;
+        width:72vw;
     }
     .member_box_data{
-        width:76vw;
+        width:72vw;
     }
+    .dbSave, .dbCancel{
+        width:18vw;
+        margin-right:2vw;
+    }
+
 }
 
 @media(max-width:450px){
-    .dbBtns{
-        /* display: none; */
+    .dbSave, .dbCancel{
+        width:20vw;
     }
     .dbText{
         width:30vw;
@@ -351,21 +360,11 @@
         width:40vw;
         margin-left: 4vw;
     }
-    .member_box{
-        width:74vw;
-    }
-    .member_box_data{
-        width:74vw;
-    }
-    .dbCancel{
-        /* position:absolute; */
-        /*  */
-    }
     .member_box, .team_box_data{
-        width:76vw;
+        width:72vw;
     }
     .member_box_data{
-        width:76vw;
+        width:72vw;
     }
 }
 @media (max-width:400px){

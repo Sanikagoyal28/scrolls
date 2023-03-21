@@ -1,0 +1,175 @@
+.logoutDiv {
+    display: flex;
+    /* position:absolute; */
+    /* top:20vh; */
+    /* left:29vw; */
+    width: 38vw;
+    height: 320px;
+    background-color: #FFFFFF;
+    padding-left: 1.5vw;
+    padding-top: 40px;
+    box-shadow: 0px 264px 106px rgba(23, 25, 28, 0.01), 0px 149px 89px rgba(23, 25, 28, 0.05), 0px 66px 66px rgba(23, 25, 28, 0.09), 0px 17px 36px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1);
+    border-radius: 16px;
+    box-shadow: 0px 50px 80px #1A1C1E;
+    border: 0.7px solid rgba(255, 255, 255, 0.2);
+    z-index: 110;
+}
+
+.lOut1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.logoutText1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.logoutText2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.logoutbtn1 {
+    width: 18vw;
+    height: 38px;
+    background: #FAC949;
+    border-radius: 8px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    border: none;
+    margin-bottom: 12px;
+    margin-top: 25px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.logoutbtn2 {
+    box-sizing: border-box;
+    width: 18vw;
+    height: 38px;
+    background: #F2F2F2;
+    border: 0.5px solid #FAC949;
+    border-radius: 8px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.logoutImage {
+    width: 220px;
+    height: 180px;
+    margin-top: 126px;
+    margin-left:1vw;
+}
+
+@media (max-width:1330px) {
+    .logoutImage {
+        width: 200px;
+        margin-left: 0vw;
+    }
+}
+
+@media (max-width:1270px) {
+    .lOut2{
+        margin-left: -2vw;
+    }
+    .logoutbtn1, .logoutbtn2 {
+        width:16vw;
+    }
+}
+
+@media (max-width:1200px) {
+    .lOut2{
+        margin-left: -4vw;
+    }
+}
+
+@media (max-width:1100px) {
+    .lOut2{
+        margin-left: -6vw;
+    }
+}
+
+@media (max-width:1000px) {
+    .lOut2{
+        margin-left: -8vw;
+    }
+    .logoutDiv {
+        width: 44vw;
+    }
+}
+
+
+@media (max-width:900px) {
+    .lOut2{
+        margin-left: -10vw;
+    }
+}
+
+
+@media (max-width:800px) {
+    .lOut2{
+        margin-left: -12vw;
+    }
+    .logoutDiv {
+        width: 48vw;
+    }
+    .logoutbtn1, .logoutbtn2{
+        width:17vw;
+    }
+}
+
+@media (max-width:700px) {
+    .lOut2{
+        margin-left: -12vw;
+    }
+    .logoutDiv {
+        width: 60vw;
+    }
+    .logoutbtn1, .logoutbtn2{
+        width:20vw;
+    }
+}
+
+@media (max-width:600px) {
+    .lOut2{
+        margin-left: -16vw;
+    }
+    .logoutDiv {
+        width: 68vw;
+    }
+    .logoutbtn1, .logoutbtn2{
+        width:24vw;
+    }
+}
+
+@media (max-width:500px) {
+    .lOut2{
+        margin-left: -24vw;
+    }
+    .logoutDiv {
+        width: 74vw;
+    }
+    .logoutbtn1, .logoutbtn2{
+        width:30vw;
+    }
+}
+
+@media (max-width:400px) {
+    .logoutDiv {
+        width: 80vw;
+    }
+}

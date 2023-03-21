@@ -2,6 +2,7 @@ import cross from "../Assets/cross.svg"
 import arrow from "../Assets/arrow.svg"
 import { useDispatch, useSelector } from "react-redux"
 import { dialog0, dialog11, dialog7 } from "../../Redux/step"
+import "../Register/register.css"
 
 function Login1 () {
 
@@ -9,7 +10,7 @@ function Login1 () {
 
 return <>
      <div className="register" id="regDiv">
-                <div className="regFlex">
+                <div className="regFlex" id="LoginOpt" >
                     <img className="arrow" src={arrow} />
                     <p className="heading" id="registerAs">Login as</p>
                     <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />

@@ -1,8 +1,4 @@
-import { checkboxClasses } from "@mui/material";
 import { createSlice } from "@reduxjs/toolkit"
-import CA1 from "../Components/Register/CA1";
-import Member from "../Components/Register/member";
-
 
 const initialState ={
     step:0
@@ -57,11 +53,14 @@ const StepSlice = createSlice({
         dialog14:function (state){
             state.step = 14 ;
         },
+        logout: function(state){
+            state.step = 15;
+        }
     }
 })
 
 export default StepSlice;
-export const {dialog0, dialog1, dialog2, dialog3, dialog4, dialog5, dialog6, dialog7, dialog8, dialog9, dialog10, dialog11, dialog12, dialog13, dialog14} = StepSlice.actions;
+export const {dialog0, dialog1, dialog2, dialog3, dialog4, dialog5, dialog6, dialog7, dialog8, dialog9, dialog10, dialog11, dialog12, dialog13, dialog14, logout} = StepSlice.actions;
 
 
 // 1. register 1

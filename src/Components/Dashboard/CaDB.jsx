@@ -27,7 +27,6 @@ function CaDB() {
         setCollege(reducer.dataCA.college)
         // setTeams(reducer.dataCA.list of teams)
         setLeaderboard(reducer.dataCA.leaderboard)
-
     }, [])
 
     useEffect(() => {
@@ -40,6 +39,7 @@ function CaDB() {
             document.body.style.opacity = 1;
         }
     }, [reducer.loading])
+    console.log(leaderboard)
 
     return <>
         <Navbar />

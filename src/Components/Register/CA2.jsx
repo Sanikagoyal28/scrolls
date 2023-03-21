@@ -195,7 +195,7 @@ function CA2() {
                 <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form>
+            <form onSubmit={(e)=>e.preventDefault()}>
                 <p className="regName">Name</p>
                 <input required type="text" className="regInputname" id="input" placeholder="Enter your name" value={ca.name} onChange={(e) => setCA({ ...ca, name: e.target.value })} />
                 <p id="wrongNameCA">Name must contain only alphabetic characters.</p>

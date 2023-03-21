@@ -10,6 +10,7 @@ import { dialog0, dialog12, dialog6 , dialog8} from '../../../Redux/step';
 import { LoginTeamThunk } from '../../../Redux/loginSlice';
 import { Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
+import { setTitle } from '../../../Redux/heading';
 
 function LoginTeam () {
 
@@ -49,6 +50,8 @@ function LoginTeam () {
             "password": login1.password
         }
         console.log(data)
+        dispatch(setTitle("Team"))
+        if(login1.email && login1.password){
         dispatch(LoginTeamThunk(data)).
             then((res) => {
                 console.log(res)
@@ -64,6 +67,7 @@ function LoginTeam () {
                     localStorage.setItem("accessToken", res.payload.data.tokens.access)
                     localStorage.setItem("refreshToken", res.payload.data.tokens.refresh)
                     dispatch(dialog0())
+                    dispatch(setTitle("Team"))
                     toast.success(`${res.payload.data.msg}`, {
                         position: "top-right",
                         theme: "light",
@@ -72,6 +76,7 @@ function LoginTeam () {
                     navigate('/team_db')
                 }
             })
+        }
     }
 
     useEffect(() => {
@@ -88,24 +93,26 @@ function LoginTeam () {
 
     return <>
             <div className="register" id="regDiv">
-                <div className="regFlex">
+                <div className="regFlex" id="loginHeadbox">
                     <img className="arrow" src={arrow} onClick={() => { dispatch(dialog6()) }} />
                     <p className="heading" id="registerCA">Login as <span id="member">Team</span></p>
                     <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
                 </div>
+                <form onSubmit={(e)=>e.preventDefault()} id="loginForm">
                 <p className="regName">Team ID/ Email ID</p>
-                <input type="text" className="regInputname" placeholder="Enter your email" value={login1.email} onChange={(e) => setLogin1({ ...login1, email: e.target.value })} />
+                <input required type="text" className="regInputname" placeholder="Enter your email" value={login1.email} onChange={(e) => setLogin1({ ...login1, email: e.target.value })} />
                 <p id="wrongEmailLog1">Please enter a valid Email address</p>
                 <p className="regName">Password</p>
                 {show1 ? (
-                    <FontAwesomeIcon icon={faEye} id="LogEye" onClick={handleShow1} />
+                    <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow1} />
                 ) : (
-                    <FontAwesomeIcon icon={faEyeSlash} id="LogEye" onClick={handleShow1} />
+                    <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow1} />
                 )}
-                <input type={show1 ? "text" : "password"} className="regInputname" id="loginPwd" placeholder="Enter password" value={login1.password} onChange={(e) => setLogin1({ ...login1, password: e.target.value })} />
+                <input required type={show1 ? "text" : "password"} className="regInputname inputPwd" placeholder="Enter password" value={login1.password} onChange={(e) => setLogin1({ ...login1, password: e.target.value })} />
                 <p className="forgotPass" onClick={() => { dispatch(dialog12()) }}>Forgot Password ?</p>
                 {/* <p id="wrongPwdLog1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p> */}
                 <button className="regContinue" onClick={() => { LogTeam() }}>Continue</button>
+                </form>
             </div>
             <ToastContainer />
         {(loader) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}

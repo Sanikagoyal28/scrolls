@@ -202,7 +202,7 @@ function Member() {
 
     return <>
         <div className="register">
-            <div className="regFlex">
+            <div className="regFlex" id="memberReg">
                 <img className="arrow" src={arrow} onClick={() => { dispatch(dialog1()) }} />
                 <p className="heading">Register as <span id="member">Member</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />

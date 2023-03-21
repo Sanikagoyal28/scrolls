@@ -38,7 +38,7 @@
 
 .carousel{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 .carousel > div {
     width:70vw;

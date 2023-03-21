@@ -92,6 +92,7 @@ console.log(res)
                 <p className="heading">OTP Verification</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
+            <form onSubmit={(e)=>e.preventDefault()} id="loginForm">
             <p className="forgotText">Enter 4 digit OTP send to example@gmail.com</p>
             <div className="otpInputFlex">
                 <OtpField className="otpInputFlex"
@@ -109,6 +110,7 @@ console.log(res)
                 <span id="timer">00:{seconds}</span>
             </div>
             <button className="regButton" onClick={Otp}>Continue</button>
+            </form>
         </div>
 
         <ToastContainer />
