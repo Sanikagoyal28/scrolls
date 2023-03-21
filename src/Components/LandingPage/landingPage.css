@@ -284,11 +284,11 @@
     padding-left: 3vw;
 }
 
-#footFlex3{
+#footFlex3 {
     margin-left: 12vw;
 }
 
-#footFlex4{
+#footFlex4 {
     margin-left: 14vw;
 }
 
@@ -382,10 +382,8 @@
 /* TIMELINE */
 
 .landTimeline {
-    /* padding-left: 5vw; */
     padding-bottom: 40px;
     padding-top: 56px;
-    padding-right: 2vw;
 }
 
 #timelineBorder {
@@ -408,10 +406,6 @@
     .landBlock1 {
         overflow: hidden;
     }
-
-    .group1 {
-        padding-left: 4vw;
-    }
 }
 
 @media(max-width:1420px) {
@@ -421,35 +415,7 @@
 
 }
 
-@media(max-width:1250px) {
-    .group {
-        margin-right: 2vw;
-    }
-
-    #line3 {
-        margin-left: 3.1vw;
-        height: 74px;
-        margin-top: -36px;
-    }
-}
-
 @media (max-width:1150px) {
-    #line3 {
-
-        height: 64px;
-        margin-top: -34px;
-    }
-
-    .group1 {
-        padding-left: 2vw;
-        margin-left: -2vw;
-
-    }
-
-    .group {
-        margin-right: 1.5vw;
-        margin-left: -1vw;
-    }
 
     .aboutScroll {
         font-size: 1.7rem;
@@ -479,30 +445,9 @@
     .aboutScroll {
         font-size: 1.5rem;
     }
-
-    .group {
-        margin-left: -2.5vw;
-    }
 }
 
 @media(max-width:950px) {
-    .group {
-        margin-left: -6vw;
-    }
-
-    .group1 {
-        padding-left: 6vw;
-    }
-
-    #line3 {
-        height: 58px;
-        margin-top: -30px;
-    }
-
-    #circle3 {
-        margin-top: -76px;
-    }
-
     .footIcons {
         margin-left: 70vw;
     }
@@ -528,34 +473,6 @@
 }
 
 @media(max-width:850px) {
-    .group {
-        margin-left: -8vw;
-        margin-right: 4vw;
-    }
-
-    .group1 {
-        padding-left: 12vw;
-        padding-right: 0;
-    }
-
-    #line3 {
-        height: 54px;
-        margin-top: -28px;
-    }
-
-    #circle3 {
-        width: 60px;
-        height: 60px;
-    }
-
-    #rotatedGroup {
-        margin-top: 54px;
-    }
-
-    .timelineText {
-        margin-left: -11vw;
-    }
-
     .footIcons {
         margin-left: 68vw;
     }
@@ -582,21 +499,6 @@
 }
 
 @media(max-width:800px) {
-    .group {
-        margin-left: -10vw;
-        margin-right: 4vw;
-    }
-
-    .group1 {
-        padding-left: 14vw;
-        padding-right: 0;
-    }
-
-    #line3 {
-        height: 50px;
-        margin-top: -26px;
-    }
-
     .aboutHead {
         width: 50vw;
         margin-left: 15vw;
@@ -654,75 +556,9 @@
     .aboutScroll {
         font-size: 1.4rem;
     }
-
-    .group {
-        margin-left: -12vw;
-        margin-right: 6vw;
-    }
-
-    .group1 {
-        padding-left: 18vw;
-        padding-right: 0;
-    }
-
-    #circle3 {
-        width: 56px;
-        height: 56px;
-    }
-
-    #rotatedGroup {
-        margin-top: 58px;
-    }
-
-    .timelineText {
-        width: 120px;
-    }
 }
 
 @media(max-width:700px) {
-
-    .group1,
-    .timelineHR {
-        transform: rotate(-90deg)
-    }
-
-    .timelineHR {
-        margin-top: 200px;
-        margin-left: 1vw;
-        /* width:-90%; */
-    }
-
-    .group1 {
-        /* margin-bottom:-150px; */
-    }
-
-    #circle3 {
-        width: 64px;
-        height: 64px;
-    }
-
-    .group {
-        margin-right: 0vw;
-        /* margin-left:2vw; */
-
-    }
-
-    .timelineText {
-        transform: rotate(90deg);
-        margin-right: 20px;
-        /* margin-bottom:20px; */
-    }
-
-    #rotatedText {
-        transform: rotate(-90deg);
-        /* transform: rotate(180deg); */
-        transform: scaleY(-1);
-    }
-
-    #rotatedGroup {
-        margin-top: 54px;
-    }
-
     .footIcons {
         margin-left: 64vw;
     }

@@ -14,23 +14,22 @@ import DomainCs from "./Components/Domain/cs";
 
 function App() {
   return <>
-  <BrowserRouter basename={process.env.PUBLIC_URL}>
-  {/* <BrowserRouter> */}
-    <Routes>
-      <Route path="/" exact element={<LandingPage /> } />
-      <Route path="/ca_db" exact element={<CaDB />} />
-      <Route path="/team_db" exact element={<TeamDB />} />
-      <Route path="/updates" exact element={<Update />} />
-      <Route path="/previous_year" exact element={<PreviousYear />} />
-      <Route path="/domain_cs" exact element={<DomainCs />} />
-      <Route path="/domain_me" exact element={<DomainMe />} />
-      <Route path="/domain_civil" exact element={<DomainCivil />} />
-      <Route path="/domain_ece" exact element={<DomainEce />} />
-      <Route path="/domain_en" exact element={<DomainEn />} />
-      <Route path="/domain_management" exact element={<DomainManage />} />
-
-    </Routes>
-  </BrowserRouter>
+    {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<LandingPage />} />
+        <Route path="/ca_db" exact element={<CaDB />} />
+        <Route path="/team_db" exact element={<TeamDB />} />
+        <Route path="/updates" exact element={<Update />} />
+        <Route path="/previous_year" exact element={<PreviousYear />} />
+        <Route path="/domain_cs" exact element={<DomainCs />} />
+        <Route path="/domain_me" exact element={<DomainMe />} />
+        <Route path="/domain_civil" exact element={<DomainCivil />} />
+        <Route path="/domain_ece" exact element={<DomainEce />} />
+        <Route path="/domain_en" exact element={<DomainEn />} />
+        <Route path="/domain_management" exact element={<DomainManage />} />
+      </Routes>
+    </BrowserRouter>
   </>
 }
 

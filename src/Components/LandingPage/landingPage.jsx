@@ -3,8 +3,6 @@ import domainLogo from "../Assets/domainLogo.svg"
 import instagram from "../Assets/Instagram.svg";
 import phone from "../Assets/phone.svg"
 import horizon from "../Assets/horizon.svg";
-import sendIcon from "../Assets/letter_send.svg"
-import group from "../Assets/Group.svg"
 import SI from "../Assets/SI_logo.svg"
 import { useEffect, useState } from "react";
 import { Dialog } from "@mui/material";
@@ -30,6 +28,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { InstagramEmbed } from 'react-social-media-embed';
 import Navbar from "../Navbar/navbar";
+import timeline from "../Assets/timeline.svg"
+import mobTimeline from "../Assets/mob_timeline.svg"
 
 function LandingPage() {
 
@@ -202,88 +202,12 @@ function LandingPage() {
                 <div id="timelineBorder">
                     <p className="aboutScroll" id="timelineHeading">Timeline</p>
                 </div>
-                <div id="Image">
-                    <img src={group} id="groupImage" />
+                <div>
+                    <img src={timeline} className="timeline" />
+                    <img src={mobTimeline} className="mob_timeline" />
                 </div>
-                {/* <div className="GrpTL">
-                    <div className="tl_group2">
-                        <div className="tl_group1">
-                            <div id="tl_circle1" />
-                            <hr id="tl_line1" />
-                            <div id="tl_circle2" />
-                            <hr id="tl_line2" />
-                            <div id="tl_row">
-                                <hr id="tl_line3" />
-                                <div id="tl_circle3" />
-                            </div>
-                        </div>
-                        <p className="tl_Text">
-                            Registration begins 20th March - 14th April
-                        </p>
-                    </div>
-                    <div className="tl_group2" id="tl_rotate_group">
-                        <div className="tl_group1">
-                            <div id="tl_circle1" />
-                            <hr id="tl_line1" />
-                            <div id="tl_circle2" />
-                            <hr id="tl_line2" />
-                            <div id="tl_row">
-                                <hr id="tl_line3" />
-                                <div id="tl_circle3" />
-                            </div>
-                        </div>
-                        <p className="tl_Text" id="tl_rotate_text">
-                            Synopsis submission closes - 16th April
-                        </p>
-                    </div>
-                    <div className="tl_group2">
-                        <div className="tl_group1">
-                            <div id="tl_circle1" />
-                            <hr id="tl_line1" />
-                            <div id="tl_circle2" />
-                            <hr id="tl_line2" />
-                            <div id="tl_row">
-                                <hr id="tl_line3" />
-                                <div id="tl_circle3" />
-                            </div>
-                        </div>
-                        <p className="tl_Text">
-                            Notification of Acceptance - 24th April
-                        </p>
-                    </div>
-                    <div className="tl_group2" id="tl_rotate_group">
-                        <div className="tl_group1">
-                            <div id="tl_circle1" />
-                            <hr id="tl_line1" />
-                            <div id="tl_circle2" />
-                            <hr id="tl_line2" />
-                            <div id="tl_row">
-                                <hr id="tl_line3" />
-                                <div id="tl_circle3" />
-                            </div>
-                        </div>
-                        <p className="tl_Text" id="tl_rotate_text">
-                            Submission of final paper - 2nd May
-                        </p>
-                    </div>
-                    <div className="tl_group2">
-                        <div className="tl_group1">
-                            <div id="tl_circle1" />
-                            <hr id="tl_line1" />
-                            <div id="tl_circle2" />
-                            <hr id="tl_line2" />
-                            <div id="tl_row">
-                                <hr id="tl_line3" />
-                                <div id="tl_circle3" />
-                            </div>
-                        </div>
-                        <p className="tl_Text">
-                            Main event - 5th May
-                        </p>
-                    </div>
-                </div> */}
-                {/* <hr className="tl_hr" /> */}
             </div>
+            
             <div className="landFooter">
                 <div id="footFlex1">
                     <p className="footHead">Scrolls</p>
