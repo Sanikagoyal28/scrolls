@@ -253,7 +253,6 @@ function Navbar() {
                 <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }}>Register</button>
                 <button className="navLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }}>Login</button>
                 <img src={menu} id="menu" onClick={showmenu}></img>
-                {/* <img src={menu} id="menu2" onClick={showmenu}></img> */}
             </div>
             <div className="navFlex3">
                 <p className="navTitle">{title}</p>
