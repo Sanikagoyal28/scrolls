@@ -303,49 +303,49 @@ function Navbar() {
         </Dialog>
 
         <Dialog open={stepDialog.seven} PaperProps={{
-            sx: { maxHeight: 450 }
+            sx: { maxHeight: 500 }
         }}>
             <Login />
         </Dialog>
 
         <Dialog open={stepDialog.eight} PaperProps={{
-            sx: { maxHeight: 450 }
+            sx: { maxHeight: 500 }
         }}>
             <Forgot />
         </Dialog>
 
         <Dialog open={stepDialog.nine} PaperProps={{
-            sx: { maxHeight: 450 }
+            sx: { maxHeight: 500 }
         }}>
             <Otp />
         </Dialog>
 
         <Dialog open={stepDialog.ten} PaperProps={{
-            sx: { maxHeight: 450 }
+            sx: { maxHeight: 500 }
         }} >
             <Reset />
         </Dialog>
 
         <Dialog open={stepDialog.eleven} PaperProps={{
-            sx: { maxHeight: 450 }
+            sx: { maxHeight: 500 }
         }} >
             <LoginTeam />
         </Dialog>
 
         <Dialog open={stepDialog.twelve} PaperProps={{
-            sx: { maxHeight: 450 }
+            sx: { maxHeight: 500 }
         }}>
             <ForgotTeam />
         </Dialog>
 
         <Dialog open={stepDialog.thirteen} PaperProps={{
-            sx: { maxHeight: 450 }
+            sx: { maxHeight: 500 }
         }}>
             <OtpTeam />
         </Dialog>
 
         <Dialog open={stepDialog.fourteen} PaperProps={{
-            sx: { maxHeight: 450 }
+            sx: { maxHeight: 500 }
         }} >
             <ResetTeam />
         </Dialog>

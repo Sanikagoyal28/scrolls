@@ -367,6 +367,10 @@
     cursor: pointer;
 }
 
+.footFlexRow a{
+    color: #FFFFFF;
+}
+
 #link a{
     color: #FFFFFF;
     cursor: pointer;

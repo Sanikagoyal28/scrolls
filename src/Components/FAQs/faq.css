@@ -1,0 +1,43 @@
+.FAQ{
+    display: flex;
+    flex-direction: column;
+    padding: 116px 10vw 8vw 80px;
+}
+
+.question{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.9);
+    margin-bottom: 16px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+.answer{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 20px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    color: #000000;
+    margin-bottom:24px;
+}
+
+.faqLine{
+    background: #D9D9D9;
+    border-radius: 2px;
+    border-bottom-width: 2px;
+    margin-bottom: 24px;
+    margin-top:0;
+}

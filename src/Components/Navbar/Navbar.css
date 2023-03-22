@@ -87,6 +87,10 @@
     margin-top: 6px;
 }
 
+.logout {
+    cursor: pointer;
+}
+
 .navTitle {
     font-family: 'Poppins';
     font-style: normal;
@@ -139,6 +143,7 @@
     color: #252525;
     margin-right: 1.5vw;
     margin-bottom: 12px;
+    cursor: pointer;
 }
 
 .navLogin,
@@ -156,6 +161,7 @@
     line-height: 24px;
     margin-bottom: 12px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 #menu {
@@ -212,6 +218,7 @@
     text-decoration: underline;
 }
 
+
 #dropdown {
     display: none;
     background-color: #191919;
@@ -250,10 +257,33 @@
 }
 
 #team,
-#ca,
-#liTitle,
+#ca{
+    display: none;
+}
+#liTitle{
+    display: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 24px;
+    color: #FAC949;
+    margin-right: 1vw;
+    margin-top: 6px;
+    cursor: pointer;
+}
 #liLogout {
     display: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 24px;
+    color: #FAC949;
+    margin-right: 1vw;
+    margin-top: 6px;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 #liDropdown {

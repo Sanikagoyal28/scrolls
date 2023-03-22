@@ -11,6 +11,7 @@ import DomainEce from "./Components/Domain/ece";
 import DomainCivil from "./Components/Domain/civil";
 import DomainMe from "./Components/Domain/me";
 import DomainCs from "./Components/Domain/cs";
+import FAQ from "./Components/FAQs/FAQs";
 
 function App() {
   return <>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/team_db" exact element={<TeamDB />} />
         <Route path="/updates" exact element={<Update />} />
         <Route path="/previous_year" exact element={<PreviousYear />} />
+        <Route path="/faq" exact element={<FAQ />} />
         <Route path="/domain_cs" exact element={<DomainCs />} />
         <Route path="/domain_me" exact element={<DomainMe />} />
         <Route path="/domain_civil" exact element={<DomainCivil />} />

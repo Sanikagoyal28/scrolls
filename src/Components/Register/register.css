@@ -91,14 +91,14 @@
     align-items: center;
     justify-content: space-around;
     margin-left: -0.4vw;
-    margin-top: -50px;
+    margin-top: -80px;
 }
 
 .loginFlex{
     margin-top:10px;
 }
 #loginHeadbox{
-    margin-top:20px;
+    margin-top:-20px;
 }
 
 #LoginOpt{
