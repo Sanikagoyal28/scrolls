@@ -75,7 +75,7 @@
     display: flex;
     flex-direction: column;
     width: 40vw;
-    height: 1239px;
+    height: 1300px;
     background: #FFFFFF;
     border-radius: 8px;
     padding-top: 4px;
@@ -94,31 +94,31 @@
     margin-top: -80px;
 }
 
-.loginFlex{
-    margin-top:10px;
+.loginFlex {
+    margin-top: 10px;
 }
 
-#loginHeadbox{
-    margin-top:-40px;
-    margin-bottom:10px;
+#loginHeadbox {
+    margin-top: -40px;
+    margin-bottom: 10px;
 }
 
-#fgtHeadbox{
-    margin-top:-90px;
-    margin-bottom:20px;
+#fgtHeadbox {
+    margin-top: -90px;
+    margin-bottom: 20px;
 }
 
 
-#regCA{
-    margin-top:-100px;
+#regCA {
+    margin-top: -100px;
 }
 
-#LoginOpt{
-    margin-top:-120px;
+#LoginOpt {
+    margin-top: -120px;
 }
 
 #memberReg {
-    margin-top: -32px;
+    margin-top: 16px;
 }
 
 .cross {
@@ -241,6 +241,11 @@
     background-color: #FAC949; */
 }
 
+#recaptcha {
+    margin-left: 8.5vw;
+    margin-top: 20px;
+}
+
 #wrongName,
 #wrongEmail,
 #WrongPwd1,
@@ -279,8 +284,8 @@
     /* margin-top: -48px; */
 }
 
-#loginForm{
-margin-left:0.5vw;
+#loginForm {
+    margin-left: 0.5vw;
 }
 
 .inputPwd {
@@ -386,6 +391,8 @@ margin-left:0.5vw;
     margin-left: -7vw;
 } */
 
+
+
 @media (max-width:1310px) {
     .register {
         width: 44vw;
@@ -395,7 +402,8 @@ margin-left:0.5vw;
     .regInputname,
     .regButton,
     #otherOption,
-    #otherCA , .regContinue{
+    #otherCA,
+    .regContinue {
         width: 28vw;
     }
 
@@ -420,8 +428,8 @@ margin-left:0.5vw;
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1, 
-    .forgotText  {
+    #wrongPwdLog1,
+    .forgotText {
         width: 28vw;
         font-size: 0.85rem;
     }
@@ -432,9 +440,20 @@ margin-left:0.5vw;
         left: 32.4vw;
     }
 
-    .forgotPass{
-        margin-left:24vw;
+    .forgotPass {
+        margin-left: 24vw;
     }
+
+    #recaptcha {
+        margin-left: 9vw;
+    }
+}
+
+@media(max-width:1220px) {
+    #recaptcha {
+        margin-left: 8vw;
+    }
+
 }
 
 @media(max-width:1150px) {
@@ -463,8 +482,8 @@ margin-left:0.5vw;
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1, 
-    .forgotText  {
+    #wrongPwdLog1,
+    .forgotText {
         width: 28vw;
         font-size: 0.8rem;
     }
@@ -477,7 +496,8 @@ margin-left:0.5vw;
     .regInputname,
     .regButton,
     #otherOption,
-    #otherCA , .regContinue{
+    #otherCA,
+    .regContinue {
         width: 30vw;
     }
 
@@ -494,11 +514,13 @@ margin-left:0.5vw;
     .inputPwd {
         margin-left: 5.2vw;
     }
-    .forgotPass{
-        margin-left:25vw;
+
+    .forgotPass {
+        margin-left: 25vw;
     }
-    .otpInput{
-        width:4vw;
+
+    .otpInput {
+        width: 4vw;
         margin-right: 1.5vw;
     }
 }
@@ -512,7 +534,9 @@ margin-left:0.5vw;
     .regInputname,
     .regButton,
     #otherOption,
-    #otherCA, .regContinue , .forgotText {
+    #otherCA,
+    .regContinue,
+    .forgotText {
         width: 32vw;
     }
 
@@ -525,10 +549,15 @@ margin-left:0.5vw;
     .regGender {
         width: 9.5vw;
     }
-    .forgotPass{
-        margin-left:26vw;
+
+    .forgotPass {
+        margin-left: 26vw;
     }
- 
+
+    #recaptcha {
+        margin-left: 7.6vw;
+    }
+
 }
 
 @media (max-width:950px) {
@@ -541,7 +570,9 @@ margin-left:0.5vw;
     .regInputname,
     .regButton,
     #otherOption,
-    #otherCA, .regContinue , .forgotText  {
+    #otherCA,
+    .regContinue,
+    .forgotText {
         width: 34vw;
         height: 46px;
     }
@@ -576,11 +607,13 @@ margin-left:0.5vw;
         width: 34vw;
         font-size: 0.85rem;
     }
-    .forgotPass{
-        margin-left:27vw;
+
+    .forgotPass {
+        margin-left: 27vw;
     }
-    .otpInput{
-        width:5vw;
+
+    .otpInput {
+        width: 5vw;
         margin-right: 1.5vw;
     }
 }
@@ -594,7 +627,9 @@ margin-left:0.5vw;
     .regButton,
     #otherOption,
     #otherCA,
-    .asRegister , .regContinue , .forgotText {
+    .asRegister,
+    .regContinue,
+    .forgotText {
         width: 36vw;
         margin-left: 10vw;
     }
@@ -641,16 +676,23 @@ margin-left:0.5vw;
     #teamForm {
         margin-left: -9vw;
     }
-    .forgotPass{
-        margin-left:30vw;
+
+    .forgotPass {
+        margin-left: 30vw;
     }
-    #loginForm{
-        margin-left:-1vw;
+
+    #loginForm {
+        margin-left: -1vw;
     }
-    .otpInputFlex{
-        margin-left:5vw;
+
+    .otpInputFlex {
+        margin-left: 5vw;
     }
-    .resend{
+
+    .resend {
+        margin-left: 10vw;
+    }
+    #recaptcha {
         margin-left: 10vw;
     }
 }
@@ -665,7 +707,9 @@ margin-left:0.5vw;
     .regInputname,
     .regButton,
     #otherOption,
-    #otherCA, .regContinue, .forgotText  {
+    #otherCA,
+    .regContinue,
+    .forgotText {
         width: 38vw;
     }
 
@@ -677,6 +721,9 @@ margin-left:0.5vw;
 
     .regGender {
         width: 11vw;
+    }
+    #recaptcha {
+        margin-left: 9vw;
     }
 
 }
@@ -690,7 +737,9 @@ margin-left:0.5vw;
     .regInputname,
     .regButton,
     #otherOption,
-    #otherCA , .regContinue, .forgotText {
+    #otherCA,
+    .regContinue,
+    .forgotText {
         width: 40vw;
     }
 
@@ -735,11 +784,22 @@ margin-left:0.5vw;
     #registerAs {
         font-size: 1.8rem;
     }
-    .forgotPass{
-        margin-left:30vw;
+
+    .forgotPass {
+        margin-left: 30vw;
     }
-    #loginForm{
+
+    #loginForm {
         margin-left: 0;
+    }
+    #recaptcha {
+        margin-left: 8vw;
+    }
+}
+
+@media(max-width:670px){
+    #recaptcha {
+        margin-left:7vw;
     }
 }
 
@@ -753,7 +813,9 @@ margin-left:0.5vw;
     .regInputname,
     .regButton,
     #otherOption,
-    #otherCA , .regContinue, .forgotText {
+    #otherCA,
+    .regContinue,
+    .forgotText {
         width: 44vw;
     }
 
@@ -786,11 +848,16 @@ margin-left:0.5vw;
     #wrongPwdLog1 {
         width: 44vw;
     }
-    .forgotPass{
-        margin-left:31vw;
+
+    .forgotPass {
+        margin-left: 31vw;
     }
+
     #registerCA {
         font-size: 1.3rem;
+    }
+    #recaptcha {
+        margin-left: 8vw;
     }
 }
 
@@ -804,7 +871,9 @@ margin-left:0.5vw;
     .regInputname,
     .regButton,
     #otherOption,
-    #otherCA , .regContinue, .forgotText {
+    #otherCA,
+    .regContinue,
+    .forgotText {
         width: 50vw;
     }
 
@@ -823,21 +892,27 @@ margin-left:0.5vw;
     #CEye {
         left: 54vw;
     }
-    .forgotPass{
-        margin-left:34vw;
+
+    .forgotPass {
+        margin-left: 34vw;
+    }
+    #recaptcha {
+        margin-left: 6vw;
     }
 }
 
 @media (max-width:490px) {
     .register {
-        width: 78vw;
+        width: 80vw;
     }
 
     .asRegister,
     .regInputname,
     .regButton,
     #otherOption,
-    #otherCA , .regContinue, .forgotText {
+    #otherCA,
+    .regContinue,
+    .forgotText {
         width: 57vw;
         height: 44px;
     }
@@ -877,19 +952,93 @@ margin-left:0.5vw;
         width: 55vw;
         font-size: 0.8rem;
     }
-    .forgotPass{
-        margin-left:35vw;
+
+    .forgotPass {
+        margin-left: 35vw;
     }
-    .heading{
+
+    .heading {
         font-size: 1.45rem;
     }
+    #recaptcha {
+        margin-left: 7.5vw;
+    }
 }
-@media(max-width:400px){
-    .forgotPass{
-        margin-left:32vw;
+
+@media(max-width:450px){
+    #recaptcha {
+        margin-left:6.5vw;
+    }
+}
+@media(max-width:430px){
+    #recaptcha {
+        margin-left:3vw;
+    }
+}
+
+@media(max-width:400px) {
+    .forgotPass {
+        margin-left: 32vw;
     }
 
     #registerAs {
         font-size: 1.5rem;
+    }
+    .register{
+        width:84vw;
+    }
+    .asRegister,
+    .regInputname,
+    .regButton,
+    #otherOption,
+    #otherCA,
+    .regContinue,
+    .forgotText {
+        width: 63vw;
+        height: 42px;
+    }
+
+    .inputPwd {
+        margin-left: 5.4vw;
+    }
+
+    #LEye,
+    #TEye,
+    #CEye {
+        left: 63vw;
+    }
+
+    .regGender {
+        width: 19vw;
+        height: 45px;
+    }
+
+    #wrongName,
+    #wrongEmail,
+    #WrongPwd1,
+    #WrongPwd2,
+    #wrongBranch,
+    #wrongNum,
+    #WrongPwdTeam1,
+    #WrongPwdTeam2,
+    #wrongCAEmail,
+    #wrongNameCA,
+    #wrongEmailCA,
+    #WrongPwdCA1,
+    #WrongPwdCA2,
+    #wrongBranchCA,
+    #wrongNumCA,
+    #wrongEmailLog1,
+    #wrongPwdLog1 {
+        width: 58vw;
+    }
+    #recaptcha {
+        margin-left:3vw;
+    }
+}
+
+@media(max-width:380px){
+    #recaptcha {
+        margin-left:1vw;
     }
 }

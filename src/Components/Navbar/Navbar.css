@@ -113,8 +113,9 @@
 }
 
 .navFlex1 a.active {
+    /* color:#FAC949; */
     text-decoration: underline;
-    text-decoration-color: #FFFFFF;
+    /* text-decoration-color: #FFFFFF; */
 }
 
 #navdomain {
@@ -227,7 +228,7 @@
 }
 
 #uli ul a.active {
-    text-decoration: underline;
+   color:#FAC949;
 }
 
 

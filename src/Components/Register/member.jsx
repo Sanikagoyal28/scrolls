@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { dialog0, dialog1 } from "../../Redux/step";
 import { RegMemberThunk } from "../../Redux/registerSlice";
 import { Spinner } from 'react-bootstrap';
+import ReCAPTCHA from "react-google-recaptcha";
 
 function Member() {
 
@@ -133,9 +134,30 @@ function Member() {
             }
         }
         setInput({ ...input, gender: gender })
+
+    }
+
+    //captcha
+
+    const [valu, setValu] = useState('')
+    const [token, setToken] = useState(false);
+    // const key = "6Lf6HCIlAAAAAGU2ube1_efUhBj63FQcx3Bkl9kp"
+    const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
+    function onChange(value) {
+        setValu(value)
+        setToken(true)
+        console.log("Captcha value:", value);
     }
 
     function RegAsMember() {
+
+        if (!token) {
+            toast.error("Please verify the captcha", {
+                position: "top-right",
+                theme: "light",
+                autoClose: 5000,
+            });
+        }
         var data;
         if (input.course == "others") {
             data = {
@@ -146,7 +168,8 @@ function Member() {
                 "mobile": input.mobile,
                 "course": input.otherCourse,
                 "college": input.college,
-                "year_of_study": input.year
+                "year_of_study": input.year,
+                "g-recaptcha-response": valu
             }
         }
         else {
@@ -158,11 +181,12 @@ function Member() {
                 "mobile": input.mobile,
                 "course": input.course,
                 "college": input.college,
-                "year_of_study": input.year
+                "year_of_study": input.year,
+                "g-recaptcha-response": valu
             }
         }
         console.log(data)
-        if (input.name && input.email && input.pass && input.gender && input.mobile && input.course && input.college && input.year) {
+        if (token && input.name && input.email && input.pass && input.gender && input.mobile && input.course && input.college && input.year) {
             dispatch(RegMemberThunk(data)).
                 then((res) => {
                     console.log(res)
@@ -173,7 +197,7 @@ function Member() {
                             theme: "light",
                             autoClose: 5000,
                         });
-                       
+
                     }
                     else {
                         toast.error(`${res.payload.data.msg}`, {
@@ -207,7 +231,7 @@ function Member() {
                 <p className="heading">Register as <span id="member">Member</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form onSubmit={(e)=>e.preventDefault()}>
+            <form onSubmit={(e) => e.preventDefault()}>
                 <p className="regName">Name</p>
                 <input required type="text" className="regInputname" id="input" placeholder="Enter your name" value={input.name} onChange={(e) => setInput({ ...input, name: e.target.value })} />
                 <p id="wrongName">Name must contain only alphabetic characters.</p>
@@ -267,11 +291,18 @@ function Member() {
                         <option value="2">2</option>
                     </>}
                 </select>
-                <button className="regButton" onClick={()=>{RegAsMember()}}>Register</button>
+                <div id="recaptcha">
+                    <ReCAPTCHA
+                        sitekey={key}
+                        onChange={onChange}
+                    />
+                </div>
+                <button className="regButton" onClick={() => { RegAsMember() }}>Register</button>
             </form>
+
         </div>
-        <ToastContainer />
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
+        <ToastContainer />
     </>
 }
 

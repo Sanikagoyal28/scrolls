@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Action } from "@remix-run/router";
 import Baseurl from "./Baseurl";
 
 const initialState = {
@@ -58,6 +59,7 @@ const RegisterSlice = createSlice({
             state.loading = true;
         })
         builder.addCase(RegMemberThunk.fulfilled, (state, action) => {
+            console.log(action)
             state.loading = false;
             state.msg = action.payload.data[0] 
         })

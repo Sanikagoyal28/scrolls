@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { RegCAThunk } from "../../Redux/registerSlice";
 import { Spinner } from 'react-bootstrap';
 import { dialog0, dialog1, dialog4 } from "../../Redux/step";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function CA2() {
 
@@ -124,6 +125,18 @@ function CA2() {
         setCA({ ...ca, gender: gender })
     }
 
+      //captcha
+
+      const [valu, setValu] = useState('')
+      const [token, setToken] = useState(false);
+      // const key = "6Lf6HCIlAAAAAGU2ube1_efUhBj63FQcx3Bkl9kp"
+      const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
+      function onChange(value) {
+          setValu(value)
+          setToken(true)
+          console.log("Captcha value:", value);
+      }
+
     function RegAsCA() {
 
         var data;
@@ -136,7 +149,8 @@ function CA2() {
                 "mobile": ca.mobile,
                 "course": ca.otherCourse,
                 "college": ca.college,
-                "year_of_study": ca.year
+                "year_of_study": ca.year,
+                "g-recaptcha-response":valu
             }
         }
         else {
@@ -148,7 +162,8 @@ function CA2() {
                 "mobile": ca.mobile,
                 "course": ca.course,
                 "college": ca.college,
-                "year_of_study": ca.year
+                "year_of_study": ca.year,
+                "g-recaptcha-response":valu
             }
         }
         console.log(data)
@@ -190,7 +205,7 @@ function CA2() {
 
     return <>
         <div className="register">
-            <div className="regFlex">
+            <div className="regFlex" id="memberReg" >
                 <img className="arrow" src={arrow} onClick={() => { dispatch(dialog4()) }} />
                 <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
@@ -252,6 +267,12 @@ function CA2() {
                         <option value="2">2</option>
                     </>}
                 </select>
+                <div id="recaptcha">
+                    <ReCAPTCHA
+                        sitekey={key}
+                        onChange={onChange}
+                    />
+                </div>
                 <button className="regButton" onClick={RegAsCA}>Register</button>
             </form>
         </div>

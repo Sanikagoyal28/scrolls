@@ -266,7 +266,7 @@ function Navbar() {
 
         <Dialog open={stepDialog.two} PaperProps={{
             sx: {
-                maxHeight: 1240,
+                maxHeight: 1500,
                 marginTop: 94
             }
         }} >
