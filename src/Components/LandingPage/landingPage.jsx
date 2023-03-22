@@ -209,6 +209,7 @@ function LandingPage() {
             </div>
             
             <div className="landFooter">
+            <div id="footer">
                 <div id="footFlex1">
                     <p className="footHead">Scrolls</p>
                     <p className="footHead2">Any questions or remarks? Just write us a message.</p>
@@ -232,26 +233,27 @@ function LandingPage() {
                     </div>
                 </div>
 
-                <div className="footFlex" id="footFlex3">
+                <div id="footFlex3">
                     <p id="telephone">Quick links</p>
                     <div className="footFlexRow">
-                        <p>scrolls_akgec</p>
+                        <p id="link">FAQs</p>
                     </div>
                 </div>
 
-                <div className="footFlex" id="footFlex4">
+                <div id="footFlex4">
                     <p id="telephone">Find us</p>
                     <div className="footFlexRow">
                         <img src={instagram} id="instagram" />
-                        <p>scrolls_akgec</p>
+                        <p id="link"><a href="https://instagram.com/scrolls_23?igshid=ZDdkNTZiNTM=" target="_blank"  >scrolls_akgec</a></p>
                     </div>
                     <div className="footFlexRow">
                         <img src={horizon} id="horizon" />
-                        <p>Team Horizon</p>
+                        <p id="link"><a href="https://instagram.com/horizon.akgec?igshid=MGU3ZTQzNzY=" target="_blank" >Team Horizon</a></p>
                     </div>
                 </div>
-                <p className="footText">Powered by <span id="siIcon" ><img src={SI} /></span><span id="software">SOFTWARE</span><span id="incubator">INCUBATOR</span></p>
             </div>
+            <p className="footText">Powered by <span id="siIcon" ><img src={SI} /></span><span id="software">SOFTWARE</span><span id="incubator">INCUBATOR</span></p>
+        </div>
         </div>
 
         <div className="Dialogue1">
