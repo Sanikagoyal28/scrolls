@@ -79,7 +79,7 @@ function CA1 () {
         
     return <>
             <div className="register" id="regDiv">
-                <div className="regFlex">
+                <div className="regFlex" id="regCA">
                     <img className="arrow" src={arrow} onClick={() => {dispatch(dialog1())}} />
                     <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
                     <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
