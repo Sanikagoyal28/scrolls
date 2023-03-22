@@ -1,6 +1,6 @@
 import React from "react"
 import LandingPage from "./Components/LandingPage/landingPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import TeamDB from "./Components/Dashboard/teamDB";
 import CaDB from "./Components/Dashboard/CaDB";
 import Update from "./Components/updates/update";
@@ -14,13 +14,17 @@ import DomainCs from "./Components/Domain/cs";
 import FAQ from "./Components/FAQs/FAQs";
 
 function App() {
+
+  const team = localStorage.getItem("accessToken") ? true : false
+  const ca = localStorage.getItem("CA_ID") ? true : false
   return <>
-    {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
-    <BrowserRouter>
+    <HashRouter>
+      {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
+      {/* <BrowserRouter> */}
       <Routes>
         <Route path="/" exact element={<LandingPage />} />
-        <Route path="/ca_db" exact element={<CaDB />} />
-        <Route path="/team_db" exact element={<TeamDB />} />
+        {ca ? <Route path="/ca_db" exact element={<CaDB />} /> : null}
+        {team ? <Route path="/team_db" exact element={<TeamDB />} /> : null}
         <Route path="/updates" exact element={<Update />} />
         <Route path="/previous_year" exact element={<PreviousYear />} />
         <Route path="/faq" exact element={<FAQ />} />
@@ -31,7 +35,8 @@ function App() {
         <Route path="/domain_en" exact element={<DomainEn />} />
         <Route path="/domain_management" exact element={<DomainManage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
+    {/* </BrowserRouter> */}
   </>
 }
 

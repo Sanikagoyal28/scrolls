@@ -21,13 +21,17 @@ function CaDB() {
     const [leaderboard, setLeaderboard] = useState([])
     useEffect(() => {
         dispatch(CADBThunk())
+
+    }, [])
+
+    useEffect(() => {
         setName(reducer.dataCA.name)
         setRefferalCode(reducer.dataCA.referral_code)
         setNumRef(reducer.dataCA.referral_count)
         setCollege(reducer.dataCA.college)
         setTeams(reducer.dataCA.list_of_teams)
         setLeaderboard(reducer.dataCA.leaderboard)
-    }, [])
+    }, [reducer])
 
     useEffect(() => {
         if (reducer.loading) {
@@ -49,30 +53,27 @@ function CaDB() {
 
             <hr className="dbHR1" />
             <div className="dbFlex1">
-                <div className="dbFlex2">
-                    <p className="dbHead">Name</p>
-                    {/* <p className="dbText">This will be displayed on your Profile</p> */}
-                </div>
+
+                <p className="dbHead">Name</p>
+
                 <div className="teamID_box">{name}</div>
             </div>
 
             <hr className="dbHR2" />
 
             <div className="dbFlex1">
-                <div className="dbFlex2">
-                    <p className="dbHead">Referral Code</p>
-                    {/* <p className="dbText">Team size can't exceed more than 3 members</p> */}
-                </div>
+
+                <p className="dbHead">Referral Code</p>
+
                 <div className="teamID_box">{referralCode}</div>
             </div>
 
             <hr className="dbHR2" />
 
             <div className="dbFlex1">
-                <div className="dbFlex2">
-                    <p className="dbHead">Number of Referrals used</p>
-                    {/* <p className="dbText">This will be displayed on your Profile</p> */}
-                </div>
+
+                <p className="dbHead">Number of Referrals used</p>
+
                 <div className="teamID_box">{numRef}</div>
             </div>
 
