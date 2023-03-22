@@ -82,7 +82,7 @@ function Otp() {
                 <p className="heading">OTP Verification</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <p className="forgotText">Enter 4 digit OTP send to example@gmail.com</p>
+            <p className="forgotText">Enter 4 digit OTP send to {email}</p>
             <div className="otpInputFlex">
                 <OtpField className="otpInputFlex"
                     value={value}

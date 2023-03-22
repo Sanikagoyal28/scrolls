@@ -350,14 +350,14 @@
     border-radius: 6px;
     margin-bottom: 4px;
     margin-right: 1vw;
-    padding: 4px 18px;
+    padding: 4px 4px;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 1rem;
     line-height: 18px;
     margin-top: 16px;
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.9);
 }
 
 .resend {
@@ -367,6 +367,7 @@
 }
 
 #resendOtp {
+    cursor: pointer;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -899,6 +900,10 @@
     #recaptcha {
         margin-left: 6vw;
     }
+    .otpInput {
+        width: 7vw;
+        margin-right: 2vw;
+    }
 }
 
 @media (max-width:490px) {
@@ -968,6 +973,10 @@
 @media(max-width:450px){
     #recaptcha {
         margin-left:6.5vw;
+    }
+    .otpInput {
+        width: 8vw;
+        margin-right: 1.5vw;
     }
 }
 @media(max-width:430px){

@@ -138,7 +138,13 @@ function CA2() {
       }
 
     function RegAsCA() {
-
+        if (!token) {
+            toast.error("Please verify the captcha", {
+                position: "top-right",
+                theme: "light",
+                autoClose: 5000,
+            });
+        }
         var data;
         if (ca.course == "others") {
             data = {
@@ -167,7 +173,7 @@ function CA2() {
             }
         }
         console.log(data)
-        if (isCA) {
+        if (isCA && token) {
             dispatch(RegCAThunk(data)).
                 then((res) => {
                     if (res.payload.status === 201) {
