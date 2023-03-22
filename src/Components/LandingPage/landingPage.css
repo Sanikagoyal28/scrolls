@@ -294,7 +294,7 @@
 #footFlex2Row {
     display: flex;
     padding: 0px;
-    gap: 12px;
+    gap: 20px;
     margin-left: -3vw;
 }
 
@@ -320,12 +320,14 @@
     font-size: 1rem;
     line-height: 18px;
     color: #FAC949;
+
 }
 
 .footFlexRow {
     display: flex;
     padding: 0px;
     gap: 16px;
+    margin-top: 8px;
     /* width: 20vw; */
 }
 
@@ -358,22 +360,30 @@
     color: #FFFFFF;
     text-align: center;
     position: relative;
-    top: 40px;
-    margin-bottom: 16px;
+    top: 64px;
+    /* margin-bottom: 16px; */
     /* right: 36vw; */
 }
 
 #link {
     cursor: pointer;
-}
-
-.footFlexRow a{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
     color: #FFFFFF;
 }
 
-#link a{
+.footFlexRow a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#link a {
     color: #FFFFFF;
     cursor: pointer;
+    text-decoration: underline;
 }
 
 #siIcon {
@@ -429,6 +439,12 @@
 
 }
 
+@media(max-width:1300px){
+    .footText{
+        top:36px;
+    }
+}
+
 @media(max-width:1200px) {
     .footHead {
         margin-bottom: 12px;
@@ -436,6 +452,9 @@
 
     .footHead2 {
         width: 20vw;
+    }
+    .footText{
+        top:60px;
     }
 }
 
@@ -484,6 +503,9 @@
     .landFlex {
         left: 17vw;
     }
+    .footText{
+        top:46px;
+    }
 }
 
 @media(max-width:950px) {
@@ -495,8 +517,8 @@
         padding-left: 3vw;
     }
 
-    #domainBorder{
-        margin-left:39vw;
+    #domainBorder {
+        margin-left: 39vw;
     }
 
     .domainCard1,
@@ -523,7 +545,7 @@
         width: 24vw;
         margin-left: 37vw;
     }
-    
+
     #timelineBorder {
         width: 24vw;
         margin-left: 38vw;
@@ -569,14 +591,15 @@
         width: 28vw;
     }
 
-    #text1Border{
-        margin-left:26vw;
+    #text1Border {
+        margin-left: 26vw;
     }
 
-    #domainBorder{
+    #domainBorder {
         width: 27vw;
         margin-left: 36vw;
     }
+
     #timelineBorder {
         width: 27vw;
         margin-left: 38vw;
@@ -649,7 +672,7 @@
 
     .domainCard1,
     .domainCard2 {
-        
+
         margin-top: 40px;
     }
 
@@ -678,6 +701,9 @@
 
     #footFlex1 {
         margin-top: -8px;
+    }
+    .footText{
+        top:54px;
     }
 }
 
@@ -741,7 +767,7 @@
 
     .landFooter {
         padding-right: 1vw;
-        height: 270px;
+        height: 280px;
     }
 
     #footFlex3 {
@@ -786,9 +812,10 @@
         width: 30vw;
         /* margin-left:3vw; */
     }
-    #domainBorder{
+
+    #domainBorder {
         width: 30vw;
-        margin-left:32vw;
+        margin-left: 32vw;
     }
 }
 
@@ -887,13 +914,14 @@
         left: -4vw;
     }
 
-    #domainBorder{
+    #domainBorder {
         width: 38vw;
         left: -6vw;
     }
+
     #timelineBorder {
         width: 38vw;
-        left:-6vw;
+        left: -6vw;
     }
 
     #footer {
@@ -918,6 +946,11 @@
     #telephone {
         font-size: 1rem;
         margin-bottom: 16px;
+        margin-top:16px;
+    }
+
+    #phone{
+       margin-top:16px;
     }
 
     .footFlexRow>p {
@@ -961,14 +994,14 @@
 
     .landRegister {
         width: 34vw;
-        margin-top:16px;
+        margin-top: 16px;
     }
 
     #text1Border {
         left: -4vw;
     }
 
-    #domainBorder{
+    #domainBorder {
         width: 42vw;
         left: -6vw;
     }
@@ -990,7 +1023,8 @@
     }
 }
 
-@media(max-width:450px){
+@media(max-width:450px) {
+
     .landBlock1,
     .landImage,
     #loginBg {
@@ -1043,13 +1077,14 @@
     .footIconFlex2 {
         margin-left: 10vw;
     }
-    .landText1{
+
+    .landText1 {
         font-size: 3rem;
     }
 }
 
-@media(max-width:360px){
-    
+@media(max-width:360px) {
+
     #text1Border,
     .aboutScroll {
         width: 50vw;
@@ -1098,11 +1133,11 @@
     .landFooter {
         height: 640px;
     }
-    
+
     #text1Border,
     .aboutScroll {
         width: 56vw;
         font-size: 1.1rem;
-        height:64px;
+        height: 64px;
     }
 }

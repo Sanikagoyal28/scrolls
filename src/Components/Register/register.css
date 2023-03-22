@@ -97,9 +97,17 @@
 .loginFlex{
     margin-top:10px;
 }
+
 #loginHeadbox{
-    margin-top:-20px;
+    margin-top:-40px;
+    margin-bottom:10px;
 }
+
+#fgtHeadbox{
+    margin-top:-80px;
+    margin-bottom:10px;
+}
+
 
 #regCA{
     margin-top:-100px;
@@ -132,7 +140,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     line-height: 48px;
     text-align: center;
     letter-spacing: 0.08em;
@@ -781,6 +789,9 @@ margin-left:0.5vw;
     .forgotPass{
         margin-left:31vw;
     }
+    #registerCA {
+        font-size: 1.3rem;
+    }
 }
 
 @media (max-width:550px) {
@@ -817,7 +828,7 @@ margin-left:0.5vw;
     }
 }
 
-@media (max-width:480px) {
+@media (max-width:490px) {
     .register {
         width: 78vw;
     }
@@ -869,9 +880,16 @@ margin-left:0.5vw;
     .forgotPass{
         margin-left:35vw;
     }
+    .heading{
+        font-size: 1.45rem;
+    }
 }
 @media(max-width:400px){
     .forgotPass{
         margin-left:32vw;
+    }
+
+    #registerAs {
+        font-size: 1.5rem;
     }
 }

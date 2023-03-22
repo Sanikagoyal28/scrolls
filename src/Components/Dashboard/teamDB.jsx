@@ -49,10 +49,32 @@ function TeamDB() {
         setUplTop('')
     }
     function handleSave() {
-        fd.append('synopsis', uplSyn)
-        fd.append('paper', uplPaper)
-        fd.append('domain', uplDom)
-        fd.append('topic', uplTop)
+        // fd.append('synopsis', uplSyn)
+        // fd.append('paper', uplPaper)
+        // fd.append('domain', uplDom)
+        // fd.append('topic', uplTop)
+
+        if (uplSyn === "" && uplPaper === "") {
+            fd.append('domain', uplDom)
+            fd.append('topic', uplTop)
+        }
+        if (uplSyn != "" && uplPaper === "") {
+            fd.append('synopsis', uplSyn)
+            fd.append('domain', uplDom)
+            fd.append('topic', uplTop)
+        }
+        if (uplSyn === "" && uplPaper != "") {
+            fd.append('domain', uplDom)
+            fd.append('topic', uplTop)
+            fd.append('paper', uplPaper)
+        }
+        if (uplSyn != "" && uplPaper != "") {
+            fd.append('domain', uplDom)
+            fd.append('topic', uplTop)
+            fd.append('synopsis', uplSyn)
+            fd.append('paper', uplPaper)
+        }
+
         dispatch(TeamDBDataThunk(fd)).
             then((res) => {
                 console.log(res)

@@ -63,7 +63,7 @@ function ForgotTeam() {
 
     return <>
         <div className="register">
-            <div className="regFlex">
+            <div className="regFlex"  id="fgtHeadbox">
                 <img className="arrow" src={arrow} onClick={() => { dispatch(dialog11()) }} />
                 <p className="heading">Forgot Password ?</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />

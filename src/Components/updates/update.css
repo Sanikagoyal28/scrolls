@@ -28,7 +28,7 @@
     word-wrap: break-word;
 }
 
-.updText ul{
+.updText ul {
     list-style: circle;
     padding-left: 0;
 }
@@ -47,4 +47,11 @@
     word-wrap: break-word;
     color: #000000;
     margin-bottom: 24px;
+}
+
+@media(max-width:600px) {
+    .updates {
+        padding-left: 6vw;
+        padding-right: 5vw;
+    }
 }

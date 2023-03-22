@@ -43,3 +43,10 @@
     color: #000000;
     margin-bottom:24px;
 }
+
+@media(max-width:600px) {
+    .Domain {
+        padding-left: 6vw;
+        padding-right: 5vw;
+    }
+}

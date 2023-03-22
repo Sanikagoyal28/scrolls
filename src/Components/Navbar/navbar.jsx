@@ -243,7 +243,7 @@ function Navbar() {
 
                 <NavLink to="/"><p className="navHead">Home</p></NavLink>
                 <p className="navHead" id="navdomain">Domains <img src={domain} id="domain" onClick={handleDropdown} /></p>
-                <NavLink to="/previous_year"> <p className="navHead">Previous Year</p></NavLink>
+                <NavLink to="/previous_year"><p className="navHead">Previous Year</p></NavLink>
                 <NavLink to="/updates"> <p className="navHead">Updates</p></NavLink>
                 <NavLink to="/team_db"><p className="navDbT">Dashboard</p></NavLink>
                 <NavLink to="/ca_db"><p className="navDbC">Dashboard</p></NavLink>

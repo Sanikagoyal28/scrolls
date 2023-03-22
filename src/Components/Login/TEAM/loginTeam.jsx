@@ -50,7 +50,6 @@ function LoginTeam () {
             "password": login1.password
         }
         console.log(data)
-        dispatch(setTitle("Team"))
         if(login1.email && login1.password){
         dispatch(LoginTeamThunk(data)).
             then((res) => {
