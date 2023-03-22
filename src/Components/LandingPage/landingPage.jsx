@@ -212,7 +212,7 @@ function LandingPage() {
             <div className="landFooter">
                 <div id="footer">
                     <div id="footFlex1">
-                        <p className="footHead">Scrolls</p>
+                        <p className="footHead">Scrolls<span className="navDot">.</span></p>
                         <p className="footHead2">Any questions or remarks? Just write us a message.</p>
                     </div>
                     <div id="footFlex2">

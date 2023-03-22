@@ -25,7 +25,7 @@ function CaDB() {
         setRefferalCode(reducer.dataCA.referral_code)
         setNumRef(reducer.dataCA.referral_count)
         setCollege(reducer.dataCA.college)
-        // setTeams(reducer.dataCA.list of teams)
+        setTeams(reducer.dataCA.list_of_teams)
         setLeaderboard(reducer.dataCA.leaderboard)
     }, [])
 
