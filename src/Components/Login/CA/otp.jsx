@@ -40,7 +40,6 @@ function Otp() {
             "email": email,
             "otp": value
         }
-        console.log(data)
         if (value) {
             dispatch(OtpCAThunk(data)).
                 then((res) => {

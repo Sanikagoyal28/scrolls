@@ -34,16 +34,13 @@ function OtpTeam() {
     }, [seconds])
 
     function Otp() {
-
         const data = {
             "email": email,
             "otp": value
         }
-        console.log(data)
         if (value) {
             dispatch(OtpTeamThunk(data)).
                 then((res) => {
-console.log(res)
                     if (res.payload.status == 400) {
                         toast.error(`${res.payload.data.msg}`, {
                             position: "top-right",

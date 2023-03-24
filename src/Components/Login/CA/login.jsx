@@ -48,11 +48,9 @@ function Login() {
             "email": login1.email,
             "password": login1.password
         }
-        console.log(data)
         if (login1.email && login1.password) {
             dispatch(LoginCAThunk(data)).
                 then((res) => {
-                    console.log(res)
                     if (res.payload.status == 400) {
                         toast.error(`${res.payload.data.msg}`, {
                             position: "top-right",
@@ -90,9 +88,9 @@ function Login() {
     return <>
         <div className="register" id="regDiv">
             <div className="regFlex loginFlex">
-                <img className="arrow" src={arrow} onClick={() => { dispatch(dialog6()) }} />
+                <img className="arrow" id="back" src={arrow} onClick={() => { dispatch(dialog6()) }} />
                 <p className="heading" id="registerCA">Login as <span id="member">Campus Ambassador</span></p>
-                <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
+                <img className="cross" id="back" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
             <form onSubmit={(e)=>e.preventDefault()}>
             <p className="regName">Email</p>

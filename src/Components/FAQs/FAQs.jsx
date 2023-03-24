@@ -6,7 +6,7 @@ function FAQ() {
     return <>
         <Navbar />
         <div className="FAQ">
-            <p className="dashboard">FAQs</p>
+            <p className="dashboard" id="Faqs">FAQs</p>
 
             <p className="question">Ques 1. What responsibility does being a Campus Ambassador entail?</p>
             <p className="answer">A campus ambassador is the point of contact between the Scrolls Team and the college students.</p>

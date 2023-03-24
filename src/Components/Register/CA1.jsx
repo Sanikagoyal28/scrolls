@@ -34,7 +34,6 @@ function CA1 () {
             if (caEemail) {
                 dispatch(RegCACheck(caEemail)).
                     then((res) => {
-                        console.log(res)
                         if (res.payload.status === 200) {
                             toast.success(`${res.payload.data.msg}`, {
                                 position: "top-right",
@@ -61,7 +60,7 @@ function CA1 () {
                         }
                     })
                     .catch((err) => {
-                        console.log(err)
+                       
                     })
             }
         }
@@ -80,9 +79,9 @@ function CA1 () {
     return <>
             <div className="register" id="regDiv">
                 <div className="regFlex" id="regCA">
-                    <img className="arrow" src={arrow} onClick={() => {dispatch(dialog1())}} />
+                    <img className="arrow" id="back" src={arrow} onClick={() => {dispatch(dialog1())}} />
                     <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
-                    <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
+                    <img className="cross" id="back" src={cross} onClick={() => { dispatch(dialog0()) }} />
                 </div>
                 <p className="regName">Email</p>
                 <input type="text" className="regInputname" placeholder="Enter your email" value={caEemail} onChange={(e) => setCAEmail(e.target.value)} />

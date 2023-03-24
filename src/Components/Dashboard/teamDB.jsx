@@ -48,33 +48,37 @@ function TeamDB() {
         setUplSyn('')
         setUplTop('')
     }
+
     function handleSave() {
+        console.log(uplSyn, uplPaper)
         // fd.append('synopsis', uplSyn)
         // fd.append('paper', uplPaper)
         // fd.append('domain', uplDom)
         // fd.append('topic', uplTop)
 
-        if (uplSyn === "" && uplPaper === "") {
+        if (uplSyn.length == 0 && uplPaper.length == 0) {
             fd.append('domain', uplDom)
             fd.append('topic', uplTop)
         }
-        if (uplSyn != "" && uplPaper === "") {
+        else if (uplSyn.length != 0 && uplPaper.length == 0) {
             fd.append('synopsis', uplSyn)
             fd.append('domain', uplDom)
             fd.append('topic', uplTop)
         }
-        if (uplSyn === "" && uplPaper != "") {
+        else if (uplSyn.length == 0 && uplPaper.length != 0) {
             fd.append('domain', uplDom)
             fd.append('topic', uplTop)
             fd.append('paper', uplPaper)
         }
-        if (uplSyn != "" && uplPaper != "") {
+        else if (uplSyn.length != 0 && uplPaper.length != 0) {
             fd.append('domain', uplDom)
             fd.append('topic', uplTop)
             fd.append('synopsis', uplSyn)
             fd.append('paper', uplPaper)
         }
-
+        for (const pair of fd.entries()) {
+            console.log(`${pair[0]}, ${pair[1]}`);
+        }
         dispatch(TeamDBDataThunk(fd)).
             then((res) => {
                 console.log(res)
@@ -84,6 +88,8 @@ function TeamDB() {
                         theme: "light",
                         autoClose: 5000,
                     });
+                    // setTopic(uplTop)
+                    // setDomain(uplDom)
                 } else {
                     setUplPaper('')
                     setUplSyn('')
@@ -97,7 +103,6 @@ function TeamDB() {
             .catch((err) => {
                 console.log(err)
             })
-
     }
 
     useEffect(() => {
@@ -114,8 +119,6 @@ function TeamDB() {
     function handleChange(e) {
         setUplPaper(e.target.files[0])
     }
-    console.log(leader)
-    console.log(member2)
 
     return <>
         <Navbar />
@@ -129,20 +132,14 @@ function TeamDB() {
                 <button className="dbSave" onClick={() => { handleSave() }}>Save</button>
             </div> */}
             <div className="dbFlex1">
-                <div className="dbFlex2">
-                    <p className="dbHead">Team ID</p>
-                    <p className="dbText">This will be displayed on your Profile</p>
-                </div>
+                <p className="dbHead">Team ID</p>
                 <div className="teamID_box">{teamId}</div>
             </div>
 
             <hr className="dbHR2" />
 
             <div className="dbFlex1">
-                <div className="dbFlex2">
-                    <p className="dbHead">Team Size</p>
-                    <p className="dbText">Team size can't exceed more than 3 members</p>
-                </div>
+                <p className="dbHead">Team Size</p>
                 <div className="teamID_box">{teamSize}</div>
             </div>
 
@@ -286,7 +283,7 @@ function TeamDB() {
             <div className="dbFlex1">
                 <div className="dbFlex2">
                     <p className="dbHead">Synopsis</p>
-                    <p className="dbText">Note: You can upload the document only once. Please carefully recheck your document while uploading.</p>
+                    <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
                 </div>
                 {(uplSyn.length == 0) ?
                     <div className="file_box">
@@ -302,7 +299,7 @@ function TeamDB() {
             <div className="dbFlex1">
                 <div className="dbFlex2">
                     <p className="dbHead">Paper</p>
-                    <p className="dbText">Note: You can upload the document only once. Please carefully recheck your document while uploading.</p>
+                    <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
                 </div>
                 {(uplPaper.length == 0) ?
                     <div className="file_box">

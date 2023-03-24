@@ -25,7 +25,6 @@ function ForgotTeam() {
     }, [email]);
 
     function ForgotPassword() {
-
         localStorage.setItem("login_email", email)
         if (email) {
             dispatch(FgtTeamThunk(email)).
@@ -65,7 +64,7 @@ function ForgotTeam() {
         <div className="register">
             <div className="regFlex"  id="fgtHeadbox">
                 <img className="arrow" src={arrow} onClick={() => { dispatch(dialog11()) }} />
-                <p className="heading">Forgot Password ?</p>
+                <p className="heading" id="forgotHead">Forgot Password?</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
            

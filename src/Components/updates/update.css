@@ -4,6 +4,10 @@
     padding: 116px 10vw 10vw 80px;
 }
 
+#update{
+    margin-bottom:24px;
+}
+
 .updCard {
     background-color: #EEF1FF;
     /* width:80vw; */

@@ -16,6 +16,7 @@ const TeamDBThunk = createAsyncThunk("db/team", async () => {
             "Authorization": `Bearer ${accessToken}`
         }
     }
+    console.log(config)
     return await Baseurl.get("participants/team_dashboard/", config)
         .then((res) => {
 

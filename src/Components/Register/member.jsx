@@ -102,7 +102,8 @@ function Member() {
     }, [input.branch]);
 
     useEffect(() => {
-        if (isnum.test(input.mobile)) {
+
+        if (isnum.test(input.mobile) && input.mobile.length == 10) {
             document.getElementById("wrongNum").style.display = "none";
             setIsCorrect(true)
         }
@@ -111,6 +112,7 @@ function Member() {
             setIsCorrect(false)
         }
     }, [input.mobile])
+
 
     useEffect(() => {
         if (input.course) {
@@ -141,16 +143,13 @@ function Member() {
 
     const [valu, setValu] = useState('')
     const [token, setToken] = useState(false);
-    // const key = "6Lf6HCIlAAAAAGU2ube1_efUhBj63FQcx3Bkl9kp"
     const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
     function onChange(value) {
         setValu(value)
         setToken(true)
-        console.log("Captcha value:", value);
     }
 
     function RegAsMember() {
-
         if (!token) {
             toast.error("Please verify the captcha", {
                 position: "top-right",
@@ -262,7 +261,7 @@ function Member() {
                 </div>
                 <p className="regName">Mobile Number</p>
                 <input required type="text" className="regInputname" placeholder="Enter phone number" value={input.mobile} onChange={(e) => setInput({ ...input, mobile: e.target.value })} />
-                <p id="wrongNum">Number must contain only numeric characters.</p>
+                <p id="wrongNum">Contact Number should be of 10 digit.</p>
                 <p className="regName">College Name</p>
                 <input required type="text" className="regInputname" placeholder="Enter your college name" value={input.college} onChange={(e) => setInput({ ...input, college: e.target.value })} />
                 <p className="regName">Course</p>

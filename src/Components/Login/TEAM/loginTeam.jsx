@@ -36,13 +36,13 @@ function LoginTeam () {
     }
     const [login1, setLogin1] = useState(loginState1)
 
-    useEffect(() => {
-        if (rightemail.test(login1.email)) {
-            document.getElementById("wrongEmailLog1").style.display = "none";
-        } else if (login1.email) {
-            document.getElementById("wrongEmailLog1").style.display = "block";
-        }
-    }, [login1.email]);
+    // useEffect(() => {
+    //     if (rightemail.test(login1.email)) {
+    //         document.getElementById("wrongEmailLog1").style.display = "none";
+    //     } else if (login1.email) {
+    //         document.getElementById("wrongEmailLog1").style.display = "block";
+    //     }
+    // }, [login1.email]);
 
     function LogTeam() {
         const data = {
@@ -100,7 +100,7 @@ function LoginTeam () {
                 <form onSubmit={(e)=>e.preventDefault()} id="loginForm">
                 <p className="regName">Team ID/ Email ID</p>
                 <input required type="text" className="regInputname" placeholder="Enter your email" value={login1.email} onChange={(e) => setLogin1({ ...login1, email: e.target.value })} />
-                <p id="wrongEmailLog1">Please enter a valid Email address</p>
+                {/* <p id="wrongEmailLog1">Please enter a valid Email address</p> */}
                 <p className="regName">Password</p>
                 {show1 ? (
                     <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow1} />

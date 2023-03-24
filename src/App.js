@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import LandingPage from "./Components/LandingPage/landingPage";
 import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import TeamDB from "./Components/Dashboard/teamDB";
@@ -12,18 +12,35 @@ import DomainCivil from "./Components/Domain/civil";
 import DomainMe from "./Components/Domain/me";
 import DomainCs from "./Components/Domain/cs";
 import FAQ from "./Components/FAQs/FAQs";
+import { useDispatch } from "react-redux";
+import { setTitle } from "./Redux/heading";
 
 function App() {
 
   const team = localStorage.getItem("accessToken") ? true : false
   const ca = localStorage.getItem("CA_ID") ? true : false
+  console.log(ca)
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (ca) {
+      dispatch(setTitle("CA"))
+    }
+    else if (team) {
+      dispatch(setTitle("Team"))
+    }
+    else {
+      dispatch(setTitle(""))
+    }
+  }, [ca, team])
   return <>
     <HashRouter>
       {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
       {/* <BrowserRouter> */}
       <Routes>
         <Route path="/" exact element={<LandingPage />} />
-        {ca ? <Route path="/ca_db" exact element={<CaDB />} /> : null}
+        {/* <Route path="/team_db" exact element={<TeamDB />} /> */}
+        {/* <Route path="/ca_db" exact element={<CaDB />} />  */}
+        {ca ? <Route path="/ca_db" element={<CaDB />} /> : null}
         {team ? <Route path="/team_db" exact element={<TeamDB />} /> : null}
         <Route path="/updates" exact element={<Update />} />
         <Route path="/previous_year" exact element={<PreviousYear />} />

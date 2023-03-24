@@ -67,7 +67,6 @@ function ResetTeam() {
             "otp": localStorage.getItem("login_otp"),
             "password": input.pass
         }
-        console.log(data)
         if (input.pass && input.confirmPass) {
             dispatch(ResetTeamThunk(data)).
                 then((res) => {
@@ -92,7 +91,7 @@ function ResetTeam() {
 
     return <>
         <div className="register">
-            <div className="regFlex">
+            <div className="regFlex" id="rstHeadbox" >
                 <img className="arrow" src={arrow} onClick={() => { dispatch(dialog13()) }} />
                 <p className="heading">Reset Password</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />

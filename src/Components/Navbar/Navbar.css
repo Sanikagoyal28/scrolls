@@ -26,18 +26,14 @@
     display: flex;
     padding-left: 3.8vw;
     padding-right: 4vw;
-    /* border-bottom: 1px solid #FFFFFF; */
+    border-bottom: 1px solid #FFFFFF;
     overflow: hidden;
-    padding-top: 12px;
 }
 
 .navFlex1 {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-    margin-left: 4vw;
-    margin-top: -6px;
+    margin-left: 2vw;
+    margin-top: 9px;
 }
 
 .navScroll {
@@ -60,8 +56,8 @@
     font-weight: 300;
     font-size: 0.96rem;
     line-height: 24px;
-    color: #FFFFFF;
-    /* margin-right: 4vw; */
+    /* color: #FFFFFF; */
+    margin-right: 4vw;
     cursor: pointer;
 }
 
@@ -78,7 +74,6 @@
     display: none;
 }
 
-
 .liTitle,
 .logout {
     font-family: 'Poppins';
@@ -89,10 +84,10 @@
     color: #FAC949;
     margin-right: 1vw;
     text-decoration: underline;
-    /* margin-top: 6px; */
+    margin-top: 6px;
 }
 
-.logout {
+.logout{
     cursor: pointer;
 }
 
@@ -104,7 +99,7 @@
     line-height: 24px;
     color: #FFFFFF;
     margin-right: 2vw;
-    /* margin-top: 6px; */
+    margin-top: 6px;
 }
 
 .navFlex1 a {
@@ -113,31 +108,22 @@
 }
 
 .navFlex1 a.active {
-    /* color:#FAC949; */
     text-decoration: underline;
-    /* text-decoration-color: #FFFFFF; */
+    text-decoration-color: #FFFFFF;
 }
 
 #navdomain {
     color: #FFFFFF;
-    position: relative;
-    bottom: 2.6px;
-    /* margin-top:-4px; */
 }
 
 .navFlex2 {
-    position: absolute;
-    right: 2vw;
+    margin-left: 14vw;
     display: flex;
 }
 
 .navFlex3 {
-    position: absolute;
-    right: 2vw;
-    top:20px;
+    margin-left: 6vw;
     display: flex;
-    justify-content: center;
-    align-items: center;
     display: none;
 }
 
@@ -157,7 +143,6 @@
     color: #252525;
     margin-right: 1.5vw;
     margin-bottom: 12px;
-    cursor: pointer;
 }
 
 .navLogin,
@@ -175,7 +160,6 @@
     line-height: 24px;
     margin-bottom: 12px;
     color: #FFFFFF;
-    cursor: pointer;
 }
 
 #menu {
@@ -219,6 +203,7 @@
     font-weight: 400;
     font-size: 1.1rem;
     line-height: 24px;
+    /* margin-right: 4vw; */
     padding-bottom: 30px;
 }
 
@@ -228,16 +213,16 @@
 }
 
 #uli ul a.active {
-   color:#FAC949;
+    color:#FAC949
+    /* text-decoration: underline; */
 }
-
 
 #dropdown {
     display: none;
     background-color: #191919;
     position: fixed;
     top: 50px;
-    left: 22vw;
+    left: 25vw;
     flex-direction: column;
     font-weight: 600;
     z-index: 8;
@@ -249,11 +234,7 @@
     display: flex;
     flex-direction: column;
     list-style: none;
-    /* margin-left: -2vw; */
-}
-
-#dropdown ul a {
-    text-decoration: none;
+    margin-left: -2vw;
 }
 
 #dropdown ul li {
@@ -274,35 +255,20 @@
 }
 
 #team,
-#ca {
-    display: none;
-}
-
-#liTitle {
-    display: none;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 24px;
-    color: #FAC949;
-    margin-right: 1vw;
-    margin-top: 6px;
-    cursor: pointer;
-}
-
+#ca,
+#liTitle,
 #liLogout {
     display: none;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 24px;
-    color: #FAC949;
-    margin-right: 1vw;
-    margin-top: 6px;
+}
+
+#liTitle,
+#liLogout {
+    display: none;
+    color:#FAC949;
+}
+
+#liLogout{
     cursor: pointer;
-    text-decoration: underline;
 }
 
 #liDropdown {
@@ -350,16 +316,14 @@
     height: 24px;
     color: #FFFFFF;
     cursor: pointer;
-    position: relative;
-    top: 6px;
-    right:6px;
-}
-
-@media(max-width:1400px) {
-    .navFlex2 {}
 }
 
 @media(max-width:1330px) {
+    .navFlex1 {
+        margin-left: -8vw;
+    }
+
+    .navFlex2,
     .navFlex3 {
         margin-left: -1vw;
     }
@@ -369,17 +333,24 @@
     }
 
     #dropdown {
-        left: 22.5vw;
+        left: 26vw;
     }
 }
 
 @media(max-width:1150px) {
+
+    .navFlex1 {
+        margin-right: 2vw;
+        margin-left: -2vw;
+    }
+
+    .navFlex2,
     .navFlex3 {
         margin-left: 0vw;
     }
 
     #dropdown {
-        left: 24vw;
+        left: 28vw;
     }
 
     #dropdown ul li {
@@ -387,32 +358,40 @@
     }
 }
 
+@media(max-width:1050px) {
+
+    .navHead,
+    .navDbC,
+    .navDbT {
+        margin-right: 2.6vw;
+    }
+}
+
 @media(max-width:1000px) {
+    .navFlex1 {
+        margin-left: -4vw;
+    }
+
     #dropdown {
-        left: 25vw;
+        left: 27vw;
     }
 
     #dropdown ul li {
         width: 18vw;
     }
-    .navFlex1{
-        margin-left: 2vw;
-    }
-    .navTitle{
-        margin-right: 1vw;
-    }
-    .navFlex1{
-        gap:28px;
-    }
 }
 
 @media(max-width:920px) {
+    .navFlex1 {
+        margin-left: 1vw;
+    }
+
     .navRegister {
         width: 10vw;
     }
 
     #dropdown {
-        left: 26.2vw;
+        left: 27.6vw;
     }
 
     #dropdown ul li {
@@ -421,28 +400,29 @@
 }
 
 @media(max-width:870px) {
+    .navFlex1 {
+        margin-left: -2vw;
+    }
+
     .navHead,
     .navDbC,
     .navDbT {
         font-size: 0.9rem;
+        margin-right: 2vw;
     }
 
     .navScroll {
         font-size: 1.5rem;
     }
-    .navFlex1{
-        margin-left:-1vw;
-        gap:24px;
-    }
-    
-    #dropdown {
-        left: 23.6vw;
-    }
 }
 
 @media(max-width:800px) {
     #dropdown {
-        left: 25vw;
+        left: 28vw;
+    }
+
+    #dropdown ul {
+        margin-left: -3vw;
     }
 
     #dropdown ul li {
@@ -456,21 +436,23 @@
     }
 
     .navFlex3 {
-        right:1vw;
-        /* margin-left: -1vw; */
+        margin-left: -1vw;
     }
-    .navFlex1{
-        gap:20px;
+
+    .navFlex1 {
+        margin-left: -3vw;
     }
 }
 
 @media(max-width:750px) {
-   
+    .navFlex1 {
+        margin-left: -2vw;
+    }
 
     .navHead,
     .navDbC,
     .navDbT {
-        font-size: 0.88rem;
+        font-size: 0.8rem;
     }
 
     .navRegister,
@@ -481,14 +463,19 @@
     }
 }
 
-@media(max-width:735px) {
+@media(max-width:725px) {
     .navScroll {
         font-size: 1.4rem;
     }
 
     .navFlex1 {
-        gap:16px;
-        margin-left: -2vw;
+        margin-left: -5.3vw;
+    }
+
+    .navHead,
+    .navDbC,
+    .navDbT {
+        margin-right: 1.4vw;
     }
 
     .navRegister,
@@ -496,10 +483,15 @@
         width: 10vw;
         height: 32px;
         font-size: 0.85rem;
+
     }
 
     #dropdown {
-        left: 25.2vw;
+        left: 27vw;
+    }
+
+    #dropdown ul {
+        margin-left: -4vw;
     }
 
     #dropdown ul li {
@@ -508,47 +500,46 @@
     }
 }
 
-@media(max-width:700px) {
+@media(max-width:660px) {
     .navScroll {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         margin-right: 0;
     }
 
     .navFlex1 {
-        margin-left: -4vw;
-        gap:12px;
+        margin-left: -6vw;
     }
 
-    .navHead, .navDbC, .navDbT {
-        font-size: 0.85rem;
+    .navDbC,
+    .navDbT,
+    .navHead {
+        font-size: 0.75rem;
     }
 
     .navRegister,
     .navLogin {
-        margin-top:4px;
-        width: 10vw;
+        width: 11vw;
         height: 32px;
         font-size: 0.8rem;
-    }
 
-    #dropdown{
-        left:24vw;
     }
 
 }
 
-@media(max-width:670px) {
+@media(max-width:630px) {
     .navScroll {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .navFlex1 {
         margin-left: -6vw;
-        gap:8px;
     }
 
-    .navHead ,.navDbC, .navDbT{
-        font-size: 0.83rem;
+    .navHead ,
+    .navDbC,
+    .navDbT{
+        font-size: 0.72rem;
+        margin-right: 1.4vw;
     }
 
     .navRegister,
@@ -567,17 +558,17 @@
 
 @media(max-width:590px) {
     .navScroll {
-        /* font-size: 1rem; */
+        font-size: 1rem;
     }
 
     .navFlex1 {
-        /* margin-left: -8vw; */
+        margin-left: -9vw;
     }
 
     .navHead,
     .navDbC,
     .navDbT {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
     }
 
     .navRegister,
@@ -586,7 +577,11 @@
     }
 
     #dropdown {
-        left: 23.4vw;
+        left: 26vw;
+    }
+
+    #dropdown ul {
+        margin-left: -5vw;
     }
 
     #dropdown ul li {
@@ -599,7 +594,7 @@
     .navFlex1,
     .navRegister,
     .navLogin,
-    .navTitle , #faq{
+    .navTitle {
         display: none;
         visibility: hidden;
     }
@@ -618,11 +613,9 @@
         display: block;
         width: 24px;
         height: 24px;
-        margin-right:2vw;
-        margin-top:8px;
-        /* position: absolute;
-        top: 8px;
-        right: 4vw; */
+        position: absolute;
+        top: 20px;
+        right: 5vw;
     }
 
     #menu2 {

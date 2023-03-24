@@ -84,10 +84,14 @@ function CaDB() {
                 <p>Team Name</p>
                 <p>Leader</p>
             </div>
+            <div className="team_box_data">
+                        <p>chvdvcacvjs</p>
+                        <p>sanikavvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
+                    </div>
             {(teams != undefined && teams.length > 0) ? teams.map((t) => {
                 return <>
                     <div className="team_box_data">
-                        <p>{t.team_name}</p>
+                        <p>chvdvcacvjs</p>
                         <p>{t.leader}</p>
                     </div>
                 </>
@@ -98,10 +102,7 @@ function CaDB() {
             <hr className="dbHR2" />
 
             <div className="dbFlex1">
-                <div className="dbFlex2">
                     <p className="dbHead">College</p>
-                    <p className="dbText">This will be displayed on your Profile</p>
-                </div>
                 <div className="teamID_box">{college}</div>
             </div>
 
@@ -113,6 +114,11 @@ function CaDB() {
                 <p>Rank</p>
                 <p>Referral count</p>
             </div>
+            <div className="member_box_data">
+                        <p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
+                        <p id="rank">1</p>
+                        <p>10</p>
+                    </div>
             {(leaderboard != undefined && leaderboard.length > 0) ? leaderboard.map((t, index) => {
                 return <>
                     <div className="member_box_data">

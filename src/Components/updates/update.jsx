@@ -6,7 +6,7 @@ function Update() {
     return <>
         <Navbar />
         <div className="updates">
-            <p className="dashboard">Updates</p>
+            <p className="dashboard" id="update">Updates</p>
             <div className="updText">
                 <ul>
                     <li>1.  The ongoing conflict between Ukraine and Russia has had several impacts on the world economy. There are some possible effects on Energy prices, Trade, Tourism, </li>

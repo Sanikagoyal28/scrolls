@@ -25,8 +25,8 @@ function Forgot() {
     }, [email]);
 
     function ForgotPassword() {
-
         localStorage.setItem("login_email", email)
+       
         if (email) {
             dispatch(FgtCAThunk(email)).
                 then((res) => {
@@ -64,7 +64,7 @@ function Forgot() {
         <div className="register">
             <div className="regFlex" id="fgtHeadbox">
                 <img className="arrow" src={arrow} onClick={() => { dispatch(dialog7()) }} />
-                <p className="heading">Forgot Password ?</p>
+                <p className="heading">Forgot Password?</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
             <p className="forgotText">We’ll send you a One Time Password on this email.</p>

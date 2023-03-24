@@ -217,6 +217,7 @@ function Navbar() {
                 </div>
                 <NavLink to="/previous_year"><li>Previous Year</li></NavLink>
                 <NavLink to="/updates"><li>Updates</li></NavLink>
+                <NavLink to="/faq"><li>FAQs</li></NavLink>
                 <NavLink to="/team_db"><li id="team">Dashboard</li></NavLink>
                 <NavLink to="/ca_db"><li id="ca">Dashboard</li></NavLink>
                 <li id="liTitle">{title}</li>
@@ -266,7 +267,7 @@ function Navbar() {
 
         <Dialog open={stepDialog.two} PaperProps={{
             sx: {
-                maxHeight: 1500,
+                maxHeight: 1300,
                 marginTop: 94
             }
         }} >

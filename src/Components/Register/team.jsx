@@ -142,12 +142,9 @@ function Team() {
                 }
             }
         }
-        console.log(data)
         if (team.name && team.size && team.leaderId && team.pass) {
             dispatch(RegTeamThunk(data)).
                 then((res) => {
-                    console.log(res)
-
                     if (res.payload.status === 201) {
                         toast.success(`${res.payload.data.msg}`, {
                             position: "top-right",
@@ -157,10 +154,7 @@ function Team() {
                         dispatch(dialog0())
                     }
                     if (res.payload.status === 400) {
-                        console.log(Object.keys(res.payload.data))
                         let x = Object.keys(res.payload.data)
-                        console.log(typeof(x))
-                        console.log(res.payload.data[Object.keys(res.payload.data)[0]])
                         toast.error(`${res.payload.data[Object.keys(res.payload.data)[0]]}`, {
                             position: "top-right",
                             theme: "light",
@@ -187,7 +181,7 @@ function Team() {
 
     return <>
         <div className="register">
-            <div className="regFlex">
+            <div className="regFlex" id="teamReg">
                 <img className="arrow" src={arrow} onClick={() => { dispatch(dialog1()) }} />
                 <p className="heading">Register as <span id="member">Team</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />

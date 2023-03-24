@@ -34,8 +34,8 @@
 
 #registerCA {
     font-size: 1.5rem;
-    margin-right: 2vw;
-    margin-left: 2vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
 
 #regMember {
@@ -75,7 +75,7 @@
     display: flex;
     flex-direction: column;
     width: 40vw;
-    height: 1300px;
+    height: 1400px;
     background: #FFFFFF;
     border-radius: 8px;
     padding-top: 4px;
@@ -90,8 +90,9 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-left: -0.4vw;
-    margin-top: -80px;
+    margin-left: 1vw;
+    margin-top: -60px;
+    margin-right:1vw;
 }
 
 .loginFlex {
@@ -104,10 +105,14 @@
 }
 
 #fgtHeadbox {
-    margin-top: -90px;
-    margin-bottom: 20px;
+    margin-top: -40px;
+    margin-bottom: 10px;
 }
 
+#rstHeadbox {
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
 
 #regCA {
     margin-top: -100px;
@@ -135,6 +140,10 @@
     cursor: pointer;
 }
 
+#back{
+    width:28px;
+}
+
 .heading {
     display: inline;
     font-family: 'Poppins';
@@ -159,7 +168,7 @@
     line-height: 20px;
     color: #000000;
     margin-left: 7vw;
-    margin-top: 24px;
+    margin-top: 16px;
     margin-bottom: 8px;
 }
 
@@ -242,7 +251,7 @@
 }
 
 #recaptcha {
-    margin-left: 8.5vw;
+    margin-left: 9vw;
     margin-top: 20px;
 }
 
@@ -308,6 +317,7 @@
     outline: none;
     margin-top: 32px;
     cursor: pointer;
+    margin-bottom:56px;
 }
 
 .forgotPass {
@@ -333,9 +343,7 @@
     margin-left: 7vw;
     color: #252525;
     width: 25vw;
-    margin-bottom: 0;
-    margin-top: 16px;
-
+    margin-bottom: 16px;
 }
 
 .otpInputFlex {
@@ -344,7 +352,7 @@
 }
 
 .otpInput {
-    width: 2.5vw;
+    width: 3vw;
     height: 36px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 6px;
@@ -392,7 +400,20 @@
     margin-left: -7vw;
 } */
 
+@media(max-width:1440px){
+    #recaptcha {
+        margin-left: 8.5vw;
+    }
+}
 
+@media(max-width:1350px){
+    #recaptcha {
+        margin-left: 8.2vw;
+    }
+    .forgotPass{
+        margin-left: 22vw;
+    }
+}
 
 @media (max-width:1310px) {
     .register {
@@ -442,7 +463,7 @@
     }
 
     .forgotPass {
-        margin-left: 24vw;
+        margin-left: 24.6vw;
     }
 
     #recaptcha {
@@ -452,9 +473,11 @@
 
 @media(max-width:1220px) {
     #recaptcha {
-        margin-left: 8vw;
+        margin-left: 8.3vw;
     }
-
+    .forgotPass {
+        margin-left: 24vw;
+    }
 }
 
 @media(max-width:1150px) {
@@ -526,9 +549,23 @@
     }
 }
 
+@media(max-width:1100px){
+    #recaptcha {
+        margin-left: 7.4vw;
+    }
+}
+
+@media(max-width:1080px){
+    #registerCA{
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
 @media (max-width:1050px) {
     .register {
         width: 48vw;
+        
     }
 
     .asRegister,
@@ -556,9 +593,8 @@
     }
 
     #recaptcha {
-        margin-left: 7.6vw;
+        margin-left: 7.2vw;
     }
-
 }
 
 @media (max-width:950px) {
@@ -617,6 +653,29 @@
         width: 5vw;
         margin-right: 1.5vw;
     }
+    #registerCA{
+        margin-left: 0.5vw;
+        margin-right: 0.5vw;
+    }
+    #regCA{
+        margin-right:1vw;
+    }
+    #recaptcha{
+        margin-left:7.8vw;
+    }
+
+    #teamReg{
+        margin-top:-90px;
+    }
+}
+
+@media(max-width:890px){
+    #recaptcha {
+        margin-left: 6.9vw;
+    }
+    #memberReg{
+        margin-top: 4px;
+    }
 }
 
 @media (max-width:870px) {
@@ -631,8 +690,8 @@
     .asRegister,
     .regContinue,
     .forgotText {
-        width: 36vw;
-        margin-left: 10vw;
+        width: 38.5vw;
+        margin-left: 8.3vw;
     }
 
     .regName,
@@ -653,25 +712,25 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        margin-left: 10vw;
+        margin-left: 8.3vw;
     }
 
     #LEye,
     #TEye,
     #CEye {
-        left: 42vw;
+        left: 43vw;
     }
 
     .regGender {
-        width: 10.5vw;
+        width: 12vw;
     }
 
     .inputPwd {
-        margin-left: 7.5vw;
+        margin-left: 5.8vw;
     }
 
     .genders {
-        margin-left: 10vw;
+        margin-left: 8vw;
     }
 
     #teamForm {
@@ -679,7 +738,7 @@
     }
 
     .forgotPass {
-        margin-left: 30vw;
+        margin-left: 31vw;
     }
 
     #loginForm {
@@ -694,14 +753,14 @@
         margin-left: 10vw;
     }
     #recaptcha {
-        margin-left: 10vw;
+        margin-left: 9.5vw;
     }
 }
 
 
 @media (max-width:800px) {
     .register {
-        width: 58vw;
+        width: 62vw;
     }
 
     .asRegister,
@@ -711,27 +770,34 @@
     #otherCA,
     .regContinue,
     .forgotText {
-        width: 38vw;
+        width: 42vw;
+        margin-left:9vw;
     }
 
     #LEye,
     #TEye,
     #CEye {
-        left: 44vw;
+        left: 47vw;
     }
 
     .regGender {
-        width: 11vw;
+        width: 13vw;
     }
     #recaptcha {
-        margin-left: 9vw;
+        margin-left: 10vw;
+    }
+    .inputPwd{
+        margin-left:6vw;
+    }
+    .forgotPass{
+        margin-left: 34vw;
     }
 
 }
 
 @media (max-width:720px) {
     .register {
-        width: 60vw;
+        width: 64vw;
     }
 
     .asRegister,
@@ -741,21 +807,26 @@
     #otherCA,
     .regContinue,
     .forgotText {
-        width: 40vw;
+        width: 45vw;
     }
 
     #LEye,
     #TEye,
     #CEye {
-        left: 45vw;
+        left: 47vw;
     }
 
     .regGender {
-        width: 12vw;
+        width: 13.5vw;
+        margin-right:2vw;
     }
 
     .inputPwd {
-        margin-left: 6.8vw;
+        margin-left: 5.8vw;
+    }
+
+    .genders{
+        margin-left:9vw;
     }
 
     #wrongName,
@@ -787,27 +858,43 @@
     }
 
     .forgotPass {
-        margin-left: 30vw;
+        margin-left: 35vw;
     }
 
     #loginForm {
         margin-left: 0;
     }
     #recaptcha {
-        margin-left: 8vw;
+        margin-left: 9vw;
+    }
+    .otpInput{
+        width:6vw;
+    }
+}
+
+@media(max-width:690px){
+    .forgotPass {
+        margin-left: 34vw;
+    }
+    #LEye{
+        left:49vw;
     }
 }
 
 @media(max-width:670px){
     #recaptcha {
-        margin-left:7vw;
+        margin-left:8vw;
+    }
+    #registerCA{
+        margin-left: 0vw;
+        margin-right: 0vw;
     }
 }
 
 @media (max-width:630px) {
 
     .register {
-        width: 66vw;
+        width: 68vw;
     }
 
     .asRegister,
@@ -817,17 +904,17 @@
     #otherCA,
     .regContinue,
     .forgotText {
-        width: 44vw;
+        width: 49vw;
     }
 
     #LEye,
     #TEye,
     #CEye {
-        left: 48vw;
+        left: 51.5vw;
     }
 
     .regGender {
-        width: 13vw;
+        width: 14.5vw;
     }
 
     #wrongName,
@@ -850,22 +937,32 @@
         width: 44vw;
     }
 
+    .inputPwd{
+        margin-left: 5.4vw;
+    }
+
     .forgotPass {
-        margin-left: 31vw;
+        margin-left: 35vw;
     }
 
     #registerCA {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
     #recaptcha {
-        margin-left: 8vw;
+        margin-left: 8.2vw;
+    }
+    #teamReg{
+        margin-top:-100px;
+    }
+    #rstHeadbox {
+        margin-top: -20px;
     }
 }
 
 @media (max-width:550px) {
 
     .register {
-        width: 70vw;
+        width: 74vw;
     }
 
     .asRegister,
@@ -875,34 +972,46 @@
     #otherCA,
     .regContinue,
     .forgotText {
-        width: 50vw;
+        width: 55vw;
     }
 
     .regGender {
-        width: 14vw;
+        width: 16.5vw;
         font-size: 0.9rem;
         margin-right: 2vw;
     }
 
     .inputPwd {
-        margin-left: 6.2vw;
+        margin-left: 5vw;
     }
 
     #LEye,
     #TEye,
     #CEye {
-        left: 54vw;
+        left: 57vw;
     }
 
     .forgotPass {
-        margin-left: 34vw;
+        margin-left: 38vw;
     }
     #recaptcha {
-        margin-left: 6vw;
+        margin-left: 8.8vw;
     }
     .otpInput {
         width: 7vw;
         margin-right: 2vw;
+    }
+}
+
+@media(max-width:530px){
+    #recaptcha {
+        margin-left:7vw;
+    }
+    #memberReg{
+        margin-top: 0px;
+    }
+    .register{
+        padding-top: 0;
     }
 }
 
@@ -918,22 +1027,22 @@
     #otherCA,
     .regContinue,
     .forgotText {
-        width: 57vw;
+        width: 61vw;
         height: 44px;
     }
 
     .inputPwd {
-        margin-left: 5.4vw;
+        margin-left: 4.6vw;
     }
 
     #LEye,
     #TEye,
     #CEye {
-        left: 60vw;
+        left: 63.5vw;
     }
 
     .regGender {
-        width: 18vw;
+        width: 19vw;
         height: 45px;
     }
 
@@ -959,42 +1068,36 @@
     }
 
     .forgotPass {
-        margin-left: 35vw;
+        margin-left: 42vw;
     }
 
     .heading {
         font-size: 1.45rem;
     }
     #recaptcha {
-        margin-left: 7.5vw;
+        margin-left: 8vw;
+    }
+    .otpInput{
+        width:8vw;
+    }
+}
+
+@media(max-width:470px){
+    #recaptcha {
+        margin-left: 7.2vw;
     }
 }
 
 @media(max-width:450px){
     #recaptcha {
-        margin-left:6.5vw;
+        margin-left:8.6vw;
     }
     .otpInput {
         width: 8vw;
-        margin-right: 1.5vw;
-    }
-}
-@media(max-width:430px){
-    #recaptcha {
-        margin-left:3vw;
-    }
-}
-
-@media(max-width:400px) {
-    .forgotPass {
-        margin-left: 32vw;
-    }
-
-    #registerAs {
-        font-size: 1.5rem;
+        margin-right: 2vw;
     }
     .register{
-        width:84vw;
+        width:86vw;
     }
     .asRegister,
     .regInputname,
@@ -1003,23 +1106,86 @@
     #otherCA,
     .regContinue,
     .forgotText {
-        width: 63vw;
+        width: 67vw;
+        height: 44px;
+    }
+    .inputPwd {
+        margin-left: 4vw;
+    }
+
+    .forgotPass{
+        margin-left: 44vw;
+    }
+    #LEye,
+    #TEye,
+    #CEye {
+        left: 67vw;
+    }
+
+    .regGender {
+        width: 20vw;
+        margin-right:2.2vw;
+        height: 45px;
+    }
+    #registerCA{
+        font-size: 1.3rem;
+    }
+    #back{
+        width:24px;
+    }
+    #regCA{
+        margin-right:2vw;
+    }
+    #teamReg{
+        margin-top:-120px;
+    }
+    #rstHeadbox {
+        margin-top: -30px;
+    }
+}
+@media(max-width:420px){
+    #recaptcha {
+        margin-left:5.4vw;
+    }
+}
+
+@media(max-width:400px) {
+    .forgotPass {
+        margin-left: 40vw;
+    }
+
+    #forgotHead{
+       font-size: 1.4rem;
+    }
+
+    #registerAs {
+        font-size: 1.5rem;
+    }
+    .register{
+        width:90vw;
+    }
+    .regFlex{
+        margin-right:7vw;
+    }
+    .asRegister,
+    .regInputname,
+    .regButton,
+    #otherOption,
+    #otherCA,
+    .regContinue,
+    .forgotText {
+        width: 65vw;
         height: 42px;
     }
 
     .inputPwd {
-        margin-left: 5.4vw;
+        margin-left: 4.1vw;
     }
 
     #LEye,
     #TEye,
     #CEye {
-        left: 63vw;
-    }
-
-    .regGender {
-        width: 19vw;
-        height: 45px;
+        left: 66vw;
     }
 
     #wrongName,
@@ -1044,10 +1210,64 @@
     #recaptcha {
         margin-left:3vw;
     }
+    #regCA{
+        margin-right:6vw;
+    }
+    .otpInput{
+        width:9vw;
+    }
 }
 
 @media(max-width:380px){
     #recaptcha {
         margin-left:1vw;
+    }
+    .regFlex{
+        margin-right:10vw;
+        margin-left:3vw;
+    }
+    #back{
+        width:28px;
+    }
+    #regCA{
+        margin-right:10vw;
+    }
+    #registerCA{
+        line-height:42px;
+    }
+}
+
+@media(max-width:380px){
+    .forgotPass{
+        margin-left: 38vw;
+    }
+}
+
+@media(max-width:360px){
+    .inputPwd {
+        margin-left: 3vw;
+    }
+    #recaptcha{
+        margin-left: 0;
+    }
+    .forgotPass{
+        margin-left: 36vw;
+    }
+    .otpInput{
+        width:11vw;
+        margin-right: 2.5vw
+    }
+}
+
+@media(max-width:330px){
+    .inputPwd {
+        margin-left: 2.5vw;
+    }
+    .regFlex{
+        margin-left:2vw;
+        margin-right:12vw;
+    }
+    .forgotPass {
+        margin-left: 32vw;
     }
 }

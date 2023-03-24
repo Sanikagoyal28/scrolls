@@ -91,7 +91,7 @@ function CA2() {
     }, [ca.branch]);
 
     useEffect(() => {
-        if (isnum.test(ca.mobile)) {
+        if (isnum.test(ca.mobile) && ca.mobile.length == 10) {
             document.getElementById("wrongNumCA").style.display = "none";
             setIsCA(true);
         }
@@ -129,12 +129,10 @@ function CA2() {
 
       const [valu, setValu] = useState('')
       const [token, setToken] = useState(false);
-      // const key = "6Lf6HCIlAAAAAGU2ube1_efUhBj63FQcx3Bkl9kp"
       const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
       function onChange(value) {
           setValu(value)
           setToken(true)
-          console.log("Captcha value:", value);
       }
 
     function RegAsCA() {
@@ -172,7 +170,6 @@ function CA2() {
                 "g-recaptcha-response":valu
             }
         }
-        console.log(data)
         if (isCA && token) {
             dispatch(RegCAThunk(data)).
                 then((res) => {
@@ -211,10 +208,10 @@ function CA2() {
 
     return <>
         <div className="register">
-            <div className="regFlex" id="memberReg" >
-                <img className="arrow" src={arrow} onClick={() => { dispatch(dialog4()) }} />
+            <div className="regFlex" id="memberReg">
+                <img className="arrow" id="back" src={arrow} onClick={() => { dispatch(dialog4()) }} />
                 <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
-                <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
+                <img className="cross" id="back" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
             <form onSubmit={(e)=>e.preventDefault()}>
                 <p className="regName">Name</p>
@@ -244,7 +241,7 @@ function CA2() {
                 </div>
                 <p className="regName">Mobile Number</p>
                 <input required type="text" className="regInputname" placeholder="Enter phone number" value={ca.mobile} onChange={(e) => setCA({ ...ca, mobile: e.target.value })} />
-                <p id="wrongNumCA">Number must contain only numeric characters.</p>
+                <p id="wrongNumCA">Number must contain only 10 numeric characters.</p>
                 <p className="regName">College Name</p>
                 <input required type="text" className="regInputname" placeholder="Enter your college name" value={ca.college} onChange={(e) => setCA({ ...ca, college: e.target.value })} />
                 <p className="regName">Course</p>
