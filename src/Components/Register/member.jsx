@@ -184,11 +184,9 @@ function Member() {
                 "g-recaptcha-response": valu
             }
         }
-        console.log(data)
         if (token && input.name && input.email && input.pass && input.gender && input.mobile && input.course && input.college && input.year) {
             dispatch(RegMemberThunk(data)).
                 then((res) => {
-                    console.log(res)
                     if (res.payload.status === 201) {
                         dispatch(dialog0())
                         toast.success(`${res.payload.data.msg}`, {
@@ -207,7 +205,6 @@ function Member() {
                     }
                 })
                 .catch((err) => {
-                    console.log(err)
                 })
         }
     }

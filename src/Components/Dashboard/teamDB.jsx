@@ -28,7 +28,6 @@ function TeamDB() {
     const [uplPaper, setUplPaper] = useState([])
     const navigate = useNavigate()
     const fd = new FormData()
-    console.log(reducer)
     useEffect(() => {
         dispatch(TeamDBThunk())
     }, [])
@@ -50,12 +49,6 @@ function TeamDB() {
     }
 
     function handleSave() {
-        console.log(uplSyn, uplPaper)
-        // fd.append('synopsis', uplSyn)
-        // fd.append('paper', uplPaper)
-        // fd.append('domain', uplDom)
-        // fd.append('topic', uplTop)
-
         if (uplSyn.length == 0 && uplPaper.length == 0) {
             fd.append('domain', uplDom)
             fd.append('topic', uplTop)
@@ -76,12 +69,13 @@ function TeamDB() {
             fd.append('synopsis', uplSyn)
             fd.append('paper', uplPaper)
         }
+
+        //console form data
         for (const pair of fd.entries()) {
             console.log(`${pair[0]}, ${pair[1]}`);
         }
         dispatch(TeamDBDataThunk(fd)).
             then((res) => {
-                console.log(res)
                 if (res.payload.status === 200) {
                     toast.success(`${res.payload.data.msg}`, {
                         position: "top-right",
@@ -101,7 +95,6 @@ function TeamDB() {
                 }
             })
             .catch((err) => {
-                console.log(err)
             })
     }
 

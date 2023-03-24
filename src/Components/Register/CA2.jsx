@@ -190,7 +190,6 @@ function CA2() {
                     }
                 })
                 .catch((err) => {
-                    console.log(err)
                 })
         }
     }

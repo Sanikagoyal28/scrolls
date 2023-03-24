@@ -163,7 +163,6 @@ function Team() {
                     }
                 })
                 .catch((err) => {
-                    console.log(err)
                 })
         }
     }

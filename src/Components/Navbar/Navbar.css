@@ -248,6 +248,11 @@
     border-bottom: 0.5px solid #ddd;
     cursor: pointer;
     color: #FFFFFF;
+   
+}
+
+#dropdown ul a {
+    text-decoration: none;
 }
 
 #dropdown ul li:hover {

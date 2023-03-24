@@ -49,11 +49,9 @@ function LoginTeam () {
             "team_id": login1.email,
             "password": login1.password
         }
-        console.log(data)
         if(login1.email && login1.password){
         dispatch(LoginTeamThunk(data)).
             then((res) => {
-                console.log(res)
                 if (res.payload.status == 400) {
                     toast.error(`${res.payload.data.msg}`, {
                         position: "top-right",

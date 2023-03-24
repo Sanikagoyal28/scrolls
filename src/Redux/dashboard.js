@@ -16,7 +16,6 @@ const TeamDBThunk = createAsyncThunk("db/team", async () => {
             "Authorization": `Bearer ${accessToken}`
         }
     }
-    console.log(config)
     return await Baseurl.get("participants/team_dashboard/", config)
         .then((res) => {
 
@@ -37,11 +36,9 @@ const TeamDBDataThunk = createAsyncThunk("db_data/team", async (data) => {
    
     return await Baseurl.patch("participants/team_dashboard/", data, config)
         .then((res) => {
-            console.log(res)
             return res
         })
         .catch((Err) => {
-            console.log(Err)
             return Err.response
         })
 })
@@ -67,7 +64,7 @@ const DbSlice = createSlice({
             state.loading = true;
         })
         builder.addCase(TeamDBThunk.fulfilled, (state, action) => {
-            console.log(action)
+            
             state.loading = false;
             state.dataTeam = action.payload.data
         })
@@ -79,7 +76,7 @@ const DbSlice = createSlice({
             state.loading = true;
         })
         builder.addCase(TeamDBDataThunk.fulfilled, (state, action) => {
-            console.log(action)
+           
             state.loading = false;
             state.msg = action.payload.data.msg
         })

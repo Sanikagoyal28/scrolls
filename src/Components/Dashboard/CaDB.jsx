@@ -11,7 +11,6 @@ function CaDB() {
 
     const dispatch = useDispatch()
     const reducer = useSelector((s) => s.dashboard)
-    console.log(reducer)
     const [loading, setLoading] = useState(false)
     const [name, setName] = useState('')
     const [referralCode, setRefferalCode] = useState('')
@@ -43,7 +42,6 @@ function CaDB() {
             document.body.style.opacity = 1;
         }
     }, [reducer.loading])
-    console.log(leaderboard)
 
     return <>
         <Navbar />
@@ -84,10 +82,10 @@ function CaDB() {
                 <p>Team Name</p>
                 <p>Leader</p>
             </div>
-            <div className="team_box_data">
+            {/* <div className="team_box_data">
                         <p>chvdvcacvjs</p>
                         <p>sanikavvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
-                    </div>
+                    </div> */}
             {(teams != undefined && teams.length > 0) ? teams.map((t) => {
                 return <>
                     <div className="team_box_data">
@@ -114,11 +112,11 @@ function CaDB() {
                 <p>Rank</p>
                 <p>Referral count</p>
             </div>
-            <div className="member_box_data">
+            {/* <div className="member_box_data">
                         <p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
                         <p id="rank">1</p>
                         <p>10</p>
-                    </div>
+                    </div> */}
             {(leaderboard != undefined && leaderboard.length > 0) ? leaderboard.map((t, index) => {
                 return <>
                     <div className="member_box_data">
