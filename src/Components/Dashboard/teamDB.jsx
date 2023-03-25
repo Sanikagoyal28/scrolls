@@ -74,6 +74,7 @@ function TeamDB() {
         for (const pair of fd.entries()) {
             console.log(`${pair[0]}, ${pair[1]}`);
         }
+      
         dispatch(TeamDBDataThunk(fd)).
             then((res) => {
                 if (res.payload.status === 200) {
@@ -82,8 +83,11 @@ function TeamDB() {
                         theme: "light",
                         autoClose: 5000,
                     });
-                    // setTopic(uplTop)
-                    // setDomain(uplDom)
+                    if (uplDom != "" && uplTop != "") {
+                        setTopic(uplTop)
+                        setDomain(uplDom)
+                    }
+
                 } else {
                     setUplPaper('')
                     setUplSyn('')

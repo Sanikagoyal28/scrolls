@@ -3,7 +3,7 @@
     /* position:absolute; */
     /* top:20vh; */
     /* left:29vw; */
-    width: 38vw;
+    width: 40vw;
     height: 320px;
     background-color: #FFFFFF;
     padding-left: 1.5vw;
@@ -58,7 +58,7 @@
     width: 18vw;
     height: 38px;
     background: #F2F2F2;
-    border: 0.5px solid #FAC949;
+   border: none;
     border-radius: 8px;
     font-family: 'Montserrat';
     font-style: normal;
@@ -69,20 +69,23 @@
 }
 
 .logoutImage {
-    width: 220px;
-    height: 180px;
-    margin-top: 126px;
-    margin-left:1vw;
+    width: 240px;
+    height: 200px;
+    margin-top: 100px;
+    margin-left:0vw;
 }
 
-@media (max-width:1330px) {
-    .logoutImage {
+@media (max-width:1350px) {
+    /* .logoutImage {
         width: 200px;
         margin-left: 0vw;
+    } */
+    .lOut2{
+        margin-left: -1vw;
     }
 }
 
-@media (max-width:1270px) {
+@media (max-width:1290px) {
     .lOut2{
         margin-left: -2vw;
     }
@@ -134,13 +137,13 @@
 
 @media (max-width:700px) {
     .lOut2{
-        margin-left: -12vw;
+        margin-left: -14vw;
     }
     .logoutDiv {
         width: 60vw;
     }
     .logoutbtn1, .logoutbtn2{
-        width:20vw;
+        width:22vw;
     }
 }
 
@@ -161,7 +164,7 @@
         margin-left: -24vw;
     }
     .logoutDiv {
-        width: 74vw;
+        width: 80vw;
     }
     .logoutbtn1, .logoutbtn2{
         width:30vw;
@@ -170,6 +173,29 @@
 
 @media (max-width:400px) {
     .logoutDiv {
-        width: 80vw;
+        width: 90vw;
+        height:300px;
+    }
+    .logoutbtn1, .logoutbtn2{
+        width:34vw;
+    }
+    .logoutImage{
+        width:220px;
+        height:180px;
+       
+    }
+    .lOut2{
+        margin-left: -28vw;
+    }
+}
+
+@media(max-width:360px){
+    .logoutImage{
+        width:190px;
+        height:170px;
+        margin-top:114px;
+    }
+    .lOut2{
+        margin-left: -34vw;
     }
 }

@@ -11,7 +11,18 @@
     font-size: 2rem;
     line-height: 37px;
     color: #FAC949;
-    margin-bottom:24px;
+    margin-bottom: 24px;
+}
+
+#domainList {
+}
+
+#domainList li {
+    display: list-item;
+}
+
+li::marker {
+    content: initial;
 }
 
 .domainHeading {
@@ -41,7 +52,7 @@
     white-space: -o-pre-wrap;
     word-wrap: break-word;
     color: #000000;
-    margin-bottom:24px;
+    margin-bottom: 24px;
 }
 
 @media(max-width:600px) {

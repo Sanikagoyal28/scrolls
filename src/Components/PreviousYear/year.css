@@ -50,6 +50,7 @@
     width:80vw;
     height:600px;
     margin-bottom:16px;
+    object-fit: contain;
 }
 
 @media(max-width:950px){

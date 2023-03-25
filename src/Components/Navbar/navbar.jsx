@@ -209,7 +209,7 @@ function Navbar() {
                     <ul>
                         <NavLink to="/domain_management"><li>Management Science</li></NavLink>
                         <NavLink to="/domain_ece"><li>Electronics and Communication Engineering</li></NavLink>
-                        <NavLink to="/domain_civi"><li>Civil Engineering</li></NavLink>
+                        <NavLink to="/domain_civil"><li>Civil Engineering</li></NavLink>
                         <NavLink to="/domain_en"><li>Electrical and Electronics Engineering</li></NavLink>
                         <NavLink to="/domain_cs"><li>Computer Science and Information Technology</li></NavLink>
                         <NavLink to="/domain_me"><li>Mechanical Engineering</li></NavLink>
@@ -231,7 +231,7 @@ function Navbar() {
             <ul>
                 <NavLink to="/domain_management"><li>Management Science</li></NavLink>
                 <NavLink to="/domain_ece"> <li>Electronics and Communication Engineering</li></NavLink>
-                <NavLink to="/domain_civi"><li>Civil Engineering</li></NavLink>
+                <NavLink to="/domain_civil"><li>Civil Engineering</li></NavLink>
                 <NavLink to="/domain_en"> <li>Electrical and Electronics Engineering</li></NavLink>
                 <NavLink to="/domain_cs"> <li>Computer Science and Information Technology</li></NavLink>
                 <NavLink to="/domain_me"> <li>Mechanical Engineering</li></NavLink>
@@ -239,11 +239,11 @@ function Navbar() {
         </div>
 
         <div className="navbar">
-            <p className="navScroll">Scrolls<span className="navDot">.</span></p>
+        <NavLink to="/"><p className="navScroll">SCROLLS<span className="navDot">.</span></p></NavLink>
             <div className="navFlex1">
 
                 <NavLink to="/"><p className="navHead">Home</p></NavLink>
-                <p className="navHead" id="navdomain">Domains <img src={domain} id="domain" onClick={handleDropdown} /></p>
+                <p className="navHead" id="navdomain">Domains <img src={domain} id="domain" onClick={handleDropdown} onMouseOver={handleDropdown} /></p>
                 <NavLink to="/previous_year"><p className="navHead">Previous Year</p></NavLink>
                 <NavLink to="/updates"> <p className="navHead">Updates</p></NavLink>
                 <NavLink to="/team_db"><p className="navDbT">Dashboard</p></NavLink>

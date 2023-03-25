@@ -30,7 +30,7 @@ import { InstagramEmbed } from 'react-social-media-embed';
 import Navbar from "../Navbar/navbar";
 import timeline from "../Assets/timeline.svg"
 import mobTimeline from "../Assets/mob_timeline.svg"
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function LandingPage() {
 
@@ -173,30 +173,42 @@ function LandingPage() {
                     <p className="aboutScroll">Domains</p>
                 </div>
                 <div className="domainCards">
+                <NavLink to="/domain_civil">
                     <div className="domainCard1">
                         <img src={domainLogo} className="domainLogo1" />
                         <p className="domainText1">Civil Engineering</p>
                     </div>
+                    </NavLink>
+                    <NavLink to="/domain_cs">
                     <div className="domainCard2">
                         <img src={domainLogo} className="domainLogo2" />
-                        <p className="domainText2">CSIT</p>
+                        <p className="domainText2">Computer Science and Information Technology</p>
                     </div>
+                    </NavLink>
+                    <NavLink to="/domain_en">
                     <div className="domainCard1">
                         <img src={domainLogo} className="domainLogo1" />
                         <p className="domainText1">Electrical Engineering</p>
                     </div>
+                    </NavLink>
+                    <NavLink to="/domain_ece"> 
                     <div className="domainCard2">
                         <img src={domainLogo} className="domainLogo2" />
-                        <p className="domainText2">ECE</p>
+                        <p className="domainText2">Electronics and Communication Engineering</p>
                     </div>
+                    </NavLink>
+                    <NavLink to="/domain_me">
                     <div className="domainCard1">
                         <img src={domainLogo} className="domainLogo1" />
                         <p className="domainText1">Mechanical Engineering</p>
                     </div>
+                    </NavLink>
+                    <NavLink to="/domain_management">
                     <div className="domainCard2">
                         <img src={domainLogo} className="domainLogo2" />
                         <p className="domainText2">Management Science</p>
                     </div>
+                    </NavLink>
                 </div>
             </div>
             <div className="landTimeline">

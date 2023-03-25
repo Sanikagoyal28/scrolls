@@ -26,7 +26,6 @@
     display: flex;
     padding-left: 3.8vw;
     padding-right: 4vw;
-    border-bottom: 1px solid #FFFFFF;
     overflow: hidden;
 }
 
@@ -37,13 +36,19 @@
 }
 
 .navScroll {
-    width: 122px;
+    width: 10vw;
     font-family: 'Sora';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     line-height: 40px;
     color: #FFFFFF;
+    text-decoration: none;
+    position:relative;
+    top:4px;
+}
+.navbar a{
+    text-decoration: none;
 }
 
 .navDot {
@@ -108,8 +113,7 @@
 }
 
 .navFlex1 a.active {
-    text-decoration: underline;
-    text-decoration-color: #FFFFFF;
+    color:#FAC949;
 }
 
 #navdomain {
@@ -191,7 +195,8 @@
 
 #uli ul {
     margin-left: 0px;
-    list-style-type: disc;
+    list-style: none;
+    /* list-style-type: disc; */
     display: flex;
     flex-direction: column;
     padding-left: 8vw;
@@ -282,7 +287,8 @@
 }
 
 #liDropdown ul {
-    list-style-type: disc;
+    /* list-style-type: disc; */
+    list-style: none;
     display: flex;
     flex-direction: column;
     margin-left: -8vw;

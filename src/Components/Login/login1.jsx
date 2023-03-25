@@ -11,7 +11,7 @@ function Login1 () {
 return <>
      <div className="register" id="regDiv">
                 <div className="regFlex" id="LoginOpt" >
-                    <img className="arrow" src={arrow} />
+                    <img className="arrow" src={arrow} onClick={() => { dispatch(dialog0()) }}/>
                     <p className="heading" id="registerAs">Login as</p>
                     <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
                 </div>

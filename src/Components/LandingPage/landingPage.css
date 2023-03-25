@@ -136,7 +136,7 @@
     margin-top: 24px;
     font-family: 'Bahnschrift';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 16px;
     line-height: 19px;
     text-align: center;
@@ -195,6 +195,9 @@
     align-items: center;
     margin-right: 6vw;
     margin-top: 50px;
+    cursor: pointer;
+    padding-left: 1.2vw;
+    padding-right: 1.2vw;
 }
 
 .domainLogo1 {
@@ -225,6 +228,26 @@
     justify-content: center;
     margin-right: 6vw;
     margin-top: 50px;
+    cursor: pointer;
+    padding-left: 1.2vw;
+    padding-right: 1.2vw;
+}
+
+.landDomain a{
+    text-decoration: none;
+    color: #000;
+}
+
+.domainCard1:hover{
+    transform: scale(1.02, 1.02);
+    transition: 0.2s;
+}
+.domainCard2:hover{
+    transform: scale(1.02, 1.02);
+    transition: 0.2s;
+}
+.domainCard2 a {
+    color: #000;
 }
 
 .domainLogo2 {
@@ -525,7 +548,7 @@
     .domainCard2 {
         width: 30vw;
         margin-right: 2vw;
-        height: 250px;
+        height: 280px;
     }
 }
 
@@ -756,8 +779,8 @@
 
     .domainCard1,
     .domainCard2 {
-        width: 38vw;
-        margin-right: 6vw;
+        width: 40vw;
+        margin-right: 4vw;
     }
 
     .domainCards {

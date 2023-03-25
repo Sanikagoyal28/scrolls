@@ -14,6 +14,7 @@ import DomainCs from "./Components/Domain/cs";
 import FAQ from "./Components/FAQs/FAQs";
 import { useDispatch } from "react-redux";
 import { setTitle } from "./Redux/heading";
+import Rules from "./Components/rules/Rules";
 
 function App() {
 
@@ -34,12 +35,8 @@ function App() {
   }, [ca, team])
   return <>
     <HashRouter>
-      {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
-      {/* <BrowserRouter> */}
       <Routes>
         <Route path="/" exact element={<LandingPage />} />
-        {/* <Route path="/team_db" exact element={<TeamDB />} /> */}
-        {/* <Route path="/ca_db" exact element={<CaDB />} />  */}
         {ca ? <Route path="/ca_db" element={<CaDB />} /> : null}
         {team ? <Route path="/team_db" exact element={<TeamDB />} /> : null}
         <Route path="/updates" exact element={<Update />} />
@@ -51,9 +48,9 @@ function App() {
         <Route path="/domain_ece" exact element={<DomainEce />} />
         <Route path="/domain_en" exact element={<DomainEn />} />
         <Route path="/domain_management" exact element={<DomainManage />} />
+        <Route path="/rules" exact element={<Rules />} />
       </Routes>
     </HashRouter>
-    {/* </BrowserRouter> */}
   </>
 }
 
