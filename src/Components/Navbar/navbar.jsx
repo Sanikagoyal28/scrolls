@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import menu from "../Assets/menu.svg"
 import cross from "../Assets/navCross.svg"
 import dropdown from "../Assets/dropdown.svg"
 import domain from "../Assets/domain.svg"
-import { Dialog } from "@mui/material";
+import { Button, Dialog, DialogTitle, Slide } from "@mui/material";
 import Login from "../Login/CA/login";
 import Reset from "../Login/CA/reset";
 import Otp from "../Login/CA/otp";
@@ -29,6 +29,7 @@ function Navbar() {
     const [dialogg, setDialogg] = useState(false)
     const [login, setLogin] = useState(false)
     const [out, setOut] = useState(false)
+    const [soon, setSoon] = useState(false)
     const dispatch = useDispatch()
     const step = useSelector((s) => s.step)
     const { title } = useSelector((s) => s.heading)
@@ -177,7 +178,8 @@ function Navbar() {
 
     const [show, setShow] = useState(false)
     function handleDropdown() {
-        setShow(!show)
+        
+        setShow(true)
         if (show) {
             document.getElementById('dropdown').style.display = "flex";
             setShow(!show)
@@ -189,7 +191,7 @@ function Navbar() {
     }
 
     function handleDropdownTwo() {
-        setShow(!show)
+        setShow(true)
 
         if (show) {
             document.getElementById('liDropdown').style.display = "flex";
@@ -197,6 +199,10 @@ function Navbar() {
         else {
             document.getElementById('liDropdown').style.display = "none";
         }
+    }
+
+    function handleSoonClose() {
+        setSoon(false)
     }
 
     return <>
@@ -217,12 +223,15 @@ function Navbar() {
                 </div>
                 <NavLink to="/previous_year"><li>Previous Year</li></NavLink>
                 <NavLink to="/updates"><li>Updates</li></NavLink>
+                <NavLink to="/ca"><li>CA</li></NavLink>
+                <NavLink to="/rules"><li>Rules</li></NavLink>
                 <NavLink to="/faq"><li>FAQs</li></NavLink>
                 <NavLink to="/team_db"><li id="team">Dashboard</li></NavLink>
                 <NavLink to="/ca_db"><li id="ca">Dashboard</li></NavLink>
                 <li id="liTitle">{title}</li>
                 <li id="liLogout" onClick={() => { setOut(true); dispatch(logout()) }}>Logut</li>
-                <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li>
+                <li> <button className="liRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register</button></li>
+                {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li> */}
                 <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
             </ul>
         </div>
@@ -241,17 +250,18 @@ function Navbar() {
         <div className="navbar">
         <NavLink to="/"><p className="navScroll">SCROLLS<span className="navDot">.</span></p></NavLink>
             <div className="navFlex1">
-
                 <NavLink to="/"><p className="navHead">Home</p></NavLink>
                 <p className="navHead" id="navdomain">Domains <img src={domain} id="domain" onClick={handleDropdown} onMouseOver={handleDropdown} /></p>
                 <NavLink to="/previous_year"><p className="navHead">Previous Year</p></NavLink>
                 <NavLink to="/updates"> <p className="navHead">Updates</p></NavLink>
+                <NavLink to="/rules"> <p className="navHead">Rules</p></NavLink>
+                <NavLink to="/ca"> <p className="navHead">CA</p></NavLink>
                 <NavLink to="/team_db"><p className="navDbT">Dashboard</p></NavLink>
                 <NavLink to="/ca_db"><p className="navDbC">Dashboard</p></NavLink>
-
             </div>
             <div className="navFlex2">
-                <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }}>Register</button>
+            <button className="navRegister" onClick={() => { setDialogg(true); setSoon(true) }}>Register</button>
+                {/* <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }}>Register</button> */}
                 <button className="navLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }}>Login</button>
                 <img src={menu} id="menu" onClick={showmenu}></img>
             </div>
@@ -259,6 +269,7 @@ function Navbar() {
                 <p className="navTitle">{title}</p>
                 <p className="logout" onClick={() => { setOut(true); dispatch(logout()) }}>Logout</p>
             </div>
+            <NavLink to="/faq"><p className="navHead">FAQs</p></NavLink>
         </div>
 
         <Dialog open={stepDialog.one}>
@@ -353,6 +364,14 @@ function Navbar() {
         <Dialog open={stepDialog.logout} >
             <LogOut />
         </Dialog>
+        
+        <Dialog open={soon} onClose={handleSoonClose}
+                keepMounted >
+                 <div id="soonDialog">
+                <DialogTitle>{"Registrations will open soon"}</DialogTitle>
+                <Button onClick={handleSoonClose}>Okay</Button>
+                </div>
+            </Dialog>
     </>
 }
 

@@ -4,26 +4,17 @@ import instagram from "../Assets/Instagram.svg";
 import phone from "../Assets/phone.svg"
 import horizon from "../Assets/horizon.svg";
 import SI from "../Assets/SI_logo.svg"
-import { useEffect, useState } from "react";
-import { Dialog } from "@mui/material";
-import { dialog1, dialog6 } from "../../Redux/step";
+import { forwardRef, useEffect, useState } from "react";
+import { Button, Dialog, DialogTitle, Slide } from "@mui/material";
+import { dialog0, dialog1, dialog6 } from "../../Redux/step";
 import Register from "../Register/Register";
 import Member from "../Register/member";
 import Team from "../Register/team";
 import CA1 from "../Register/CA1";
 import CA2 from "../Register/CA2";
-import Login1 from "../Login/login1";
 import { useDispatch, useSelector } from "react-redux"
-import Login from "../Login/CA/login";
 import "./landingPage.css"
 import "./timeline.css";
-import Reset from "../Login/CA/reset";
-import Otp from "../Login/CA/otp";
-import Forgot from "../Login/CA/fgtPwd";
-import LoginTeam from "../Login/TEAM/loginTeam";
-import ResetTeam from "../Login/TEAM/resetTeam";
-import OtpTeam from "../Login/TEAM/otpTeam";
-import ForgotTeam from "../Login/TEAM/fgtTeam";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { InstagramEmbed } from 'react-social-media-embed';
@@ -38,6 +29,7 @@ function LandingPage() {
     const reducerReg = useSelector((s) => s.register)
     const [dialogg, setDialogg] = useState(false)
     const [login, setLogin] = useState(false)
+    const [soon, setSoon] = useState(false)
     const dispatch = useDispatch()
     const step = useSelector((s) => s.step)
 
@@ -55,7 +47,7 @@ function LandingPage() {
         eleven: false,
         twelve: false,
         thirteen: false,
-        fourteen: false
+        fourteen: false,
     })
 
     useEffect(() => {
@@ -74,7 +66,7 @@ function LandingPage() {
                 eleven: false,
                 twelve: false,
                 thirteen: false,
-                fourteen: false
+                fourteen: false,
             })
         }
         if (step.step == 1 && dialogg) {
@@ -122,13 +114,22 @@ function LandingPage() {
 
     }, [step, dialogg])
 
+    const Transition = forwardRef(function Transition(props, ref) {
+        return <Slide direction="down" ref={ref} {...props} />;
+    });
+
+    function handleSoonClose() {
+        setSoon(false)
+    }
+
+    console.log(soon)
+
     return <>
 
         {/* <div style={{ display: 'flex', justifyContent: 'center', zIndex:"20", position:'fixed' }}>
             <InstagramEmbed url="https://www.instagram.com/p/CUbHfhpswxt/" width={328} />
         </div> */}
 
-        {/* navbar */}
         <Navbar />
 
         {/* landing page */}
@@ -144,7 +145,8 @@ function LandingPage() {
                     <p className="landText2">
                         Prestigious National Level Technical Paper Presentation organized by A.K.G.E.C. in association with Ghaziabad Management Association.
                     </p>
-                    <button className="landRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register Now</button>
+                    <button className="landRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register Now</button>
+                    {/* <button className="landRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register Now</button> */}
                 </div>
             </div>
             <div className="landAbout">
@@ -157,15 +159,6 @@ function LandingPage() {
                 </p>
                 <p className="aboutText">
                     ‘SCROLLS’ is a platform for the innovative minds to exchange their ideas, inventiveness and enterprise and administer their erudition in various flourishing sectors. It encompasses various aspects and trends relating to computing, telecommunication and information technologies along with advancements in management thus aiming to discover the best possible ingenuity to solve problems with a futuristic approach.
-                    <br /> Campus ambassadors are the students who have the main and direct contact with the Scrolls Team and are the representation of our voice on their campus.
-                    As a campus ambassador, your main objective would be to raise awareness about the organization and to get students on board for the event. You will have the opportunity to represent our event on your campus and within your community, promoting our events, and engaging with the  students and faculty.
-                    It is a great learning juncture for you as it provides a glimpse of the corporate world and you'll learn about the working of organizations.
-
-                    Campus Ambassador with the maximum number of registrations will receive a letter of appreciation and other benefits.
-
-                    Grab the opportunity and avail the chance to become the campus ambassador and unlock the benefits that awaits you. Hurry Up and register now!!
-
-
                 </p>
             </div>
             <div className="landDomain">
@@ -173,41 +166,41 @@ function LandingPage() {
                     <p className="aboutScroll">Domains</p>
                 </div>
                 <div className="domainCards">
-                <NavLink to="/domain_civil">
-                    <div className="domainCard1">
-                        <img src={domainLogo} className="domainLogo1" />
-                        <p className="domainText1">Civil Engineering</p>
-                    </div>
+                    <NavLink to="/domain_civil">
+                        <div className="domainCard1">
+                            <img src={domainLogo} className="domainLogo1" />
+                            <p className="domainText1">Civil Engineering</p>
+                        </div>
                     </NavLink>
                     <NavLink to="/domain_cs">
-                    <div className="domainCard2">
-                        <img src={domainLogo} className="domainLogo2" />
-                        <p className="domainText2">Computer Science and Information Technology</p>
-                    </div>
+                        <div className="domainCard2">
+                            <img src={domainLogo} className="domainLogo2" />
+                            <p className="domainText2">Computer Science and Information Technology</p>
+                        </div>
                     </NavLink>
                     <NavLink to="/domain_en">
-                    <div className="domainCard1">
-                        <img src={domainLogo} className="domainLogo1" />
-                        <p className="domainText1">Electrical Engineering</p>
-                    </div>
+                        <div className="domainCard1">
+                            <img src={domainLogo} className="domainLogo1" />
+                            <p className="domainText1">Electrical Engineering</p>
+                        </div>
                     </NavLink>
-                    <NavLink to="/domain_ece"> 
-                    <div className="domainCard2">
-                        <img src={domainLogo} className="domainLogo2" />
-                        <p className="domainText2">Electronics and Communication Engineering</p>
-                    </div>
+                    <NavLink to="/domain_ece">
+                        <div className="domainCard2">
+                            <img src={domainLogo} className="domainLogo2" />
+                            <p className="domainText2">Electronics and Communication Engineering</p>
+                        </div>
                     </NavLink>
                     <NavLink to="/domain_me">
-                    <div className="domainCard1">
-                        <img src={domainLogo} className="domainLogo1" />
-                        <p className="domainText1">Mechanical Engineering</p>
-                    </div>
+                        <div className="domainCard1">
+                            <img src={domainLogo} className="domainLogo1" />
+                            <p className="domainText1">Mechanical Engineering</p>
+                        </div>
                     </NavLink>
                     <NavLink to="/domain_management">
-                    <div className="domainCard2">
-                        <img src={domainLogo} className="domainLogo2" />
-                        <p className="domainText2">Management Science</p>
-                    </div>
+                        <div className="domainCard2">
+                            <img src={domainLogo} className="domainLogo2" />
+                            <p className="domainText2">Management Science</p>
+                        </div>
                     </NavLink>
                 </div>
             </div>
@@ -305,59 +298,13 @@ function LandingPage() {
             <CA2 />
         </Dialog>
 
-        {/* <Dialog open={stepDialog.six} PaperProps={{
-            sx: { maxHeight: 500 }
-        }}>
-            <Login1 />
+        <Dialog open={soon} onClose={handleSoonClose}
+            keepMounted >
+            <div id="soonDialog">
+                <DialogTitle>{"Registrations will open soon"}</DialogTitle>
+                <Button onClick={handleSoonClose}>Okay</Button>
+            </div>
         </Dialog>
-
-        <Dialog open={stepDialog.seven} PaperProps={{
-            sx: { maxHeight: 550 }
-        }}>
-            <Login />
-        </Dialog>
-
-        <Dialog open={stepDialog.eight} PaperProps={{
-            sx: { maxHeight: 500 }
-        }}>
-            <Forgot />
-        </Dialog>
-
-        <Dialog open={stepDialog.nine} PaperProps={{
-            sx: { maxHeight: 500 }
-        }}>
-            <Otp />
-        </Dialog>
-
-        <Dialog open={stepDialog.ten} PaperProps={{
-            sx: { maxHeight: 500 }
-        }} >
-            <Reset />
-        </Dialog> */}
-
-        {/* <Dialog open={stepDialog.eleven} PaperProps={{
-            sx: { maxHeight: 500 }
-        }} >
-            <LoginTeam />
-        </Dialog>
-
-        <Dialog open={stepDialog.twelve} PaperProps={{
-            sx: { maxHeight: 500 }
-        }}>
-            <ForgotTeam />
-        </Dialog>
-
-        <Dialog open={stepDialog.thirteen} PaperProps={{
-            sx: { maxHeight: 500 }
-        }}>
-            <OtpTeam />
-        </Dialog>
-
-        <Dialog open={stepDialog.fourteen} PaperProps={{
-            sx: { maxHeight: 500 }
-        }} >
-            <ResetTeam />
-        </Dialog> */}
 
         <ToastContainer />
     </>

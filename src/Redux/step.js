@@ -55,7 +55,7 @@ const StepSlice = createSlice({
         },
         logout: function(state){
             state.step = 15;
-        }
+        },
     }
 })
 

@@ -15,6 +15,7 @@ import FAQ from "./Components/FAQs/FAQs";
 import { useDispatch } from "react-redux";
 import { setTitle } from "./Redux/heading";
 import Rules from "./Components/rules/Rules";
+import CA from "./Components/LandingPage/CA";
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
         <Route path="/domain_en" exact element={<DomainEn />} />
         <Route path="/domain_management" exact element={<DomainManage />} />
         <Route path="/rules" exact element={<Rules />} />
+        <Route path="/ca" exact element={<CA />} />
       </Routes>
     </HashRouter>
   </>

@@ -14,7 +14,8 @@
     margin-bottom: 24px;
 }
 
-#domainList {
+#domainList ul {
+    padding-left: 1vw;
 }
 
 #domainList li {

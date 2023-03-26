@@ -5,6 +5,15 @@
     left: 50vw;
 }
 
+#soonDialog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:160px;
+    width:30vw;
+}
+
 /* landing page */
 .landingPage {
     z-index: 5;

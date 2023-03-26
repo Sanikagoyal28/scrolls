@@ -194,7 +194,6 @@ function Member() {
                             theme: "light",
                             autoClose: 5000,
                         });
-
                     }
                     else {
                         toast.error(`${res.payload.data.msg}`, {
