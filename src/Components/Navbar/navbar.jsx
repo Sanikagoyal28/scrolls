@@ -1,10 +1,10 @@
-import { forwardRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import menu from "../Assets/menu.svg"
 import cross from "../Assets/navCross.svg"
 import dropdown from "../Assets/dropdown.svg"
 import domain from "../Assets/domain.svg"
-import { Button, Dialog, DialogTitle, Slide } from "@mui/material";
+import { Button, Dialog, DialogTitle } from "@mui/material";
 import Login from "../Login/CA/login";
 import Reset from "../Login/CA/reset";
 import Otp from "../Login/CA/otp";
@@ -22,7 +22,6 @@ import Login1 from "../Login/login1";
 import { useDispatch, useSelector } from "react-redux";
 import { dialog1, dialog6, logout } from "../../Redux/step";
 import "./Navbar.css"
-import { setTitle } from "../../Redux/heading";
 import LogOut from "../logOut/logOut";
 
 function Navbar() {
@@ -53,7 +52,7 @@ function Navbar() {
     })
 
     useEffect(() => {
-        if (step.step == 0) {
+        if (step.step === 0) {
             setStepDialog({
                 one: false,
                 two: false,
@@ -72,49 +71,49 @@ function Navbar() {
                 logout: false
             })
         }
-        if (step.step == 1 && dialogg) {
+        if (step.step === 1 && dialogg) {
             setStepDialog({ one: true })
         }
-        if (step.step == 2 && dialogg) {
+        if (step.step === 2 && dialogg) {
             setStepDialog({ two: true })
         }
-        if (step.step == 3 && dialogg) {
+        if (step.step === 3 && dialogg) {
             setStepDialog({ three: true })
         }
-        if (step.step == 4 && dialogg) {
+        if (step.step === 4 && dialogg) {
             setStepDialog({ four: true })
         }
-        if (step.step == 5 && dialogg) {
+        if (step.step === 5 && dialogg) {
             setStepDialog({ five: true })
         }
-        if (step.step == 6 && login) {
+        if (step.step === 6 && login) {
             setStepDialog({ six: true })
         }
-        if (step.step == 7 && login) {
+        if (step.step === 7 && login) {
             setStepDialog({ seven: true })
         }
-        if (step.step == 8 && login) {
+        if (step.step === 8 && login) {
             setStepDialog({ eight: true })
         }
-        if (step.step == 9 && login) {
+        if (step.step === 9 && login) {
             setStepDialog({ nine: true })
         }
-        if (step.step == 10 && login) {
+        if (step.step === 10 && login) {
             setStepDialog({ ten: true })
         }
-        if (step.step == 11 && login) {
+        if (step.step === 11 && login) {
             setStepDialog({ eleven: true })
         }
-        if (step.step == 12 && login) {
+        if (step.step === 12 && login) {
             setStepDialog({ twelve: true })
         }
-        if (step.step == 13 && login) {
+        if (step.step === 13 && login) {
             setStepDialog({ thirteen: true })
         }
-        if (step.step == 14 && login) {
+        if (step.step === 14 && login) {
             setStepDialog({ fourteen: true })
         }
-        if (step.step == 15 && out) {
+        if (step.step === 15 && out) {
             setStepDialog({ logout: true })
         }
 
@@ -128,7 +127,8 @@ function Navbar() {
             document.getElementById("team").style.display = "block"
             document.getElementById("liTitle").style.display = "block"
             document.getElementById("liLogout").style.display = "block"
-
+            document.getElementById("navMore").style.display = "none"
+            document.getElementById("navMore2").style.display = "block"
             document.getElementsByClassName("navRegister")[0].style.display = "none"
             document.getElementsByClassName("navLogin")[0].style.display = "none"
             document.getElementsByClassName("navDbC")[0].style.display = "none"
@@ -143,7 +143,8 @@ function Navbar() {
             document.getElementById("ca").style.display = "block"
             document.getElementById("liTitle").style.display = "block"
             document.getElementById("liLogout").style.display = "block"
-
+            document.getElementById("navMore").style.display = "none"
+            document.getElementById("navMore2").style.display = "block"
             document.getElementsByClassName("navRegister")[0].style.display = "none"
             document.getElementsByClassName("navLogin")[0].style.display = "none"
             document.getElementsByClassName("navDbC")[0].style.display = "block"
@@ -158,27 +159,31 @@ function Navbar() {
             document.getElementById("team").style.display = "none"
             document.getElementById("liTitle").style.display = "none"
             document.getElementById("liLogout").style.display = "none"
+            document.getElementById("navMore").style.display = "block"
 
             // document.getElementById("menu").style.marginLeft = "0"
+            document.getElementById("navMore2").style.display = "none"
             document.getElementsByClassName("navRegister")[0].style.display = "block"
             document.getElementsByClassName("navLogin")[0].style.display = "block"
             document.getElementsByClassName("navDbC")[0].style.display = "none"
             document.getElementsByClassName("navDbT")[0].style.display = "none"
             document.getElementsByClassName("navFlex3")[0].style.display = "none"
+            
         }
     }, [title])
 
     function showmenu() {
+        document.getElementById('uli').style.display = "flex";
         document.getElementById('uli').style.width = "60vw";
     }
 
     function close() {
+        document.getElementById('uli').style.display = "none";
         document.getElementById('uli').style.width = 0;
     }
 
     const [show, setShow] = useState(false)
     function handleDropdown() {
-        
         setShow(true)
         if (show) {
             document.getElementById('dropdown').style.display = "flex";
@@ -187,6 +192,20 @@ function Navbar() {
         else {
             document.getElementById('dropdown').style.display = "none";
             setShow(!show)
+        }
+    }
+
+    const [more, setMore] = useState(false)
+    function handleMore() {
+        console.log(more)
+        setMore(true)
+        if (more) {
+            document.getElementById('moreDD').style.display = "flex";
+            setMore(!more)
+        }
+        else {
+            document.getElementById('moreDD').style.display = "none";
+            setMore(!more)
         }
     }
 
@@ -247,20 +266,30 @@ function Navbar() {
             </ul>
         </div>
 
+        <div id="moreDD">
+            <ul>
+                <NavLink to="/rules"><li>Rules</li></NavLink>
+                <NavLink to="/ca"> <li>CA</li></NavLink>
+                <NavLink to="/faq"><li>FAQs</li></NavLink>
+            </ul>
+        </div>
+
         <div className="navbar">
-        <NavLink to="/"><p className="navScroll">SCROLLS<span className="navDot">.</span></p></NavLink>
+            <NavLink to="/"><p className="navScroll">SCROLLS<span className="navDot">.</span></p></NavLink>
             <div className="navFlex1">
                 <NavLink to="/"><p className="navHead">Home</p></NavLink>
                 <p className="navHead" id="navdomain">Domains <img src={domain} id="domain" onClick={handleDropdown} onMouseOver={handleDropdown} /></p>
                 <NavLink to="/previous_year"><p className="navHead">Previous Year</p></NavLink>
                 <NavLink to="/updates"> <p className="navHead">Updates</p></NavLink>
-                <NavLink to="/rules"> <p className="navHead">Rules</p></NavLink>
-                <NavLink to="/ca"> <p className="navHead">CA</p></NavLink>
+                <NavLink to="/rules"> <p id="navRule" className="navHead">Rules</p></NavLink>
+                <NavLink to="/ca"> <p id="navCA" className="navHead">CA</p></NavLink>
                 <NavLink to="/team_db"><p className="navDbT">Dashboard</p></NavLink>
                 <NavLink to="/ca_db"><p className="navDbC">Dashboard</p></NavLink>
+                <p className="navHead" id="navMore" onClick={handleMore} onMouseOver={handleMore}>More</p>
+                <p className="navHead" id="navMore2" onClick={handleMore} onMouseOver={handleMore}>More</p>
             </div>
             <div className="navFlex2">
-            <button className="navRegister" onClick={() => { setDialogg(true); setSoon(true) }}>Register</button>
+                <button className="navRegister" onClick={() => { setDialogg(true); setSoon(true) }}>Register</button>
                 {/* <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }}>Register</button> */}
                 <button className="navLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }}>Login</button>
                 <img src={menu} id="menu" onClick={showmenu}></img>
@@ -269,7 +298,7 @@ function Navbar() {
                 <p className="navTitle">{title}</p>
                 <p className="logout" onClick={() => { setOut(true); dispatch(logout()) }}>Logout</p>
             </div>
-            <NavLink to="/faq"><p className="navHead">FAQs</p></NavLink>
+            <NavLink to="/faq"><p id="navFaq" className="navHead">FAQs</p></NavLink>
         </div>
 
         <Dialog open={stepDialog.one}>
@@ -364,14 +393,14 @@ function Navbar() {
         <Dialog open={stepDialog.logout} >
             <LogOut />
         </Dialog>
-        
+
         <Dialog open={soon} onClose={handleSoonClose}
-                keepMounted >
-                 <div id="soonDialog">
+            keepMounted >
+            <div id="soonDialog">
                 <DialogTitle>{"Registrations will open soon"}</DialogTitle>
                 <Button onClick={handleSoonClose}>Okay</Button>
-                </div>
-            </Dialog>
+            </div>
+        </Dialog>
     </>
 }
 

@@ -15,7 +15,7 @@ function PreviousYear() {
         <div className="yearOutdiv">
 
             <div className="carousel">
-                <Carousel showThumbs={false}>
+                <Carousel showThumbs={false} showArrows={true} autoPlay={true} interval={2000}>
                     <div>
                         <p className="yearHead">Glimpse of Horizon Events</p>
                         <img src={imageOne} className="carouselImg" />
