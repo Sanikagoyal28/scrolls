@@ -71,6 +71,12 @@
     }
     .yearHead{
         font-size: 1.6rem;
+        margin-bottom: -30px;
+    }
+}
+@media(max-width:600px){
+    .yearHead{
+        margin-bottom: -60px;
     }
 }
 
