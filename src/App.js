@@ -4,7 +4,7 @@ import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import TeamDB from "./Components/Dashboard/teamDB";
 import CaDB from "./Components/Dashboard/CaDB";
 import Update from "./Components/updates/update";
-import PreviousYear from "./Components/PreviousYear/year";
+// import PreviousYear from "./Components/PreviousYear/year";
 import DomainManage from "./Components/Domain/manage";
 import DomainEn from "./Components/Domain/en";
 import DomainEce from "./Components/Domain/ece";
@@ -42,7 +42,7 @@ function App() {
         {/* {ca ? <Route path="/ca_db" element={<CaDB />} /> : null} */}
         {/* {team ? <Route path="/team_db" exact element={<TeamDB />} /> : null} */}
         <Route path="/updates" exact element={<Update />} />
-        <Route path="/previous_year" exact element={<PreviousYear />} />
+        {/* <Route path="/previous_year" exact element={<PreviousYear />} /> */}
         <Route path="/faq" exact element={<FAQ />} />
         <Route path="/domain_cs" exact element={<DomainCs />} />
         <Route path="/domain_me" exact element={<DomainMe />} />

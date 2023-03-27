@@ -240,7 +240,7 @@ function Navbar() {
                         <NavLink to="/domain_me"><li>Mechanical Engineering</li></NavLink>
                     </ul>
                 </div>
-                <NavLink to="/previous_year"><li>Previous Year</li></NavLink>
+                {/* <NavLink to="/previous_year"><li>Previous Year</li></NavLink> */}
                 <NavLink to="/updates"><li>Updates</li></NavLink>
                 <NavLink to="/ca"><li>CA</li></NavLink>
                 <NavLink to="/rules"><li>Rules</li></NavLink>
@@ -279,7 +279,9 @@ function Navbar() {
             <div className="navFlex1">
                 <NavLink to="/"><p className="navHead">Home</p></NavLink>
                 <p className="navHead" id="navdomain">Domains <img src={domain} id="domain" onClick={handleDropdown} onMouseOver={handleDropdown} /></p>
-                <NavLink to="/previous_year"><p className="navHead">Previous Year</p></NavLink>
+                <NavLink to="/faq"><p className="navHead">FAQs</p></NavLink>
+                {/* <NavLink to="/faq"><p id="navFaq" className="navHead">FAQs</p></NavLink> */}
+
                 <NavLink to="/updates"> <p className="navHead">Updates</p></NavLink>
                 <NavLink to="/rules"> <p id="navRule" className="navHead">Rules</p></NavLink>
                 <NavLink to="/ca"> <p id="navCA" className="navHead">CA</p></NavLink>
@@ -298,7 +300,6 @@ function Navbar() {
                 <p className="navTitle">{title}</p>
                 <p className="logout" onClick={() => { setOut(true); dispatch(logout()) }}>Logout</p>
             </div>
-            <NavLink to="/faq"><p id="navFaq" className="navHead">FAQs</p></NavLink>
         </div>
 
         <Dialog open={stepDialog.one}>
