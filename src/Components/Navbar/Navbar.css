@@ -239,7 +239,8 @@ margin-left: 2vw;
 
 #dropdown, #moreDD{
     display: none;
-    background-color: #191919;
+    background-color: white;
+    color: #191919 !important;
     position: fixed;
     top: 50px;
     left: 25vw;
@@ -264,13 +265,13 @@ margin-left: 2vw;
 #dropdown ul li {
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 0.8rem;
     line-height: 18px;
     padding: 4px 8px;
     width: 14vw;
     cursor: pointer;
-    color: #FFFFFF;
+    color: #191919;
 }
 
 #moreDD ul li {

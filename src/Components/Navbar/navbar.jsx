@@ -185,14 +185,18 @@ function Navbar() {
     const [show, setShow] = useState(false)
     function handleDropdown() {
         setShow(true)
-        if (show) {
+        // if (show) {
             document.getElementById('dropdown').style.display = "flex";
-            setShow(!show)
-        }
-        else {
-            document.getElementById('dropdown').style.display = "none";
-            setShow(!show)
-        }
+            // setShow(!show)
+        // }
+        // else {
+        //     document.getElementById('dropdown').style.display = "none";
+        //     setShow(!show)
+        // }
+    }
+    function closeDropdown() {
+        setShow(false)
+        document.getElementById('dropdown').style.display = "none";
     }
 
     const [more, setMore] = useState(false)
@@ -255,7 +259,7 @@ function Navbar() {
             </ul>
         </div>
 
-        <div id="dropdown">
+        <div id="dropdown" onMouseOver={handleDropdown} onMouseLeave={closeDropdown}>
             <ul>
                 <NavLink to="/domain_management"><li>Management Science</li></NavLink>
                 <NavLink to="/domain_ece"> <li>Electronics and Communication Engineering</li></NavLink>
@@ -274,11 +278,11 @@ function Navbar() {
             </ul>
         </div>
 
-        <div className="navbar">
+        <div className="navbar" onMouseLeave={closeDropdown}>
             <NavLink to="/"><p className="navScroll">SCROLLS<span className="navDot">.</span></p></NavLink>
             <div className="navFlex1">
                 <NavLink to="/"><p className="navHead">Home</p></NavLink>
-                <p className="navHead" id="navdomain">Domains <img src={domain} id="domain" onClick={handleDropdown} onMouseOver={handleDropdown} /></p>
+                <p className="navHead" onClick={handleDropdown} onMouseOver={handleDropdown} id="navdomain">Domains</p>
                 <NavLink to="/faq"><p className="navHead">FAQs</p></NavLink>
                 {/* <NavLink to="/faq"><p id="navFaq" className="navHead">FAQs</p></NavLink> */}
 
