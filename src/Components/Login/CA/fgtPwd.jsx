@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from "react-redux"
 import { dialog7, dialog0, dialog9 } from "../../../Redux/step";
 import { FgtCAThunk } from "../../../Redux/loginSlice";
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 function Forgot() {
 
@@ -24,11 +26,34 @@ function Forgot() {
         }
     }, [email]);
 
+      //captcha
+
+      const [valu, setValu] = useState('')
+      const [token, setToken] = useState(false);
+      const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
+      function onChange(value) {
+          setValu(value)
+          setToken(true)
+      }
+  
+
     function ForgotPassword() {
+        if (!token) {
+            toast.error("Please verify the captcha", {
+                position: "top-right",
+                theme: "light",
+                autoClose: 5000,
+            });
+        }
         localStorage.setItem("login_email", email)
+
+        const data ={
+            email,
+            "g-recaptcha-response": valu
+        }
        
-        if (email) {
-            dispatch(FgtCAThunk(email)).
+        if (token && email) {
+            dispatch(FgtCAThunk(data)).
                 then((res) => {
                     if (res.payload.status == 400) {
                         toast.error(`${res.payload.data.msg}`, {
@@ -71,6 +96,12 @@ function Forgot() {
             <p className="regName">Email</p>
             <input type="text" className="regInputname" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
             <p id="wrongEmailLog1">Please enter a valid Email address</p>
+            <div id="recaptcha">
+                    <ReCAPTCHA
+                        sitekey={key}
+                        onChange={onChange}
+                    />
+                </div>
             <button className="regButton" onClick={ForgotPassword}>Continue</button>
         </div>
         <ToastContainer />

@@ -477,6 +477,9 @@
     .footText{
         top:50px;
     }
+    #soonDialog{
+        width:34vw;
+    }
 }
 
 @media(max-width:1200px) {
@@ -540,6 +543,9 @@
     .footText{
         top:54px;
     }
+    #soonDialog{
+        width:36vw;
+    }
 }
 
 @media(max-width:950px) {
@@ -560,6 +566,9 @@
         width: 30vw;
         margin-right: 2vw;
         height: 280px;
+    }
+    #soonDialog{
+        width:38vw;
     }
 }
 
@@ -680,6 +689,10 @@
     .footFlexRow {
         gap: 10px;
     }
+
+    #soonDialog{
+        width:42vw;
+    }
 }
 
 @media(max-width:770px) {
@@ -739,6 +752,9 @@
     .footText{
         top:58px;
     }
+    #soonDialog{
+        width:48vw;
+    }
 }
 
 @media(max-width:700px) {
@@ -783,6 +799,9 @@
     }
     .footText{
         top:44px;
+    }
+    #soonDialog{
+        width:54vw;
     }
 }
 
@@ -904,6 +923,9 @@
     #timelineBorder {
         width: 32vw;
     }
+    #soonDialog{
+        width:60vw;
+    }
 }
 
 @media(max-width:505px) {
@@ -1008,6 +1030,9 @@
     #footFlex2Row {
         margin-left: -6vw;
     }
+    #soonDialog{
+        width:64vw;
+    }
 }
 
 @media(max-width:480px) {
@@ -1061,6 +1086,9 @@
     .domainCards {
         padding-left: 12vw;
     }
+    #soonDialog{
+        width:70vw;
+    }
 }
 
 @media(max-width:450px) {
@@ -1069,6 +1097,9 @@
     .landImage,
     #loginBg {
         height: 680px;
+    }
+    #soonDialog{
+        width:75vw;
     }
 
 }

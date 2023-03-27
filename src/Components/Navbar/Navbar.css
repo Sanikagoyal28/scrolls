@@ -33,12 +33,11 @@
 
 .navFlex1 {
     display: flex;
-    gap:2vw;
-margin-left: 2vw;
+    gap: 2vw;
     margin-top: 6px;
 }
 
-#navFaq{
+#navFaq {
     margin-top: 6px;
 }
 
@@ -51,10 +50,11 @@ margin-left: 2vw;
     line-height: 40px;
     color: #FFFFFF;
     text-decoration: none;
-    position:relative;
-    top:4px;
+    position: relative;
+    top: 4px;
 }
-.navbar a{
+
+.navbar a {
     text-decoration: none;
     color: #FFFFFF;
 }
@@ -98,7 +98,7 @@ margin-left: 2vw;
     margin-top: 6px;
 }
 
-.logout{
+.logout {
     cursor: pointer;
     font-family: 'Poppins';
     font-style: normal;
@@ -126,7 +126,7 @@ margin-left: 2vw;
 }
 
 .navFlex1 a.active {
-    color:#FAC949;
+    color: #FAC949;
 }
 
 #navdomain {
@@ -179,7 +179,8 @@ margin-left: 2vw;
     color: #FFFFFF;
 }
 
-#menu , #navMore{
+#menu,
+#navMore {
     display: none;
 }
 
@@ -189,6 +190,7 @@ margin-left: 2vw;
     position: fixed;
     transition: all .5s;
     top: 0px;
+    right:0px;
     /* left:40vw; */
     width: 0;
     height: 100vh;
@@ -234,17 +236,18 @@ margin-left: 2vw;
 }
 
 #uli ul a.active {
-    color:#FAC949
-    /* text-decoration: underline; */
+    color: #FAC949
+        /* text-decoration: underline; */
 }
 
-#dropdown, #moreDD{
-    display: none;
+#dropdown,
+#moreDD {
+    /* display: none; */
     background-color: white;
     color: #191919 !important;
     position: fixed;
     top: 50px;
-    left: 25vw;
+    left: 33vw;
     flex-direction: column;
     font-weight: 600;
     z-index: 8;
@@ -252,15 +255,17 @@ margin-left: 2vw;
     z-index: 12;
 }
 
-#moreDD{
-    left:40vw;
+#moreDD {
+    left: 40vw;
+    display: none;
 }
 
-#dropdown ul, #moreDD ul {
+#dropdown ul,
+#moreDD ul {
     display: flex;
     flex-direction: column;
     list-style: none;
-    margin-left: -3.5vw;
+    padding-left: 0.5vw;
 }
 
 #dropdown ul li {
@@ -284,15 +289,17 @@ margin-left: 2vw;
     padding: 4px 8px;
     width: 10vw;
     cursor: pointer;
-    color: #191919;   
+    color: #191919;
 }
 
-#dropdown ul a , #moreDD ul a{
+#dropdown ul a,
+#moreDD ul a {
     text-decoration: none;
 }
 
-#dropdown ul li:hover , #moreDD ul li:hover{
-    background-color: #6e6b6b;
+#dropdown ul li:hover,
+#moreDD ul li:hover {
+    background-color: #979595;
 }
 
 #team,
@@ -305,10 +312,10 @@ margin-left: 2vw;
 #liTitle,
 #liLogout {
     display: none;
-    color:#FAC949;
+    color: #FAC949;
 }
 
-#liLogout{
+#liLogout {
     cursor: pointer;
 }
 
@@ -360,144 +367,116 @@ margin-left: 2vw;
     cursor: pointer;
 }
 
-@media(max-width:1330px) {
+@media(max-width:1380px) {
     .navScroll {
         margin-top: 4px;
+        width:16vw;
     }
 
-    #dropdown{
-        left: 24vw;
+    #dropdown {
+        left: 35vw;
     }
 }
 
-@media(max-width:1200px){
-    .navFlex1{
-        gap:1.5vw;
-        margin-left: 3vw;
+@media(max-width:1200px) {
+    #dropdown {
+        left: 33.5vw;
     }
 }
 
 @media(max-width:1150px) {
-    #dropdown ul li{
+    #dropdown ul li {
         width: 16vw;
     }
-    #dropdown{
-        left:23vw;
-    }
 }
 
-@media(max-width:1100px){
-    .navFlex1{
-        margin-left: 5vw;
-        gap:1.2vw;
-    }
-    .navFlex2{
-        margin-left: 1vw;
-    } 
-}
-
-@media(max-width:1000px) {
+@media(max-width:1010px) {
     #dropdown {
-        left: 24vw;
+        left: 32vw;
     }
 
-    #dropdown ul li{
+    #dropdown ul li {
         width: 18vw;
     }
-    .navFlex1{
-        margin-left: 5vw;
-        gap:1vw;
-    }
-    .navFlex2{
-        margin-left: -1vw;
-    } 
 }
 
 @media(max-width:930px) {
     .navRegister {
         width: 10vw;
-        display: none;
-        visibility: hidden;
     }
-    .navTitle{
-        display: none;
-        visibility: hidden;
-    }
-    #navRule, #navCA, #navFaq{
+
+    #navRule,
+    #navCA,
+    #navFaq {
         display: none;
     }
 
-    #navMore{
+    #navMore {
         display: block;
         color: #FFFFFF;
         cursor: pointer;
-        z-index:10;
-        margin-left: -6vw;
+        z-index: 10;
+        margin-left: -10vw;
     }
 
-    #navMore2{
+    #navMore2 {
         display: block;
         color: #FFFFFF;
         cursor: pointer;
-        z-index:10;
+        z-index: 10;
         margin-left: -2vw;
     }
 
-    #moreDD{
-        left: 62vw;
+    #moreDD {
+        left: 58vw;
     }
 
-    .navLogin{
-        width:12vw;
+    .navLogin {
+        width: 12vw;
     }
-    .navFlex1{
-        margin-left: 8vw;
-        gap:1.5vw;
-    }
-    .navFlex2{
-        margin-left: -8vw;
-    }
-    .navFlex3{
-        margin-left: 10vw;
-    }
-    .navDbC, .navDbT{
+
+    .navDbC,
+    .navDbT {
         margin-left: -3vw;
     }
 
-    #dropdown{
-        left: 25vw;
+    #dropdown {
+        left: 39vw;
     }
 
-    #dropdown ul li{
-        width: 20vw;
+    #dropdown ul li {
+        width: 18vw;
     }
 }
 
 @media(max-width:870px) {
-
     .navScroll {
+     width:18vw;
+    }
+
+
+    /* .navScroll {
         font-size: 1.5rem;
     }
-    .navFlex1{
+
+    .navFlex1 {
         margin-left: 6vw;
-        gap:1.2vw;
+        gap: 1.2vw;
     }
-    #navMore{
+
+    #navMore {
         margin-left: -4vw;
     }
-    #navMore2{
+
+    #navMore2 {
         margin-left: -1vw;
-    }
+    } */
 }
 
-@media(max-width:830px){
-    #moreDD{
-        left:74vw;
-    }
-}
+
 
 @media(max-width:800px) {
-    #dropdown {
+    /* #dropdown {
         left: 28vw;
     }
 
@@ -508,47 +487,65 @@ margin-left: 2vw;
     #dropdown ul li {
         width: 22vw;
         font-size: 0.75rem;
-    }
+    } */
 
-    .navTitle,
+    /* .navTitle,
     .logout {
         font-size: 0.9rem;
     }
-    .navFlex1{
+
+    .navFlex1 {
         margin-left: 8vw;
-        gap:1vw;
+        gap: 1vw;
     }
 
-    .navFlex2{
+    .navFlex2 {
         margin-left: -8vw;
     }
+
     .navHead,
     .navDbC,
     .navDbT {
         font-size: 0.9rem;
     }
-    .navDbC, .navDbT{
+
+    .navDbC,
+    .navDbT {
         margin-left: -1.8vw;
-    }
+    } */
 }
 
 @media(max-width:760px) {
-    .navRegister,
+
+    /* .navRegister,
     .navLogin {
         width: 10vw;
         height: 34px;
         font-size: 0.9rem;
     }
-    .navFlex2{
+
+    .navFlex2 {
         margin-left: -10vw;
     }
-    #moreDD{
-        left:76vw;
+
+    #moreDD {
+        left: 76vw;
+    } */
+    #moreDD {
+        left: 60vw;
+    } 
+    .navScroll{
+        width:20vw;
+    }
+    .navRegister,
+    .navLogin {
+        width: 12vw;
+        height: 34px;
     }
 }
 
 @media(max-width:725px) {
-    .navScroll {
+    /* .navScroll {
         font-size: 1.4rem;
     }
 
@@ -571,46 +568,51 @@ margin-left: 2vw;
         width: 22vw;
         font-size: 0.75rem;
     }
-    #moreDD{
-        left:78vw;
-    }
+
+    #moreDD {
+        left: 78vw;
+    } */
 }
 
-@media(max-width:680px) {
+@media(max-width:690px) {
     .navScroll {
-        font-size: 1.2rem;
-        margin-right: 0;
+       width:22vw;
+       font-size: 1.5rem;
     }
 
-    .navDbC,
+    /* .navDbC,
     .navDbT,
     .navHead {
         font-size: 0.8rem;
-    }
+    } */
 
     .navRegister,
     .navLogin {
         width: 11vw;
-        height: 32px;
         font-size: 0.8rem;
     }
-    .navFlex1{
+    #moreDD {
+        left: 62vw;
+    } 
+/* 
+    .navFlex1 {
         margin-left: 5vw;
     }
-    #moreDD{
-        left:73vw;
-    }
+
+    #moreDD {
+        left: 73vw;
+    } */
 
 }
-
+/* 
 @media(max-width:630px) {
     .navScroll {
         font-size: 1.15rem;
     }
 
-    .navHead ,
+    .navHead,
     .navDbC,
-    .navDbT{
+    .navDbT {
         font-size: 0.75rem;
     }
 
@@ -626,41 +628,17 @@ margin-left: 2vw;
         width: 22vw;
         font-size: 0.7rem;
     }
-    #dropdown{
-        left:25vw;
-    }
-}
-
-@media(max-width:590px) {
-    .navScroll {
-        font-size: 1rem;
-    }
-
-    .navHead,
-    .navDbC,
-    .navDbT {
-        font-size: 0.7rem;
-    }
-
-    .navRegister,
-    .navLogin {
-        font-size: 0.8rem;
-    }
 
     #dropdown {
-        left: 26vw;
+        left: 25vw;
     }
+} */
 
-    #dropdown ul {
-        margin-left: -5vw;
+
+@media(max-width:600px) {
+    .navScroll{
+        width:30vw;
     }
-
-    #dropdown ul li {
-        width: 24vw;
-    }
-}
-
-@media(max-width:550px) {
 
     .navFlex1,
     .navRegister,
@@ -722,10 +700,17 @@ margin-left: 2vw;
     #menu {
         margin-left: 50vw;
     }
+    .navScroll{
+        width:48vw;
+    }
+
 }
 
 @media(max-width:350px) {
     #menu {
         margin-left: 40vw;
+    }
+    .navScroll{
+        width:60vw;
     }
 }

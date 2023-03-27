@@ -172,14 +172,15 @@ function Navbar() {
         }
     }, [title])
 
+    const [showD, setShowD] = useState(false)
     function showmenu() {
-        document.getElementById('uli').style.display = "flex";
-        document.getElementById('uli').style.width = "60vw";
+        setShowD(showD => !showD)
     }
 
     function close() {
-        document.getElementById('uli').style.display = "none";
-        document.getElementById('uli').style.width = 0;
+        setShowD(false)
+        // document.getElementById('uli').style.display = "none";
+        // document.getElementById('uli').style.width = 0;
     }
 
     const [show, setShow] = useState(false)
@@ -209,12 +210,12 @@ function Navbar() {
     }
     const [mobShow, setMobShow] = useState(false)
 
-
     function handleSoonClose() {
         setSoon(false)
     }
 
     return <>
+     {showD&&
         <div id='uli'>
             <img src={cross} id='crossimg' onClick={close}></img>
             <ul>
@@ -230,7 +231,6 @@ function Navbar() {
                         <NavLink to="/domain_me"><li>Mechanical Engineering</li></NavLink>
                     </ul>
                 </div>}
-                {/* <NavLink to="/previous_year"><li>Previous Year</li></NavLink> */}
                 <NavLink to="/updates"><li>Updates</li></NavLink>
                 <NavLink to="/ca"><li>CA</li></NavLink>
                 <NavLink to="/rules"><li>Rules</li></NavLink>
@@ -243,7 +243,7 @@ function Navbar() {
                 {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li> */}
                 <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
             </ul>
-        </div>
+        </div>}
 
         <div id="dropdown" onMouseOver={handleDropdown} onMouseLeave={closeDropdown}>
             <ul>

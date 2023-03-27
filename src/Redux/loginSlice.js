@@ -17,8 +17,8 @@ const LoginTeamThunk = createAsyncThunk("login/team", async (data) => {
         })
 })
 
-const FgtTeamThunk = createAsyncThunk("fgt/team", async (email) => {
-    return await Baseurl.post("participants/forgot_password/1", {email})
+const FgtTeamThunk = createAsyncThunk("fgt/team", async (data) => {
+    return await Baseurl.post("participants/forgot_password/1", data)
         .then((res) => {
             return res
         })
@@ -58,8 +58,8 @@ const LoginCAThunk = createAsyncThunk("login/ca", async (data) => {
 })
 
 
-const FgtCAThunk = createAsyncThunk("fgt/ca", async (email) => {
-    return await Baseurl.post("participants/forgot_password/0", {email})
+const FgtCAThunk = createAsyncThunk("fgt/ca", async (data) => {
+    return await Baseurl.post("participants/forgot_password/0", data)
         .then((res) => {
             return res
         })
