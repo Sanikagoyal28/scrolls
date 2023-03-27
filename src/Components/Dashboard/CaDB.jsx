@@ -20,7 +20,6 @@ function CaDB() {
     const [leaderboard, setLeaderboard] = useState([])
     useEffect(() => {
         dispatch(CADBThunk())
-
     }, [])
 
     useEffect(() => {

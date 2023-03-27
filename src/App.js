@@ -21,7 +21,6 @@ function App() {
 
   const team = localStorage.getItem("accessToken") ? true : false
   const ca = localStorage.getItem("CA_ID") ? true : false
-  console.log(ca)
   const dispatch = useDispatch();
   useEffect(() => {
     if (ca) {

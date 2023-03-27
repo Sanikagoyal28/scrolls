@@ -147,6 +147,8 @@ function Member() {
     function onChange(value) {
         setValu(value)
         setToken(true)
+        console.log(value)
+        console.log(token)
     }
 
     function RegAsMember() {
