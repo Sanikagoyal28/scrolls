@@ -114,6 +114,27 @@
     /* margin-left: 8vw; */
 }
 
+.synopsis{
+    text-transform: none;
+    width: 40vw;
+    height: 40px;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 15px;
+    color: #999999;
+    padding: 10px 2vw 10px 2vw;
+    cursor: pointer;
+    
+}
+
+.synopsis > a{
+    color: #999999;
+}
+
 .file_box {
     width: 11vw;
     height: 80px;

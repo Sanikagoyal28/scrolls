@@ -31,10 +31,13 @@
     overflow: hidden;
 }
 
-.navFlex1 {
+.navFlex1 , .navFlexLogin{
     display: flex;
     gap: 2vw;
     margin-top: 6px;
+}
+.navFlexLogin{
+    margin-left:7vw;
 }
 
 #navFaq {
@@ -192,14 +195,14 @@
     top: 0px;
     right:0px;
     /* left:40vw; */
-    width: 0;
+    width: 60vw;
     height: 100vh;
     flex-direction: column;
     padding-top: 60px;
     font-weight: 600;
     z-index: 8;
     /* visibility: ; */
-    display: none;
+    display: flex;
 }
 
 #crossimg {
@@ -240,9 +243,8 @@
         /* text-decoration: underline; */
 }
 
-#dropdown,
-#moreDD {
-    /* display: none; */
+#dropdown {
+    display:none;
     background-color: white;
     color: #191919 !important;
     position: fixed;
@@ -258,6 +260,16 @@
 #moreDD {
     left: 40vw;
     display: none;
+    background-color: white;
+    color: #191919 !important;
+    position: fixed;
+    top: 50px;
+    left: 33vw;
+    flex-direction: column;
+    font-weight: 600;
+    z-index: 8;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 12;
 }
 
 #dropdown ul,
@@ -400,6 +412,12 @@
     }
 }
 
+@media(max-width:970px){
+    .navFlexLogin{
+        margin-left: 5vw;
+    }
+}
+
 @media(max-width:930px) {
     .navRegister {
         width: 10vw;
@@ -416,7 +434,7 @@
         color: #FFFFFF;
         cursor: pointer;
         z-index: 10;
-        margin-left: -10vw;
+        margin-left: -6vw;
     }
 
     #navMore2 {
@@ -425,6 +443,10 @@
         cursor: pointer;
         z-index: 10;
         margin-left: -2vw;
+    }
+
+    #navUpdate{
+        margin-right:-2vw;
     }
 
     #moreDD {
@@ -437,7 +459,7 @@
 
     .navDbC,
     .navDbT {
-        margin-left: -3vw;
+        /* margin-left: -3vw; */
     }
 
     #dropdown {

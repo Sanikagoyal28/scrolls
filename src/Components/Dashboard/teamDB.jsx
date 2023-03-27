@@ -22,6 +22,8 @@ function TeamDB() {
     const [member3, setMember3] = useState('')
     const [domain, setDomain] = useState('')
     const [topic, setTopic] = useState('')
+    const [synopsis, setSynopsis] = useState('')
+    const [paper, setPaper] = useState('')
     const [uplDom, setUplDom] = useState('')
     const [uplTop, setUplTop] = useState('')
     const [uplSyn, setUplSyn] = useState([])
@@ -36,6 +38,8 @@ function TeamDB() {
         setTeamSize(reducer.dataTeam.size)
         setTopic(reducer.dataTeam.topic)
         setDomain(reducer.dataTeam.domain)
+        setPaper(reducer.dataTeam.paper)
+        setSynopsis(reducer.dataTeam.synopsis)
         setLeader(reducer.dataTeam.leader_data)
         setMember2(reducer.dataTeam.member_2_data)
         setMember3(reducer.dataTeam.member_3_data)
@@ -282,6 +286,7 @@ function TeamDB() {
                     <p className="dbHead">Synopsis</p>
                     <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
                 </div>
+                {synopsis==='' ? <>
                 {(uplSyn.length == 0) ?
                     <div className="file_box">
                         <label for="uploadSyn"><img src={file} className="fileIcon" /></label>
@@ -289,6 +294,8 @@ function TeamDB() {
                         <p className="uploadText">Click to upload</p>
                     </div> :
                     <div className="teamID_box">{uplSyn.name}</div>}
+                    </>
+                    :  <div className="synopsis"><a href={`https://backend.scrollsakgec.in${synopsis}`}>{`https://backend.scrollsakgec.in${synopsis}`}</a></div>}
             </div>
 
             <hr className="dbHR2" />
@@ -298,6 +305,8 @@ function TeamDB() {
                     <p className="dbHead">Paper</p>
                     <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
                 </div>
+                
+                {paper==="" ? <>
                 {(uplPaper.length == 0) ?
                     <div className="file_box">
                         <label for="uploadFile"><img src={file} className="fileIcon" /></label>
@@ -305,6 +314,8 @@ function TeamDB() {
                         <p className="uploadText">Click to upload</p>
                     </div> :
                     <div className="teamID_box">{uplPaper.name}</div>}
+                    </> 
+                    :  <div className="synopsis"><a href={`https://backend.scrollsakgec.in${paper}`}>{`https://backend.scrollsakgec.in${paper}`}</a></div>}
             </div>
             <hr className="dbHR2" />
             <div className="dbBtns">

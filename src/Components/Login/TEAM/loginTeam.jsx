@@ -49,7 +49,7 @@ function LoginTeam () {
             "team_id": login1.email,
             "password": login1.password
         }
-        dispatch(setTitle("Team"))
+        // dispatch(setTitle("Team"))
         if(login1.email && login1.password){
 
         dispatch(LoginTeamThunk(data)).

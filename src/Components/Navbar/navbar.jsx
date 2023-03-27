@@ -121,14 +121,16 @@ function Navbar() {
 
     useEffect(() => {
         if (title === "Team") {
+            if(showD){
             document.getElementsByClassName("liRegister")[0].style.display = "none"
             document.getElementsByClassName("liLogin")[0].style.display = "none"
             document.getElementById("ca").style.display = "none"
             document.getElementById("team").style.display = "block"
             document.getElementById("liTitle").style.display = "block"
             document.getElementById("liLogout").style.display = "block"
-            document.getElementById("navMore").style.display = "none"
-            document.getElementById("navMore2").style.display = "block"
+            }
+            document.getElementsByClassName("navFlex1")[0].style.display = "none"
+            document.getElementsByClassName("navFlexLogin")[0].style.display = "flex"
             document.getElementsByClassName("navRegister")[0].style.display = "none"
             document.getElementsByClassName("navLogin")[0].style.display = "none"
             document.getElementsByClassName("navDbC")[0].style.display = "none"
@@ -137,14 +139,16 @@ function Navbar() {
         }
 
         if (title === "CA") {
+            if(showD){
             document.getElementsByClassName("liRegister")[0].style.display = "none"
             document.getElementsByClassName("liLogin")[0].style.display = "none"
             document.getElementById("team").style.display = "none"
             document.getElementById("ca").style.display = "block"
             document.getElementById("liTitle").style.display = "block"
             document.getElementById("liLogout").style.display = "block"
-            document.getElementById("navMore").style.display = "none"
-            document.getElementById("navMore2").style.display = "block"
+            }
+            document.getElementsByClassName("navFlex1")[0].style.display = "none"
+            document.getElementsByClassName("navFlexLogin")[0].style.display = "flex"
             document.getElementsByClassName("navRegister")[0].style.display = "none"
             document.getElementsByClassName("navLogin")[0].style.display = "none"
             document.getElementsByClassName("navDbC")[0].style.display = "block"
@@ -153,16 +157,16 @@ function Navbar() {
         }
 
         if (title === "") {
+            if(showD){
             document.getElementsByClassName("liRegister")[0].style.display = "block"
             document.getElementsByClassName("liLogin")[0].style.display = "block"
             document.getElementById("ca").style.display = "none"
             document.getElementById("team").style.display = "none"
             document.getElementById("liTitle").style.display = "none"
             document.getElementById("liLogout").style.display = "none"
-            document.getElementById("navMore").style.display = "block"
-
-            // document.getElementById("menu").style.marginLeft = "0"
-            document.getElementById("navMore2").style.display = "none"
+            }
+            document.getElementsByClassName("navFlex1")[0].style.display = "flex"
+            document.getElementsByClassName("navFlexLogin")[0].style.display = "none"
             document.getElementsByClassName("navRegister")[0].style.display = "block"
             document.getElementsByClassName("navLogin")[0].style.display = "block"
             document.getElementsByClassName("navDbC")[0].style.display = "none"
@@ -174,26 +178,22 @@ function Navbar() {
 
     const [showD, setShowD] = useState(false)
     function showmenu() {
-        setShowD(showD => !showD)
+        setShowD(prev => !prev)
+       
+        // if(showD)
+        // document.getElementById('uli').style.width = "60vw";
+        // else
+        // document.getElementById('uli').style.width = 0;
     }
 
     function close() {
         setShowD(false)
-        // document.getElementById('uli').style.display = "none";
-        // document.getElementById('uli').style.width = 0;
     }
 
     const [show, setShow] = useState(false)
     function handleDropdown() {
         setShow(true)
-        // if (show) {
             document.getElementById('dropdown').style.display = "flex";
-            // setShow(!show)
-        // }
-        // else {
-        //     document.getElementById('dropdown').style.display = "none";
-        //     setShow(!show)
-        // }
     }
     function closeDropdown() {
         setShow(false)
@@ -269,15 +269,21 @@ function Navbar() {
             <div className="navFlex1">
                 <NavLink to="/"><p className="navHead">Home</p></NavLink>
                 <p className="navHead" onClick={handleDropdown} onMouseOver={handleDropdown} id="navdomain">Domains</p>
-                {/* <NavLink to="/faq"><p id="navFaq" className="navHead">FAQs</p></NavLink> */}
-
                 <NavLink to="/updates"> <p className="navHead">Updates</p></NavLink>
                 <NavLink to="/rules"> <p id="navRule" className="navHead">Rules</p></NavLink>
                 <NavLink to="/ca"> <p id="navCA" className="navHead">CA</p></NavLink>
                 <NavLink to="/faq"><p id="navCA" className="navHead">FAQs</p></NavLink>
+                <p className="navHead" id="navMore" onClick={handleMore} onMouseOver={handleMore}>More</p>
+            </div>
+            <div className="navFlexLogin">
+                <NavLink to="/"><p className="navHead">Home</p></NavLink>
+                <p className="navHead" onClick={handleDropdown} onMouseOver={handleDropdown} id="navdomain">Domains</p>
+                <NavLink to="/updates"> <p className="navHead" id="navUpdate">Updates</p></NavLink>
                 <NavLink to="/team_db"><p className="navDbT">Dashboard</p></NavLink>
                 <NavLink to="/ca_db"><p className="navDbC">Dashboard</p></NavLink>
-                <p className="navHead" id="navMore" onClick={handleMore} onMouseOver={handleMore}>More</p>
+                <NavLink to="/rules"> <p id="navRule" className="navHead">Rules</p></NavLink>
+                <NavLink to="/ca"> <p id="navCA" className="navHead">CA</p></NavLink>
+                <NavLink to="/faq"><p id="navCA" className="navHead">FAQs</p></NavLink>
                 <p className="navHead" id="navMore2" onClick={handleMore} onMouseOver={handleMore}>More</p>
             </div>
             <div className="navFlex2">

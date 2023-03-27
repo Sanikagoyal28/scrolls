@@ -78,8 +78,8 @@ function Team() {
         }
     }, [team.size])
 
-    function RegAsTeam() {
-
+    function RegAsTeam(e) {
+        e.preventDefault();
         var data;
         if (team.referral) {
             if (team.size == 1) {
@@ -142,29 +142,27 @@ function Team() {
                 }
             }
         }
-        if (team.name && team.size && team.leaderId && team.pass) {
-            dispatch(RegTeamThunk(data)).
-                then((res) => {
-                    if (res.payload.status === 201) {
-                        toast.success(`${res.payload.data.msg}`, {
-                            position: "top-right",
-                            theme: "light",
-                            autoClose: 5000,
-                        });
-                        dispatch(dialog0())
-                    }
-                    if (res.payload.status === 400) {
-                        let x = Object.keys(res.payload.data)
-                        toast.error(`${res.payload.data[Object.keys(res.payload.data)[0]]}`, {
-                            position: "top-right",
-                            theme: "light",
-                            autoClose: 5000,
-                        });
-                    }
-                })
-                .catch((err) => {
-                })
-        }
+        dispatch(RegTeamThunk(data)).
+            then((res) => {
+                if (res.payload.status === 201) {
+                    toast.success(`${res.payload.data.msg}`, {
+                        position: "top-right",
+                        theme: "light",
+                        autoClose: 5000,
+                    });
+                    dispatch(dialog0())
+                }
+                if (res.payload.status === 400) {
+                    let x = Object.keys(res.payload.data)
+                    toast.error(`${res.payload.data[Object.keys(res.payload.data)[0]]}`, {
+                        position: "top-right",
+                        theme: "light",
+                        autoClose: 5000,
+                    });
+                }
+            })
+            .catch((err) => {
+            })
     }
 
     useEffect(() => {
@@ -185,7 +183,7 @@ function Team() {
                 <p className="heading">Register as <span id="member">Team</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={RegAsTeam}>
                 <p className="regName">Team Name</p>
                 <input required type="text" className="regInputname" placeholder="Enter team name" value={team.name} onChange={(e) => { setTeam({ ...team, name: e.target.value }) }} />
                 <p className="regName">Team Size</p>
@@ -215,17 +213,17 @@ function Team() {
                 <p id="WrongPwdTeam2">Password entered in two fields must be same.</p>
                 <div className="teamLeader">
                     <p className="regName">Team Leader ID</p>
-                    <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size == 1 || team.size == 2 || team.size == 3)? true: false} value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
+                    <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size==1 || team.size==2 || team.size==3)? true: false} value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
                 </div>
                 <div className="teamLeader">
                     <p className="regName">Member 2 ID</p>
-                    <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size == 2 || team.size == 3) ? true: false} value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
+                    <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size==2 || team.size==3)? true: false} value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
                 </div>
                 <div className="teamLeader">
                     <p className="regName">Member 3 ID</p>
-                    <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size == 3) ? true: false} value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
+                    <input type="text" className="regInputname" placeholder="Enter ID" required={team.size==3 ? true: false} value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
                 </div>
-                <button className="regButton" onClick={RegAsTeam}>Register</button>
+                <button className="regButton" type='submit'>Register</button>
             </form>
         </div>
         <ToastContainer />

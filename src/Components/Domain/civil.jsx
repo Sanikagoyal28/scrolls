@@ -9,7 +9,7 @@ function DomainCivil() {
             <div id="domainList">
                 <ul>
                     <li>
-                        <p className="domainHeading"> Stressed Ribbon Bridge</p>
+                        <p className="domainHeading">Stressed Ribbon Bridge</p>
                         <p className="domainText">A stressed ribbon bridge is primarily a structure under tension, which has similar geometry to that of a simple suspension bridge thus making it ideal for cycling or pedestrian traffic. The tension cables form the part of the deck which follows an inverted catenary arc between the supports. Unlike the simple suspension spans which tend to sway and bounce, the ribbon is stressed in compression which adds to the stiffness of the structure. The David Kreitzer Lake Hodges Bridge, the world's longest stress ribbon bridge, was opened to the public in May 2009. Articulate your views to improve them structurally and incorporate technical advancements.</p>
                     </li>
                     <li>
