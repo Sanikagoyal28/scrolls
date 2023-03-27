@@ -135,8 +135,8 @@ function LandingPage() {
         {/* landing page */}
         <div className="landingPage">
             <div className="landBlock1">
-                <div id="loginBg">
-                    <img src={landImage} className="landImage" />
+                <div id="loginBg" style={{backgroundImage:`url(${landImage})`}}>
+                    {/* <img src={landImage} className="landImage" /> */}
                 </div>
                 <div className="landFlex">
                     <p className="landText1">

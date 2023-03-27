@@ -36,14 +36,17 @@
     position: absolute;
     top: 60px;
     left: 0;
+    filter: brightness(40%);    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .landImage {
     z-index: 1;
     opacity: 0.4;
     overflow: hidden;
-    background-size: cover;
-    background: no-repeat center fixed;
 }
 
 .landFlex {
