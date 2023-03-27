@@ -225,6 +225,7 @@ margin-left: 2vw;
     line-height: 24px;
     /* margin-right: 4vw; */
     padding-bottom: 30px;
+    cursor: pointer;
 }
 
 #uli ul a {
@@ -259,7 +260,7 @@ margin-left: 2vw;
     display: flex;
     flex-direction: column;
     list-style: none;
-    margin-left: -2vw;
+    margin-left: -3.5vw;
 }
 
 #dropdown ul li {
@@ -277,14 +278,13 @@ margin-left: 2vw;
 #moreDD ul li {
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 0.8rem;
     line-height: 18px;
     padding: 4px 8px;
     width: 10vw;
     cursor: pointer;
-    color: #FFFFFF;
-   
+    color: #191919;   
 }
 
 #dropdown ul a , #moreDD ul a{
@@ -313,7 +313,7 @@ margin-left: 2vw;
 }
 
 #liDropdown {
-    display: none;
+    display: flex;
     width: 40vw;
 }
 
@@ -444,7 +444,7 @@ margin-left: 2vw;
     }
 
     #moreDD{
-        left:73vw;
+        left: 62vw;
     }
 
     .navLogin{

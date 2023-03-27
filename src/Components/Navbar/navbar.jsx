@@ -196,33 +196,19 @@ function Navbar() {
     }
     function closeDropdown() {
         setShow(false)
+        setMore(false)
         document.getElementById('dropdown').style.display = "none";
+        document.getElementById('moreDD').style.display = "none";
     }
 
     const [more, setMore] = useState(false)
     function handleMore() {
         console.log(more)
         setMore(true)
-        if (more) {
-            document.getElementById('moreDD').style.display = "flex";
-            setMore(!more)
-        }
-        else {
-            document.getElementById('moreDD').style.display = "none";
-            setMore(!more)
-        }
+        document.getElementById('moreDD').style.display = "flex";
     }
+    const [mobShow, setMobShow] = useState(false)
 
-    function handleDropdownTwo() {
-        setShow(true)
-
-        if (show) {
-            document.getElementById('liDropdown').style.display = "flex";
-        }
-        else {
-            document.getElementById('liDropdown').style.display = "none";
-        }
-    }
 
     function handleSoonClose() {
         setSoon(false)
@@ -233,8 +219,8 @@ function Navbar() {
             <img src={cross} id='crossimg' onClick={close}></img>
             <ul>
                 <NavLink to="/"><li>Home</li></NavLink>
-                <li>Domains <img src={dropdown} id="domainIcon" onClick={handleDropdownTwo} /></li>
-                <div id="liDropdown">
+                <li onClick={()=>setMobShow(prev=>!prev)}>Domains <img src={dropdown} id="domainIcon"  /></li>
+                {mobShow&&<div id="liDropdown">
                     <ul>
                         <NavLink to="/domain_management"><li>Management Science</li></NavLink>
                         <NavLink to="/domain_ece"><li>Electronics and Communication Engineering</li></NavLink>
@@ -243,7 +229,7 @@ function Navbar() {
                         <NavLink to="/domain_cs"><li>Computer Science and Information Technology</li></NavLink>
                         <NavLink to="/domain_me"><li>Mechanical Engineering</li></NavLink>
                     </ul>
-                </div>
+                </div>}
                 {/* <NavLink to="/previous_year"><li>Previous Year</li></NavLink> */}
                 <NavLink to="/updates"><li>Updates</li></NavLink>
                 <NavLink to="/ca"><li>CA</li></NavLink>
@@ -252,7 +238,7 @@ function Navbar() {
                 <NavLink to="/team_db"><li id="team">Dashboard</li></NavLink>
                 <NavLink to="/ca_db"><li id="ca">Dashboard</li></NavLink>
                 <li id="liTitle">{title}</li>
-                <li id="liLogout" onClick={() => { setOut(true); dispatch(logout()) }}>Logut</li>
+                <li id="liLogout" onClick={() => { setOut(true); dispatch(logout()) }}>Logout</li>
                 <li> <button className="liRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register</button></li>
                 {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li> */}
                 <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
@@ -270,7 +256,7 @@ function Navbar() {
             </ul>
         </div>
 
-        <div id="moreDD">
+        <div id="moreDD" onMouseOver={handleMore} onMouseLeave={closeDropdown} >
             <ul>
                 <NavLink to="/rules"><li>Rules</li></NavLink>
                 <NavLink to="/ca"> <li>CA</li></NavLink>
@@ -283,12 +269,12 @@ function Navbar() {
             <div className="navFlex1">
                 <NavLink to="/"><p className="navHead">Home</p></NavLink>
                 <p className="navHead" onClick={handleDropdown} onMouseOver={handleDropdown} id="navdomain">Domains</p>
-                <NavLink to="/faq"><p className="navHead">FAQs</p></NavLink>
                 {/* <NavLink to="/faq"><p id="navFaq" className="navHead">FAQs</p></NavLink> */}
 
                 <NavLink to="/updates"> <p className="navHead">Updates</p></NavLink>
                 <NavLink to="/rules"> <p id="navRule" className="navHead">Rules</p></NavLink>
                 <NavLink to="/ca"> <p id="navCA" className="navHead">CA</p></NavLink>
+                <NavLink to="/faq"><p id="navCA" className="navHead">FAQs</p></NavLink>
                 <NavLink to="/team_db"><p className="navDbT">Dashboard</p></NavLink>
                 <NavLink to="/ca_db"><p className="navDbC">Dashboard</p></NavLink>
                 <p className="navHead" id="navMore" onClick={handleMore} onMouseOver={handleMore}>More</p>
