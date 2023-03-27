@@ -83,6 +83,8 @@
     /* background-color: aqua; */
     margin: auto;
     justify-content: center;
+    /* overflow-x: hidden; */
+    /* overflow-y: scroll; */
     /* align-items: center; */
 }
 
