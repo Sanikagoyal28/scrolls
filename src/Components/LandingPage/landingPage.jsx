@@ -21,17 +21,20 @@ import { InstagramEmbed } from 'react-social-media-embed';
 import Navbar from "../Navbar/navbar";
 import timeline from "../Assets/timeline.svg"
 import mobTimeline from "../Assets/mob_timeline.svg"
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function LandingPage() {
 
     const reducer = useSelector((s) => s.login)
     const reducerReg = useSelector((s) => s.register)
+    const [path, setPath] = useState('')
     const [dialogg, setDialogg] = useState(false)
     const [login, setLogin] = useState(false)
     const [soon, setSoon] = useState(false)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const step = useSelector((s) => s.step)
+    const { title } = useSelector((s) => s.heading)
 
     const [stepDialog, setStepDialog] = useState({
         one: false,
@@ -114,6 +117,23 @@ function LandingPage() {
 
     }, [step, dialogg])
 
+    useEffect(()=>{
+        if(title=== "CA"){
+            setPath("/ca_db")
+            document.getElementById("toDash").style.display="inline"
+            document.getElementById("toReg").style.display="none"
+        }
+        if(title==="Team"){
+            setPath("/team_db")
+            document.getElementById("toDash").style.display="inline"
+            document.getElementById("toReg").style.display="none"
+        }
+        if(title===""){
+            document.getElementById("toDash").style.display="none"
+            document.getElementById("toReg").style.display="inline"
+        }
+    },[title])
+
     const Transition = forwardRef(function Transition(props, ref) {
         return <Slide direction="down" ref={ref} {...props} />;
     });
@@ -121,8 +141,6 @@ function LandingPage() {
     function handleSoonClose() {
         setSoon(false)
     }
-
-    console.log(soon)
 
     return <>
 
@@ -146,7 +164,8 @@ function LandingPage() {
                         Prestigious National Level Technical Paper Presentation organized by A.K.G.E.C. in association with Ghaziabad Management Association.
                     </p>
                     {/* <button className="landRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register Now</button> */}
-                    <button className="landRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register Now</button>
+                    <button className="landRegister" id="toReg" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register Now</button>
+                    <button className="landRegister" id="toDash" onClick={() => { navigate(path)  }} >To Dashboard</button>
                 </div>
             </div>
             <div className="landAbout">

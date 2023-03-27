@@ -60,11 +60,6 @@ function Team() {
 
     useEffect(() => {
         if (team.size) {
-            if (team.size == 1) {
-                document.getElementsByClassName("teamLeader")[0].style.display = "block";
-                document.getElementsByClassName("teamLeader")[1].style.display = "none";
-                document.getElementsByClassName("teamLeader")[2].style.display = "none";
-            }
             if (team.size == 2) {
                 document.getElementsByClassName("teamLeader")[0].style.display = "block";
                 document.getElementsByClassName("teamLeader")[1].style.display = "block";
@@ -82,15 +77,6 @@ function Team() {
         e.preventDefault();
         var data;
         if (team.referral) {
-            if (team.size == 1) {
-                data = {
-                    "name": team.name,
-                    "size": parseInt(team.size),
-                    "leader_id": parseInt(team.leaderId),
-                    "referral_used": team.referral,
-                    "password": team.pass
-                }
-            }
             if (team.size == 2) {
                 data = {
                     "name": team.name,
@@ -189,7 +175,6 @@ function Team() {
                 <p className="regName">Team Size</p>
                 <select required className="regInputname" value={team.size} onChange={(e) => { setTeam({ ...team, size: e.target.value }) }}>
                     <option >--select--</option>
-                    <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
@@ -213,7 +198,7 @@ function Team() {
                 <p id="WrongPwdTeam2">Password entered in two fields must be same.</p>
                 <div className="teamLeader">
                     <p className="regName">Team Leader ID</p>
-                    <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size==1 || team.size==2 || team.size==3)? true: false} value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
+                    <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size==2 || team.size==3)? true: false} value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
                 </div>
                 <div className="teamLeader">
                     <p className="regName">Member 2 ID</p>

@@ -292,6 +292,7 @@
     position: relative;
     /* top: 32px; */
     left: 30vw;
+    cursor: pointer;
     /* margin-top: -48px; */
 }
 

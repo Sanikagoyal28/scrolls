@@ -128,7 +128,12 @@
     color: #999999;
     padding: 10px 2vw 10px 2vw;
     cursor: pointer;
-    
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+
 }
 
 .synopsis > a{
@@ -184,6 +189,24 @@
     line-height: 10px;
     color: #000000;
 
+}
+
+#editFile{
+    cursor: pointer;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 16px;
+    color: #B00020;
+    margin-top: 4px;
+    width: 26vw;
+    /* margin-left: 6vw; */
+}
+
+#dbFiles{
+    display: flex;
+    flex-direction: column;
 }
 
 .fileIcon {

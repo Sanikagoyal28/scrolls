@@ -239,8 +239,8 @@ function Navbar() {
                 <NavLink to="/ca_db"><li id="ca">Dashboard</li></NavLink>
                 <li id="liTitle">{title}</li>
                 <li id="liLogout" onClick={() => { setOut(true); dispatch(logout()) }}>Logout</li>
-                <li> <button className="liRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register</button></li>
-                {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li> */}
+                {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register</button></li> */}
+                <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li>
                 <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
             </ul>
         </div>}

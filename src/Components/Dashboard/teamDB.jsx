@@ -78,7 +78,7 @@ function TeamDB() {
         for (const pair of fd.entries()) {
             console.log(`${pair[0]}, ${pair[1]}`);
         }
-      
+
         dispatch(TeamDBDataThunk(fd)).
             then((res) => {
                 if (res.payload.status === 200) {
@@ -87,10 +87,11 @@ function TeamDB() {
                         theme: "light",
                         autoClose: 5000,
                     });
-                    if (uplDom != "" && uplTop != "") {
-                        setTopic(uplTop)
-                        setDomain(uplDom)
-                    }
+                    dispatch(TeamDBThunk())
+                    // if (uplDom != "" && uplTop != "") {
+                    //     setTopic(uplTop)
+                    //     setDomain(uplDom)
+                    // }
 
                 } else {
                     setUplPaper('')
@@ -286,16 +287,20 @@ function TeamDB() {
                     <p className="dbHead">Synopsis</p>
                     <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
                 </div>
-                {synopsis==='' ? <>
-                {(uplSyn.length == 0) ?
-                    <div className="file_box">
-                        <label for="uploadSyn"><img src={file} className="fileIcon" /></label>
-                        <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
-                        <p className="uploadText">Click to upload</p>
-                    </div> :
-                    <div className="teamID_box">{uplSyn.name}</div>}
-                    </>
-                    :  <div className="synopsis"><a href={`https://backend.scrollsakgec.in${synopsis}`}>{`https://backend.scrollsakgec.in${synopsis}`}</a></div>}
+                {synopsis === '' || synopsis === null ? <>
+                    {(uplSyn.length == 0) ?
+                        <div className="file_box">
+                            <label for="uploadSyn"><img src={file} className="fileIcon" /></label>
+                            <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
+                            <p className="uploadText">Click to upload</p>
+                        </div> : <div id="dbFiles">
+                            <div className="teamID_box">{uplSyn.name}</div>
+                            <label for="uploadSyn" id="editFile">Edit file</label>
+                            <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
+                        </div>
+                    }
+                </>
+                    : <div className="synopsis"><a href={`https://backend.scrollsakgec.in${synopsis}`}>{`https://backend.scrollsakgec.in${synopsis}`}</a></div>}
             </div>
 
             <hr className="dbHR2" />
@@ -305,17 +310,21 @@ function TeamDB() {
                     <p className="dbHead">Paper</p>
                     <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
                 </div>
-                
-                {paper==="" ? <>
-                {(uplPaper.length == 0) ?
-                    <div className="file_box">
-                        <label for="uploadFile"><img src={file} className="fileIcon" /></label>
-                        <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" onChange={(e) => { handleChange(e) }} hidden />
-                        <p className="uploadText">Click to upload</p>
-                    </div> :
-                    <div className="teamID_box">{uplPaper.name}</div>}
-                    </> 
-                    :  <div className="synopsis"><a href={`https://backend.scrollsakgec.in${paper}`}>{`https://backend.scrollsakgec.in${paper}`}</a></div>}
+
+                {paper === "" || paper === null ? <>
+                    {(uplPaper.length == 0) ?
+                        <div className="file_box">
+                            <label for="uploadFile"><img src={file} className="fileIcon" /></label>
+                            <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" onChange={(e) => { handleChange(e) }} hidden disabled/>
+                            <p className="uploadText">Click to upload</p>
+                        </div> : <div id="dbFiles">
+                            <div className="teamID_box">{uplPaper.name}</div>
+                            <label for="uploadFile" id="editFile">Edit file</label>
+                            <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" onChange={(e) => { handleChange(e) }} hidden disabled/>
+                        </div>
+                    }
+                </>
+                    : <div className="synopsis"><a href={`https://backend.scrollsakgec.in${paper}`}>{`https://backend.scrollsakgec.in${paper}`}</a></div>}
             </div>
             <hr className="dbHR2" />
             <div className="dbBtns">

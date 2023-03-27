@@ -158,30 +158,62 @@ function Member() {
             });
         }
         var data;
-        if (input.course == "others") {
-            data = {
-                "name": input.name,
-                "email": input.email,
-                "password": input.pass,
-                "gender": input.gender,
-                "mobile": input.mobile,
-                "course": input.otherCourse,
-                "college": input.college,
-                "year_of_study": input.year,
-                "g-recaptcha-response": valu
+        if (input.branch) {
+            if (input.course == "others") {
+                data = {
+                    "name": input.name,
+                    "email": input.email,
+                    "password": input.pass,
+                    "gender": input.gender,
+                    "mobile": input.mobile,
+                    "course": input.otherCourse,
+                    "college": input.college,
+                    "year_of_study": input.year,
+                    "g-recaptcha-response": valu,
+                    "branch": input.branch
+                }
+            }
+            else {
+                data = {
+                    "name": input.name,
+                    "email": input.email,
+                    "password": input.pass,
+                    "gender": input.gender,
+                    "mobile": input.mobile,
+                    "course": input.course,
+                    "college": input.college,
+                    "year_of_study": input.year,
+                    "g-recaptcha-response": valu,
+                    "branch": input.branch
+                }
             }
         }
         else {
-            data = {
-                "name": input.name,
-                "email": input.email,
-                "password": input.pass,
-                "gender": input.gender,
-                "mobile": input.mobile,
-                "course": input.course,
-                "college": input.college,
-                "year_of_study": input.year,
-                "g-recaptcha-response": valu
+            if (input.course == "others") {
+                data = {
+                    "name": input.name,
+                    "email": input.email,
+                    "password": input.pass,
+                    "gender": input.gender,
+                    "mobile": input.mobile,
+                    "course": input.otherCourse,
+                    "college": input.college,
+                    "year_of_study": input.year,
+                    "g-recaptcha-response": valu
+                }
+            }
+            else {
+                data = {
+                    "name": input.name,
+                    "email": input.email,
+                    "password": input.pass,
+                    "gender": input.gender,
+                    "mobile": input.mobile,
+                    "course": input.course,
+                    "college": input.college,
+                    "year_of_study": input.year,
+                    "g-recaptcha-response": valu
+                }
             }
         }
         if (token && input.name && input.email && input.pass && input.gender && input.mobile && input.course && input.college && input.year) {
