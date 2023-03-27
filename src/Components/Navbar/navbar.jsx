@@ -289,8 +289,8 @@ function Navbar() {
                 <p className="navHead" id="navMore2" onClick={handleMore} onMouseOver={handleMore}>More</p>
             </div>
             <div className="navFlex2">
-                <button className="navRegister" onClick={() => { setDialogg(true); setSoon(true) }}>Register</button>
-                {/* <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }}>Register</button> */}
+                {/* <button className="navRegister" onClick={() => { setDialogg(true); setSoon(true) }}>Register</button> */}
+                <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }}>Register</button>
                 <button className="navLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }}>Login</button>
                 <img src={menu} id="menu" onClick={showmenu}></img>
             </div>

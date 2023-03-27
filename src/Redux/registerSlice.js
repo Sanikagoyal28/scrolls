@@ -59,7 +59,6 @@ const RegisterSlice = createSlice({
             state.loading = true;
         })
         builder.addCase(RegMemberThunk.fulfilled, (state, action) => {
-            console.log(action)
             state.loading = false;
             state.msg = action.payload.data[0] 
         })

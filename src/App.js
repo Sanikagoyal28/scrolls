@@ -38,8 +38,10 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" exact element={<LandingPage />} />
-        {ca ? <Route path="/ca_db" element={<CaDB />} /> : null}
-        {team ? <Route path="/team_db" exact element={<TeamDB />} /> : null}
+        <Route path="/ca_db" element={<CaDB />} /> 
+        <Route path="/team_db" exact element={<TeamDB />} />
+        {/* {ca ? <Route path="/ca_db" element={<CaDB />} /> : null} */}
+        {/* {team ? <Route path="/team_db" exact element={<TeamDB />} /> : null} */}
         <Route path="/updates" exact element={<Update />} />
         <Route path="/previous_year" exact element={<PreviousYear />} />
         <Route path="/faq" exact element={<FAQ />} />

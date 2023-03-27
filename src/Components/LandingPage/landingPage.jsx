@@ -145,8 +145,8 @@ function LandingPage() {
                     <p className="landText2">
                         Prestigious National Level Technical Paper Presentation organized by A.K.G.E.C. in association with Ghaziabad Management Association.
                     </p>
-                    <button className="landRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register Now</button>
-                    {/* <button className="landRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register Now</button> */}
+                    {/* <button className="landRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register Now</button> */}
+                    <button className="landRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register Now</button>
                 </div>
             </div>
             <div className="landAbout">
