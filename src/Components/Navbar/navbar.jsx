@@ -200,14 +200,22 @@ function Navbar() {
         setMore(false)
         document.getElementById('dropdown').style.display = "none";
         document.getElementById('moreDD').style.display = "none";
+        document.getElementById('moreDD2').style.display = "none";
     }
 
     const [more, setMore] = useState(false)
     function handleMore() {
-        console.log(more)
+        // console.log(more)
         setMore(true)
         document.getElementById('moreDD').style.display = "flex";
     }
+
+    const [more2, setMore2] = useState(false)
+    function handleMore2() {
+        setMore2(true)
+        document.getElementById('moreDD2').style.display = "flex";
+    }
+
     const [mobShow, setMobShow] = useState(false)
 
     function handleSoonClose() {
@@ -224,11 +232,11 @@ function Navbar() {
                 {mobShow&&<div id="liDropdown">
                     <ul>
                         <NavLink to="/domain_management"><li>Management Science</li></NavLink>
-                        <NavLink to="/domain_ece"><li>Electronics and Communication Engineering</li></NavLink>
+                        <NavLink to="/domain_me"><li>Mechanical Engineering</li></NavLink>
                         <NavLink to="/domain_civil"><li>Civil Engineering</li></NavLink>
                         <NavLink to="/domain_en"><li>Electrical and Electronics Engineering</li></NavLink>
                         <NavLink to="/domain_cs"><li>Computer Science and Information Technology</li></NavLink>
-                        <NavLink to="/domain_me"><li>Mechanical Engineering</li></NavLink>
+                        <NavLink to="/domain_ece"><li>Electronics and Communication Engineering</li></NavLink>
                     </ul>
                 </div>}
                 <NavLink to="/updates"><li>Updates</li></NavLink>
@@ -264,6 +272,14 @@ function Navbar() {
             </ul>
         </div>
 
+        <div id="moreDD2" onMouseOver={handleMore2} onMouseLeave={closeDropdown} >
+            <ul>
+                <NavLink to="/rules"><li>Rules</li></NavLink>
+                <NavLink to="/ca"> <li>CA</li></NavLink>
+                <NavLink to="/faq"><li>FAQs</li></NavLink>
+            </ul>
+        </div>
+
         <div className="navbar" onMouseLeave={closeDropdown}>
             <NavLink to="/"><p className="navScroll">SCROLLS<span className="navDot">.</span></p></NavLink>
             <div className="navFlex1">
@@ -281,10 +297,10 @@ function Navbar() {
                 <NavLink to="/updates"> <p className="navHead" id="navUpdate">Updates</p></NavLink>
                 <NavLink to="/team_db"><p className="navDbT">Dashboard</p></NavLink>
                 <NavLink to="/ca_db"><p className="navDbC">Dashboard</p></NavLink>
-                <NavLink to="/rules"> <p id="navRule" className="navHead">Rules</p></NavLink>
+                <NavLink to="/rules"> <p id="navRule2" className="navHead">Rules</p></NavLink>
                 <NavLink to="/ca"> <p id="navCA" className="navHead">CA</p></NavLink>
                 <NavLink to="/faq"><p id="navCA" className="navHead">FAQs</p></NavLink>
-                <p className="navHead" id="navMore2" onClick={handleMore} onMouseOver={handleMore}>More</p>
+                <p className="navHead" id="navMore2" onClick={handleMore2} onMouseOver={handleMore2}>More</p>
             </div>
             <div className="navFlex2">
                 {/* <button className="navRegister" onClick={() => { setDialogg(true); setSoon(true) }}>Register</button> */}

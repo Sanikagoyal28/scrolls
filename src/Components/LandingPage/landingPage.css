@@ -5,13 +5,13 @@
     left: 50vw;
 }
 
-#soonDialog{
+#soonDialog {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:160px;
-    width:30vw;
+    height: 160px;
+    width: 30vw;
 }
 
 /* landing page */
@@ -36,7 +36,7 @@
     position: absolute;
     top: 60px;
     left: 0;
-    filter: brightness(40%);    
+    filter: brightness(40%);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -244,19 +244,21 @@
     padding-right: 1.2vw;
 }
 
-.landDomain a{
+.landDomain a {
     text-decoration: none;
     color: #000;
 }
 
-.domainCard1:hover{
+.domainCard1:hover {
     transform: scale(1.02, 1.02);
     transition: 0.2s;
 }
-.domainCard2:hover{
+
+.domainCard2:hover {
     transform: scale(1.02, 1.02);
     transition: 0.2s;
 }
+
 .domainCard2 a {
     color: #000;
 }
@@ -473,12 +475,13 @@
 
 }
 
-@media(max-width:1300px){
-    .footText{
-        top:50px;
+@media(max-width:1300px) {
+    .footText {
+        top: 50px;
     }
-    #soonDialog{
-        width:34vw;
+
+    #soonDialog {
+        width: 34vw;
     }
 }
 
@@ -490,8 +493,9 @@
     .footHead2 {
         width: 20vw;
     }
-    .footText{
-        top:60px;
+
+    .footText {
+        top: 60px;
     }
 }
 
@@ -540,11 +544,17 @@
     .landFlex {
         left: 17vw;
     }
-    .footText{
-        top:54px;
+
+    .footText {
+        top: 54px;
     }
-    #soonDialog{
-        width:36vw;
+
+    #soonDialog {
+        width: 36vw;
+    }
+
+    .landRegister {
+        width: 16vw;
     }
 }
 
@@ -567,8 +577,9 @@
         margin-right: 2vw;
         height: 280px;
     }
-    #soonDialog{
-        width:38vw;
+
+    #soonDialog {
+        width: 38vw;
     }
 }
 
@@ -600,12 +611,12 @@
     }
 }
 
-@media(max-width:820px) {
+@media(max-width:830px) {
 
     .landBlock1,
     .landImage,
     #loginBg {
-        height: 610px;
+        height: 600px;
     }
 
     .landText1,
@@ -653,12 +664,6 @@
         width: 30vw;
     }
 
-    .landBlock1,
-    .landImage,
-    #loginBg {
-        height: 630px;
-    }
-
     .landText1 {
         width: 78vw;
         line-height: 86px;
@@ -674,7 +679,7 @@
     }
 
     .landRegister {
-        width: 20vw;
+        width: 22vw;
     }
 
     .footHead {
@@ -690,8 +695,8 @@
         gap: 10px;
     }
 
-    #soonDialog{
-        width:42vw;
+    #soonDialog {
+        width: 42vw;
     }
 }
 
@@ -713,6 +718,12 @@
     #footFlex2 {
         margin-left: -2vw;
     }
+    .landBlock1,
+    .landImage,
+    #loginBg {
+        height: 630px;
+    }
+
 }
 
 @media(max-width:700px) {
@@ -749,12 +760,20 @@
     #footFlex1 {
         margin-top: -8px;
     }
-    .footText{
-        top:58px;
+
+    .footText {
+        top: 58px;
     }
-    #soonDialog{
-        width:48vw;
+
+    #soonDialog {
+        width: 48vw;
     }
+    .landBlock1,
+    .landImage,
+    #loginBg {
+        height: 600px;
+    }
+
 }
 
 @media(max-width:700px) {
@@ -780,7 +799,7 @@
     }
 
     .landRegister {
-        width: 22vw;
+        width: 24vw;
     }
 
     #footFlex2 {
@@ -792,16 +811,18 @@
     }
 }
 
-@media(max-width:630px) {
+@media(max-width:635px) {
     .landText1 {
         width: 80vw;
         font-size: 3.5rem;
     }
-    .footText{
-        top:44px;
+
+    .footText {
+        top: 44px;
     }
-    #soonDialog{
-        width:54vw;
+
+    #soonDialog {
+        width: 54vw;
     }
 }
 
@@ -856,7 +877,7 @@
     }
 
     .landRegister {
-        width: 26vw;
+        width: 28vw;
     }
 
     #text1Border,
@@ -873,14 +894,15 @@
         width: 30vw;
         margin-left: 32vw;
     }
-    .footText{
-        top:34px;
+
+    .footText {
+        top: 34px;
     }
 }
 
 @media(max-width:550px) {
     .landRegister {
-        width: 28vw;
+        width: 30vw;
         margin-left: 0;
     }
 
@@ -923,8 +945,9 @@
     #timelineBorder {
         width: 32vw;
     }
-    #soonDialog{
-        width:60vw;
+
+    #soonDialog {
+        width: 60vw;
     }
 }
 
@@ -1008,11 +1031,11 @@
     #telephone {
         font-size: 1rem;
         margin-bottom: 16px;
-        margin-top:16px;
+        margin-top: 16px;
     }
 
-    #phone{
-       margin-top:16px;
+    #phone {
+        margin-top: 16px;
     }
 
     .footFlexRow>p {
@@ -1030,8 +1053,9 @@
     #footFlex2Row {
         margin-left: -6vw;
     }
-    #soonDialog{
-        width:64vw;
+
+    #soonDialog {
+        width: 64vw;
     }
 }
 
@@ -1040,7 +1064,7 @@
     .landBlock1,
     .landImage,
     #loginBg {
-        height: 640px;
+        height: 665px;
     }
 
     .landText1 {
@@ -1086,8 +1110,9 @@
     .domainCards {
         padding-left: 12vw;
     }
-    #soonDialog{
-        width:70vw;
+
+    #soonDialog {
+        width: 70vw;
     }
 }
 
@@ -1098,8 +1123,9 @@
     #loginBg {
         height: 680px;
     }
-    #soonDialog{
-        width:75vw;
+
+    #soonDialog {
+        width: 75vw;
     }
 
 }
@@ -1125,7 +1151,7 @@
 
 @media(max-width:400px) {
     .landRegister {
-        width: 38vw;
+        width: 40vw;
     }
 
     #domainBorder,

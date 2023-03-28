@@ -1,3 +1,7 @@
+#outDomain{
+    overflow-x: scroll;
+}
+
 .Domain {
     display: flex;
     flex-direction: column;
