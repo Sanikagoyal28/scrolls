@@ -247,8 +247,8 @@ function Navbar() {
                 <NavLink to="/ca_db"><li id="ca">Dashboard</li></NavLink>
                 <li id="liTitle">{title}</li>
                 <li id="liLogout" onClick={() => { setOut(true); dispatch(logout()) }}>Logout</li>
-                {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register</button></li> */}
-                <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li>
+                <li> <button className="liRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register</button></li>
+                {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li> */}
                 <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
             </ul>
         </div>}
@@ -303,8 +303,8 @@ function Navbar() {
                 <p className="navHead" id="navMore2" onClick={handleMore2} onMouseOver={handleMore2}>More</p>
             </div>
             <div className="navFlex2">
-                {/* <button className="navRegister" onClick={() => { setDialogg(true); setSoon(true) }}>Register</button> */}
-                <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }}>Register</button>
+                <button className="navRegister" onClick={() => { setDialogg(true); setSoon(true) }}>Register</button>
+                {/* <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }}>Register</button> */}
                 <button className="navLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }}>Login</button>
                 <img src={menu} id="menu" onClick={showmenu}></img>
             </div>

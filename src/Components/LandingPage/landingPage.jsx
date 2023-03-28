@@ -119,22 +119,22 @@ function LandingPage() {
 
     }, [step, dialogg])
 
-    useEffect(()=>{
-        if(title=== "CA"){
+    useEffect(() => {
+        if (title === "CA") {
             setPath("/ca_db")
-            document.getElementById("toDash").style.display="inline"
-            document.getElementById("toReg").style.display="none"
+            document.getElementById("toDash").style.display = "inline"
+            document.getElementById("toReg").style.display = "none"
         }
-        if(title==="Team"){
+        if (title === "Team") {
             setPath("/team_db")
-            document.getElementById("toDash").style.display="inline"
-            document.getElementById("toReg").style.display="none"
+            document.getElementById("toDash").style.display = "inline"
+            document.getElementById("toReg").style.display = "none"
         }
-        if(title===""){
-            document.getElementById("toDash").style.display="none"
-            document.getElementById("toReg").style.display="inline"
+        if (title === "") {
+            document.getElementById("toDash").style.display = "none"
+            document.getElementById("toReg").style.display = "inline"
         }
-    },[title])
+    }, [title])
 
     const Transition = forwardRef(function Transition(props, ref) {
         return <Slide direction="down" ref={ref} {...props} />;
@@ -155,7 +155,7 @@ function LandingPage() {
         {/* landing page */}
         <div className="landingPage">
             <div className="landBlock1">
-                <div id="loginBg" style={{backgroundImage:`url(${landImage})`}}>
+                <div id="loginBg" style={{ backgroundImage: `url(${landImage})` }}>
                     {/* <img src={landImage} className="landImage" /> */}
                 </div>
                 <div className="landFlex">
@@ -165,9 +165,9 @@ function LandingPage() {
                     <p className="landText2">
                         Prestigious National Level Technical Paper Presentation organized by A.K.G.E.C. in association with Ghaziabad Management Association.
                     </p>
-                    {/* <button className="landRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register Now</button> */}
-                    <button className="landRegister" id="toReg" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register Now</button>
-                    <button className="landRegister" id="toDash" onClick={() => { navigate(path)  }} >To Dashboard</button>
+                    <button className="landRegister" id="toReg" onClick={() => { setDialogg(true); setSoon(true) }} >Register Now</button>
+                    {/* <button className="landRegister" id="toReg" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register Now</button> */}
+                    <button className="landRegister" id="toDash" onClick={() => { navigate(path) }} >To Dashboard</button>
                 </div>
             </div>
             <div className="landAbout">
