@@ -138,7 +138,7 @@ function Team() {
                     });
                     dispatch(dialog0())
                 }
-                if (res.payload.status === 400) {
+                else {
                     let x = Object.keys(res.payload.data)
                     toast.error(`${res.payload.data[Object.keys(res.payload.data)[0]]}`, {
                         position: "top-right",

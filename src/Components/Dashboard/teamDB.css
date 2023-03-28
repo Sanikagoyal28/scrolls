@@ -72,6 +72,10 @@
     border-radius: 4px;
 }
 
+.dbSave:disabled{
+    opacity: 0.5;
+}
+
 .dbFlex1 {
     display: flex;
     gap:24px;
@@ -116,7 +120,7 @@
 
 .synopsis{
     text-transform: none;
-    width: 40vw;
+    width: 24vw;
     height: 40px;
     border: 1px solid #D9D9D9;
     border-radius: 4px;
@@ -191,7 +195,7 @@
 
 }
 
-#editFile{
+#editFile, #remove{
     cursor: pointer;
     font-family: 'Montserrat';
     font-style: normal;
@@ -200,13 +204,19 @@
     line-height: 16px;
     color: #B00020;
     margin-top: 4px;
-    width: 26vw;
-    /* margin-left: 6vw; */
+    margin-left:1vw;
+    /* width:24vw; */
 }
 
 #dbFiles{
     display: flex;
     flex-direction: column;
+}
+
+.fileFlex{
+    display: flex;
+    width: 24vw;
+    justify-content: flex-end;
 }
 
 .fileIcon {
@@ -301,6 +311,44 @@
     word-wrap: break-word;
     /* width:28vw; */
     max-width:18vw;
+}
+
+
+/* dialog */
+
+#dbDialog{
+    position:absolute;
+    top:240px;
+    right:6vw;
+    width: 22vw;
+    height: 160px;
+    background: #F3F5F6;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    /* position: fixed; */
+}
+
+#dialText1{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 17px;
+    color: #31DCA9;
+}
+
+#dialText2{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 17px;
+    color: #252525;
 }
 
 @media(max-width:1200px){

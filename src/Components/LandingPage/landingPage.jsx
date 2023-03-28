@@ -21,6 +21,8 @@ import { InstagramEmbed } from 'react-social-media-embed';
 import Navbar from "../Navbar/navbar";
 import timeline from "../Assets/timeline.svg"
 import mobTimeline from "../Assets/mob_timeline.svg"
+import timelineNew from "../Assets/timeline2.svg"
+import timelinePhone from "../Assets/timelinePhone.svg"
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function LandingPage() {
@@ -228,8 +230,8 @@ function LandingPage() {
                     <p className="aboutScroll" id="timelineHeading">Timeline</p>
                 </div>
                 <div>
-                    <img src={timeline} className="timeline" />
-                    <img src={mobTimeline} className="mob_timeline" />
+                    <img src={timelineNew} className="timeline" />
+                    <img src={timelinePhone} className="mob_timeline" />
                 </div>
             </div>
 
@@ -277,8 +279,7 @@ function LandingPage() {
                         </div>
                     </div>
                 </div>
-                <p className="footText">Powered by <span id="siIcon" ><img src={SI} /></span><span id="software">SOFTWARE</span><span id="incubator">INCUBATOR</span></p>
-            </div>
+                <p className="footText">Powered by <a href="https://silive.in/" target="_blank"  ><span id="siIcon" ><img src={SI} /></span><span id="software">SOFTWARE</span><span id="incubator">INCUBATOR</span></a></p>            </div>
         </div>
 
         <div className="Dialogue1">

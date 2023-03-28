@@ -15,6 +15,27 @@ function TeamDB() {
     const dispatch = useDispatch()
     const reducer = useSelector((s) => s.dashboard)
     const [loading, setLoading] = useState(false)
+
+    // const team = {
+    //     teamId:'',
+    //     teamSize:'',
+    //     leader:'',
+    //     member2:'',
+    //     member3:'',
+    //     domain:'',
+    //     topic:'',
+    //     synopsis:'',
+    //     paper:'',
+    //     uplDom:'',
+    //     uplTop:'',
+    //     uplSyn:[],
+    //     uplPaper:[],
+    //     selected:false,
+    //     text1:'',
+    //     text2:''
+    // }
+
+    // const [teamState, setTeamState] = useState(team)
     const [teamId, setTeamId] = useState('')
     const [teamSize, setTeamSize] = useState('')
     const [leader, setLeader] = useState('')
@@ -28,16 +49,21 @@ function TeamDB() {
     const [uplTop, setUplTop] = useState('')
     const [uplSyn, setUplSyn] = useState([])
     const [uplPaper, setUplPaper] = useState([])
+
+    const [selected, setSelected] = useState(false)
+    const [text1, setText1] = useState('')
+    const [text2, setText2] = useState('')
     const navigate = useNavigate()
     const fd = new FormData()
     useEffect(() => {
         dispatch(TeamDBThunk())
     }, [])
     useEffect(() => {
-        setTeamId(reducer.dataTeam.id)
+        setTeamId(reducer.dataTeam.team_id)
         setTeamSize(reducer.dataTeam.size)
         setTopic(reducer.dataTeam.topic)
         setDomain(reducer.dataTeam.domain)
+        setSelected(reducer.dataTeam.is_selected)
         setPaper(reducer.dataTeam.paper)
         setSynopsis(reducer.dataTeam.synopsis)
         setLeader(reducer.dataTeam.leader_data)
@@ -45,33 +71,64 @@ function TeamDB() {
         setMember3(reducer.dataTeam.member_3_data)
     }, [reducer])
 
+    useEffect(() => {
+        if (!selected && (synopsis === '' || synopsis === null)) {
+            setText1("Pending")
+            setText2("You have not uploaded any synopsis yet, so can't submit Paper now.")
+        }
+        if (!selected && synopsis != '' && synopsis != null) {
+            setText1("Pending")
+            setText2("You are not selected now, so you cannot submit Paper.")
+        }
+        if (selected) {
+            setText1("Congratulations")
+            setText2("You are selected, you can submit your Paper now.")
+        }
+    }, [synopsis, selected])
+
     function handleCancel() {
-        setUplDom('')
+        if (domain === "" && topic === "") {
+            setUplDom('')
+            setUplTop('')
+        }
         setUplPaper('')
         setUplSyn('')
-        setUplTop('')
     }
 
     function handleSave() {
-        if (uplSyn.length == 0 && uplPaper.length == 0) {
-            fd.append('domain', uplDom)
-            fd.append('topic', uplTop)
+        if (uplDom && uplTop) {
+            if (uplSyn.length == 0 && uplPaper.length == 0) {
+                fd.append('domain', uplDom)
+                fd.append('topic', uplTop)
+            }
+            else if (uplSyn.length != 0 && uplPaper.length == 0) {
+                fd.append('synopsis', uplSyn)
+                fd.append('domain', uplDom)
+                fd.append('topic', uplTop)
+            }
+            else if (uplSyn.length == 0 && uplPaper.length != 0) {
+                fd.append('domain', uplDom)
+                fd.append('topic', uplTop)
+                fd.append('paper', uplPaper)
+            }
+            else if (uplSyn.length != 0 && uplPaper.length != 0) {
+                fd.append('domain', uplDom)
+                fd.append('topic', uplTop)
+                fd.append('synopsis', uplSyn)
+                fd.append('paper', uplPaper)
+            }
         }
-        else if (uplSyn.length != 0 && uplPaper.length == 0) {
-            fd.append('synopsis', uplSyn)
-            fd.append('domain', uplDom)
-            fd.append('topic', uplTop)
-        }
-        else if (uplSyn.length == 0 && uplPaper.length != 0) {
-            fd.append('domain', uplDom)
-            fd.append('topic', uplTop)
-            fd.append('paper', uplPaper)
-        }
-        else if (uplSyn.length != 0 && uplPaper.length != 0) {
-            fd.append('domain', uplDom)
-            fd.append('topic', uplTop)
-            fd.append('synopsis', uplSyn)
-            fd.append('paper', uplPaper)
+        else {
+            if (uplSyn.length != 0 && uplPaper.length == 0) {
+                fd.append('synopsis', uplSyn)
+            }
+            else if (uplSyn.length == 0 && uplPaper.length != 0) {
+                fd.append('paper', uplPaper)
+            }
+            else if (uplSyn.length != 0 && uplPaper.length != 0) {
+                fd.append('synopsis', uplSyn)
+                fd.append('paper', uplPaper)
+            }
         }
 
         //console form data
@@ -79,32 +136,27 @@ function TeamDB() {
             console.log(`${pair[0]}, ${pair[1]}`);
         }
 
-        dispatch(TeamDBDataThunk(fd)).
-            then((res) => {
-                if (res.payload.status === 200) {
-                    toast.success(`${res.payload.data.msg}`, {
-                        position: "top-right",
-                        theme: "light",
-                        autoClose: 5000,
-                    });
-                    dispatch(TeamDBThunk())
-                    // if (uplDom != "" && uplTop != "") {
-                    //     setTopic(uplTop)
-                    //     setDomain(uplDom)
-                    // }
-
-                } else {
-                    setUplPaper('')
-                    setUplSyn('')
-                    toast.error(`${res.payload.data.msg}`, {
-                        position: "top-right",
-                        theme: "light",
-                        autoClose: 5000,
-                    });
-                }
-            })
-            .catch((err) => {
-            })
+        // dispatch(TeamDBDataThunk(fd)).
+        //     then((res) => {
+        //         if (res.payload.status === 200) {
+        //             toast.success(`${res.payload.data.msg}`, {
+        //                 position: "top-right",
+        //                 theme: "light",
+        //                 autoClose: 5000,
+        //             });
+        //             dispatch(TeamDBThunk())
+        //         } else {
+        //             setUplPaper('')
+        //             setUplSyn('')
+        //             toast.error(`${res.payload.data.msg}`, {
+        //                 position: "top-right",
+        //                 theme: "light",
+        //                 autoClose: 5000,
+        //             });
+        //         }
+        //     })
+        //     .catch((err) => {
+        //     })
     }
 
     useEffect(() => {
@@ -122,17 +174,43 @@ function TeamDB() {
         setUplPaper(e.target.files[0])
     }
 
+    function handleSynopsis() {
+        if ((topic === '' && domain === '') && (uplDom === "" && uplTop === "") || (uplDom != "" && uplTop === "")) {
+            toast.error("Please select a Topic or Domain to upload Papers", {
+                position: "top-right",
+                theme: "light",
+                autoClose: 5000,
+            });
+        }
+        else {
+            console.log("upload")
+        }
+    }
+
+    function handlePaper() {
+        if (!selected) {
+            toast.error("Please wait for Admin response", {
+                position: "top-right",
+                theme: "light",
+                autoClose: 5000,
+            });
+        }
+        else {
+            console.log("true")
+        }
+    }
+
     return <>
         <Navbar />
+        <div id="dbDialog">
+            <p id="dialText1">{text1}</p>
+            <p id="dialText2">{text2}</p>
+        </div>
         <div className="dbOuterDiv">
             <p className="dashboard">Dashboard</p>
             <p className="dbHead1">Details regarding Team and Members</p>
 
             <hr className="dbHR1" />
-            {/* <div className="dbBtns">
-                <button className="dbCancel" onClick={() => { handleCancel() }} >Cancel</button>
-                <button className="dbSave" onClick={() => { handleSave() }}>Save</button>
-            </div> */}
             <div className="dbFlex1">
                 <p className="dbHead">Team ID</p>
                 <div className="teamID_box">{teamId}</div>
@@ -173,9 +251,9 @@ function TeamDB() {
                     <p className="dbHead">Domain</p>
                     <p className="dbText">Select Team Domain</p>
                 </div>
-                {domain === "" ? <>
+                {domain === "" || domain === undefined ? <>
                     <select className="teamID_box" onChange={(e) => { setUplDom(e.target.value) }} >
-                        <option id="option">--select--</option>
+                        <option id="option" value="">--select--</option>
                         <option value="Management Science">Management Science</option>
                         <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
                         <option value="Civil Engineering">Civil Engineering</option>
@@ -193,7 +271,7 @@ function TeamDB() {
                     <p className="dbHead">Topic</p>
                     <p className="dbText">Select Topic</p>
                 </div>
-                {topic === '' ? <>
+                {topic === '' || topic === undefined ? <>
                     <select className="teamID_box" onChange={(e) => { setUplTop(e.target.value) }}  >
                         {uplDom === "Management Science" ? <>
                             <option id="option">--select--</option>
@@ -290,13 +368,16 @@ function TeamDB() {
                 {synopsis === '' || synopsis === null ? <>
                     {(uplSyn.length == 0) ?
                         <div className="file_box">
-                            <label for="uploadSyn"><img src={file} className="fileIcon" /></label>
-                            <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
+                            <label for="uploadSyn"><img src={file} onClick={() => { handleSynopsis() }} className="fileIcon" /></label>
+                            <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" disabled={((topic === '' && domain === '') && (uplDom === "" && uplTop === "") || (uplDom != "" && uplTop === "")) ? true : false} onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
                             <p className="uploadText">Click to upload</p>
                         </div> : <div id="dbFiles">
                             <div className="teamID_box">{uplSyn.name}</div>
-                            <label for="uploadSyn" id="editFile">Edit file</label>
-                            <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
+                            <div className="fileFlex">
+                                <label for="uploadSyn" id="editFile">Edit</label>
+                                <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" disabled={((topic === '' && domain === '') && (uplDom === "" && uplTop === "") || (uplDom != "" && uplTop === "")) ? true : false} onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
+                                <p id="remove" onClick={() => { setUplSyn('') }}>Remove</p>
+                            </div>
                         </div>
                     }
                 </>
@@ -314,13 +395,16 @@ function TeamDB() {
                 {paper === "" || paper === null ? <>
                     {(uplPaper.length == 0) ?
                         <div className="file_box">
-                            <label for="uploadFile"><img src={file} className="fileIcon" /></label>
-                            <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" onChange={(e) => { handleChange(e) }} hidden disabled/>
+                            <label for="uploadFile"><img src={file} onClick={() => { handlePaper() }} className="fileIcon" /></label>
+                            <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" disabled={(!selected) ? true : false} onChange={(e) => { handleChange(e) }} hidden disabled />
                             <p className="uploadText">Click to upload</p>
                         </div> : <div id="dbFiles">
                             <div className="teamID_box">{uplPaper.name}</div>
-                            <label for="uploadFile" id="editFile">Edit file</label>
-                            <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" onChange={(e) => { handleChange(e) }} hidden disabled/>
+                            <div className="fileFlex">
+                                <label for="uploadFile" id="editFile">Edit</label>
+                                <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" disabled={(!selected) ? true : false} onChange={(e) => { handleChange(e) }} hidden disabled />
+                                <p id="remove" onClick={() => { setUplPaper('') }}>Remove</p>
+                            </div>
                         </div>
                     }
                 </>
@@ -329,7 +413,7 @@ function TeamDB() {
             <hr className="dbHR2" />
             <div className="dbBtns">
                 <button className="dbCancel" onClick={() => { handleCancel() }} >Cancel</button>
-                <button className="dbSave" onClick={() => { handleSave() }}>Save</button>
+                <button className="dbSave" type="submit" disabled={(topic === "" ) ? true : false} onClick={() => { handleSave() }}>Save</button>
             </div>
         </div>
         <ToastContainer />

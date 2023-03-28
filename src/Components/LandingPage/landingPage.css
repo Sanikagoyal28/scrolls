@@ -401,6 +401,11 @@
     /* right: 36vw; */
 }
 
+.footText a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 #link {
     cursor: pointer;
     font-family: 'Poppins';
