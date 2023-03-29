@@ -43,7 +43,7 @@ function Otp() {
         if (value) {
             dispatch(OtpCAThunk(data)).
                 then((res) => {
-                  
+
                     if (res.payload.status == 400) {
                         toast.error(`${res.payload.data.msg}`, {
                             position: "top-right",
@@ -76,7 +76,7 @@ function Otp() {
 
     return <>
         <div className="register">
-            <div className="regFlex" id="fgtHeadbox" >
+            <div className="regFlex" id="rstHeadbox" >
                 <img className="arrow" src={arrow} onClick={() => { dispatch(dialog8()) }} />
                 <p className="heading">OTP Verification</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />

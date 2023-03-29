@@ -57,14 +57,15 @@ function TeamDB() {
     const [text2, setText2] = useState('')
     const navigate = useNavigate()
     const fd = new FormData()
-    useEffect(() => {
-        dispatch(TeamDBThunk())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(TeamDBThunk())
+    // }, [])
     useEffect(() => {
         setTeamId(reducer.dataTeam.team_id)
         setTeamSize(reducer.dataTeam.size)
         setTopic(reducer.dataTeam.topic)
         setDomain(reducer.dataTeam.domain)
+        setDomain("cbdjbckjscnbssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssss")
         setSelected(reducer.dataTeam.is_selected)
         setPaper(reducer.dataTeam.paper)
         setSynopsis(reducer.dataTeam.synopsis)
@@ -142,27 +143,27 @@ function TeamDB() {
             console.log(`${pair[0]}, ${pair[1]}`);
         }
 
-        dispatch(TeamDBDataThunk(fd)).
-            then((res) => {
-                if (res.payload.status === 200) {
-                    toast.success(`${res.payload.data.msg}`, {
-                        position: "top-right",
-                        theme: "light",
-                        autoClose: 5000,
-                    });
-                    dispatch(TeamDBThunk())
-                } else {
-                    setUplPaper('')
-                    setUplSyn('')
-                    toast.error(`${res.payload.data.msg}`, {
-                        position: "top-right",
-                        theme: "light",
-                        autoClose: 5000,
-                    });
-                }
-            })
-            .catch((err) => {
-            })
+        // dispatch(TeamDBDataThunk(fd)).
+        //     then((res) => {
+        //         if (res.payload.status === 200) {
+        //             toast.success(`${res.payload.data.msg}`, {
+        //                 position: "top-right",
+        //                 theme: "light",
+        //                 autoClose: 5000,
+        //             });
+        //             dispatch(TeamDBThunk())
+        //         } else {
+        //             setUplPaper('')
+        //             setUplSyn('')
+        //             toast.error(`${res.payload.data.msg}`, {
+        //                 position: "top-right",
+        //                 theme: "light",
+        //                 autoClose: 5000,
+        //             });
+        //         }
+        //     })
+        //     .catch((err) => {
+        //     })
     }
 
     useEffect(() => {
@@ -238,6 +239,10 @@ function TeamDB() {
                 <p>Role</p>
                 <p>Scroll ID</p>
             </div>
+
+            <div className="team_box_data"><p>Sanikaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                <p>Member 3</p>
+                <p>200014578</p></div>
 
             {(leader != '' && leader != null && leader != undefined) ? <div className="team_box_data"><p>{leader.name}</p>
                 <p>Leader</p>

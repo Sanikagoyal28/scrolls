@@ -84,7 +84,7 @@ function CA1 () {
                     <img className="cross" id="back" src={cross} onClick={() => { dispatch(dialog0()) }} />
                 </div>
                 <p className="regName">Email</p>
-                <input type="text" className="regInputname" placeholder="Enter your email" value={caEemail} onChange={(e) => setCAEmail(e.target.value)} />
+                <input type="text" className="regInputname" placeholder="Enter your email" required value={caEemail} onChange={(e) => setCAEmail(e.target.value)} />
                 <p id="wrongCAEmail">Please enter a valid Email address</p>
                 <button className="regContinue" onClick={() => { CAEmailCheck() }}>Continue</button>
             </div>

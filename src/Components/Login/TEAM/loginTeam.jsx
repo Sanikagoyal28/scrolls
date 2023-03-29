@@ -44,7 +44,8 @@ function LoginTeam () {
     //     }
     // }, [login1.email]);
 
-    function LogTeam() {
+    function LogTeam(e) {
+        e.preventDefault()
         const data = {
             "team_id": login1.email,
             "password": login1.password
@@ -97,7 +98,7 @@ function LoginTeam () {
                     <p className="heading" id="registerCA">Login as <span id="member">Team</span></p>
                     <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
                 </div>
-                <form onSubmit={(e)=>e.preventDefault()} id="loginForm">
+                <form onSubmit={LogTeam} id="loginForm">
                 <p className="regName">Team ID/ Email ID</p>
                 <input required type="text" className="regInputname" placeholder="Enter your email" value={login1.email} onChange={(e) => setLogin1({ ...login1, email: e.target.value })} />
                 {/* <p id="wrongEmailLog1">Please enter a valid Email address</p> */}
@@ -110,7 +111,7 @@ function LoginTeam () {
                 <input required type={show1 ? "text" : "password"} className="regInputname inputPwd" placeholder="Enter password" value={login1.password} onChange={(e) => setLogin1({ ...login1, password: e.target.value })} />
                 <p className="forgotPass" onClick={() => { dispatch(dialog12()) }}>Forgot Password ?</p>
                 {/* <p id="wrongPwdLog1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p> */}
-                <button className="regContinue" onClick={() => { LogTeam() }}>Continue</button>
+                <button className="regContinue" type="submit">Continue</button>
                 </form>
             </div>
             <ToastContainer />

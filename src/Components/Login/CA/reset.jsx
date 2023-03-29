@@ -61,7 +61,8 @@ function Reset() {
         }
     }, [reducer.loading])
 
-    function ResetPassword() {
+    function ResetPassword(e) {
+        e.preventDefault();
         const data = {
             "email": localStorage.getItem("login_email"),
             "otp": localStorage.getItem("login_otp"),
@@ -96,14 +97,14 @@ function Reset() {
                 <p className="heading">Reset Password</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form onSubmit={(e)=>e.preventDefault()} id="loginForm">
+            <form onSubmit={ResetPassword} id="loginForm">
             <p className="regName">New Password</p>
             {show1 ? (
                 <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow1} />
             ) : (
                 <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow1} />
             )}
-            <input type={show1 ? "text" : "password"} className="regInputname inputPwd" placeholder="Enter password" value={input.pass} onChange={(e) => setInput({ ...input, pass: e.target.value })} />
+            <input type={show1 ? "text" : "password"} className="regInputname inputPwd" required placeholder="Enter password" value={input.pass} onChange={(e) => setInput({ ...input, pass: e.target.value })} />
             <p id="WrongPwd1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
             <p className="regName">Confirm Password</p>
             {show2 ? (
@@ -111,9 +112,9 @@ function Reset() {
             ) : (
                 <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow2} />
             )}
-            <input type={show2 ? "text" : "password"} className="regInputname inputPwd" placeholder="Enter password" value={input.confirmPass} onChange={(e) => setInput({ ...input, confirmPass: e.target.value })} />
+            <input type={show2 ? "text" : "password"} className="regInputname inputPwd" required placeholder="Enter password" value={input.confirmPass} onChange={(e) => setInput({ ...input, confirmPass: e.target.value })} />
             <p id="WrongPwd2">Password entered in two fields must be same.</p>
-            <button className="regButton" onClick={ResetPassword}>Reset Password</button>
+            <button className="regButton" type="submit">Reset Password</button>
             </form>
         </div>
         <ToastContainer />

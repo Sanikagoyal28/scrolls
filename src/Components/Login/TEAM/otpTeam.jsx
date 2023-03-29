@@ -84,7 +84,7 @@ function OtpTeam() {
 
     return <>
         <div className="register">
-            <div className="regFlex" id="fgtHeadbox" >
+            <div className="regFlex" id="rstHeadbox" >
                 <img className="arrow" src={arrow} onClick={() => { dispatch(dialog12()) }} />
                 <p className="heading">OTP Verification</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />

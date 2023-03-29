@@ -20,8 +20,8 @@
     font-size: 16px;
     line-height: 20px;
     color: #999999;
-    margin-top:8px;
-    margin-bottom:8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .dbHR1 {
@@ -39,7 +39,7 @@
     margin-bottom: 32px;
 }
 
-.dbBtns{
+.dbBtns {
     display: flex;
 
 }
@@ -55,7 +55,7 @@
     height: 40px;
     border: 1px solid #D9D9D9;
     border-radius: 4px;
-    margin-right:1.5vw;
+    margin-right: 1.5vw;
 }
 
 .dbSave {
@@ -72,13 +72,13 @@
     border-radius: 4px;
 }
 
-.dbSave:disabled{
+.dbSave:disabled {
     opacity: 0.5;
 }
 
 .dbFlex1 {
     display: flex;
-    gap:24px;
+    gap: 24px;
 }
 
 .dbHead {
@@ -88,7 +88,7 @@
     font-size: 1rem;
     line-height: 20px;
     color: #000000;
-    width:20vw;
+    width: 20vw;
     margin-bottom: 8px;
 }
 
@@ -114,11 +114,12 @@
     line-height: 15px;
     color: #999999;
     text-transform: capitalize;
-    padding: 10px 2vw 10px 2vw;
-    /* margin-left: 8vw; */
+    padding: 8px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
-.synopsis{
+.synopsis {
     text-transform: none;
     width: 24vw;
     height: 40px;
@@ -130,17 +131,13 @@
     font-size: 0.9rem;
     line-height: 15px;
     color: #999999;
-    padding: 10px 2vw 10px 2vw;
+    padding: 8px;
     cursor: pointer;
     white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
     word-wrap: break-word;
-
 }
 
-.synopsis > a{
+.synopsis>a {
     color: #999999;
 }
 
@@ -157,7 +154,7 @@
     align-items: center;
 }
 
-#uplPaper1{
+#uplPaper1 {
     width: 11vw;
     height: 80px;
     border: 1px solid #D9D9D9;
@@ -170,7 +167,7 @@
     align-items: center;
 }
 
-#uplPaper2{
+#uplPaper2 {
     width: 24vw;
     height: 40px;
     border: 1px solid #D9D9D9;
@@ -185,6 +182,7 @@
     padding: 10px 2vw 10px 2vw;
     margin-left: 8vw;
 }
+
 .uploadText {
     font-family: 'Montserrat';
     font-style: normal;
@@ -195,7 +193,8 @@
 
 }
 
-#editFile, #remove{
+#editFile,
+#remove {
     cursor: pointer;
     font-family: 'Montserrat';
     font-style: normal;
@@ -204,16 +203,16 @@
     line-height: 16px;
     color: #B00020;
     margin-top: 4px;
-    margin-left:1vw;
+    margin-left: 1vw;
     /* width:24vw; */
 }
 
-#dbFiles{
+#dbFiles {
     display: flex;
     flex-direction: column;
 }
 
-.fileFlex{
+.fileFlex {
     display: flex;
     width: 24vw;
     justify-content: flex-end;
@@ -228,13 +227,12 @@
 
 .member_box {
     display: flex;
-    width:46vw;
+    width: 46vw;
     height: 40px;
     margin-bottom: 0;
     background: #F3F5F6;
-    align-items: center;
     justify-content: space-around;
-    padding-top:9px;
+    align-items: center;
 }
 
 .member_box>p {
@@ -242,23 +240,21 @@
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    line-height: 20px;
     color: #999999;
+    margin-bottom: 0;
 }
 
 .member_box_data {
     display: flex;
-    width:46vw;
-    /* height: 40px; */
+    width: 46vw;
     padding-top: 9px;
-    /* align-items: center; */
     justify-content: space-around;
     /* gap:68px; */
     margin-top: 16px;
     margin-bottom: 12px;
     border-bottom: 1px solid #D9D9D9;
-    padding-left:0;
-    /* background-color: #1A73E8; */
+    padding-left: 0;
+    background-color: #1A73E8;
 }
 
 .member_box_data>p {
@@ -268,33 +264,27 @@
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    /* background-color: #999999; */
-    /* margin-left:-3vw; */
-    max-width:18vw;
+    max-width: 18vw;
     white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
     word-wrap: break-word;
     /* width:28vw; */
 }
 
-#rank{
-    position:relative;
+#rank {
+    position: relative;
 }
 
 .team_box_data {
     display: flex;
-    width:46vw;
-    /* height: 40px; */
-    padding-top: 9px;
-    /* gap:100px; */
+    width: 46vw;
+    /* padding-top: 9px; */
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     margin-top: 16px;
     margin-bottom: 12px;
-    /* padding-left:4vw; */
-    /* background-color: #1A73E8; */
+    background-color: #1A73E8;
+    padding-right: 1vw;
+    padding-left: 1vw;
 }
 
 .team_box_data>p {
@@ -302,7 +292,6 @@
     font-style: normal;
     font-weight: 500;
     font-size: 1rem;
-    line-height: 20px;
     color: #000;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
@@ -310,17 +299,21 @@
     white-space: -o-pre-wrap;
     word-wrap: break-word;
     /* width:28vw; */
-    max-width:18vw;
+    width: 12vw;
+    
+/* margin-right:2vw; */
+    background-color: #31DCA9;
+    margin-bottom: 0;
 }
 
 
 /* dialog */
 
-#dbDialog{
-    position:absolute;
-    top:240px;
-    right:6vw;
-    width: 22vw;
+#dbDialog {
+    position: absolute;
+    top: 240px;
+    right: 6vw;
+    width: 24vw;
     /* height: 160px; */
     background: #F3F5F6;
     border-radius: 8px;
@@ -328,18 +321,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding:32px 1vw;
+    padding: 32px 1vw;
     /* position: fixed; */
 }
 
-#dialImg{
-    width:48px;
-    height:48px;
+#dialImg {
+    width: 48px;
+    height: 48px;
     margin-bottom: 8px;
 
 }
 
-#dialText1{
+#dialText1 {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -349,7 +342,7 @@
     margin-bottom: 4px;
 }
 
-#dialText2{
+#dialText2 {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -360,201 +353,277 @@
     margin-bottom: 0;
 }
 
-@media(max-width:1200px){
+@media(max-width:1200px) {
     .member_box {
-        padding-top:8px;
+        padding-top: 8px;
     }
-    .dbCancel, .dbSave{
-        width:10vw;
+
+    .dbCancel,
+    .dbSave {
+        width: 10vw;
     }
-    .dbHead{
-        width:25vw;
+
+    .dbHead {
+        width: 25vw;
     }
-    .member_box, .member_box_data, .team_box_data {
-        width:51vw;
+
+    .member_box,
+    .member_box_data,
+    .team_box_data {
+        width: 51vw;
     }
-}
-@media(max-width:1000px){
-    .dbCancel, .dbSave{
-        width:10vw;
-    }
-    .dbBtns{
-        /* margin-left:64vw; */
-    }
-    .file_box{
-        width:14vw;
-    }
-    .teamID_box{
-        width:30vw;
-    }
-    .member_box{
-        width:50vw;
-    }
-    .member_box_data{
-        width:50vw;
-    }
-    .dbHead{
-        width:23vw;
-    }
-    .dbHR2{
-        width:45vw;
-    }
-    .member_box, .member_box_data, .team_box_data {
-        width:56vw;
-    }
-}
-@media(max-width:950px){
-    .teamID_box{
-        margin-left: 6vw;
-    }
-    .dbCancel, .dbSave{
-        width:12vw;
-    }
-    .member_box, .member_box_data, .team_box_data {
-        width:61vw;
-    }
-}
-@media(max-width:900px){
-    .teamID_box{
-        margin-left: 6vw;
-    }
-    .teamID_box{
-        margin-left: 6vw;
-        width:34vw;
-    }
-    .member_box, .member_box_data, .team_box_data {
-        width:66vw;
-    }
-}
-@media(max-width:800px){
-    .dbText{
-        width:22vw;
-    }
-    .teamID_box{
-        margin-left: 6vw;
-        width:36vw;
-    }
-    .file_box{
-        width:18vw;
-    }
-    .member_box >p , .team_box_data>p {
-        font-size: 0.9rem;
-    }
-    .member_box, .team_box_data{
-        width:64vw;
-    }
-    .member_box_data{
-        width:64vw;
-    }
-    .member_box, .member_box_data, .team_box_data {
-        width:68vw;
+
+    #dbDialog {
+        width: 24vw;
     }
 }
 
-@media(max-width:600px){
-    .dbText{
-        width:26vw;
+@media(max-width:1130px) {
+    #dbDialog {
+        padding: 24px 1vw;
     }
-    .teamID_box{
+}
+
+@media(max-width:1000px) {
+
+    .dbCancel,
+    .dbSave {
+        width: 10vw;
+    }
+
+    #dbDialog {
+       width:26vw;
+    }
+
+    .file_box {
+        width: 14vw;
+    }
+
+    .teamID_box,
+    .synopsis {
+        width: 30vw;
+    }
+
+    .dbHead {
+        width: 20vw;
+    }
+
+    .dbHR2 {
+        width: 45vw;
+    }
+
+    .member_box,
+    .member_box_data,
+    .team_box_data {
+        width: 52vw;
+    }
+}
+
+@media(max-width:950px) {
+    .dbCancel,
+    .dbSave {
+        width: 12vw;
+    }
+
+    .member_box,
+    .member_box_data,
+    .team_box_data {
+        width: 53vw;
+    }
+}
+
+@media(max-width:900px) {
+    .teamID_box , .synopsis{
+        width: 32vw;
+    }
+
+    .member_box,
+    .member_box_data,
+    .team_box_data {
+        width: 55vw;
+    }
+    #dbDialog {
+        width:28vw;
+        padding:16px 1vw;
+        right:4vw;
+     }
+}
+
+@media(max-width:800px) {
+    .dbText {
+        /* width: 22vw; */
+    }
+
+    .file_box {
+        width: 18vw;
+    }
+
+    .member_box>p,
+    .team_box_data>p {
+        font-size: 0.9rem;
+    }
+
+    .member_box,
+    .member_box_data,
+    .team_box_data {
+        width: 55vw;
+    }
+    #dbDialog {
+        width:30vw;
+        padding:8px 1vw;
+        right:2vw;
+     }
+     .teamID_box,.synopsis{
+        margin-left: 0;
+     }
+}
+
+@media(max-width:600px) {
+    .dbText {
+        width: 26vw;
+    }
+
+    .teamID_box {
         /* margin-left: 4vw; */
-        width:38vw;
+        width: 38vw;
     }
-    .file_box{
-        width:22vw;
+
+    .file_box {
+        width: 22vw;
     }
-    .member_box, .team_box_data{
-        width:64vw;
+
+    .member_box,
+    .team_box_data {
+        width: 64vw;
     }
-    .member_box_data{
-        width:64vw;
+
+    .member_box_data {
+        width: 64vw;
     }
-    .dbSave, .dbCancel{
-        width:14vw;
+
+    .dbSave,
+    .dbCancel {
+        width: 14vw;
     }
-    .dbHead{
-        width:25vw;
+
+    .dbHead {
+        width: 25vw;
     }
-    .member_box, .member_box_data, .team_box_data {
-        width:74vw;
-    }
-}
-@media(max-width:500px){
-    .teamID_box{
-        width:40vw;
-        margin-left: 4vw;
-    }
-    .member_box, .team_box_data{
-        width:72vw;
-    }
-    .member_box_data{
-        width:72vw;
-    }
-    .dbSave, .dbCancel{
-        width:18vw;
-        margin-right:2vw;
-    }
-    .dbHead{
-        width:28vw;
-    }
-    .dbHR2{
-        width:50vw;
-    }
-    .member_box, .member_box_data, .team_box_data {
-        width:77vw;
+
+    .member_box,
+    .member_box_data,
+    .team_box_data {
+        width: 74vw;
     }
 }
 
-@media(max-width:450px){
-    .dbSave, .dbCancel{
-        width:20vw;
-    }
-    .dbText{
-        width:30vw;
-    }
-    .file_box{
-        width:22vw;
-    }
-    .file_box{
-        width:26vw;
-    }
-    .teamID_box{
-        width:42vw;
+@media(max-width:500px) {
+    .teamID_box {
+        width: 40vw;
         margin-left: 4vw;
     }
-    .member_box, .team_box_data{
-        width:72vw;
+
+    .member_box,
+    .team_box_data {
+        width: 72vw;
     }
-    .member_box_data{
-        width:72vw;
+
+    .member_box_data {
+        width: 72vw;
     }
-    .member_box, .member_box_data, .team_box_data {
-        width:80vw;
+
+    .dbSave,
+    .dbCancel {
+        width: 18vw;
+        margin-right: 2vw;
     }
-}
-@media (max-width:400px){
-    .file_box{
-        width:30vw;
+
+    .dbHead {
+        width: 28vw;
     }
-    .dbHead{
-        width:30vw;
+
+    .dbHR2 {
+        width: 50vw;
     }
-    .dbHR2{
-        width:55vw;
-    }
-    .member_box, .member_box_data, .team_box_data {
-        width:82vw;
+
+    .member_box,
+    .member_box_data,
+    .team_box_data {
+        width: 77vw;
     }
 }
 
-@media (max-width:350px){
-    .file_box{
-        width:30vw;
+@media(max-width:450px) {
+
+    .dbSave,
+    .dbCancel {
+        width: 20vw;
     }
-    .dbHead{
-        width:28vw;
+
+    .dbText {
+        width: 30vw;
+    }
+
+    .file_box {
+        width: 22vw;
+    }
+
+    .file_box {
+        width: 26vw;
+    }
+
+    .teamID_box {
+        width: 42vw;
+        margin-left: 4vw;
+    }
+
+    .member_box,
+    .team_box_data {
+        width: 72vw;
+    }
+
+    .member_box_data {
+        width: 72vw;
+    }
+
+    .member_box,
+    .member_box_data,
+    .team_box_data {
+        width: 80vw;
+    }
+}
+
+@media (max-width:400px) {
+    .file_box {
+        width: 30vw;
+    }
+
+    .dbHead {
+        width: 30vw;
+    }
+
+    .dbHR2 {
+        width: 55vw;
+    }
+
+    .member_box,
+    .member_box_data,
+    .team_box_data {
+        width: 82vw;
+    }
+}
+
+@media (max-width:350px) {
+    .file_box {
+        width: 30vw;
+    }
+
+    .dbHead {
+        width: 28vw;
         font-size: 0.9rem;
     }
-    .dbHR2{
-        width:55vw;
+
+    .dbHR2 {
+        width: 55vw;
     }
 }

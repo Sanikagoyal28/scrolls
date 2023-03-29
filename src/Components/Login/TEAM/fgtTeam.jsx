@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from "react-redux"
 import { FgtTeamThunk } from "../../../Redux/loginSlice";
-import { dialog12,dialog0, dialog13, dialog11 } from "../../../Redux/step";
+import { dialog12, dialog0, dialog13, dialog11 } from "../../../Redux/step";
 import ReCAPTCHA from "react-google-recaptcha";
 
 
@@ -26,18 +26,19 @@ function ForgotTeam() {
         }
     }, [email]);
 
-      //captcha
+    //captcha
 
-      const [valu, setValu] = useState('')
-      const [token, setToken] = useState(false);
-      const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
-      function onChange(value) {
-          setValu(value)
-          setToken(true)
-      }
-  
+    const [valu, setValu] = useState('')
+    const [token, setToken] = useState(false);
+    const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
+    function onChange(value) {
+        setValu(value)
+        setToken(true)
+    }
 
-    function ForgotPassword() {
+
+    function ForgotPassword(e) {
+        e.preventDefault();
         if (!token) {
             toast.error("Please verify the captcha", {
                 position: "top-right",
@@ -45,15 +46,15 @@ function ForgotTeam() {
                 autoClose: 5000,
             });
         }
-        const data ={
+        const data = {
             email,
             "g-recaptcha-response": valu
         }
-        localStorage.setItem("login_email", )
+        localStorage.setItem("login_email",)
         if (token && email) {
             dispatch(FgtTeamThunk(data)).
                 then((res) => {
-                   
+
                     if (res.payload.status == 400) {
                         toast.error(`${res.payload.data.msg}`, {
                             position: "top-right",
@@ -86,24 +87,24 @@ function ForgotTeam() {
 
     return <>
         <div className="register">
-            <div className="regFlex"  id="fgtHeadbox">
+            <div className="regFlex" id="fgtHeadbox">
                 <img className="arrow" src={arrow} onClick={() => { dispatch(dialog11()) }} />
                 <p className="heading" id="forgotHead">Forgot Password?</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-           
-            <form onSubmit={(e)=>e.preventDefault()} id="loginForm">
-            <p className="forgotText">We’ll send you a One Time Password on this email.</p>
-            <p className="regName">Email</p>
-            <input type="text" required className="regInputname" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <p id="wrongEmailLog1">Please enter a valid Email address</p>
-            <div id="recaptcha">
+
+            <form onSubmit={ForgotPassword} id="loginForm">
+                <p className="forgotText">We’ll send you a One Time Password on this email.</p>
+                <p className="regName">Email</p>
+                <input type="text" className="regInputname" required placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <p id="wrongEmailLog1">Please enter a valid Email address</p>
+                <div id="recaptcha">
                     <ReCAPTCHA
                         sitekey={key}
                         onChange={onChange}
                     />
                 </div>
-            <button className="regButton" onClick={ForgotPassword}>Continue</button>
+                <button className="regButton" type="submit" >Continue</button>
             </form>
         </div>
         <ToastContainer />

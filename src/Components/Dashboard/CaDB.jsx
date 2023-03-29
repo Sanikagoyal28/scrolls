@@ -18,9 +18,9 @@ function CaDB() {
     const [college, setCollege] = useState('')
     const [teams, setTeams] = useState([])
     const [leaderboard, setLeaderboard] = useState([])
-    useEffect(() => {
-        dispatch(CADBThunk())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(CADBThunk())
+    // }, [])
 
     useEffect(() => {
         setName(reducer.dataCA.name)
@@ -111,11 +111,11 @@ function CaDB() {
                 <p>Rank</p>
                 <p>Referral count</p>
             </div>
-            {/* <div className="member_box_data">
+            <div className="member_box_data">
                         <p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
                         <p id="rank">1</p>
                         <p>10</p>
-                    </div> */}
+                    </div>
             {(leaderboard != undefined && leaderboard.length > 0) ? leaderboard.map((t, index) => {
                 return <>
                     <div className="member_box_data">
