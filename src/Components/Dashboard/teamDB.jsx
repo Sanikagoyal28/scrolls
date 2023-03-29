@@ -1,6 +1,8 @@
 import Navbar from "../Navbar/navbar"
 import "./teamDB.css"
 import file from "../Assets/file.svg"
+import fail from "../Assets/fail.gif"
+import success from "../Assets/success.gif"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { TeamDBDataThunk, TeamDBThunk } from "../../Redux/dashboard"
@@ -49,7 +51,7 @@ function TeamDB() {
     const [uplTop, setUplTop] = useState('')
     const [uplSyn, setUplSyn] = useState([])
     const [uplPaper, setUplPaper] = useState([])
-
+    const [image, setImage] = useState("")
     const [selected, setSelected] = useState(false)
     const [text1, setText1] = useState('')
     const [text2, setText2] = useState('')
@@ -73,14 +75,17 @@ function TeamDB() {
 
     useEffect(() => {
         if (!selected && (synopsis === '' || synopsis === null)) {
+            setImage(fail)
             setText1("Pending")
             setText2("You have not uploaded any synopsis yet, so can't submit Paper now.")
         }
         if (!selected && synopsis != '' && synopsis != null) {
+            setImage(fail)
             setText1("Pending")
             setText2("You are not selected now, so you cannot submit Paper.")
         }
         if (selected) {
+            setImage(success)
             setText1("Congratulations")
             setText2("You are selected, you can submit your Paper now.")
         }
@@ -96,6 +101,7 @@ function TeamDB() {
     }
 
     function handleSave() {
+        // setSynopsis("fjnk")
         if (uplDom && uplTop) {
             if (uplSyn.length == 0 && uplPaper.length == 0) {
                 fd.append('domain', uplDom)
@@ -203,6 +209,7 @@ function TeamDB() {
     return <>
         <Navbar />
         <div id="dbDialog">
+            <img id="dialImg" src={image} />
             <p id="dialText1">{text1}</p>
             <p id="dialText2">{text2}</p>
         </div>
@@ -251,7 +258,7 @@ function TeamDB() {
                     <p className="dbHead">Domain</p>
                     <p className="dbText">Select Team Domain</p>
                 </div>
-                {domain === "" || domain === undefined ? <>
+                {domain === "" ? <>
                     <select className="teamID_box" onChange={(e) => { setUplDom(e.target.value) }} >
                         <option id="option" value="">--select--</option>
                         <option value="Management Science">Management Science</option>
@@ -271,7 +278,7 @@ function TeamDB() {
                     <p className="dbHead">Topic</p>
                     <p className="dbText">Select Topic</p>
                 </div>
-                {topic === '' || topic === undefined ? <>
+                {topic === '' ? <>
                     <select className="teamID_box" onChange={(e) => { setUplTop(e.target.value) }}  >
                         {uplDom === "Management Science" ? <>
                             <option id="option">--select--</option>
@@ -413,7 +420,7 @@ function TeamDB() {
             <hr className="dbHR2" />
             <div className="dbBtns">
                 <button className="dbCancel" onClick={() => { handleCancel() }} >Cancel</button>
-                <button className="dbSave" type="submit" disabled={(topic === "" ) ? true : false} onClick={() => { handleSave() }}>Save</button>
+                <button className="dbSave" type="button" disabled={(domain != "" && topic != '' && synopsis != '') ? true : false} onClick={() => { handleSave() }}>Save</button>
             </div>
         </div>
         <ToastContainer />

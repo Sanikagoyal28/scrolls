@@ -9,7 +9,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 2rem;
-    line-height: 37px;
+    /* line-height: 37px; */
     color: #000000;
 }
 
@@ -321,16 +321,22 @@
     top:240px;
     right:6vw;
     width: 22vw;
-    height: 160px;
+    /* height: 160px; */
     background: #F3F5F6;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding:32px 1vw;
     /* position: fixed; */
+}
+
+#dialImg{
+    width:48px;
+    height:48px;
+    margin-bottom: 8px;
+
 }
 
 #dialText1{
@@ -340,6 +346,7 @@
     font-size: 1rem;
     line-height: 17px;
     color: #31DCA9;
+    margin-bottom: 4px;
 }
 
 #dialText2{
@@ -349,6 +356,8 @@
     font-size: 0.9rem;
     line-height: 17px;
     color: #252525;
+    text-align: justify;
+    margin-bottom: 0;
 }
 
 @media(max-width:1200px){

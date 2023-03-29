@@ -13,9 +13,9 @@
     font-style: normal;
     font-weight: 600;
     font-size: 2rem;
-    line-height: 37px;
+    /* line-height: 37px; */
     color: #FAC949;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 #domainList ul {
@@ -35,7 +35,7 @@ li::marker {
     font-style: normal;
     font-weight: 600;
     font-size: 1.2rem;
-    line-height: 20px;
+    /* line-height: 20px; */
     color: rgba(0, 0, 0, 0.9);
     margin-bottom: 16px;
     white-space: pre-wrap;

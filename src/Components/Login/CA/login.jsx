@@ -48,6 +48,7 @@ function Login() {
             "email": login1.email,
             "password": login1.password
         }
+        // dispatch(setTitle("CA"))
         if (login1.email && login1.password) {
             dispatch(LoginCAThunk(data)).
                 then((res) => {

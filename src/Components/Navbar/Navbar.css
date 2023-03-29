@@ -92,13 +92,9 @@
     display: none;
 }
 
-#navRule2 {
-    /* margin-left: -4vw; */
-    position: absolute;
-    right: 35.8vw;
-    margin-right: 1.5vw;
-    /* right:1vw */
-    /* z-index:20; */
+#ca_db {
+    position: relative;
+    right: 2vw;
 }
 
 .liTitle {
@@ -409,24 +405,6 @@
     cursor: pointer;
 }
 
-@media(max-width:1600px){
-    #navRule2 {
-        right: 41vw;
-    }
-}
-
-@media(max-width:1500px){
-    #navRule2 {
-        right: 40.5vw;
-    }
-}
-
-@media(max-width:1450px){
-    #navRule2 {
-        right: 40vw;
-    }
-}
-
 @media(max-width:1380px) {
     .navScroll {
         margin-top: 4px;
@@ -436,43 +414,11 @@
     #dropdown {
         left: 35vw;
     }
-
-    #navRule2 {
-        right: 35.6vw;
-    }
-}
-
-@media(max-width:1270px) {
-    #navRule2 {
-        right: 35vw;
-    }
-}
-
-@media(max-width:1220px) {
-    #navRule2 {
-        right: 34.5vw;
-    }
 }
 
 @media(max-width:1160px) {
     #dropdown ul li {
         width: 16vw;
-    }
-
-    #navRule2 {
-        right: 34vw;
-    }
-}
-
-@media(max-width:1110px) {
-    #navRule2 {
-        right: 33.5vw;
-    }
-}
-
-@media(max-width:1060px) {
-    #navRule2 {
-        right: 32.8vw;
     }
 }
 
@@ -485,25 +431,11 @@
         width: 18vw;
     }
 
-    #navRule2 {
-        right: 32.5vw;
-    }
-    
 }
 
 @media(max-width:980px) {
     .navFlexLogin {
         margin-left: 5vw;
-    }
-
-    #navRule2 {
-        right: 33.1vw;
-    }
-}
-
-@media(max-width:950px) {
-    #navRule2 {
-        right: 32.8vw;
     }
 }
 
@@ -532,7 +464,7 @@
         color: #FFFFFF;
         cursor: pointer;
         z-index: 10;
-        margin-left: -8vw;
+        margin-left: -6vw;
     }
 
     #moreDD {
@@ -600,7 +532,7 @@
     }
 
     #navMore2 {
-        margin-left: -7vw;
+        margin-left: -5vw;
     }
 
     #moreDD2 {
@@ -710,20 +642,22 @@
         width: 48vw;
     }
 
-    #liDropdown{
-        width:45vw;
+    #liDropdown {
+        width: 45vw;
     }
+
     #liDropdown ul li {
         padding-bottom: 12px;
         /* margin-bottom: 4px; */
     }
 }
 
-@media(max-width:380px){
+@media(max-width:380px) {
     #liDropdown ul li {
-      padding-bottom: 40px;
+        padding-bottom: 40px;
     }
-    #uli ul li{
+
+    #uli ul li {
         padding-bottom: 32px;
     }
 }
@@ -736,19 +670,24 @@
     .navScroll {
         width: 60vw;
     }
-    #uli{
-        width:70vw;
+
+    #uli {
+        width: 70vw;
     }
-    #crossimg{
+
+    #crossimg {
         margin-left: 56vw;
     }
 
-    .liLogin, .liRegister{
-        width:40vw;
+    .liLogin,
+    .liRegister {
+        width: 40vw;
     }
+
     #liDropdown {
-        width:50vw;
+        width: 50vw;
     }
+
     #liDropdown ul li {
         padding-bottom: 32px;
         /* margin-bottom: 4px; */

@@ -28,6 +28,7 @@ function Navbar() {
     const [dialogg, setDialogg] = useState(false)
     const [login, setLogin] = useState(false)
     const [out, setOut] = useState(false)
+    const [path, setPath] = useState("")
     const [soon, setSoon] = useState(false)
     const dispatch = useDispatch()
     const step = useSelector((s) => s.step)
@@ -121,65 +122,63 @@ function Navbar() {
 
     useEffect(() => {
         if (title === "Team") {
-            if(showD){
-            document.getElementsByClassName("liRegister")[0].style.display = "none"
-            document.getElementsByClassName("liLogin")[0].style.display = "none"
-            document.getElementById("ca").style.display = "none"
-            document.getElementById("team").style.display = "block"
-            document.getElementById("liTitle").style.display = "block"
-            document.getElementById("liLogout").style.display = "block"
+            if (showD) {
+                document.getElementsByClassName("liRegister")[0].style.display = "none"
+                document.getElementsByClassName("liLogin")[0].style.display = "none"
+                document.getElementById("ca").style.display = "none"
+                document.getElementById("team").style.display = "block"
+                document.getElementById("liTitle").style.display = "block"
+                document.getElementById("liLogout").style.display = "block"
             }
+            setPath("/team_db")
             document.getElementsByClassName("navFlex1")[0].style.display = "none"
             document.getElementsByClassName("navFlexLogin")[0].style.display = "flex"
             document.getElementsByClassName("navRegister")[0].style.display = "none"
             document.getElementsByClassName("navLogin")[0].style.display = "none"
-            document.getElementsByClassName("navDbC")[0].style.display = "none"
             document.getElementsByClassName("navDbT")[0].style.display = "block"
             document.getElementsByClassName("navFlex3")[0].style.display = "flex"
         }
 
         if (title === "CA") {
-            if(showD){
-            document.getElementsByClassName("liRegister")[0].style.display = "none"
-            document.getElementsByClassName("liLogin")[0].style.display = "none"
-            document.getElementById("team").style.display = "none"
-            document.getElementById("ca").style.display = "block"
-            document.getElementById("liTitle").style.display = "block"
-            document.getElementById("liLogout").style.display = "block"
+            if (showD) {
+                document.getElementsByClassName("liRegister")[0].style.display = "none"
+                document.getElementsByClassName("liLogin")[0].style.display = "none"
+                document.getElementById("team").style.display = "none"
+                document.getElementById("ca").style.display = "block"
+                document.getElementById("liTitle").style.display = "block"
+                document.getElementById("liLogout").style.display = "block"
             }
+            setPath("/ca_db")
             document.getElementsByClassName("navFlex1")[0].style.display = "none"
             document.getElementsByClassName("navFlexLogin")[0].style.display = "flex"
             document.getElementsByClassName("navRegister")[0].style.display = "none"
             document.getElementsByClassName("navLogin")[0].style.display = "none"
-            document.getElementsByClassName("navDbC")[0].style.display = "block"
-            document.getElementsByClassName("navDbT")[0].style.display = "none"
+            document.getElementsByClassName("navDbT")[0].style.display = "block"
             document.getElementsByClassName("navFlex3")[0].style.display = "flex"
         }
 
         if (title === "") {
-            if(showD){
-            document.getElementsByClassName("liRegister")[0].style.display = "block"
-            document.getElementsByClassName("liLogin")[0].style.display = "block"
-            document.getElementById("ca").style.display = "none"
-            document.getElementById("team").style.display = "none"
-            document.getElementById("liTitle").style.display = "none"
-            document.getElementById("liLogout").style.display = "none"
+            if (showD) {
+                document.getElementsByClassName("liRegister")[0].style.display = "block"
+                document.getElementsByClassName("liLogin")[0].style.display = "block"
+                document.getElementById("ca").style.display = "none"
+                document.getElementById("team").style.display = "none"
+                document.getElementById("liTitle").style.display = "none"
+                document.getElementById("liLogout").style.display = "none"
             }
             document.getElementsByClassName("navFlex1")[0].style.display = "flex"
             document.getElementsByClassName("navFlexLogin")[0].style.display = "none"
             document.getElementsByClassName("navRegister")[0].style.display = "block"
             document.getElementsByClassName("navLogin")[0].style.display = "block"
-            document.getElementsByClassName("navDbC")[0].style.display = "none"
             document.getElementsByClassName("navDbT")[0].style.display = "none"
             document.getElementsByClassName("navFlex3")[0].style.display = "none"
-            
+
         }
     }, [title])
 
     const [showD, setShowD] = useState(false)
     function showmenu() {
         setShowD(prev => !prev)
-       
         // if(showD)
         // document.getElementById('uli').style.width = "60vw";
         // else
@@ -193,7 +192,7 @@ function Navbar() {
     const [show, setShow] = useState(false)
     function handleDropdown() {
         setShow(true)
-            document.getElementById('dropdown').style.display = "flex";
+        document.getElementById('dropdown').style.display = "flex";
     }
     function closeDropdown() {
         setShow(false)
@@ -223,35 +222,35 @@ function Navbar() {
     }
 
     return <>
-     {showD&&
-        <div id='uli'>
-            <img src={cross} id='crossimg' onClick={close}></img>
-            <ul>
-                <NavLink to="/"><li>Home</li></NavLink>
-                <li onClick={()=>setMobShow(prev=>!prev)}>Domains <img src={dropdown} id="domainIcon"  /></li>
-                {mobShow&&<div id="liDropdown">
-                    <ul>
-                        <NavLink to="/domain_management"><li>Management Science</li></NavLink>
-                        <NavLink to="/domain_me"><li>Mechanical Engineering</li></NavLink>
-                        <NavLink to="/domain_civil"><li>Civil Engineering</li></NavLink>
-                        <NavLink to="/domain_en"><li>Electrical and Electronics Engineering</li></NavLink>
-                        <NavLink to="/domain_cs"><li>Computer Science and Information Technology</li></NavLink>
-                        <NavLink to="/domain_ece"><li>Electronics and Communication Engineering</li></NavLink>
-                    </ul>
-                </div>}
-                <NavLink to="/updates"><li>Updates</li></NavLink>
-                <NavLink to="/ca"><li>CA</li></NavLink>
-                <NavLink to="/rules"><li>Rules</li></NavLink>
-                <NavLink to="/faq"><li>FAQs</li></NavLink>
-                <NavLink to="/team_db"><li id="team">Dashboard</li></NavLink>
-                <NavLink to="/ca_db"><li id="ca">Dashboard</li></NavLink>
-                <li id="liTitle">{title}</li>
-                <li id="liLogout" onClick={() => { setOut(true); dispatch(logout()) }}>Logout</li>
-                <li> <button className="liRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register</button></li>
-                {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li> */}
-                <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
-            </ul>
-        </div>}
+        {showD &&
+            <div id='uli'>
+                <img src={cross} id='crossimg' onClick={close}></img>
+                <ul>
+                    <NavLink to="/"><li>Home</li></NavLink>
+                    <li onClick={() => setMobShow(prev => !prev)}>Domains <img src={dropdown} id="domainIcon" /></li>
+                    {mobShow && <div id="liDropdown">
+                        <ul>
+                            <NavLink to="/domain_management"><li>Management Science</li></NavLink>
+                            <NavLink to="/domain_me"><li>Mechanical Engineering</li></NavLink>
+                            <NavLink to="/domain_civil"><li>Civil Engineering</li></NavLink>
+                            <NavLink to="/domain_en"><li>Electrical and Electronics Engineering</li></NavLink>
+                            <NavLink to="/domain_cs"><li>Computer Science and Information Technology</li></NavLink>
+                            <NavLink to="/domain_ece"><li>Electronics and Communication Engineering</li></NavLink>
+                        </ul>
+                    </div>}
+                    <NavLink to="/updates"><li>Updates</li></NavLink>
+                    <NavLink to="/ca"><li>CA</li></NavLink>
+                    <NavLink to="/rules"><li>Rules</li></NavLink>
+                    <NavLink to="/faq"><li>FAQs</li></NavLink>
+                    <NavLink to="/team_db"><li id="team">Dashboard</li></NavLink>
+                    <NavLink to="/ca_db"><li id="ca">Dashboard</li></NavLink>
+                    <li id="liTitle">{title}</li>
+                    <li id="liLogout" onClick={() => { setOut(true); dispatch(logout()) }}>Logout</li>
+                    <li> <button className="liRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register</button></li>
+                    {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li> */}
+                    <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
+                </ul>
+            </div>}
 
         <div id="dropdown" onMouseOver={handleDropdown} onMouseLeave={closeDropdown}>
             <ul>
@@ -295,8 +294,8 @@ function Navbar() {
                 <NavLink to="/"><p className="navHead">Home</p></NavLink>
                 <p className="navHead" onClick={handleDropdown} onMouseOver={handleDropdown} id="navdomain">Domains</p>
                 <NavLink to="/updates"> <p className="navHead" id="navUpdate">Updates</p></NavLink>
-                <NavLink to="/team_db"><p className="navDbT">Dashboard</p></NavLink>
-                <NavLink to="/ca_db"><p className="navDbC">Dashboard</p></NavLink>
+                <NavLink to={path}><p className="navDbT">Dashboard</p></NavLink>
+                {/* <NavLink to="/ca_db"><p className="navDbC" id="ca_db">Dashboard</p></NavLink> */}
                 <NavLink to="/rules"> <p id="navRule2" className="navHead">Rules</p></NavLink>
                 <NavLink to="/ca"> <p id="navCA" className="navHead">CA</p></NavLink>
                 <NavLink to="/faq"><p id="navCA" className="navHead">FAQs</p></NavLink>

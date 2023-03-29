@@ -22,7 +22,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 1.2rem;
-    line-height: 20px;
+    /* line-height: 20px; */
     color: #000000;
     margin-bottom: 24px;
     white-space: pre-wrap;
@@ -43,7 +43,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
-    line-height: 20px;
+    /* line-height: 20px; */
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
