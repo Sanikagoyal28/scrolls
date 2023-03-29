@@ -24,7 +24,7 @@
     font-size: 1.2rem;
     /* line-height: 20px; */
     color: #000000;
-    margin-bottom: 24px;
+    margin-bottom: 8px;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
@@ -32,25 +32,18 @@
     word-wrap: break-word;
 }
 
-.updText ul {
-    list-style: circle;
-    padding-left: 0;
-}
-
-.updText ul li {
-    list-style: circle;
+.updText {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
-    /* line-height: 20px; */
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
     color: #000000;
-    margin-bottom: 24px;
+    margin-top: 0;
 }
 
 @media(max-width:600px) {

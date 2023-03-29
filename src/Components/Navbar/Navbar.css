@@ -202,7 +202,7 @@
     top: 0px;
     right: 0px;
     /* left:40vw; */
-    width: 55vw;
+    width: 0vw;
     height: 100vh;
     flex-direction: column;
     padding-top: 60px;
@@ -235,8 +235,7 @@
     font-weight: 400;
     font-size: 1.1rem;
     line-height: 24px;
-    /* margin-right: 4vw; */
-    padding-bottom: 30px;
+    margin-bottom: 8px;
     cursor: pointer;
 }
 
@@ -377,8 +376,8 @@
     font-weight: 400;
     font-size: 0.8rem;
     line-height: 16px;
-    /* margin-bottom: -8px; */
-    padding-bottom: 16px;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 #liDropdown ul a {
@@ -647,18 +646,22 @@
     }
 
     #liDropdown ul li {
-        padding-bottom: 12px;
+        /* padding-bottom: 12px; */
         /* margin-bottom: 4px; */
+    }
+
+    #crossimg {
+        margin-left: 42vw;
     }
 }
 
 @media(max-width:380px) {
     #liDropdown ul li {
-        padding-bottom: 40px;
+        /* padding-bottom: 40px; */
     }
 
     #uli ul li {
-        padding-bottom: 32px;
+        /* padding-bottom: 32px; */
     }
 }
 
@@ -675,10 +678,6 @@
         width: 70vw;
     }
 
-    #crossimg {
-        margin-left: 56vw;
-    }
-
     .liLogin,
     .liRegister {
         width: 40vw;
@@ -689,7 +688,7 @@
     }
 
     #liDropdown ul li {
-        padding-bottom: 32px;
+        /* padding-bottom: 32px; */
         /* margin-bottom: 4px; */
     }
 }

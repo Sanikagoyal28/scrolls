@@ -122,14 +122,12 @@ function Navbar() {
 
     useEffect(() => {
         if (title === "Team") {
-            if (showD) {
-                document.getElementsByClassName("liRegister")[0].style.display = "none"
-                document.getElementsByClassName("liLogin")[0].style.display = "none"
-                document.getElementById("ca").style.display = "none"
-                document.getElementById("team").style.display = "block"
-                document.getElementById("liTitle").style.display = "block"
-                document.getElementById("liLogout").style.display = "block"
-            }
+            document.getElementsByClassName("liRegister")[0].style.display = "none"
+            document.getElementsByClassName("liLogin")[0].style.display = "none"
+            document.getElementById("ca").style.display = "none"
+            document.getElementById("team").style.display = "block"
+            document.getElementById("liTitle").style.display = "block"
+            document.getElementById("liLogout").style.display = "block"
             setPath("/team_db")
             document.getElementsByClassName("navFlex1")[0].style.display = "none"
             document.getElementsByClassName("navFlexLogin")[0].style.display = "flex"
@@ -140,14 +138,12 @@ function Navbar() {
         }
 
         if (title === "CA") {
-            if (showD) {
                 document.getElementsByClassName("liRegister")[0].style.display = "none"
                 document.getElementsByClassName("liLogin")[0].style.display = "none"
                 document.getElementById("team").style.display = "none"
                 document.getElementById("ca").style.display = "block"
                 document.getElementById("liTitle").style.display = "block"
                 document.getElementById("liLogout").style.display = "block"
-            }
             setPath("/ca_db")
             document.getElementsByClassName("navFlex1")[0].style.display = "none"
             document.getElementsByClassName("navFlexLogin")[0].style.display = "flex"
@@ -158,14 +154,12 @@ function Navbar() {
         }
 
         if (title === "") {
-            if (showD) {
-                document.getElementsByClassName("liRegister")[0].style.display = "block"
-                document.getElementsByClassName("liLogin")[0].style.display = "block"
-                document.getElementById("ca").style.display = "none"
-                document.getElementById("team").style.display = "none"
-                document.getElementById("liTitle").style.display = "none"
-                document.getElementById("liLogout").style.display = "none"
-            }
+            document.getElementsByClassName("liRegister")[0].style.display = "block"
+            document.getElementsByClassName("liLogin")[0].style.display = "block"
+            document.getElementById("ca").style.display = "none"
+            document.getElementById("team").style.display = "none"
+            document.getElementById("liTitle").style.display = "none"
+            document.getElementById("liLogout").style.display = "none"
             document.getElementsByClassName("navFlex1")[0].style.display = "flex"
             document.getElementsByClassName("navFlexLogin")[0].style.display = "none"
             document.getElementsByClassName("navRegister")[0].style.display = "block"
@@ -179,15 +173,20 @@ function Navbar() {
     const [showD, setShowD] = useState(false)
     function showmenu() {
         setShowD(prev => !prev)
-        // if(showD)
-        // document.getElementById('uli').style.width = "60vw";
-        // else
-        // document.getElementById('uli').style.width = 0;
+        // document.getElementById('uli').style.width = "55vw";
     }
 
     function close() {
         setShowD(false)
+        document.getElementById('uli').style.width = 0;
     }
+
+    useEffect(() => {
+        if (showD)
+            document.getElementById('uli').style.width = "55vw";
+        else
+            document.getElementById('uli').style.width = 0;
+    }, [showD])
 
     const [show, setShow] = useState(false)
     function handleDropdown() {
@@ -222,35 +221,35 @@ function Navbar() {
     }
 
     return <>
-        {showD &&
-            <div id='uli'>
-                <img src={cross} id='crossimg' onClick={close}></img>
-                <ul>
-                    <NavLink to="/"><li>Home</li></NavLink>
-                    <li onClick={() => setMobShow(prev => !prev)}>Domains <img src={dropdown} id="domainIcon" /></li>
-                    {mobShow && <div id="liDropdown">
-                        <ul>
-                            <NavLink to="/domain_management"><li>Management Science</li></NavLink>
-                            <NavLink to="/domain_me"><li>Mechanical Engineering</li></NavLink>
-                            <NavLink to="/domain_civil"><li>Civil Engineering</li></NavLink>
-                            <NavLink to="/domain_en"><li>Electrical and Electronics Engineering</li></NavLink>
-                            <NavLink to="/domain_cs"><li>Computer Science and Information Technology</li></NavLink>
-                            <NavLink to="/domain_ece"><li>Electronics and Communication Engineering</li></NavLink>
-                        </ul>
-                    </div>}
-                    <NavLink to="/updates"><li>Updates</li></NavLink>
-                    <NavLink to="/ca"><li>CA</li></NavLink>
-                    <NavLink to="/rules"><li>Rules</li></NavLink>
-                    <NavLink to="/faq"><li>FAQs</li></NavLink>
-                    <NavLink to="/team_db"><li id="team">Dashboard</li></NavLink>
-                    <NavLink to="/ca_db"><li id="ca">Dashboard</li></NavLink>
-                    <li id="liTitle">{title}</li>
-                    <li id="liLogout" onClick={() => { setOut(true); dispatch(logout()) }}>Logout</li>
-                    <li> <button className="liRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register</button></li>
-                    {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li> */}
-                    <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
-                </ul>
-            </div>}
+        {/* {showD && */}
+        <div id='uli'>
+            <img src={cross} id='crossimg' onClick={close}></img>
+            <ul>
+                <NavLink to="/"><li>Home</li></NavLink>
+                <li onClick={() => setMobShow(prev => !prev)}>Domains <img src={dropdown} id="domainIcon" /></li>
+                {mobShow && <div id="liDropdown">
+                    <ul>
+                        <NavLink to="/domain_management"><li>Management Science</li></NavLink>
+                        <NavLink to="/domain_me"><li>Mechanical Engineering</li></NavLink>
+                        <NavLink to="/domain_civil"><li>Civil Engineering</li></NavLink>
+                        <NavLink to="/domain_en"><li>Electrical and Electronics Engineering</li></NavLink>
+                        <NavLink to="/domain_cs"><li>Computer Science and Information Technology</li></NavLink>
+                        <NavLink to="/domain_ece"><li>Electronics and Communication Engineering</li></NavLink>
+                    </ul>
+                </div>}
+                <NavLink to="/updates"><li>Updates</li></NavLink>
+                <NavLink to="/ca"><li>CA</li></NavLink>
+                <NavLink to="/rules"><li>Rules</li></NavLink>
+                <NavLink to="/faq"><li>FAQs</li></NavLink>
+                <NavLink to="/team_db"><li id="team">Dashboard</li></NavLink>
+                <NavLink to="/ca_db"><li id="ca">Dashboard</li></NavLink>
+                <li id="liTitle">{title}</li>
+                <li id="liLogout" onClick={() => { setOut(true); dispatch(logout()) }}>Logout</li>
+                <li> <button className="liRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register</button></li>
+                {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li> */}
+                <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
+            </ul>
+        </div>
 
         <div id="dropdown" onMouseOver={handleDropdown} onMouseLeave={closeDropdown}>
             <ul>

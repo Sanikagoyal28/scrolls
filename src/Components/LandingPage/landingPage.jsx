@@ -188,37 +188,37 @@ function LandingPage() {
                 </div>
                 <div className="domainCards">
                     <NavLink to="/domain_civil">
-                        <div className="domainCard1">
+                        <div className="domainCard1" onClick={()=>{window.scroll(0,0)}}>
                             <img src={domainLogo} className="domainLogo1" />
                             <p className="domainText1">Civil Engineering</p>
                         </div>
                     </NavLink>
                     <NavLink to="/domain_cs">
-                        <div className="domainCard2">
+                        <div className="domainCard2" onClick={()=>{window.scroll(0,0)}}>
                             <img src={domainLogo} className="domainLogo2" />
                             <p className="domainText2">Computer Science and Information Technology</p>
                         </div>
                     </NavLink>
                     <NavLink to="/domain_en">
-                        <div className="domainCard1">
+                        <div className="domainCard1" onClick={()=>{window.scroll(0,0)}}>
                             <img src={domainLogo} className="domainLogo1" />
-                            <p className="domainText1">Electrical Engineering</p>
+                            <p className="domainText1">Electrical and Electronics Engineering</p>
                         </div>
                     </NavLink>
                     <NavLink to="/domain_ece">
-                        <div className="domainCard2">
+                        <div className="domainCard2" onClick={()=>{window.scroll(0,0)}}>
                             <img src={domainLogo} className="domainLogo2" />
                             <p className="domainText2">Electronics and Communication Engineering</p>
                         </div>
                     </NavLink>
                     <NavLink to="/domain_me">
-                        <div className="domainCard1">
+                        <div className="domainCard1" onClick={()=>{window.scroll(0,0)}}>
                             <img src={domainLogo} className="domainLogo1" />
                             <p className="domainText1">Mechanical Engineering</p>
                         </div>
                     </NavLink>
                     <NavLink to="/domain_management">
-                        <div className="domainCard2">
+                        <div className="domainCard2" onClick={()=>{window.scroll(0,0)}}>
                             <img src={domainLogo} className="domainLogo2" />
                             <p className="domainText2">Management Science</p>
                         </div>

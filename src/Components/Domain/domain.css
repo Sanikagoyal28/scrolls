@@ -16,18 +16,15 @@
     /* line-height: 37px; */
     color: #FAC949;
     margin-bottom: 20px;
+    text-transform: capitalize;
 }
 
-#domainList ul {
-    padding-left: 1vw;
+.Domain ul {
+    padding-left: 0;
 }
 
-#domainList li {
-    display: list-item;
-}
-
-li::marker {
-    content: initial;
+.Domain ul li {
+    list-style-position: inside; 
 }
 
 .domainHeading {
@@ -37,12 +34,13 @@ li::marker {
     font-size: 1.2rem;
     /* line-height: 20px; */
     color: rgba(0, 0, 0, 0.9);
-    margin-bottom: 16px;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
+    display: inline;
+    text-transform: capitalize;
 }
 
 .domainText {
@@ -58,6 +56,7 @@ li::marker {
     word-wrap: break-word;
     color: #000000;
     margin-bottom: 24px;
+    margin-top: 8px;
 }
 
 @media(max-width:600px) {
