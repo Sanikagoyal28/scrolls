@@ -24,6 +24,8 @@ import mobTimeline from "../Assets/mob_timeline.svg"
 import timelineNew from "../Assets/timeline2.svg"
 import timelinePhone from "../Assets/timelinePhone.svg"
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { RegOpenThunk } from "../../Redux/registerSlice";
+import { Spinner } from "react-bootstrap";
 
 function LandingPage() {
 
@@ -31,7 +33,7 @@ function LandingPage() {
     const reducerReg = useSelector((s) => s.register)
     const [path, setPath] = useState('')
     const [dialogg, setDialogg] = useState(false)
-    const [login, setLogin] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [soon, setSoon] = useState(false)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -63,15 +65,6 @@ function LandingPage() {
                 three: false,
                 four: false,
                 five: false,
-                six: false,
-                seven: false,
-                eight: false,
-                nine: false,
-                ten: false,
-                eleven: false,
-                twelve: false,
-                thirteen: false,
-                fourteen: false,
             })
         }
         if (step.step == 1 && dialogg) {
@@ -89,34 +82,6 @@ function LandingPage() {
         if (step.step == 5 && dialogg) {
             setStepDialog({ five: true })
         }
-        if (step.step == 6 && login) {
-            setStepDialog({ six: true })
-        }
-        if (step.step == 7 && login) {
-            setStepDialog({ seven: true })
-        }
-        if (step.step == 8 && login) {
-            setStepDialog({ eight: true })
-        }
-        if (step.step == 9 && login) {
-            setStepDialog({ nine: true })
-        }
-        if (step.step == 10 && login) {
-            setStepDialog({ ten: true })
-        }
-        if (step.step == 11 && login) {
-            setStepDialog({ eleven: true })
-        }
-        if (step.step == 12 && login) {
-            setStepDialog({ twelve: true })
-        }
-        if (step.step == 13 && login) {
-            setStepDialog({ thirteen: true })
-        }
-        if (step.step == 14 && login) {
-            setStepDialog({ fourteen: true })
-        }
-
     }, [step, dialogg])
 
     useEffect(() => {
@@ -140,9 +105,38 @@ function LandingPage() {
         return <Slide direction="down" ref={ref} {...props} />;
     });
 
+    function RegOpen() {
+        dispatch(RegOpenThunk())
+            .then((res) => {
+                console.log(res)
+                if (res.payload.status === 200) {
+                    setDialogg(true);
+                    dispatch(dialog1())
+                }
+                if (res.payload.status === 400) {
+                    setDialogg(true);
+                    setSoon(true)
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
     function handleSoonClose() {
         setSoon(false)
     }
+
+    useEffect(() => {
+        if (reducerReg.loading) {
+            setLoading(true)
+            document.body.style.opacity = 0.5;
+        }
+        else {
+            setLoading(false)
+            document.body.style.opacity = 1;
+        }
+    }, [reducerReg.loading])
 
     return <>
 
@@ -165,7 +159,7 @@ function LandingPage() {
                     <p className="landText2">
                         Prestigious National Level Technical Paper Presentation organized by A.K.G.E.C. in association with Ghaziabad Management Association.
                     </p>
-                    <button className="landRegister" id="toReg" onClick={() => { setDialogg(true); setSoon(true) }} >Register Now</button>
+                    <button className="landRegister" id="toReg" onClick={() => { RegOpen() }} >Register Now</button>
                     {/* <button className="landRegister" id="toReg" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register Now</button> */}
                     <button className="landRegister" id="toDash" onClick={() => { navigate(path) }} >To Dashboard</button>
                 </div>
@@ -188,37 +182,37 @@ function LandingPage() {
                 </div>
                 <div className="domainCards">
                     <NavLink to="/domain_civil">
-                        <div className="domainCard1" onClick={()=>{window.scroll(0,0)}}>
+                        <div className="domainCard1" onClick={() => { window.scroll(0, 0) }}>
                             <img src={domainLogo} className="domainLogo1" />
                             <p className="domainText1">Civil Engineering</p>
                         </div>
                     </NavLink>
                     <NavLink to="/domain_cs">
-                        <div className="domainCard2" onClick={()=>{window.scroll(0,0)}}>
+                        <div className="domainCard2" onClick={() => { window.scroll(0, 0) }}>
                             <img src={domainLogo} className="domainLogo2" />
                             <p className="domainText2">Computer Science and Information Technology</p>
                         </div>
                     </NavLink>
                     <NavLink to="/domain_en">
-                        <div className="domainCard1" onClick={()=>{window.scroll(0,0)}}>
+                        <div className="domainCard1" onClick={() => { window.scroll(0, 0) }}>
                             <img src={domainLogo} className="domainLogo1" />
                             <p className="domainText1">Electrical and Electronics Engineering</p>
                         </div>
                     </NavLink>
                     <NavLink to="/domain_ece">
-                        <div className="domainCard2" onClick={()=>{window.scroll(0,0)}}>
+                        <div className="domainCard2" onClick={() => { window.scroll(0, 0) }}>
                             <img src={domainLogo} className="domainLogo2" />
                             <p className="domainText2">Electronics and Communication Engineering</p>
                         </div>
                     </NavLink>
                     <NavLink to="/domain_me">
-                        <div className="domainCard1" onClick={()=>{window.scroll(0,0)}}>
+                        <div className="domainCard1" onClick={() => { window.scroll(0, 0) }}>
                             <img src={domainLogo} className="domainLogo1" />
                             <p className="domainText1">Mechanical Engineering</p>
                         </div>
                     </NavLink>
                     <NavLink to="/domain_management">
-                        <div className="domainCard2" onClick={()=>{window.scroll(0,0)}}>
+                        <div className="domainCard2" onClick={() => { window.scroll(0, 0) }}>
                             <img src={domainLogo} className="domainLogo2" />
                             <p className="domainText2">Management Science</p>
                         </div>
@@ -240,6 +234,7 @@ function LandingPage() {
                     <div id="footFlex1">
                         <p className="footHead">Scrolls<span className="navDot">.</span></p>
                         <p className="footHead2">Any questions or remarks? Just write us a message.</p>
+                        <p id="formLink"><a target="_blank" href="https://instagram.com/scrolls_23?igshid=ZDdkNTZiNTM=">Google Form</a></p>
                     </div>
                     <div id="footFlex2">
                         <div id="footFlex2Row">
@@ -325,7 +320,7 @@ function LandingPage() {
                 <Button onClick={handleSoonClose}>Okay</Button>
             </div>
         </Dialog>
-
+        {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         <ToastContainer />
     </>
 }

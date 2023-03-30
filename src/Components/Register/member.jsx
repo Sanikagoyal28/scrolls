@@ -319,7 +319,7 @@ function Member() {
                     </>}
                 </select>
                 <div id="recaptcha">
-                    <ReCAPTCHA
+                    <ReCAPTCHA size="compact"
                         sitekey={key}
                         onChange={onChange}
                     />

@@ -318,6 +318,20 @@
     line-height: 24px;
     width: 16vw;
     color: #FFFFFF;
+    margin-bottom: 8px;
+}
+
+#formLink {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    margin-top:0;
+}
+
+#formLink > a {
+    color: #FFFFFF;
 }
 
 #footFlex2 {
@@ -354,7 +368,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 1rem;
-    line-height: 18px;
+    /* line-height: 18px; */
     color: #FAC949;
 
 }
@@ -396,7 +410,7 @@
     color: #FFFFFF;
     text-align: center;
     position: relative;
-    top: 60px;
+    top: 45px;
     /* margin-bottom: 16px; */
     /* right: 36vw; */
 }
@@ -482,7 +496,7 @@
 
 @media(max-width:1300px) {
     .footText {
-        top: 50px;
+        top: 20px;
     }
 
     #soonDialog {
@@ -500,7 +514,7 @@
     }
 
     .footText {
-        top: 60px;
+        top: 48px;
     }
 }
 
@@ -551,7 +565,7 @@
     }
 
     .footText {
-        top: 54px;
+        top: 28px;
     }
 
     #soonDialog {
@@ -767,7 +781,7 @@
     }
 
     .footText {
-        top: 58px;
+        top: 40px;
     }
 
     #soonDialog {
@@ -823,7 +837,7 @@
     }
 
     .footText {
-        top: 44px;
+        top: 20px;
     }
 
     #soonDialog {
@@ -901,7 +915,7 @@
     }
 
     .footText {
-        top: 34px;
+        top: 10px;
     }
 }
 
@@ -1019,7 +1033,7 @@
     }
 
     .landFooter {
-        height: 600px;
+        height: 580px;
         padding-top: 36px;
         padding-left: 8vw;
     }
@@ -1035,12 +1049,12 @@
 
     #telephone {
         font-size: 1rem;
-        margin-bottom: 16px;
-        margin-top: 16px;
+        margin-bottom: 12px;
+        /* margin-top: 8px; */
     }
 
     #phone {
-        margin-top: 16px;
+        margin-top: 4px;
     }
 
     .footFlexRow>p {
@@ -1061,6 +1075,10 @@
 
     #soonDialog {
         width: 64vw;
+    }
+    .footText{
+        top:25px;
+        margin-left: -8vw;
     }
 }
 
@@ -1227,7 +1245,7 @@
     }
 
     .landFooter {
-        height: 580px;
+        height: 600px;
     }
 }
 

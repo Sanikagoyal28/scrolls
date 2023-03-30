@@ -23,10 +23,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { dialog1, dialog6, logout } from "../../Redux/step";
 import "./Navbar.css"
 import LogOut from "../logOut/logOut";
+import { RegOpenThunk } from "../../Redux/registerSlice";
+import { Spinner } from "react-bootstrap";
 
 function Navbar() {
     const [dialogg, setDialogg] = useState(false)
     const [login, setLogin] = useState(false)
+    const reducer = useSelector((s) => s.register)
+    const [loading, setLoading] = useState(false)
     const [out, setOut] = useState(false)
     const [path, setPath] = useState("")
     const [soon, setSoon] = useState(false)
@@ -138,12 +142,12 @@ function Navbar() {
         }
 
         if (title === "CA") {
-                document.getElementsByClassName("liRegister")[0].style.display = "none"
-                document.getElementsByClassName("liLogin")[0].style.display = "none"
-                document.getElementById("team").style.display = "none"
-                document.getElementById("ca").style.display = "block"
-                document.getElementById("liTitle").style.display = "block"
-                document.getElementById("liLogout").style.display = "block"
+            document.getElementsByClassName("liRegister")[0].style.display = "none"
+            document.getElementsByClassName("liLogin")[0].style.display = "none"
+            document.getElementById("team").style.display = "none"
+            document.getElementById("ca").style.display = "block"
+            document.getElementById("liTitle").style.display = "block"
+            document.getElementById("liLogout").style.display = "block"
             setPath("/ca_db")
             document.getElementsByClassName("navFlex1")[0].style.display = "none"
             document.getElementsByClassName("navFlexLogin")[0].style.display = "flex"
@@ -220,6 +224,36 @@ function Navbar() {
         setSoon(false)
     }
 
+    //open registration
+    function RegOpen() {
+        dispatch(RegOpenThunk())
+            .then((res) => {
+                console.log(res)
+                if (res.payload.status === 200) {
+                    setDialogg(true);
+                    dispatch(dialog1())
+                }
+                if (res.payload.status === 400) {
+                    setDialogg(true);
+                    setSoon(true)
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+    useEffect(() => {
+        if (reducer.loading) {
+            setLoading(true)
+            document.body.style.opacity = 0.5;
+        }
+        else {
+            setLoading(false)
+            document.body.style.opacity = 1;
+        }
+    }, [reducer.loading])
+
     return <>
         {/* {showD && */}
         <div id='uli'>
@@ -245,8 +279,7 @@ function Navbar() {
                 <NavLink to="/ca_db"><li id="ca">Dashboard</li></NavLink>
                 <li id="liTitle">{title}</li>
                 <li id="liLogout" onClick={() => { setOut(true); dispatch(logout()) }}>Logout</li>
-                <li> <button className="liRegister" onClick={() => { setDialogg(true); setSoon(true) }} >Register</button></li>
-                {/* <li> <button className="liRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }} >Register</button></li> */}
+                <li> <button className="liRegister" onClick={() => { RegOpen() }} >Register</button></li>
                 <li><button className="liLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }} >Login</button></li>
             </ul>
         </div>
@@ -301,8 +334,7 @@ function Navbar() {
                 <p className="navHead" id="navMore2" onClick={handleMore2} onMouseOver={handleMore2}>More</p>
             </div>
             <div className="navFlex2">
-                {/* <button className="navRegister" onClick={() => { setDialogg(true); setSoon(true) }}>Register</button> */}
-                <button className="navRegister" onClick={() => { setDialogg(true); dispatch(dialog1()) }}>Register</button>
+                <button className="navRegister" onClick={() => { RegOpen() }}>Register</button>
                 <button className="navLogin" onClick={() => { setLogin(true); dispatch(dialog6()) }}>Login</button>
                 <img src={menu} id="menu" onClick={showmenu}></img>
             </div>
@@ -412,6 +444,7 @@ function Navbar() {
                 <Button onClick={handleSoonClose}>Okay</Button>
             </div>
         </Dialog>
+        {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
     </>
 }
 

@@ -2,6 +2,7 @@ import Navbar from "../Navbar/navbar"
 import "./teamDB.css"
 import file from "../Assets/file.svg"
 import fail from "../Assets/fail.gif"
+import pending from "../Assets/pending.gif"
 import success from "../Assets/success.gif"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
@@ -57,15 +58,14 @@ function TeamDB() {
     const [text2, setText2] = useState('')
     const navigate = useNavigate()
     const fd = new FormData()
-    // useEffect(() => {
-    //     dispatch(TeamDBThunk())
-    // }, [])
+    useEffect(() => {
+        dispatch(TeamDBThunk())
+    }, [])
     useEffect(() => {
         setTeamId(reducer.dataTeam.team_id)
         setTeamSize(reducer.dataTeam.size)
         setTopic(reducer.dataTeam.topic)
         setDomain(reducer.dataTeam.domain)
-        setDomain("cbdjbckjscnbssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssss")
         setSelected(reducer.dataTeam.is_selected)
         setPaper(reducer.dataTeam.paper)
         setSynopsis(reducer.dataTeam.synopsis)
@@ -76,7 +76,7 @@ function TeamDB() {
 
     useEffect(() => {
         if (!selected && (synopsis === '' || synopsis === null)) {
-            setImage(fail)
+            setImage(pending)
             setText1("Pending")
             setText2("You have not uploaded any synopsis yet, so can't submit Paper now.")
         }
@@ -234,28 +234,24 @@ function TeamDB() {
             <hr className="dbHR2" />
 
             <p className="dbHead">Members</p>
-            <div className="member_box">
-                <p>Name</p>
-                <p>Role</p>
-                <p>Scroll ID</p>
-            </div>
+            <table id="caTable">
+                <tr className="member_box">
+                    <td>Name</td>
+                    <td>Role</td>
+                    <td>Scroll ID</td>
+                </tr>
+                {(leader != '' && leader != null && leader != undefined) ? <tr className="team_box_data"><td>{leader.name}</td>
+                    <td>Leader</td>
+                    <td>{leader.member_id}</td> </tr> : null}
 
-            <div className="team_box_data"><p>Sanikaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                <p>Member 3</p>
-                <p>200014578</p></div>
+                {(member2 != '' && member2 != null && member2 != undefined) ? <tr className="team_box_data"><td>{member2.name}</td>
+                    <td>Member 2</td>
+                    <td>{member2.member_id}</td> </tr> : null}
 
-            {(leader != '' && leader != null && leader != undefined) ? <div className="team_box_data"><p>{leader.name}</p>
-                <p>Leader</p>
-                <p>{leader.member_id}</p></div> : null}
-
-            {(member2 != '' && member2 != null && member2 != undefined) ? <div className="team_box_data"><p>{member2.name}</p>
-                <p>Member 2</p>
-                <p>{member2.member_id}</p></div> : null}
-
-            {(member3 != '' && member3 != null && member3 != undefined) ? <div className="team_box_data"><p>{member3.name}</p>
-                <p>Member 3</p>
-                <p>{member3.member_id}</p></div> : null}
-
+                {(member3 != '' && member3 != null && member3 != undefined) ? <tr className="team_box_data"><td>{member3.name}</td>
+                    <td>Member 3</td>
+                    <td>{member3.member_id}</td> </tr> : null}
+            </table>
             <hr className="dbHR2" />
 
             <div className="dbFlex1">

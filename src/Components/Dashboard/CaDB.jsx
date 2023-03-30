@@ -18,9 +18,9 @@ function CaDB() {
     const [college, setCollege] = useState('')
     const [teams, setTeams] = useState([])
     const [leaderboard, setLeaderboard] = useState([])
-    // useEffect(() => {
-    //     dispatch(CADBThunk())
-    // }, [])
+    useEffect(() => {
+        dispatch(CADBThunk())
+    }, [])
 
     useEffect(() => {
         setName(reducer.dataCA.name)
@@ -77,54 +77,51 @@ function CaDB() {
             <hr className="dbHR2" />
 
             <p className="dbHead">List of teams</p>
-            <div className="member_box">
-                <p>Team Name</p>
-                <p>Leader</p>
-            </div>
-            {/* <div className="team_box_data">
-                        <p>chvdvcacvjs</p>
-                        <p>sanikavvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
-                    </div> */}
-            {(teams != undefined && teams.length > 0) ? teams.map((t) => {
-                return <>
-                    <div className="team_box_data">
-                        <p>chvdvcacvjs</p>
-                        <p>{t.leader}</p>
-                    </div>
-                </>
-            }) : <div className="team_box_data">
-                <p>No teams made yet.</p>
-            </div>}
+            <table >
+                <tr className="member_box" >
+                    <td>Team Name</td>
+                    <td>Leader</td>
+                </tr>
+
+                {(teams != undefined && teams.length > 0) ? teams.map((t) => {
+                    return <>
+                        <tr className="team_box_data" cellSpacing="5">
+                            <td>Sanikaaaaaaa</td>
+                            <td>{t.leader}</td>
+                        </tr>
+                    </>
+                }) : <div className="team_box_data">
+                    <p>No teams made yet.</p>
+                </div>}
+            </table>
 
             <hr className="dbHR2" />
 
             <div className="dbFlex1">
-                    <p className="dbHead">College</p>
+                <p className="dbHead">College</p>
                 <div className="teamID_box">{college}</div>
             </div>
 
             <hr className="dbHR2" />
 
             <p className="dbHead">Leaderboard</p>
-            <div className="member_box">
-                <p>CA Name</p>
-                <p>Rank</p>
-                <p>Referral count</p>
-            </div>
-            <div className="member_box_data">
-                        <p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
-                        <p id="rank">1</p>
-                        <p>10</p>
-                    </div>
-            {(leaderboard != undefined && leaderboard.length > 0) ? leaderboard.map((t, index) => {
-                return <>
-                    <div className="member_box_data">
-                        <p>{t.CA_name}</p>
-                        <p>{index + 1}</p>
-                        <p>{t.referral_count}</p>
-                    </div>
-                </>
-            }) : null}
+            <table id="caTable">
+                <tr className="member_box">
+                    <td>CA Name</td>
+                    <td>Rank</td>
+                    <td>Referral count</td>
+                </tr>
+
+                {(leaderboard != undefined && leaderboard.length > 0) ? leaderboard.map((t, index) => {
+                    return <>
+                        <tr className="member_box_data" cellSpacing="5">
+                            <td>{t.CA_name}</td>
+                            <td>{index + 1}</td>
+                            <td>{t.referral_count}</td>
+                        </tr>
+                    </>
+                }) : null}
+            </table>
         </div>
 
         <ToastContainer />

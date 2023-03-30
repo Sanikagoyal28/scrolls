@@ -8,6 +8,16 @@ const initialState = {
     msg: '',
 }
 
+const RegOpenThunk = createAsyncThunk("register", async () => {
+    return await Baseurl.get("participants/check_registration/")
+        .then((res) => {
+            return res
+        })
+        .catch((Err) => {
+            return Err.response
+        })
+})
+
 const RegMemberThunk = createAsyncThunk("register/member", async (data) => {
     return await Baseurl.post("participants/register/0", data)
         .then((res) => {
@@ -101,9 +111,20 @@ const RegisterSlice = createSlice({
         builder.addCase(RegCACheck.rejected, (state, action) => {
             state.loading = false;
         })
+
+         // register open
+         builder.addCase(RegOpenThunk.pending, (state, action) => {
+            state.loading = true;
+        })
+        builder.addCase(RegOpenThunk.fulfilled, (state, action) => {
+            state.loading = false;
+        })
+        builder.addCase(RegOpenThunk.rejected, (state, action) => {
+            state.loading = false;
+        })
     }
 })
 
 export default RegisterSlice
 
-export {RegMemberThunk , RegCAThunk, RegTeamThunk, RegCACheck}
+export {RegMemberThunk , RegCAThunk, RegTeamThunk, RegCACheck, RegOpenThunk}
