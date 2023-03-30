@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Spinner } from 'react-bootstrap';
 import FormData from "form-data";
 import { useNavigate } from "react-router"
+import { usePrevious } from "react-use"
 
 function TeamDB() {
 
@@ -58,6 +59,12 @@ function TeamDB() {
     const [text2, setText2] = useState('')
     const navigate = useNavigate()
     const fd = new FormData()
+
+    const prevDomain = usePrevious(uplDom)
+    const prevSyn = usePrevious(uplSyn)
+    const prevTop = usePrevious(uplTop)
+    const prevPap = usePrevious(uplPaper)
+  
     useEffect(() => {
         dispatch(TeamDBThunk())
     }, [])
@@ -205,7 +212,9 @@ function TeamDB() {
         else {
             console.log("true")
         }
-    }
+    } 
+
+    let condition = (prevDomain != uplDom || prevSyn != uplSyn || prevTop!= uplTop || prevPap!= uplPaper)? false: true 
 
     return <>
         <Navbar />
@@ -421,7 +430,7 @@ function TeamDB() {
             <hr className="dbHR2" />
             <div className="dbBtns">
                 <button className="dbCancel" onClick={() => { handleCancel() }} >Cancel</button>
-                <button className="dbSave" type="button" disabled={(domain != "" && topic != '' && synopsis != '') ? true : false} onClick={() => { handleSave() }}>Save</button>
+                <button className="dbSave" type="button" disabled={condition} onClick={() => { handleSave() }}>Save</button>
             </div>
         </div>
         <ToastContainer />

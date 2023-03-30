@@ -30,6 +30,7 @@
     /* border-style: none; */
     border-bottom-width: 2px;
     margin-bottom: 36px;
+    z-index: 2;
 }
 
 .dbHR2 {
@@ -310,7 +311,7 @@ table {
     position: absolute;
     top: 240px;
     right: 6vw;
-    width: 24vw;
+    width: 22vw;
     /* height: 160px; */
     background: #F3F5F6;
     border-radius: 8px;
@@ -318,8 +319,8 @@ table {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 32px 1vw;
-    padding-top: 24px;
+    padding: 24px 1vw;
+    z-index: 5;
     /* position: fixed; */
 }
 
@@ -453,11 +454,16 @@ table {
         padding: 16px 1vw;
         right: 4vw;
     }
+
+    .dbOuterDiv {
+        padding-left: 6vw;
+        padding-right: 4vw;
+    }
 }
 
 @media(max-width:800px) {
     .dbText {
-        /* width: 22vw; */
+        width: 18vw;
     }
 
     .file_box {
@@ -477,30 +483,47 @@ table {
     }
 
     #dbDialog {
-        width: 30vw;
+        /* width: 30vw; */
         padding: 8px 1vw;
-        right: 2vw;
+        /* right: 2vw; */
     }
 
     .teamID_box,
     .synopsis {
         margin-left: 0;
     }
+
+    #dialText1 {
+        font-size: 0.9rem;
+    }
+
+    #dialText2 {
+        font-size: 0.8rem;
+    }
+    #dialImg{
+        width:24px;
+        height:24px;
+        margin-bottom: 8px;
+    }
 }
 
 @media(max-width:600px) {
     .dbText {
-        width: 26vw;
+        width: 20vw;
+        margin-right: 0;
+    }
+    .dbFlex1{
+        gap:0;
     }
 
     .teamID_box,
     .synopsis {
         /* margin-left: 4vw; */
-        width: 38vw;
+        width: 32vw;
     }
 
     .file_box {
-        width: 22vw;
+        width: 20vw;
     }
 
     .dbSave,
@@ -516,7 +539,7 @@ table {
     .member_box_data,
     .team_box_data,
     table {
-        width: 74vw;
+        width: 58vw;
     }
 }
 
@@ -524,8 +547,8 @@ table {
 
     .teamID_box,
     .synopsis {
-        width: 40vw;
-        margin-left: 4vw;
+        width: 38vw;
+        /* margin-left: 4vw; */
     }
 
     .dbSave,
@@ -535,7 +558,7 @@ table {
     }
 
     .dbHead {
-        width: 28vw;
+        width: 26vw;
     }
 
     .dbHR2 {
@@ -546,11 +569,20 @@ table {
     .member_box_data,
     .team_box_data,
     table {
-        width: 77vw;
+        width: 64vw;
     }
 
     .file_box {
         width: 26vw;
+    }
+
+    #dialText2{
+        display: none;
+    }
+
+    #dbDialog{
+        top:70px;
+        right:2vw;
     }
 }
 
@@ -583,7 +615,10 @@ table {
     .member_box_data,
     .team_box_data,
     table {
-        width: 80vw;
+        width: 72vw;
+    }
+    #dbDialog{
+        width:34vw;
     }
 }
 
@@ -604,7 +639,7 @@ table {
     .member_box_data,
     .team_box_data,
     table {
-        width: 82vw;
+        width: 76vw;
     }
 
     .file_box {
