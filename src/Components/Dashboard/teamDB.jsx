@@ -143,27 +143,27 @@ function TeamDB() {
             console.log(`${pair[0]}, ${pair[1]}`);
         }
 
-        // dispatch(TeamDBDataThunk(fd)).
-        //     then((res) => {
-        //         if (res.payload.status === 200) {
-        //             toast.success(`${res.payload.data.msg}`, {
-        //                 position: "top-right",
-        //                 theme: "light",
-        //                 autoClose: 5000,
-        //             });
-        //             dispatch(TeamDBThunk())
-        //         } else {
-        //             setUplPaper('')
-        //             setUplSyn('')
-        //             toast.error(`${res.payload.data.msg}`, {
-        //                 position: "top-right",
-        //                 theme: "light",
-        //                 autoClose: 5000,
-        //             });
-        //         }
-        //     })
-        //     .catch((err) => {
-        //     })
+        dispatch(TeamDBDataThunk(fd)).
+            then((res) => {
+                if (res.payload.status === 200) {
+                    toast.success(`${res.payload.data.msg}`, {
+                        position: "top-right",
+                        theme: "light",
+                        autoClose: 5000,
+                    });
+                    dispatch(TeamDBThunk())
+                } else {
+                    setUplPaper('')
+                    setUplSyn('')
+                    toast.error(`${res.payload.data.msg}`, {
+                        position: "top-right",
+                        theme: "light",
+                        autoClose: 5000,
+                    });
+                }
+            })
+            .catch((err) => {
+            })
     }
 
     useEffect(() => {
