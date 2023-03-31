@@ -1,3 +1,4 @@
+import Footer from "../footer/footer"
 import Navbar from "../Navbar/navbar"
 
 function CA() {
@@ -14,6 +15,7 @@ function CA() {
                 Grab the opportunity and avail the chance to become the campus ambassador and unlock the benefits that awaits you. Hurry Up and register now!!</p>
             <hr className="faqLine" />
         </div>
+        <Footer />
     </>
 
 }

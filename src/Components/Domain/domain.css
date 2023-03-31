@@ -1,11 +1,7 @@
-#outDomain{
-    overflow-x: scroll;
-}
-
 .Domain {
     display: flex;
     flex-direction: column;
-    padding: 116px 10vw 8vw 80px;
+    padding: 116px 10vw 40px 6vw;
 }
 
 .domainHead {
@@ -24,7 +20,7 @@
 }
 
 .Domain ul li {
-    list-style-position: inside; 
+    list-style-position: inside;
 }
 
 .domainHeading {

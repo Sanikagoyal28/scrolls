@@ -1,3 +1,4 @@
+import Footer from "../footer/footer"
 import Navbar from "../Navbar/navbar"
 import UpdCard from "./card"
 import "./update.css"
@@ -7,7 +8,14 @@ function Update() {
         <Navbar />
         <div className="updates">
             <p className="dashboard" id="update">Updates</p>
-            <UpdCard text="The ongoing conflict between Ukraine and Russia has had several impacts on the world economy. There are some possible effects on Energy prices, Trade, Tourism" head="New update" />
+            <UpdCard text="Registrations will begin shortly" head="Registrations" />
+            <UpdCard text="Registrations will begin shortly" head="Registrations" />
+            <UpdCard text="Registrations will begin shortly" head="Registrations" />
+            <UpdCard text="Registrations will begin shortly" head="Registrations" />
+            <UpdCard text="Registrations will begin shortly" head="Registrations" />
+            <UpdCard text="Registrations will begin shortly" head="Registrations" />
+            <UpdCard text="Registrations will begin shortly" head="Registrations" />
+            <UpdCard text="Registrations will begin shortly" head="Registrations" />
             {/* <div className="updText">
                 <ul>
                     <li>1.  The ongoing conflict between Ukraine and Russia has had several impacts on the world economy. There are some possible effects on Energy prices, Trade, Tourism, </li>
@@ -18,7 +26,7 @@ function Update() {
                 </ul>
             </div> */}
         </div>
-
+        <Footer />
     </>
 }
 

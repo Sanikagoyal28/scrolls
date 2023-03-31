@@ -13,6 +13,7 @@ import { Spinner } from 'react-bootstrap';
 import FormData from "form-data";
 import { useNavigate } from "react-router"
 import { usePrevious } from "react-use"
+import Footer from "../footer/footer"
 
 function TeamDB() {
 
@@ -64,7 +65,7 @@ function TeamDB() {
     const prevSyn = usePrevious(uplSyn)
     const prevTop = usePrevious(uplTop)
     const prevPap = usePrevious(uplPaper)
-  
+
     useEffect(() => {
         dispatch(TeamDBThunk())
     }, [])
@@ -86,16 +87,19 @@ function TeamDB() {
             setImage(pending)
             setText1("Pending")
             setText2("You have not uploaded any synopsis yet, so can't submit Paper now.")
+            document.getElementById('Paper').style.display = "none"
         }
         if (!selected && synopsis != '' && synopsis != null) {
             setImage(fail)
             setText1("Pending")
             setText2("You are not selected now, so you cannot submit Paper.")
+            document.getElementById('Paper').style.display = "none"
         }
         if (selected) {
             setImage(success)
             setText1("Congratulations")
             setText2("You are selected, you can submit your Paper now.")
+            document.getElementById('Paper').style.display = "block"
         }
     }, [synopsis, selected])
 
@@ -212,9 +216,9 @@ function TeamDB() {
         else {
             console.log("true")
         }
-    } 
+    }
 
-    let condition = (prevDomain != uplDom || prevSyn != uplSyn || prevTop!= uplTop || prevPap!= uplPaper)? false: true 
+    let condition = (prevDomain != uplDom || prevSyn != uplSyn || prevTop != uplTop || prevPap != uplPaper) ? false : true
 
     return <>
         <Navbar />
@@ -403,36 +407,40 @@ function TeamDB() {
 
             <hr className="dbHR2" />
 
-            <div className="dbFlex1">
-                <div className="dbFlex2">
-                    <p className="dbHead">Paper</p>
-                    <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
-                </div>
+            <div id="Paper">
+                <div className="dbFlex1">
+                    <div className="dbFlex2">
+                        <p className="dbHead">Paper</p>
+                        <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
+                    </div>
 
-                {paper === "" || paper === null ? <>
-                    {(uplPaper.length == 0) ?
-                        <div className="file_box">
-                            <label for="uploadFile"><img src={file} onClick={() => { handlePaper() }} className="fileIcon" /></label>
-                            <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" disabled={(!selected) ? true : false} onChange={(e) => { handleChange(e) }} hidden disabled />
-                            <p className="uploadText">Click to upload</p>
-                        </div> : <div id="dbFiles">
-                            <div className="teamID_box">{uplPaper.name}</div>
-                            <div className="fileFlex">
-                                <label for="uploadFile" id="editFile">Edit</label>
-                                <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" disabled={(!selected) ? true : false} onChange={(e) => { handleChange(e) }} hidden disabled />
-                                <p id="remove" onClick={() => { setUplPaper('') }}>Remove</p>
+                    {paper === "" || paper === null ? <>
+                        {(uplPaper.length == 0) ?
+                            <div className="file_box">
+                                <label for="uploadFile"><img src={file} onClick={() => { handlePaper() }} className="fileIcon" /></label>
+                                <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" disabled={(!selected) ? true : false} onChange={(e) => { handleChange(e) }} hidden />
+                                <p className="uploadText">Click to upload</p>
+                            </div> : <div id="dbFiles">
+                                <div className="teamID_box">{uplPaper.name}</div>
+                                <div className="fileFlex">
+                                    <label for="uploadFile" id="editFile">Edit</label>
+                                    <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" disabled={(!selected) ? true : false} onChange={(e) => { handleChange(e) }} hidden />
+                                    <p id="remove" onClick={() => { setUplPaper('') }}>Remove</p>
+                                </div>
                             </div>
-                        </div>
-                    }
-                </>
-                    : <div className="synopsis"><a href={`https://backend.scrollsakgec.in${paper}`}>{`https://backend.scrollsakgec.in${paper}`}</a></div>}
+                        }
+                    </>
+                        : <div className="synopsis"><a href={`https://backend.scrollsakgec.in${paper}`}>{`https://backend.scrollsakgec.in${paper}`}</a></div>}
+                </div>
+                <hr className="dbHR2" />
             </div>
-            <hr className="dbHR2" />
+
             <div className="dbBtns">
                 <button className="dbCancel" onClick={() => { handleCancel() }} >Cancel</button>
                 <button className="dbSave" type="button" disabled={condition} onClick={() => { handleSave() }}>Save</button>
             </div>
         </div>
+        <Footer />
         <ToastContainer />
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
     </>

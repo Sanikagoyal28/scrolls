@@ -251,6 +251,24 @@ function Member() {
         }
     }, [reducer.loading])
 
+    const [size, setSize] = useState('')
+    useEffect(() => {
+        function handleSize() {
+            var w = window.innerWidth
+            if (w < 531) {
+                console.log("compact")
+                setSize("compact")
+            }
+            else {
+                setSize("normal")
+                console.log("normal")
+            }
+        }
+
+        window.addEventListener("resize", handleSize)
+        handleSize()
+    }, [])
+
     return <>
         <div className="register">
             <div className="regFlex" id="memberReg">
@@ -318,8 +336,9 @@ function Member() {
                         <option value="2">2</option>
                     </>}
                 </select>
+                {console.log(size)}
                 <div id="recaptcha">
-                    <ReCAPTCHA size="compact"
+                    <ReCAPTCHA size="normal"
                         sitekey={key}
                         onChange={onChange}
                     />

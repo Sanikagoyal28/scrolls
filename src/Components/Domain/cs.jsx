@@ -1,3 +1,4 @@
+import Footer from "../footer/footer"
 import Navbar from "../Navbar/navbar"
 import "./domain.css"
 
@@ -58,6 +59,7 @@ function DomainCs() {
                 </li>
             </ul>
         </div>
+        <Footer />
     </>
 }
 

@@ -1,5 +1,6 @@
 import Navbar from "../Navbar/navbar"
 import "../FAQs/faq.css"
+import Footer from "../footer/footer"
 
 function Rules() {
 
@@ -27,8 +28,8 @@ function Rules() {
                 <li>
                     Authors to include their name, college name, mobile number and email Id on the paper and synopsis, below the title and before abstract</li>
             </ul>
-
         </div>
+        <Footer />
     </>
 
 }

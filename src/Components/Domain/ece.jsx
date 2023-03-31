@@ -1,3 +1,4 @@
+import Footer from "../footer/footer"
 import Navbar from "../Navbar/navbar"
 import "./domain.css"
 
@@ -60,6 +61,7 @@ function DomainEce() {
                 </li>
             </ul>
         </div>
+        <Footer />
     </>
 }
 

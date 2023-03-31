@@ -1,3 +1,4 @@
+import Footer from "../footer/footer"
 import Navbar from "../Navbar/navbar"
 import "./faq.css"
 
@@ -38,6 +39,7 @@ function FAQ() {
             <hr className="faqLine" />
 
         </div>
+        <Footer />
     </>
 
 }

@@ -320,7 +320,7 @@
     outline: none;
     margin-top: 32px;
     cursor: pointer;
-    margin-bottom: 56px;
+    margin-bottom: 48px;
 }
 
 .forgotPass {
@@ -347,7 +347,7 @@
     color: #252525;
     width: 25vw;
     margin-bottom: 8px;
-    margin-top:8px;
+    margin-top: 8px;
 }
 
 .otpInputFlex {
@@ -1130,6 +1130,7 @@
 
 @media(max-width:530px) {
     #recaptcha {
+        margin-left: 20vw;
         margin-left: 7.4vw;
     }
 
@@ -1140,6 +1141,7 @@
     .register {
         padding-top: 0;
     }
+
 }
 
 @media (max-width:495px) {
@@ -1205,6 +1207,7 @@
     }
 
     #recaptcha {
+        margin-left: 22vw;
         margin-left: 8.4vw;
     }
 
@@ -1220,9 +1223,6 @@
 }
 
 @media(max-width:450px) {
-    #recaptcha {
-        margin-left: 8.6vw;
-    }
 
     .otpInput {
         width: 8vw;
@@ -1304,7 +1304,12 @@
     #wrongPwdLog1 {
         width: 64vw;
     }
+
+    #recaptcha {
+        margin-left: 8.6vw;
+    }
 }
+
 
 @media(max-width:440px) {
     #recaptcha {
@@ -1375,10 +1380,6 @@
         width: 58vw;
     }
 
-    #recaptcha {
-        margin-left: 5.2vw;
-    }
-
     #regCA {
         margin-right: 6vw;
     }
@@ -1386,10 +1387,15 @@
     .otpInput {
         width: 9vw;
     }
+
+    #recaptcha {
+        margin-left: 5.2vw;
+    }
 }
 
 @media(max-width:400px) {
     #recaptcha {
+        margin-left: 20vw;
         margin-left: 3.5vw;
     }
 
@@ -1416,9 +1422,7 @@
     #registerCA {
         line-height: 42px;
     }
-}
 
-@media(max-width:380px) {
     .forgotPass {
         margin-left: 38vw;
     }
@@ -1430,8 +1434,8 @@
     }
 
     #recaptcha {
+        margin-left: 16vw;
         margin-left: 0;
-        width: 290px;
     }
 
     .forgotPass {
@@ -1457,4 +1461,9 @@
     .forgotPass {
         margin-left: 32vw;
     }
+
+    /* 
+    #recaptcha {
+        margin-left: 14vw;
+    } */
 }

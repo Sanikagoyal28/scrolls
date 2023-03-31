@@ -6,6 +6,7 @@ import Navbar from "../Navbar/navbar"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Spinner } from 'react-bootstrap';
+import Footer from "../footer/footer";
 
 function CaDB() {
 
@@ -123,7 +124,7 @@ function CaDB() {
                 }) : null}
             </table>
         </div>
-
+        <Footer />
         <ToastContainer />
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
     </>

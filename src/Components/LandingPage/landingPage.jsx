@@ -1,9 +1,5 @@
 import landImage from "../Assets/scroll_bg.svg"
 import domainLogo from "../Assets/domainLogo.svg"
-import instagram from "../Assets/Instagram.svg";
-import phone from "../Assets/phone.svg"
-import horizon from "../Assets/horizon.svg";
-import SI from "../Assets/SI_logo.svg"
 import { forwardRef, useEffect, useState } from "react";
 import { Button, Dialog, DialogTitle, Slide } from "@mui/material";
 import { dialog0, dialog1, dialog6 } from "../../Redux/step";
@@ -23,9 +19,10 @@ import timeline from "../Assets/timeline.svg"
 import mobTimeline from "../Assets/mob_timeline.svg"
 import timelineNew from "../Assets/timeline2.svg"
 import timelinePhone from "../Assets/timelinePhone.svg"
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { RegOpenThunk } from "../../Redux/registerSlice";
 import { Spinner } from "react-bootstrap";
+import Footer from "../footer/footer";
 
 function LandingPage() {
 
@@ -106,6 +103,7 @@ function LandingPage() {
     });
 
     function RegOpen() {
+
         dispatch(RegOpenThunk())
             .then((res) => {
                 console.log(res)
@@ -127,6 +125,24 @@ function LandingPage() {
         setSoon(false)
     }
 
+    const [size, setSize] = useState('')
+    useEffect(() => {
+        function handleSize() {
+            var w = window.innerWidth
+            if (w < 531) {
+                console.log("compact")
+                setSize(1400)
+            }
+            else {
+                setSize(1300)
+                console.log("normal")
+            }
+        }
+
+        window.addEventListener("resize", handleSize)
+        handleSize()
+    }, [])
+
     useEffect(() => {
         if (reducerReg.loading) {
             setLoading(true)
@@ -145,8 +161,6 @@ function LandingPage() {
         </div> */}
 
         <Navbar />
-
-        {/* landing page */}
         <div className="landingPage">
             <div className="landBlock1">
                 <div id="loginBg" style={{ backgroundImage: `url(${landImage})` }}>
@@ -228,54 +242,8 @@ function LandingPage() {
                     <img src={timelinePhone} className="mob_timeline" />
                 </div>
             </div>
-
-            <div className="landFooter">
-                <div id="footer">
-                    <div id="footFlex1">
-                        <p className="footHead">Scrolls<span className="navDot">.</span></p>
-                        <p className="footHead2">Any questions or remarks? Just write us a message.</p>
-                        <p id="formLink"><a target="_blank" href="https://instagram.com/scrolls_23?igshid=ZDdkNTZiNTM=">Google Form</a></p>
-                    </div>
-                    <div id="footFlex2">
-                        <div id="footFlex2Row">
-                            <img src={phone} id="phone" />
-                            <p id="telephone">Contact</p>
-                        </div>
-                        <div className="footFlexRow">
-                            <p>8433416286</p>
-                            <p>(Rajat Agarwal)</p>
-                        </div>
-                        <div className="footFlexRow">
-                            <p>7985670120</p>
-                            <p>(Abhishek Pratap Singh)</p>
-                        </div>
-                        <div className="footFlexRow">
-                            <p>7351407997</p>
-                            <p>(Anushka Gautam)</p>
-                        </div>
-                    </div>
-
-                    <div id="footFlex3">
-                        <p id="telephone">Quick links</p>
-                        <div className="footFlexRow">
-                            <Link to="/faq"><p id="link">FAQs</p></Link>
-                        </div>
-                    </div>
-
-                    <div id="footFlex4">
-                        <p id="telephone">Find us</p>
-                        <div className="footFlexRow">
-                            <img src={instagram} id="instagram" />
-                            <p id="link"><a href="https://instagram.com/scrolls_23?igshid=ZDdkNTZiNTM=" target="_blank"  >scrolls_akgec</a></p>
-                        </div>
-                        <div className="footFlexRow">
-                            <img src={horizon} id="horizon" />
-                            <p id="link"><a href="https://instagram.com/horizon.akgec?igshid=MGU3ZTQzNzY=" target="_blank" >Team Horizon</a></p>
-                        </div>
-                    </div>
-                </div>
-                <p className="footText">Powered by <a href="https://silive.in/" target="_blank"  ><span id="siIcon" ><img src={SI} /></span><span id="software">SOFTWARE</span><span id="incubator">INCUBATOR</span></a></p>            </div>
         </div>
+        <Footer />
 
         <div className="Dialogue1">
             <Dialog open={stepDialog.one}>
@@ -284,7 +252,7 @@ function LandingPage() {
         </div>
         <Dialog open={stepDialog.two} PaperProps={{
             sx: {
-                maxHeight: 1240,
+                maxHeight: 1300,
                 marginTop: 94
             }
         }} >
@@ -320,7 +288,7 @@ function LandingPage() {
                 <Button onClick={handleSoonClose}>Okay</Button>
             </div>
         </Dialog>
-        {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
+        {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
         <ToastContainer />
     </>
 }

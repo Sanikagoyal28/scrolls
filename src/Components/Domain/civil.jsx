@@ -1,3 +1,4 @@
+import Footer from "../footer/footer"
 import Navbar from "../Navbar/navbar"
 import "./domain.css"
 
@@ -59,6 +60,7 @@ function DomainCivil() {
                     </li>
                 </ul>
             </div>
+            <Footer />
     </>
 }
 
