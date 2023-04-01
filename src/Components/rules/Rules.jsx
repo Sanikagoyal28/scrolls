@@ -1,8 +1,13 @@
 import Navbar from "../Navbar/navbar"
 import "../FAQs/faq.css"
 import Footer from "../footer/footer"
+import { useEffect } from "react"
 
 function Rules() {
+
+    useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
 
     return <>
         <Navbar />
@@ -15,6 +20,8 @@ function Rules() {
             <p className="answer">3. For presentation, a time slot of 7 minutes + 3 minutes (for Q&A) will be given to each team.</p>
             <hr className="faqLine" />
             <p className="answer">4. A soft copy of the final paper is to be sent before the designated date.</p>
+            <hr className="faqLine" />
+            <p className="answer">5. Teams may select any one topic from any domain.</p>
             <hr className="faqLine" />
             <p className="dashboard" id="Faqs">Paper Format</p>
             <ul>

@@ -190,7 +190,7 @@
 }
 
 #menu,
-#navMore {
+#navMore , #navMore2{
     display: none;
 }
 
@@ -606,6 +606,7 @@
         position: absolute;
         top: 20px;
         right: 5vw;
+        cursor: pointer;
     }
 
     #menu2 {
@@ -615,6 +616,7 @@
         height: 24px;
         margin-top: -4px;
         margin-bottom: 6px;
+        cursor: pointer;
     }
 
     .navScroll {

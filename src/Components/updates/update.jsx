@@ -1,9 +1,15 @@
+import { useEffect } from "react"
 import Footer from "../footer/footer"
 import Navbar from "../Navbar/navbar"
 import UpdCard from "./card"
 import "./update.css"
 
 function Update() {
+
+    useEffect(()=>{
+        window.scroll(0,0)
+    },[])
+
     return <>
         <Navbar />
         <div className="updates">

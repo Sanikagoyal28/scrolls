@@ -103,7 +103,6 @@ function LandingPage() {
     });
 
     function RegOpen() {
-
         dispatch(RegOpenThunk())
             .then((res) => {
                 console.log(res)
@@ -168,7 +167,7 @@ function LandingPage() {
                 </div>
                 <div className="landFlex">
                     <p className="landText1">
-                        Students Creative Oratory Learning Skills 2023
+                        Students Creative & Oratory Learning Skills 2023
                     </p>
                     <p className="landText2">
                         Prestigious National Level Technical Paper Presentation organized by A.K.G.E.C. in association with Ghaziabad Management Association.
@@ -228,7 +227,7 @@ function LandingPage() {
                     <NavLink to="/domain_management">
                         <div className="domainCard2" onClick={() => { window.scroll(0, 0) }}>
                             <img src={domainLogo} className="domainLogo2" />
-                            <p className="domainText2">Management Science</p>
+                            <p className="domainText2">Management Sciences</p>
                         </div>
                     </NavLink>
                 </div>
@@ -243,7 +242,9 @@ function LandingPage() {
                 </div>
             </div>
         </div>
-        <Footer />
+        <div style={{ "position": "relative" }} >
+            <Footer />
+        </div>
 
         <div className="Dialogue1">
             <Dialog open={stepDialog.one}>

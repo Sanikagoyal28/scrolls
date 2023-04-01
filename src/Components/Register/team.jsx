@@ -197,15 +197,15 @@ function Team() {
                 <input required type={show2 ? "text" : "password"} className="regInputname inputPwd" placeholder="Enter password" value={team.cPass} onChange={(e) => { setTeam({ ...team, cPass: e.target.value }) }} />
                 <p id="WrongPwdTeam2">Password entered in two fields must be same.</p>
                 <div className="teamLeader">
-                    <p className="regName">Team Leader ID</p>
+                    <p className="regName">Team Leader's Scroll ID</p>
                     <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size==2 || team.size==3)? true: false} value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
                 </div>
                 <div className="teamLeader">
-                    <p className="regName">Member 2 ID</p>
+                    <p className="regName">Member 2's Scroll ID</p>
                     <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size==2 || team.size==3)? true: false} value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
                 </div>
                 <div className="teamLeader">
-                    <p className="regName">Member 3 ID</p>
+                    <p className="regName">Member 3's Scroll ID</p>
                     <input type="text" className="regInputname" placeholder="Enter ID" required={team.size==3 ? true: false} value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
                 </div>
                 <button className="regButton" type='submit'>Register</button>

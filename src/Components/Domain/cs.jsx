@@ -6,7 +6,7 @@ function DomainCs() {
     return <>
         <Navbar />
         <div className="Domain">
-            <p className="domainHead">COMPUTER SCIENCE AND INFORMATION TECHNOLOGY </p>
+            <p className="domainHead">Computer Science and Information Technology</p>
             <ul>
                 <li>
                     <p className="domainHeading">Cloud Computing</p>
@@ -49,7 +49,7 @@ function DomainCs() {
                     <p className="domainText">A Wireless sensor network can be defined as a network of devices that can communicate the information gathered from a monitored field through wireless links. A wireless sensor network is used for a variety of important applications in remote monitoring and target tracking. Recently, sensors have been manufactured to be smaller, cheaper, more intelligent, and equipped and interfaced wirelessly within a network for communication purposes. What is the significance of this technology in Space Research and how has it proved beneficial for the military and armed forces? Enunciate on the future advancements in this field. </p>
                 </li>
                 <li>
-                    <p className="domainHeading">Semantic Web: Sentiment Analysis of Twitter/Facebook/Instagram</p>
+                    <p className="domainHeading">Semantic Web: Sentiment Analysis of Twitter / Facebook / Instagram</p>
                     <p className="domainText">The Web is a huge virtual space where one can express and share individual opinions, influencing any aspect of life, with implications for marketing and communication alike. Social Media is influencing consumers' preferences by shaping their attitudes and behaviors. Monitoring Social Media activities is a good way to measure customers' loyalty, keeping a track on their sentiment towards brands or products. Social Media is the next logical marketing arena. Currently, Twitter dominates the digital marketing space, followed closely by Instagram and Facebook. Articulate your thoughts on Semantic Web–Sentiment Analysis of Twitter/Facebook/Instagram. How do you think it affects the real-world market arena? What are the drawbacks from its usage?</p>
                 </li>
                 <li>

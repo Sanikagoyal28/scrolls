@@ -286,7 +286,7 @@ function Navbar() {
 
         <div id="dropdown" onMouseOver={handleDropdown} onMouseLeave={closeDropdown}>
             <ul>
-                <NavLink to="/domain_management"><li>Management Science</li></NavLink>
+                <NavLink to="/domain_management"><li>Management Sciences</li></NavLink>
                 <NavLink to="/domain_ece"> <li>Electronics and Communication Engineering</li></NavLink>
                 <NavLink to="/domain_civil"><li>Civil Engineering</li></NavLink>
                 <NavLink to="/domain_en"> <li>Electrical and Electronics Engineering</li></NavLink>

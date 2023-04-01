@@ -13,7 +13,7 @@ function Footer() {
                 <div id="footFlex1">
                     <p className="footHead">Scrolls<span className="navDot">.</span></p>
                     <p className="footHead2">Any questions or remarks? Just write us a message.</p>
-                    <p id="formLink"><a target="_blank" href="">Google Form</a></p>
+                    <p id="formLink"><a target="_blank" href="https://forms.gle/B35DF1KuWqkqocSKA">Google Form</a></p>
                 </div>
                 <div id="footFlex2">
                     <div id="footFlex2Row">
@@ -53,7 +53,12 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <p className="footText">Powered by <a href="https://www.instagram.com/software.incubator/" target="_blank"  ><span id="siIcon" ><img src={SI} /></span><span id="software">SOFTWARE</span><span id="incubator">INCUBATOR</span></a></p>
+            <p className="footText">Powered by <a href="https://www.instagram.com/software.incubator/" target="_blank"  >
+            <span id="siIcon" ><img src={SI} /></span><span id="software">SOFTWARE</span><span id="incubator">INCUBATOR </span>
+            </a> 
+             & Managed by <a href="https://instagram.com/horizon.akgec?igshid=MGU3ZTQzNzY=" target="_blank" ><img src={horizon} id="horizon" />
+            <span id="incubator"> TEAM </span>
+            <span id="horizonText"> HORIZON</span></a></p>
         </div>
     </>
 }

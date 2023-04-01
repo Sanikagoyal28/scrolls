@@ -13,7 +13,7 @@ function DomainManage() {
                     <p className="domainText">The ongoing conflict between Ukraine and Russia has had several impacts on the world economy. There are some possible effects on Energy prices, Trade, Tourism, Foreign investment. What are your views on the same?</p>
                 </li>
                 <li>
-                    <p className="domainHeading">Budget 2023: Populism vs Tough Decisions</p>
+                    <p className="domainHeading">Budget 2023: Populism VS Tough Decisions</p>
                     <p className="domainText">The budget for 2023 will likely be a balancing act between populism and tough decisions, as governments around the world face the challenge of balancing the needs of their citizens with the realities of limited resources and uncertain economic conditions. On the one hand, governments may be tempted to pursue populist policies aimed at winning public support and boosting their electoral prospects. On the other hand, tough decisions may be necessary to address pressing issues such as rising debt levels, climate change, and the impact of the pandemic on public health and the economy. Give your views on the same.</p>
                 </li>
                 <li>

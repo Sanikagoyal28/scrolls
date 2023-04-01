@@ -1,8 +1,13 @@
+import { useEffect } from "react"
 import Footer from "../footer/footer"
 import Navbar from "../Navbar/navbar"
 import "./faq.css"
 
 function FAQ() {
+
+    useEffect(()=>{
+        window.scroll(0,0)
+    },[])
 
     return <>
         <Navbar />

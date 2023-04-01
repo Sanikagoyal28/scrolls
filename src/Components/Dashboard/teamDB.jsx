@@ -86,13 +86,13 @@ function TeamDB() {
         if (!selected && (synopsis === '' || synopsis === null)) {
             setImage(pending)
             setText1("Pending")
-            setText2("You have not uploaded any synopsis yet, so can't submit Paper now.")
+            setText2("Submit your Synopsis for Being eligible to submit paper.")
             document.getElementById('Paper').style.display = "none"
         }
         if (!selected && synopsis != '' && synopsis != null) {
             setImage(fail)
             setText1("Pending")
-            setText2("You are not selected now, so you cannot submit Paper.")
+            setText2("You cannot submit Paper until you are selected.")
             document.getElementById('Paper').style.display = "none"
         }
         if (selected) {

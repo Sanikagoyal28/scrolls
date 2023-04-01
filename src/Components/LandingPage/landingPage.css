@@ -142,7 +142,7 @@
 }
 
 .aboutHead {
-    width: 41vw;
+    width: 40vw;
     margin-left: 17vw;
     margin-top: 24px;
     font-family: 'Bahnschrift';
@@ -224,7 +224,7 @@
     font-size: 1rem;
     color: #FFFFFF;
     text-align: center;
-    margin-top:-16px;
+    margin-top: -16px;
 }
 
 .domainCard2 {
@@ -274,7 +274,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 1rem;
-    margin-top:-16px;
+    margin-top: -16px;
     text-align: center;
 }
 
@@ -288,6 +288,8 @@
     padding-left: 2vw;
     padding-right: 2vw;
     overflow: hidden;
+    /* position:absolute; */
+    /* bottom:0; */
 }
 
 #footer {
@@ -327,10 +329,10 @@
     font-weight: 400;
     font-size: 0.9rem;
     color: #FFFFFF;
-    margin-top:0;
+    margin-top: 0;
 }
 
-#formLink > a {
+#formLink>a {
     color: #FFFFFF;
 }
 
@@ -449,6 +451,12 @@
 #software {
     text-transform: uppercase;
     color: #2499F9;
+    margin-left: 2px;
+}
+
+#horizonText {
+    text-transform: uppercase;
+    color: #FF5800;
     margin-left: 2px;
 }
 
@@ -635,7 +643,7 @@
     .landBlock1,
     .landImage,
     #loginBg {
-        height: 600px;
+        height: 630px;
     }
 
     .landText1,
@@ -737,6 +745,7 @@
     #footFlex2 {
         margin-left: -2vw;
     }
+
     .landBlock1,
     .landImage,
     #loginBg {
@@ -787,6 +796,7 @@
     #soonDialog {
         width: 48vw;
     }
+
     .landBlock1,
     .landImage,
     #loginBg {
@@ -837,13 +847,20 @@
     }
 
     .footText {
-        top: 20px;
+        /* top: 20px; */
     }
 
     #soonDialog {
         width: 54vw;
     }
 }
+
+@media(max-width:620px) {
+    .footText {
+        top: 20px;
+    }
+}
+
 
 @media(max-width:600px) {
 
@@ -915,11 +932,11 @@
     }
 
     .footText {
-        top: 10px;
+        top: 30px;
     }
 }
 
-@media(max-width:550px) {
+@media(max-width:564px) {
     .landRegister {
         width: 30vw;
         margin-left: 0;
@@ -968,7 +985,18 @@
     #soonDialog {
         width: 60vw;
     }
+
+    .footText {
+        top: 8px;
+    }
 }
+
+@media(max-width:510px){
+    .footText {
+        top: -10px;
+    }
+}
+
 
 @media(max-width:505px) {
     .landRegister {
@@ -1033,7 +1061,7 @@
     }
 
     .landFooter {
-        height: 580px;
+        height: 590px;
         padding-top: 36px;
         padding-left: 8vw;
     }
@@ -1076,8 +1104,9 @@
     #soonDialog {
         width: 64vw;
     }
-    .footText{
-        top:25px;
+
+    .footText {
+        top: 10px;
         margin-left: -8vw;
     }
 }

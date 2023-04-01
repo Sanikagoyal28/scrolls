@@ -9,7 +9,7 @@ function DomainMe() {
             <p className="domainHead">Mechanical Engineering</p>
             <ul>
                 <li>
-                    <p className="domainHeading">Computer Aided Engineering (CAE) / Computer Aided Design (CAD)-</p>
+                    <p className="domainHeading">Computer Aided Engineering (CAE) / Computer Aided Design (CAD)</p>
                     <p className="domainText">CAD is a software tool used for creating 2D and 3D models and designs of products or parts, which can be used for product visualization, analysis, and simulation. It allows engineers and designers to create accurate and detailed designs of their products before they are built, reducing the time and cost involved in the product development process.
                         CAE, on the other hand, is a software tool used for simulating and analysing the behaviour of products or parts under different conditions. CAE software can perform a wide range of analysis, including structural analysis, thermal analysis, fluid dynamics, and electromagnetic analysis. How do you think CAD and CAE are important tools for modern engineering?.</p>
                 </li>
