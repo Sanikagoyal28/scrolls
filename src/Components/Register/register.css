@@ -312,7 +312,7 @@
 }
 
 .inputPwd {
-    margin-left: 5.6vw;
+    margin-left: 5.8vw;
     /* position: fixed; */
 }
 
@@ -490,6 +490,12 @@
     }
 }
 
+@media(max-width:1280px){
+    .inputPwd{
+        margin-left: 5.6vw;
+    }
+}
+
 @media(max-width:1250px) {
     #recaptcha {
         margin-left: 8.5vw;
@@ -562,7 +568,7 @@
     }
 
     .inputPwd {
-        margin-left: 5.2vw;
+        margin-left: 5vw;
     }
 
     .forgotPass {
@@ -769,7 +775,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        margin-left: 8.3vw;
+        margin-left: 8.2vw;
         width: 37vw;
     }
 
@@ -784,7 +790,7 @@
     }
 
     .inputPwd {
-        margin-left: 5.8vw;
+        margin-left: 6.1vw;
     }
 
     .genders {
@@ -852,6 +858,7 @@
     #wrongEmailLog1,
     #wrongPwdLog1 {
         width: 41vw;
+        margin-left:8.8vw;
     }
 
     #LEye,
@@ -869,7 +876,7 @@
     }
 
     .inputPwd {
-        margin-left: 6vw;
+        margin-left: 6.5vw;
     }
 
     .forgotPass {
@@ -931,7 +938,7 @@
     }
 
     .inputPwd {
-        margin-left: 5.8vw;
+        margin-left:6.4vw;
     }
 
     .genders {
@@ -1036,7 +1043,7 @@
     }
 
     .inputPwd {
-        margin-left: 5.4vw;
+        margin-left: 5.5vw;
     }
 
     .forgotPass {
@@ -1116,7 +1123,7 @@
     }
 
     .inputPwd {
-        margin-left: 5vw;
+        margin-left: 5.5vw;
     }
 
     #LEye,
@@ -1174,7 +1181,7 @@
 
 
     .inputPwd {
-        margin-left: 4.6vw;
+        margin-left: 5vw;
     }
 
     #LEye,
@@ -1257,7 +1264,7 @@
     }
 
     .inputPwd {
-        margin-left: 4vw;
+        margin-left: 4.6vw;
     }
 
     .forgotPass {
@@ -1442,7 +1449,7 @@
 
 @media(max-width:360px) {
     .inputPwd {
-        margin-left: 3vw;
+        margin-left: 4vw;
     }
 
     #recaptcha {

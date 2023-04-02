@@ -20,15 +20,18 @@ function Footer() {
                     <p id="telephone">Contact</p>
                     {/* </div> */}
                     <div className="footFlexRow">
-                        <p>8433416286</p>
+                        <a href={`tel:${8433416286}`}>
+                            <p>8433416286</p></a>
                         <p>(Rajat Agarwal)</p>
                     </div>
                     <div className="footFlexRow">
-                        <p>7985670120</p>
+                        <a href={`tel:${7985670120}`}>
+                            <p>7985670120</p></a>
                         <p>(Abhishek Pratap Singh)</p>
                     </div>
                     <div className="footFlexRow">
-                        <p>7351407997</p>
+                        <a href={`tel:${7351407997}`}>
+                            <p>7351407997</p></a>
                         <p>(Anushka Gautam)</p>
                     </div>
                 </div>

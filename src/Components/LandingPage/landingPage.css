@@ -1,3 +1,15 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    padding-bottom: 40px;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
 #loadSpinner {
     z-index: 9999;
     position: fixed;
@@ -19,6 +31,7 @@
     z-index: 5;
     display: flex;
     flex-direction: column;
+    margin-bottom: 240px;
 }
 
 .landBlock1 {
@@ -288,8 +301,8 @@
     padding-left: 2vw;
     padding-right: 2vw;
     overflow: hidden;
-    /* position:absolute; */
-    /* bottom: 0; */
+    position: absolute;
+    bottom: 0;
     /* position: fixed; */
 }
 
@@ -385,6 +398,15 @@
 }
 
 .footFlexRow>p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+
+.footFlexRow a p {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
@@ -992,7 +1014,7 @@
     }
 }
 
-@media(max-width:510px){
+@media(max-width:510px) {
     .footText {
         top: -10px;
     }
