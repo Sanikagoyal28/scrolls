@@ -15,9 +15,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { InstagramEmbed } from 'react-social-media-embed';
 import Navbar from "../Navbar/navbar";
-import timeline from "../Assets/timeline.svg"
 import mobTimeline from "../Assets/mob_timeline.svg"
-import timelineNew from "../Assets/timeline2.svg"
+import timelineNew from "../Assets/timeline.svg"
 import timelinePhone from "../Assets/timelinePhone.svg"
 import { NavLink, useNavigate } from "react-router-dom";
 import { RegOpenThunk } from "../../Redux/registerSlice";
@@ -242,7 +241,7 @@ function LandingPage() {
                 </div>
             </div>
         </div>
-            <Footer />
+        <Footer />
 
         <div className="Dialogue1">
             <Dialog open={stepDialog.one}>

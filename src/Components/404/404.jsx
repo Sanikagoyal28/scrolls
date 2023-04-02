@@ -15,7 +15,7 @@ function Error() {
             <img src={errImg} id="errorImage" />
             {/* <p className='error'>Error 404</p> */}
             <p className='errorHead'>Page Not Found</p>
-            <p className="errorText">The page you are lookking for doesn't exist.<br />Please head over to <Link to="/">HOME PAGE</Link> to choose a new direction</p>
+            <p className="errorText">The page you are looking for doesn't exist.<br />Please head over to <Link to="/">HOME PAGE</Link> to choose a new direction</p>
         </div>
         <Footer />
     </>

@@ -78,7 +78,7 @@ body {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 4rem;
+    font-size: 3.8rem;
     line-height: 96px;
     text-align: center;
     color: #FFFFFF;
@@ -90,7 +90,7 @@ body {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 24px;
     text-align: center;
     color: #FFFFFF;
@@ -128,7 +128,7 @@ body {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 32px;
+    font-size: 1.5rem;
     line-height: 48px;
     text-align: center;
     letter-spacing: 0.08em;
@@ -148,7 +148,7 @@ body {
     display: block;
     border: 2px solid #FAC949;
     transform: rotate(-2deg);
-    width: 22vw;
+    width: 18vw;
     height: 72px;
     position: relative;
     z-index: 2;
@@ -186,7 +186,7 @@ body {
 
 .landDomain {
     background: #F6F6F6;
-    padding-left: 6vw;
+    padding-left: 10vw;
     padding-top: 50px;
     padding-bottom: 60px;
 }
@@ -196,9 +196,10 @@ body {
     display: block;
     border: 2px solid #FAC949;
     transform: rotate(-2deg);
-    width: 18vw;
+    width: 16vw;
     height: 72px;
-    position: relative;
+    margin-left: 30vw;
+    /* position: relative; */
     z-index: 2;
     overflow: hidden;
 }
@@ -209,8 +210,8 @@ body {
 }
 
 .domainCard1 {
-    width: 25vw;
-    height: 270px;
+    width: 22vw;
+    height: 250px;
     background: #333333;
     box-shadow: 0px 8px 24px 2px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
@@ -226,8 +227,8 @@ body {
 }
 
 .domainLogo1 {
-    height: 60px;
-    width: 65px;
+    height: 55px;
+    width: 50px;
     margin: 64px auto;
 }
 
@@ -242,8 +243,8 @@ body {
 }
 
 .domainCard2 {
-    width: 25vw;
-    height: 270px;
+    width: 22vw;
+    height: 250px;
     background: #FFFFFF;
     box-shadow: 0px 8px 24px 2px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
@@ -315,6 +316,7 @@ body {
 #footFlex1 {
     display: flex;
     flex-direction: column;
+    margin-top:-4px;
 }
 
 .footHead {
@@ -354,8 +356,6 @@ body {
 #footFlex2 {
     display: flex;
     flex-direction: column;
-    /* margin-left: 6vw; */
-    padding-left: 3vw;
 }
 
 #footFlex2Row {
@@ -503,8 +503,8 @@ body {
     transform: rotate(-2deg);
     height: 72px;
     margin-bottom: 40px;
-    width: 20vw;
-    position: relative;
+    width: 16vw;
+    margin-left: 40vw;
     z-index: 2;
     overflow: hidden;
 }
@@ -528,7 +528,8 @@ body {
 
     #text1Border,
     .aboutScroll {
-        width: 16vw;
+        width: 10vw;
+        height: 76px;
     }
 
     #text1Border {
@@ -536,12 +537,12 @@ body {
     }
 
     #domainBorder {
-        width: 16vw;
+        width: 10vw;
         margin-left: 34vw;
     }
 
     #timelineBorder {
-        width: 16vw;
+        width: 10vw;
         margin-left: 43vw;
     }
 
@@ -562,8 +563,8 @@ body {
 
     .domainCard1,
     .domainCard2 {
-        width: 23vw;
-        height: 340px;
+        width: 22vw;
+        height: 380px;
         margin-right: 6vw;
         margin-top: 80px;
     }
@@ -571,6 +572,8 @@ body {
     .domainText1,
     .domainText2 {
         font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .domainLogo1,
@@ -654,6 +657,9 @@ body {
 
     .landFooter {
         height: 336px;
+    }
+    .domainCard1 , .domainCard2{
+        width:24vw;
     }
 }
 
@@ -1019,6 +1025,23 @@ body {
     #footFlex3 {
         margin-left: -3vw;
     }
+    .footHead{
+        font-size: 1.1rem;
+        margin-top:-2px;
+    }
+    .footHead2{
+        font-size: 0.8rem;
+    }
+    #link, #formLink, .footFlexRow p, .footFlexRow a p {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+    }
+    .landFooter{
+        padding-left: 1vw;
+    }
+    .footText{
+        top:54px;
+    }
 }
 
 @media(max-width:640px) {
@@ -1038,7 +1061,7 @@ body {
 
 @media(max-width:620px) {
     .footText {
-        top: 20px;
+        /* top: 20px; */
     }
 }
 
@@ -1077,7 +1100,7 @@ body {
         font-size: 0.82rem;
     }
 
-    .footFlexRow>p {
+    .footFlexRow>p, .footFlexRow a p {
         font-size: 0.68rem;
     }
 
@@ -1113,7 +1136,7 @@ body {
     }
 
     .footText {
-        top: 30px;
+        top: 44px;
     }
 }
 
@@ -1168,13 +1191,14 @@ body {
     }
 
     .footText {
-        top: 8px;
+        top: 24px;
+        font-size: 10px;
     }
 }
 
 @media(max-width:540px) {
     .landFooter {
-        height: 290px;
+        /* height: 290px; */
     }
 }
 
@@ -1248,7 +1272,7 @@ body {
     }
 
     .landFooter {
-        height: 590px;
+        height: 525px;
         padding-top: 36px;
         padding-left: 8vw;
     }
@@ -1272,16 +1296,11 @@ body {
         margin-top: 4px;
     }
 
-    .footFlexRow>p {
-        font-size: 0.9rem;
-    }
-
     #footFlex2,
     #footFlex3,
     #footFlex4 {
         margin-left: 0;
         margin-top: 16px;
-        padding-left: 6vw;
     }
 
     #footFlex2Row {
@@ -1293,7 +1312,7 @@ body {
     }
 
     .footText {
-        top: 10px;
+        top: 30px;
         margin-right: 2vw;
         margin-left: -5vw;
         /* margin-left: -8vw; */
@@ -1371,6 +1390,9 @@ body {
 
     #soonDialog {
         width: 75vw;
+    }
+    .landFooter{
+        height:540px;
     }
 
 }

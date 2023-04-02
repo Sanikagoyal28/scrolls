@@ -9,7 +9,7 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.8rem;
     /* line-height: 37px; */
     color: #000000;
 }
@@ -119,6 +119,7 @@
     padding: 8px;
     white-space: pre-wrap;
     word-wrap: break-word;
+    
 }
 
 .synopsis {
@@ -671,41 +672,46 @@ table {
         width:60vw;
     }
 }
-
-@media(max-width:500px) {
+@media(max-width:505px) {
     .dbOuterDiv {
         padding-bottom: 360px;
     }
+}
+
+@media(max-width:500px) {
 
     .teamID_box,
     .synopsis {
-        width: 38vw;
-        /* margin-left: 4vw; */
+        width: 50vw;
+        margin-left: 4vw;
     }
 
     .dbSave,
     .dbCancel {
-        width: 18vw;
+        width: 22vw;
         margin-right: 2vw;
     }
 
     .dbHead {
-        width: 26vw;
+        width: 30vw;
+    }
+    .dbText{
+        width:30vw;
     }
 
     .dbHR2 {
-        width: 70vw;
+        width: 88vw;
     }
 
     .member_box,
     .member_box_data,
     .team_box_data,
     table {
-        width: 64vw;
+        width: 84vw;
     }
 
     .file_box {
-        width: 26vw;
+        width: 28vw;
     }
 
     #dialText2 {
@@ -715,90 +721,8 @@ table {
     #dbDialog {
         top: 70px;
         right: 2vw;
+        width:34vw;
     }
 }
 
-@media(max-width:450px) {
 
-    .dbSave,
-    .dbCancel {
-        width: 20vw;
-    }
-
-    .dbText {
-        width: 30vw;
-    }
-
-    .file_box {
-        width: 22vw;
-    }
-
-    .file_box {
-        width: 26vw;
-    }
-
-    .teamID_box,
-    .synopsis {
-        width: 42vw;
-        margin-left: 4vw;
-    }
-
-    .member_box,
-    .member_box_data,
-    .team_box_data,
-    table {
-        width: 72vw;
-    }
-
-    #dbDialog {
-        width: 34vw;
-    }
-    .dbHR2 {
-        width: 78vw;
-    }
-}
-
-@media (max-width:400px) {
-    .file_box {
-        width: 30vw;
-    }
-
-    .dbHead {
-        width: 30vw;
-    }
-
-    .dbHR2 {
-        width: 83vw;
-    }
-
-    .member_box,
-    .member_box_data,
-    .team_box_data,
-    table {
-        width: 76vw;
-    }
-
-    .file_box {
-        width: 28vw;
-    }
-}
-
-@media (max-width:350px) {
-    .file_box {
-        width: 32vw;
-    }
-
-    .dbHead {
-        width: 28vw;
-        font-size: 0.9rem;
-    }
-
-    .dbHR2 {
-        width: 87vw;
-    }
-
-    .dbCancel,
-    .dbSave {
-        width: 22vw;
-    }
-}
