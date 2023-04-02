@@ -93,17 +93,18 @@
     align-items: center;
     justify-content: space-around;
     margin-left: 1vw;
-    margin-top: -60px;
+    margin-top: -80px;
     margin-right: 1vw;
 }
 
 .loginFlex {
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #loginHeadbox {
     margin-top: -40px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 #fgtHeadbox {
@@ -112,12 +113,13 @@
 }
 
 #rstHeadbox {
-    margin-top: -20px;
-    margin-bottom: 10px;
+    margin-top: -30px;
+    margin-bottom: 15px;
 }
 
 #regCA {
     margin-top: -100px;
+    margin-bottom: 15px;
 }
 
 #LoginOpt {
@@ -125,7 +127,12 @@
 }
 
 #memberReg {
-    margin-top: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#teamReg {
+    margin-bottom: 15px;
 }
 
 .cross {
@@ -156,6 +163,7 @@
     text-align: center;
     letter-spacing: 0.08em;
     color: #252525;
+    margin-bottom: 0;
 }
 
 #member {
@@ -290,9 +298,12 @@
 #TEye,
 #CEye {
     position: relative;
+    top:2px;
     /* top: 32px; */
     left: 30vw;
     cursor: pointer;
+    width:18px;
+    height:18px;
     /* margin-top: -48px; */
 }
 
@@ -302,6 +313,7 @@
 
 .inputPwd {
     margin-left: 5.6vw;
+    /* position: fixed; */
 }
 
 .regButton {

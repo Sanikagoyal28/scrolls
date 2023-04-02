@@ -172,6 +172,10 @@
     margin-bottom: 12px;
 }
 
+.liRegister {
+    color: #FFFFFF;
+}
+
 .navLogin,
 .liLogin {
     width: 8.5vw;
@@ -189,8 +193,13 @@
     color: #FFFFFF;
 }
 
+.liLogin {
+    color: #FAC949;
+}
+
 #menu,
-#navMore , #navMore2{
+#navMore,
+#navMore2 {
     display: none;
 }
 
@@ -626,7 +635,7 @@
     .liRegister,
     .liLogin {
         width: 30vw;
-        color: #000;
+
     }
 
     .liRegister {

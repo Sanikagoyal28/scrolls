@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { setTitle } from "./Redux/heading";
 import Rules from "./Components/rules/Rules";
 import CA from "./Components/LandingPage/CA";
+import Error from "./Components/404/404";
 
 function App() {
 
@@ -33,14 +34,15 @@ function App() {
       dispatch(setTitle(""))
     }
   }, [ca, team])
+
   return <>
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" exact element={<LandingPage />} />
-        <Route path="/ca_db" element={<CaDB />} /> 
-        <Route path="/team_db" exact element={<TeamDB />} />
-        {/* {ca ? <Route path="/ca_db" element={<CaDB />} /> : null} */}
-        {/* {team ? <Route path="/team_db" exact element={<TeamDB />} /> : null} */}
+        {/* <Route path="/ca_db" element={<CaDB />} /> */}
+        {/* <Route path="/team_db" exact element={<TeamDB />} /> */}
+        {ca && <Route path="/ca_db" element={<CaDB />} />}
+        {team ? <Route path="/team_db" exact element={<TeamDB />} /> : null}
         <Route path="/updates" exact element={<Update />} />
         {/* <Route path="/previous_year" exact element={<PreviousYear />} /> */}
         <Route path="/faq" exact element={<FAQ />} />
@@ -52,8 +54,10 @@ function App() {
         <Route path="/domain_management" exact element={<DomainManage />} />
         <Route path="/rules" exact element={<Rules />} />
         <Route path="/ca" exact element={<CA />} />
+
+        <Route path="*" element={<Error />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   </>
 }
 

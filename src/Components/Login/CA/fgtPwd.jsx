@@ -38,6 +38,7 @@ function Forgot() {
   
 
     function ForgotPassword() {
+
         if (!token) {
             toast.error("Please verify the captcha", {
                 position: "top-right",

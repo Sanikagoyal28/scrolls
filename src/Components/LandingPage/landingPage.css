@@ -142,7 +142,7 @@
 }
 
 .aboutHead {
-    width: 40vw;
+    width: 41vw;
     margin-left: 17vw;
     margin-top: 24px;
     font-family: 'Bahnschrift';
@@ -289,7 +289,8 @@
     padding-right: 2vw;
     overflow: hidden;
     /* position:absolute; */
-    /* bottom:0; */
+    /* bottom: 0; */
+    /* position: fixed; */
 }
 
 #footer {

@@ -182,7 +182,7 @@ function LandingPage() {
                     <p className="aboutScroll">About Scrolls</p>
                 </div>
                 <p className="aboutHead">
-                    “Reasons will take you from A to B but imagination will take you everywhere.”
+                    “Reasons will take you from A to B but imagination will take you everywhere.”<br />
                     - Albert Einstein
                 </p>
                 <p className="aboutText">
@@ -242,9 +242,7 @@ function LandingPage() {
                 </div>
             </div>
         </div>
-        <div style={{ "position": "relative" }} >
             <Footer />
-        </div>
 
         <div className="Dialogue1">
             <Dialog open={stepDialog.one}>

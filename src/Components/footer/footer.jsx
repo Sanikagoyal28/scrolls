@@ -16,10 +16,9 @@ function Footer() {
                     <p id="formLink"><a target="_blank" href="https://forms.gle/B35DF1KuWqkqocSKA">Google Form</a></p>
                 </div>
                 <div id="footFlex2">
-                    <div id="footFlex2Row">
-                        <img src={phone} id="phone" />
-                        <p id="telephone">Contact</p>
-                    </div>
+                    {/* <div id="footFlex2Row"> */}
+                    <p id="telephone">Contact</p>
+                    {/* </div> */}
                     <div className="footFlexRow">
                         <p>8433416286</p>
                         <p>(Rajat Agarwal)</p>
@@ -54,11 +53,11 @@ function Footer() {
                 </div>
             </div>
             <p className="footText">Powered by <a href="https://www.instagram.com/software.incubator/" target="_blank"  >
-            <span id="siIcon" ><img src={SI} /></span><span id="software">SOFTWARE</span><span id="incubator">INCUBATOR </span>
-            </a> 
-             & Managed by <a href="https://instagram.com/horizon.akgec?igshid=MGU3ZTQzNzY=" target="_blank" ><img src={horizon} id="horizon" />
-            <span id="incubator"> TEAM </span>
-            <span id="horizonText"> HORIZON</span></a></p>
+                <span id="siIcon" ><img src={SI} /></span><span id="software">SOFTWARE</span><span id="incubator">INCUBATOR </span>
+            </a>
+                & Managed by <a href="https://instagram.com/horizon.akgec?igshid=MGU3ZTQzNzY=" target="_blank" ><img src={horizon} id="horizon" />
+                    <span id="incubator"> TEAM </span>
+                    <span id="horizonText"> HORIZON</span></a></p>
         </div>
     </>
 }

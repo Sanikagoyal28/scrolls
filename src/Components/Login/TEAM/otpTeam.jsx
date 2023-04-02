@@ -90,7 +90,7 @@ function OtpTeam() {
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
             <form onSubmit={(e)=>e.preventDefault()} id="loginForm">
-            <p className="forgotText">Enter 4 digit OTP send to example@gmail.com</p>
+            <p className="forgotText">Enter 4 digit OTP send to {email}</p>
             <div className="otpInputFlex">
                 <OtpField className="otpInputFlex"
                     value={value}
