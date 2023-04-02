@@ -353,6 +353,119 @@ table {
     margin-bottom: 0;
 }
 
+@media(max-width:2500px) and (min-width:1500px) {
+    .dashboard {
+        font-size: 2.7rem;
+    }
+
+    .dbOuterDiv {
+        padding-bottom: 160px;
+    }
+
+    .dbHead1 {
+        font-size: 1.5rem;
+    }
+
+    .dbHead {
+        font-size: 1.4rem;
+    }
+
+    .dbText {
+        font-size: 1.1rem;
+        line-height: 24px;
+    }
+
+    .teamID_box,
+    .synopsis {
+        width: 20vw;
+        height: 52px;
+        font-size: 1.2rem;
+    }
+
+    .member_box,
+    .member_box_data,
+    .team_box_data,
+    table {
+        width: 41vw;
+        height: 52px;
+    }
+
+    .team_box_data td,
+    .team_box_data p {
+        font-size: 1.4rem;
+    }
+
+    .member_box td,
+    .member_box_data td {
+        font-size: 1.4rem;
+    }
+
+    .dbSave,
+    .dbCancel {
+        font-size: 1.2rem;
+        width: 7vw;
+        height: 50px;
+    }
+
+    .file_box {
+        height: 120px;
+    }
+
+    #dbDialog {
+        padding: 32px 1vw;
+        width: 20vw;
+    }
+
+    #dialText1 {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+        line-height: 28px;
+    }
+
+    #dialText2 {
+        font-size: 1.4rem;
+        line-height: 30px
+    }
+
+    #dialImg {
+        width: 56px;
+        height: 56px;
+    }
+
+    .fileIcon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .uploadText {
+        font-size: 1.2rem;
+        line-height: 24px;
+    }
+}
+
+@media(max-width:2500px) and (min-width:1500px) {
+
+    .teamID_box,
+    .synopsis {
+        width: 24vw;
+    }
+
+    #dbDialog {
+        width: 24vw;
+    }
+
+    .file_box {
+        width: 12vw;
+    }
+    .member_box,
+    .member_box_data,
+    .team_box_data,
+    table {
+        width: 45vw;
+        height: 52px;
+    }
+}
+
 @media(max-width:1200px) {
     .member_box {
         padding-top: 8px;
@@ -501,9 +614,10 @@ table {
     #dialText2 {
         font-size: 0.8rem;
     }
-    #dialImg{
-        width:24px;
-        height:24px;
+
+    #dialImg {
+        width: 24px;
+        height: 24px;
         margin-bottom: 8px;
     }
 }
@@ -513,8 +627,9 @@ table {
         width: 20vw;
         margin-right: 0;
     }
-    .dbFlex1{
-        gap:0;
+
+    .dbFlex1 {
+        gap: 0;
     }
 
     .teamID_box,
@@ -577,13 +692,13 @@ table {
         width: 26vw;
     }
 
-    #dialText2{
+    #dialText2 {
         display: none;
     }
 
-    #dbDialog{
-        top:70px;
-        right:2vw;
+    #dbDialog {
+        top: 70px;
+        right: 2vw;
     }
 }
 
@@ -618,8 +733,9 @@ table {
     table {
         width: 72vw;
     }
-    #dbDialog{
-        width:34vw;
+
+    #dbDialog {
+        width: 34vw;
     }
 }
 

@@ -1,7 +1,7 @@
 .Domain {
     display: flex;
     flex-direction: column;
-    padding: 116px 10vw 40px 6vw;
+    padding: 116px 8vw 40px 6vw;
     margin-bottom: 240px;
 }
 
@@ -22,6 +22,13 @@
 
 .Domain ul li {
     list-style-position: inside;
+    /* padding-left: 24px; */
+    /* bac[
+        diskground-color: aliceblue; */
+}
+
+li::marker {
+    display: block;
 }
 
 .domainHeading {
@@ -56,6 +63,25 @@
     margin-top: 8px;
     margin-left: 24px;
     /* background-color: #FAC949; */
+}
+
+@media(max-width:2500px) and (min-width:1500px) {
+    .domainHeading {
+        font-size: 1.6rem;
+    }
+
+    .domainText {
+        font-size: 1.4rem;
+        line-height: 28px;
+    }
+
+    .domainHead {
+        font-size: 2.5rem;
+    }
+
+    .Domain {
+        margin-bottom: 280px;
+    }
 }
 
 @media(max-width:600px) {

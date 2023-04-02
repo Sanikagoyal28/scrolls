@@ -1,10 +1,9 @@
-
-#error{
+#error {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top:60px;
+    padding-top: 60px;
 }
 
 .error {
@@ -28,5 +27,13 @@
 #errorImage {
     width: 45vw;
     height: 35vh;
-    margin-bottom:24px;
+    margin-bottom: 24px;
+}
+
+
+@media(max-width:2500px) and (min-width:1500px) {
+    .errorHead {
+        font-size: 3rem;
+        margin-top: 8px;
+    }
 }

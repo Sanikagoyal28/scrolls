@@ -1,7 +1,7 @@
 .updates {
     display: flex;
     flex-direction: column;
-    padding: 116px 10vw 40px 6vw;
+    padding: 116px 8vw 40px 6vw;
     margin-bottom: 240px;
 }
 
@@ -47,9 +47,25 @@
     margin-top: 0;
 }
 
+
 @media(max-width:600px) {
     .updates {
         padding-left: 6vw;
         padding-right: 5vw;
+    }
+}
+
+@media(max-width:2500px) and (min-width:1500px) {
+    .updHead {
+        font-size: 1.6rem;
+
+    }
+
+    .updText {
+        font-size: 1.3rem;
+    }
+
+    .updates {
+        margin-bottom: 280px;
     }
 }

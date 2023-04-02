@@ -413,6 +413,47 @@
     cursor: pointer;
 }
 
+@media(max-width:2500px) and (min-width:1500px) {
+    .navHead, .navDbC, .navDbT, .navTitle, .logout{
+        font-size: 1.2rem;
+    }
+    .navScroll{
+        font-size: 2rem;
+        top:4px;
+    }
+    .navRegister, .navLogin{
+        width:7vw;
+        font-size: 1.2rem;
+    }
+    #dropdown{
+        left:37.5vw;
+    }
+    #dropdown ul li{
+        width:10vw;
+    }
+    .navFlexLogin{
+        margin-left: 10vw;
+    }
+}
+
+@media(max-width:2000px) and (min-width:1500px) {
+    #dropdown{
+        left:36vw;
+    }
+    #dropdown ul li{
+        width:12vw;
+    }
+}
+
+@media(max-width:1700px) and (min-width:1500px) {
+    #dropdown{
+        left:35vw;
+    }
+    #dropdown ul li{
+        width:13vw;
+    }
+}
+
 @media(max-width:1380px) {
     .navScroll {
         margin-top: 4px;

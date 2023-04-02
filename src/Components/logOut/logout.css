@@ -37,7 +37,7 @@
 }
 
 .logoutbtn1 {
-    width: 18vw;
+    width: 16vw;
     height: 38px;
     background: #FAC949;
     border-radius: 8px;
@@ -55,10 +55,10 @@
 
 .logoutbtn2 {
     box-sizing: border-box;
-    width: 18vw;
+    width: 16vw;
     height: 38px;
     background: #F2F2F2;
-   border: none;
+    border: none;
     border-radius: 8px;
     font-family: 'Montserrat';
     font-style: normal;
@@ -66,50 +66,112 @@
     font-size: 16px;
     line-height: 20px;
     text-align: center;
+    color:#FAC949;
 }
 
 .logoutImage {
     width: 240px;
     height: 200px;
     margin-top: 100px;
-    margin-left:0vw;
+    margin-left: 0vw;
+}
+
+@media(max-width:2500px) and (min-width:1500px) {
+
+    .logoutbtn1,
+    .logoutbtn2 {
+        width: 9vw;
+    }
+
+    .lOut2 {
+        margin-left: -1.5vw;
+    }
+
+    .logoutImage {
+        width: 260px;
+        height: 260px;
+        margin-top: 65px;
+    }
+
+    .logoutText1 {
+        font-size: 1.4rem;
+    }
+
+    .logoutText2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media(max-width:2020px) and (min-width:1500px) {
+
+    .logoutbtn1,
+    .logoutbtn2 {
+        width: 11vw;
+    }
+}
+
+@media(max-width:2020px) and (min-width:1400px) {
+    .logoutImage {
+        width: 280px;
+        height: 280px;
+        margin-top: 50px;
+    }
+
+    .lOut2 {
+        margin-left: -2vw;
+    }
+
+    .logoutbtn1,
+    .logoutbtn2 {
+        width: 14vw;
+    }
+}
+
+@media(max-width:1500px) and (min-width:1400px)  {
+    .lOut2 {
+        margin-left: 0vw;
+    }
 }
 
 @media (max-width:1350px) {
+
     /* .logoutImage {
         width: 200px;
         margin-left: 0vw;
     } */
-    .lOut2{
+    .lOut2 {
         margin-left: -1vw;
     }
 }
 
 @media (max-width:1290px) {
-    .lOut2{
+    .lOut2 {
         margin-left: -2vw;
     }
-    .logoutbtn1, .logoutbtn2 {
-        width:16vw;
+
+    .logoutbtn1,
+    .logoutbtn2 {
+        width: 16vw;
     }
 }
 
 @media (max-width:1200px) {
-    .lOut2{
+    .lOut2 {
         margin-left: -4vw;
     }
 }
 
 @media (max-width:1100px) {
-    .lOut2{
+    .lOut2 {
         margin-left: -6vw;
     }
 }
 
 @media (max-width:1000px) {
-    .lOut2{
+    .lOut2 {
         margin-left: -8vw;
     }
+
     .logoutDiv {
         width: 44vw;
     }
@@ -117,85 +179,102 @@
 
 
 @media (max-width:900px) {
-    .lOut2{
+    .lOut2 {
         margin-left: -10vw;
     }
 }
 
 
 @media (max-width:800px) {
-    .lOut2{
+    .lOut2 {
         margin-left: -12vw;
     }
+
     .logoutDiv {
         width: 48vw;
     }
-    .logoutbtn1, .logoutbtn2{
-        width:17vw;
+
+    .logoutbtn1,
+    .logoutbtn2 {
+        width: 17vw;
     }
 }
 
 @media (max-width:700px) {
-    .lOut2{
+    .lOut2 {
         margin-left: -14vw;
     }
+
     .logoutDiv {
         width: 60vw;
     }
-    .logoutbtn1, .logoutbtn2{
-        width:22vw;
+
+    .logoutbtn1,
+    .logoutbtn2 {
+        width: 22vw;
     }
 }
 
 @media (max-width:600px) {
-    .lOut2{
+    .lOut2 {
         margin-left: -16vw;
     }
+
     .logoutDiv {
         width: 68vw;
     }
-    .logoutbtn1, .logoutbtn2{
-        width:24vw;
+
+    .logoutbtn1,
+    .logoutbtn2 {
+        width: 24vw;
     }
 }
 
 @media (max-width:500px) {
-    .lOut2{
+    .lOut2 {
         margin-left: -24vw;
     }
+
     .logoutDiv {
         width: 80vw;
     }
-    .logoutbtn1, .logoutbtn2{
-        width:30vw;
+
+    .logoutbtn1,
+    .logoutbtn2 {
+        width: 30vw;
     }
 }
 
 @media (max-width:400px) {
     .logoutDiv {
         width: 90vw;
-        height:300px;
+        height: 300px;
     }
-    .logoutbtn1, .logoutbtn2{
-        width:34vw;
+
+    .logoutbtn1,
+    .logoutbtn2 {
+        width: 34vw;
     }
-    .logoutImage{
-        width:220px;
-        height:180px;
-       
+
+    .logoutImage {
+        width: 220px;
+        height: 180px;
+
     }
-    .lOut2{
+
+    .lOut2 {
         margin-left: -28vw;
     }
 }
 
-@media(max-width:360px){
-    .logoutImage{
-        width:190px;
-        height:170px;
-        margin-top:114px;
+@media(max-width:360px) {
+    .logoutImage {
+        width: 190px;
+        height: 170px;
+        margin-top: 114px;
     }
-    .lOut2{
+
+    .lOut2 {
         margin-left: -34vw;
     }
 }

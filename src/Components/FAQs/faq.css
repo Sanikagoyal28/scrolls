@@ -1,7 +1,7 @@
 .FAQ{
     display: flex;
     flex-direction: column;
-    padding: 116px 10vw 40px 6vw;
+    padding: 116px 8vw 40px 6vw;
     margin-bottom: 240px;
 }
 
@@ -64,6 +64,18 @@
     border-bottom-width: 2px;
     margin-bottom: 16px;
     margin-top:0;
+}
+
+@media(max-width:2500px) and (min-width:1500px) {
+    .question{
+        font-size: 1.6rem;
+    }
+    .answer{
+        font-size: 1.4rem;
+    }
+    .FAQ{
+        margin-bottom: 280px;
+    }
 }
 
 @media(max-width:800px) {

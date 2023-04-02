@@ -508,6 +508,154 @@ body {
     overflow: hidden;
 }
 
+
+@media(max-width:2500px) and (min-width:1500px) {
+    .landText1 {
+        font-size: 5rem;
+        line-height: 108px;
+    }
+
+    .landText2 {
+        font-size: 1.5rem;
+        line-height: 40px;
+    }
+
+    .landRegister {
+        width: 11vw;
+        font-size: 1.3rem;
+    }
+
+    #text1Border,
+    .aboutScroll {
+        width: 16vw;
+    }
+
+    #text1Border {
+        margin-left: 32vw;
+    }
+
+    #domainBorder {
+        width: 16vw;
+        margin-left: 34vw;
+    }
+
+    #timelineBorder {
+        width: 16vw;
+        margin-left: 43vw;
+    }
+
+    .aboutHead {
+        font-size: 1.5rem;
+        margin-left: 20vw;
+        line-height: 24px;
+    }
+
+    .aboutText {
+        font-size: 1.3rem;
+        line-height: 30px;
+    }
+
+    .landDomain {
+        padding-left: 10vw;
+    }
+
+    .domainCard1,
+    .domainCard2 {
+        width: 23vw;
+        height: 340px;
+        margin-right: 6vw;
+        margin-top: 80px;
+    }
+
+    .domainText1,
+    .domainText2 {
+        font-size: 1.5rem;
+    }
+
+    .domainLogo1,
+    .domainLogo2 {
+        width: 85px;
+        height: 80px;
+    }
+
+    .footHead {
+        font-size: 2.2rem;
+    }
+
+    .footHead2 {
+        font-size: 1.4rem;
+        line-height: 32px;
+        margin-bottom: 12px;
+    }
+
+    #telephone {
+        font-size: 1.4rem;
+    }
+
+    .footFlexRow a p {
+        font-size: 1.15rem;
+        line-height: 24px;
+    }
+
+    .footFlexRow p,
+    #link,
+    #formLink {
+        font-size: 1.15rem;
+        line-height: 24px;
+    }
+
+    .footText {
+        font-size: 1.1rem;
+    }
+
+    .landFooter {
+        height: 310px;
+    }
+
+    #instagram,
+    #horizon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media(max-width:1830px) and (min-width:1500px) {
+
+    .landBlock1,
+    .landImage,
+    #loginBg {
+        height: 680px;
+    }
+
+    .landRegister {
+        width: 13vw;
+    }
+
+    #text1Border,
+    .aboutScroll {
+        width: 17vw;
+        font-size: 1.8rem;
+    }
+
+    #text1Border {
+        margin-left: 31vw;
+    }
+
+    #domainBorder {
+        width: 17vw;
+        margin-left: 33vw;
+    }
+
+    #timelineBorder {
+        width: 17vw;
+        margin-left: 42vw;
+    }
+
+    .landFooter {
+        height: 336px;
+    }
+}
+
 @media (max-width:1500px) {
     #loginBg {
         overflow: hidden;

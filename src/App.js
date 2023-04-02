@@ -22,6 +22,7 @@ function App() {
 
   const team = localStorage.getItem("accessToken") ? true : false
   const ca = localStorage.getItem("CA_ID") ? true : false
+  console.log(ca)
   const dispatch = useDispatch();
   useEffect(() => {
     if (ca) {
@@ -40,9 +41,9 @@ function App() {
       <Routes>
         <Route path="/" exact element={<LandingPage />} />
         {/* <Route path="/ca_db" element={<CaDB />} /> */}
-        {/* <Route path="/team_db" exact element={<TeamDB />} /> */}
+        <Route path="/team_db" exact element={<TeamDB />} />
         {ca && <Route path="/ca_db" element={<CaDB />} />}
-        {team ? <Route path="/team_db" exact element={<TeamDB />} /> : null}
+        {/* {team ? <Route path="/team_db" exact element={<TeamDB />} /> : null} */}
         <Route path="/updates" exact element={<Update />} />
         {/* <Route path="/previous_year" exact element={<PreviousYear />} /> */}
         <Route path="/faq" exact element={<FAQ />} />
