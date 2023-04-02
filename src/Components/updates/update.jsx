@@ -15,9 +15,6 @@ function Update() {
         <div className="updates">
             <p className="dashboard" id="update">Updates</p>
             <UpdCard text="Registrations are live now" head="Registrations" />
-            <UpdCard text="Registrations are live now" head="Registrations" />
-            <UpdCard text="Registrations are live now" head="Registrations" />
-            <UpdCard text="Registrations are live now" head="Registrations" />
             {/* <div className="updText">
                 <ul>
                     <li>1.  The ongoing conflict between Ukraine and Russia has had several impacts on the world economy. There are some possible effects on Energy prices, Trade, Tourism, </li>
