@@ -19,6 +19,11 @@ function CaDB() {
     const [college, setCollege] = useState('')
     const [teams, setTeams] = useState([])
     const [leaderboard, setLeaderboard] = useState([])
+
+    useEffect(()=>{
+        window.scroll(0,0)
+    },[])
+    
     useEffect(() => {
         dispatch(CADBThunk())
     }, [])

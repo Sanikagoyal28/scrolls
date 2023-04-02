@@ -67,6 +67,10 @@ function TeamDB() {
     const prevPap = usePrevious(uplPaper)
 
     useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
+
+    useEffect(() => {
         dispatch(TeamDBThunk())
     }, [])
     useEffect(() => {
@@ -386,13 +390,16 @@ function TeamDB() {
                     <p className="dbHead">Synopsis</p>
                     <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
                 </div>
+
                 {synopsis === '' || synopsis === null ? <>
                     {(uplSyn.length == 0) ?
-                        <div className="file_box">
-                            <label for="uploadSyn"><img src={file} onClick={() => { handleSynopsis() }} className="fileIcon" /></label>
-                            <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" disabled={((topic === '' && domain === '') && (uplDom === "" && uplTop === "") || (uplDom != "" && uplTop === "")) ? true : false} onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
-                            <p className="uploadText">Click to upload</p>
-                        </div> : <div id="dbFiles">
+                        <label for="uploadSyn">
+                            <div className="file_box">
+                                <label for="uploadSyn"><img src={file} onClick={() => { handleSynopsis() }} className="fileIcon" /></label>
+                                <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" disabled={((topic === '' && domain === '') && (uplDom === "" && uplTop === "") || (uplDom != "" && uplTop === "")) ? true : false} onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
+                                <label for="uploadSyn"><p className="uploadText">Click to upload</p></label>
+                            </div>
+                        </label> : <div id="dbFiles">
                             <div className="teamID_box">{uplSyn.name}</div>
                             <div className="fileFlex">
                                 <label for="uploadSyn" id="editFile">Edit</label>
@@ -416,11 +423,13 @@ function TeamDB() {
 
                     {paper === "" || paper === null ? <>
                         {(uplPaper.length == 0) ?
-                            <div className="file_box">
-                                <label for="uploadFile"><img src={file} onClick={() => { handlePaper() }} className="fileIcon" /></label>
-                                <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" disabled={(!selected) ? true : false} onChange={(e) => { handleChange(e) }} hidden />
-                                <p className="uploadText">Click to upload</p>
-                            </div> : <div id="dbFiles">
+                            <label for="uploadFile">
+                                <div className="file_box">
+                                    <label for="uploadFile"><img src={file} onClick={() => { handlePaper() }} className="fileIcon" /></label>
+                                    <input type="file" id="uploadFile" accept=".doc, .docx, .pdf" disabled={(!selected) ? true : false} onChange={(e) => { handleChange(e) }} hidden />
+                                    <label for="uploadFile"><p className="uploadText">Click to upload</p></label>
+                                </div>
+                            </label> : <div id="dbFiles">
                                 <div className="teamID_box">{uplPaper.name}</div>
                                 <div className="fileFlex">
                                     <label for="uploadFile" id="editFile">Edit</label>

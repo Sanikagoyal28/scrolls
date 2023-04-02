@@ -19,9 +19,9 @@
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 24px;
     color: #999999;
-    margin-top: 8px;
+    margin-top: 0px;
     margin-bottom: 8px;
 }
 
@@ -37,7 +37,7 @@
 .dbHR2 {
     background: #D9D9D9;
     border-radius: 2px;
-    width: 34vw;
+    width: 48vw;
     margin-bottom: 32px;
 }
 
@@ -154,6 +154,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 #uplPaper1 {
@@ -192,7 +193,7 @@
     font-size: 0.75rem;
     line-height: 10px;
     color: #000000;
-
+    cursor: pointer;
 }
 
 #editFile,
@@ -310,7 +311,7 @@ table {
 
 #dbDialog {
     position: absolute;
-    top: 240px;
+    top: 250px;
     right: 6vw;
     width: 22vw;
     /* height: 160px; */
@@ -457,6 +458,7 @@ table {
     .file_box {
         width: 12vw;
     }
+
     .member_box,
     .member_box_data,
     .team_box_data,
@@ -489,6 +491,10 @@ table {
 
     #dbDialog {
         width: 24vw;
+    }
+
+    .dbHR2 {
+        width: 53vw;
     }
 }
 
@@ -523,7 +529,7 @@ table {
     }
 
     .dbHR2 {
-        width: 45vw;
+        width: 55vw;
     }
 
     .member_box,
@@ -572,6 +578,10 @@ table {
     .dbOuterDiv {
         padding-left: 6vw;
         padding-right: 4vw;
+    }
+
+    .dbHR2 {
+        width: 58vw;
     }
 }
 
@@ -657,9 +667,15 @@ table {
     table {
         width: 58vw;
     }
+    .dbHR2{
+        width:60vw;
+    }
 }
 
 @media(max-width:500px) {
+    .dbOuterDiv {
+        padding-bottom: 360px;
+    }
 
     .teamID_box,
     .synopsis {
@@ -678,7 +694,7 @@ table {
     }
 
     .dbHR2 {
-        width: 50vw;
+        width: 70vw;
     }
 
     .member_box,
@@ -737,6 +753,9 @@ table {
     #dbDialog {
         width: 34vw;
     }
+    .dbHR2 {
+        width: 78vw;
+    }
 }
 
 @media (max-width:400px) {
@@ -749,7 +768,7 @@ table {
     }
 
     .dbHR2 {
-        width: 55vw;
+        width: 83vw;
     }
 
     .member_box,
@@ -775,7 +794,7 @@ table {
     }
 
     .dbHR2 {
-        width: 55vw;
+        width: 87vw;
     }
 
     .dbCancel,

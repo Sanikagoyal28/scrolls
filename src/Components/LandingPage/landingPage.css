@@ -31,7 +31,8 @@ body {
     z-index: 5;
     display: flex;
     flex-direction: column;
-    margin-bottom: 240px;
+    margin-bottom: 140px;
+    padding-bottom: 100px;
 }
 
 .landBlock1 {
@@ -392,7 +393,7 @@ body {
 .footFlexRow {
     display: flex;
     padding: 0px;
-    gap: 16px;
+    gap: 8px;
     /* margin-top: 8px; */
     /* width: 20vw; */
 }
@@ -781,6 +782,15 @@ body {
     }
 }
 
+@media(max-width:900px) {
+
+    .landBlock1,
+    .landImage,
+    #loginBg {
+        height: 630px;
+    }
+}
+
 @media(max-width:850px) {
     .aboutScroll {
         font-size: 1.5rem;
@@ -1011,7 +1021,7 @@ body {
     }
 }
 
-@media(max-width:635px) {
+@media(max-width:640px) {
     .landText1 {
         width: 80vw;
         font-size: 3.5rem;
@@ -1162,6 +1172,12 @@ body {
     }
 }
 
+@media(max-width:540px) {
+    .landFooter {
+        height: 290px;
+    }
+}
+
 @media(max-width:510px) {
     .footText {
         top: -10px;
@@ -1278,7 +1294,13 @@ body {
 
     .footText {
         top: 10px;
-        margin-left: -8vw;
+        margin-right: 2vw;
+        margin-left: -5vw;
+        /* margin-left: -8vw; */
+    }
+
+    .landingPage {
+        padding-bottom: 400px;
     }
 }
 

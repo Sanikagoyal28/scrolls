@@ -164,10 +164,10 @@
     border-radius: 4px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #252525;
+    color: #fff;
     margin-right: 1.5vw;
     margin-bottom: 12px;
 }
@@ -219,6 +219,7 @@
     z-index: 8;
     /* visibility: ; */
     display: flex;
+    display: none;
 }
 
 #crossimg {
@@ -414,43 +415,56 @@
 }
 
 @media(max-width:2500px) and (min-width:1500px) {
-    .navHead, .navDbC, .navDbT, .navTitle, .logout{
+
+    .navHead,
+    .navDbC,
+    .navDbT,
+    .navTitle,
+    .logout {
         font-size: 1.2rem;
     }
-    .navScroll{
+
+    .navScroll {
         font-size: 2rem;
-        top:4px;
+        top: 4px;
     }
-    .navRegister, .navLogin{
-        width:7vw;
+
+    .navRegister,
+    .navLogin {
+        width: 7vw;
         font-size: 1.2rem;
     }
-    #dropdown{
-        left:37.5vw;
+
+    #dropdown {
+        left: 37.5vw;
     }
-    #dropdown ul li{
-        width:10vw;
+
+    #dropdown ul li {
+        width: 10vw;
     }
-    .navFlexLogin{
+
+    .navFlexLogin {
         margin-left: 10vw;
     }
 }
 
 @media(max-width:2000px) and (min-width:1500px) {
-    #dropdown{
-        left:36vw;
+    #dropdown {
+        left: 36vw;
     }
-    #dropdown ul li{
-        width:12vw;
+
+    #dropdown ul li {
+        width: 12vw;
     }
 }
 
 @media(max-width:1700px) and (min-width:1500px) {
-    #dropdown{
-        left:35vw;
+    #dropdown {
+        left: 35vw;
     }
-    #dropdown ul li{
-        width:13vw;
+
+    #dropdown ul li {
+        width: 13vw;
     }
 }
 
@@ -533,7 +547,7 @@
     }
 
     #dropdown ul li {
-        width: 18vw;
+        width: 20vw;
     }
 }
 
@@ -682,7 +696,13 @@
     .liRegister {
         margin-bottom: 0;
     }
+
+    #uli {
+        display: flex;
+        width: 0;
+    }
 }
+
 
 @media(max-width:450px) {
     #menu {

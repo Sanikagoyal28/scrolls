@@ -1,18 +1,19 @@
-.FAQ{
+.FAQ {
     display: flex;
     flex-direction: column;
     padding: 116px 8vw 40px 6vw;
     margin-bottom: 240px;
 }
 
-#Faqs{
-    margin-bottom:24px;
+#Faqs {
+    margin-bottom: 24px;
 }
 
 .FAQ ul {
     padding-left: 1vw;
 }
-.FAQ ul li{
+
+.FAQ ul li {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -25,10 +26,10 @@
     word-wrap: break-word;
     color: rgba(0, 0, 0, 0.8);
     margin-bottom: 8px;
-    list-style-position: inside; 
+    list-style-position: inside;
 }
 
-.question{
+.question {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -43,7 +44,7 @@
     word-wrap: break-word;
 }
 
-.answer{
+.answer {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -55,25 +56,27 @@
     white-space: -o-pre-wrap;
     word-wrap: break-word;
     color: rgba(0, 0, 0, 0.8);
-    margin-bottom:16px;
+    margin-bottom: 16px;
 }
 
-.faqLine{
+.faqLine {
     background: #D9D9D9;
     border-radius: 2px;
     border-bottom-width: 2px;
     margin-bottom: 16px;
-    margin-top:0;
+    margin-top: 0;
 }
 
 @media(max-width:2500px) and (min-width:1500px) {
-    .question{
+    .question {
         font-size: 1.6rem;
     }
-    .answer{
+
+    .answer {
         font-size: 1.4rem;
     }
-    .FAQ{
+
+    .FAQ {
         margin-bottom: 280px;
     }
 }
@@ -89,5 +92,11 @@
     .FAQ {
         padding-left: 6vw;
         padding-right: 5vw;
+    }
+}
+
+@media(max-width:520px) {
+    .FAQ {
+        padding-bottom: 360px;
     }
 }
