@@ -40,9 +40,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" exact element={<LandingPage />} />
-        {/* <Route path="/ca_db" element={<CaDB />} /> */}
+        <Route path="/ca_db" element={<CaDB />} />
         <Route path="/team_db" exact element={<TeamDB />} />
-        {ca && <Route path="/ca_db" element={<CaDB />} />}
+        {/* {ca && <Route path="/ca_db" element={<CaDB />} />} */}
         {/* {team ? <Route path="/team_db" exact element={<TeamDB />} /> : null} */}
         <Route path="/updates" exact element={<Update />} />
         {/* <Route path="/previous_year" exact element={<PreviousYear />} /> */}
