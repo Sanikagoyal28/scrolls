@@ -17,6 +17,7 @@ import { setTitle } from "./Redux/heading";
 import Rules from "./Components/rules/Rules";
 import CA from "./Components/LandingPage/CA";
 import Error from "./Components/404/404";
+import Timeline from "./Components/LandingPage/timeline";
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
         <Route path="/ca" exact element={<CA />} />
 
         <Route path="*" element={<Error />} />
+        <Route path="/timeline" element={<Timeline />} />
       </Routes>
     </BrowserRouter>
   </>

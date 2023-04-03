@@ -94,11 +94,6 @@ li::marker {
     .Domain {
         padding-left: 6vw;
         padding-right: 5vw;
-    }
-}
-
-@media(max-width:510px) {
-    .Domain {
         padding-bottom: 320px;
     }
 }

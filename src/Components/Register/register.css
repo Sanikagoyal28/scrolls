@@ -1436,14 +1436,28 @@
         /* margin-left: 0; */
     }
 
+    .forgotPass{
+        top:290px;
+        right:8vw;
+    }
+
     .otpInput {
         width: 11vw;
         margin-right: 2.5vw
     }
 }
 
-@media(max-width:330px) {
+@media(max-width:340px){
+    #caFgtpass{
+        top:338px;
+    }
+}
 
+@media(max-width:325px) {
+    .forgotPass{
+        top:310px;
+        right:7vw;
+    }
     .regFlex {
         margin-left: 2vw;
         margin-right: 12vw;

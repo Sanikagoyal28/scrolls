@@ -16,13 +16,16 @@ function ForgotTeam() {
     const reducer = useSelector((s) => s.login)
     const [email, setEmail] = useState("")
     const [loader, setLoader] = useState(false)
+    const [bool, setBool] = useState(false)
     const rightemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     useEffect(() => {
         if (rightemail.test(email)) {
             document.getElementById("wrongEmailLog1").style.display = "none";
+            setBool(true)
         } else if (email) {
             document.getElementById("wrongEmailLog1").style.display = "block";
+            setBool(false)
         }
     }, [email]);
 
@@ -39,19 +42,22 @@ function ForgotTeam() {
 
     function ForgotPassword(e) {
         e.preventDefault();
-        if (!token) {
-            toast.error("Please verify the captcha", {
-                position: "top-right",
-                theme: "light",
-                autoClose: 5000,
-            });
+        if (bool) {
+            if (!token) {
+                toast.error("Please verify the captcha", {
+                    position: "top-right",
+                    theme: "light",
+                    autoClose: 5000,
+                });
+            }
         }
+
         const data = {
             email,
             "g-recaptcha-response": valu
         }
-        localStorage.setItem("login_email",email)
-        if (token && email) {
+        localStorage.setItem("login_email", email)
+        if (token && email && bool) {
             dispatch(FgtTeamThunk(data)).
                 then((res) => {
                     var y = res.payload.data.msg.replace(

@@ -966,6 +966,10 @@ body {
         font-size: 0.9rem;
     }
 
+    #telephone {
+        margin-bottom: 8px;
+    }
+
     #footFlex3 {
         margin-left: -2vw;
     }
@@ -1070,7 +1074,7 @@ body {
         margin-left: 2vw;
     }
 
-    .footHead {
+    /* .footHead {
         font-size: 1.3rem;
     }
 
@@ -1095,7 +1099,7 @@ body {
     .footFlexRow>p,
     .footFlexRow a p {
         font-size: 0.68rem;
-    }
+    } */
 
     .landText1 {
         width: 86vw;
@@ -1132,6 +1136,66 @@ body {
         top: 44px;
     }
 
+    #footer {
+        flex-direction: column;
+    }
+
+    .landFooter {
+        height: 525px;
+        padding-top: 36px;
+        padding-left: 8vw;
+    }
+
+    .footHead {
+        font-size: 1.7rem;
+    }
+
+    .footHead2 {
+        font-size: 1rem;
+        width: 70vw;
+    }
+
+    #telephone {
+        font-size: 1rem;
+        margin-bottom: 12px;
+        /* margin-top: 8px; */
+    }
+
+    #phone {
+        margin-top: 4px;
+    }
+
+    #footFlex2,
+    #footFlex3,
+    #footFlex4 {
+        margin-left: 0;
+        margin-top: 16px;
+    }
+
+    #footFlex2Row {
+        margin-left: -6vw;
+    }
+
+    #soonDialog {
+        width: 64vw;
+    }
+
+    .footText {
+        top: 54px;
+        margin-right: 2vw;
+        margin-left: -5vw;
+        /* margin-left: -8vw; */
+    }
+
+    .landingPage {
+        padding-bottom: 400px;
+    }
+}
+
+@media(max-width:580px) {
+    .footText {
+        top: 32px;
+    }
 }
 
 @media(max-width:564px) {
@@ -1159,10 +1223,6 @@ body {
         left: 6vw;
     }
 
-    .footIcons {
-        margin-left: 56vw;
-    }
-
     .domainCard1,
     .domainCard2 {
         width: 40vw;
@@ -1183,10 +1243,11 @@ body {
     #soonDialog {
         width: 60vw;
     }
+}
 
+@media(max-width:540px){
     .footText {
-        top: 24px;
-        font-size: 10px;
+        top: 12px;
     }
 }
 
@@ -1241,61 +1302,6 @@ body {
 
     #timelineBorder {
         width: 38vw;
-    }
-
-    #footer {
-        flex-direction: column;
-    }
-
-    .landFooter {
-        height: 525px;
-        padding-top: 36px;
-        padding-left: 8vw;
-    }
-
-    .footHead {
-        font-size: 1.7rem;
-    }
-
-    .footHead2 {
-        font-size: 1rem;
-        width: 70vw;
-    }
-
-    #telephone {
-        font-size: 1rem;
-        margin-bottom: 12px;
-        /* margin-top: 8px; */
-    }
-
-    #phone {
-        margin-top: 4px;
-    }
-
-    #footFlex2,
-    #footFlex3,
-    #footFlex4 {
-        margin-left: 0;
-        margin-top: 16px;
-    }
-
-    #footFlex2Row {
-        margin-left: -6vw;
-    }
-
-    #soonDialog {
-        width: 64vw;
-    }
-
-    .footText {
-        top: 32px;
-        margin-right: 2vw;
-        margin-left: -5vw;
-        /* margin-left: -8vw; */
-    }
-
-    .landingPage {
-        padding-bottom: 400px;
     }
 }
 
@@ -1366,7 +1372,7 @@ body {
     }
 
     .footText {
-        top: 34px;
+        top: 28px;
     }
 
 }
@@ -1429,10 +1435,6 @@ body {
     .aboutScroll {
         width: 50vw;
         font-size: 1.25rem;
-    }
-
-    .footText {
-        top: 30px;
     }
 }
 

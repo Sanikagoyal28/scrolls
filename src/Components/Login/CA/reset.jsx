@@ -18,6 +18,7 @@ function Reset() {
     const [show1, setShow1] = useState(false)
     const [show2, setShow2] = useState(false)
     const [loader, setLoader] = useState(false)
+    const [bool, setBool] = useState(false)
 
     const inputState = {
         pass: '',
@@ -34,8 +35,10 @@ function Reset() {
     useEffect(() => {
         if (rightpass.test(input.pass)) {
             document.getElementById("WrongPwd1").style.display = "none";
+            setBool(true)
         } else if (input.pass) {
             document.getElementById("WrongPwd1").style.display = "block";
+            setBool(false)
         }
     }, [input.pass]);
 
@@ -43,9 +46,11 @@ function Reset() {
         if (input.pass || input.confirmPass) {
             if (input.pass == input.confirmPass) {
                 document.getElementById("WrongPwd2").style.display = "none";
+                setBool(true)
             }
             else if (input.confirmPass) {
                 document.getElementById("WrongPwd2").style.display = "block";
+                setBool(false)
             }
         }
     }, [input.confirmPass, input.pass])
@@ -68,7 +73,7 @@ function Reset() {
             "otp": localStorage.getItem("login_otp"),
             "password": input.pass
         }
-        if (input.pass && input.confirmPass) {
+        if (bool) {
             dispatch(ResetCAThunk(data)).
                 then((res) => {
 

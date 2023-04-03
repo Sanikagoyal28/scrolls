@@ -76,7 +76,7 @@
     }
 }
 
-@media(max-width:505px) {
+@media(max-width:600px) {
     .updates {
         padding-bottom: 300px;
     }

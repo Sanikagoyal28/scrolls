@@ -17,12 +17,15 @@ function Forgot() {
     const [email, setEmail] = useState("")
     const [loader, setLoader] = useState(false)
     const rightemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const [bool, setBool] = useState(false)
 
     useEffect(() => {
         if (rightemail.test(email)) {
             document.getElementById("wrongEmailLog1").style.display = "none";
+            setBool(true)
         } else if (email) {
             document.getElementById("wrongEmailLog1").style.display = "block";
+            setBool(false)
         }
     }, [email]);
 
@@ -36,15 +39,16 @@ function Forgot() {
         setToken(true)
     }
 
-
-    function ForgotPassword() {
-
-        if (!token) {
-            toast.error("Please verify the captcha", {
-                position: "top-right",
-                theme: "light",
-                autoClose: 5000,
-            });
+    function ForgotPassword(e) {
+        e.preventDefault();
+        if (bool) {
+            if (!token) {
+                toast.error("Please verify the captcha", {
+                    position: "top-right",
+                    theme: "light",
+                    autoClose: 5000,
+                });
+            }
         }
         localStorage.setItem("login_email", email)
 
@@ -52,7 +56,7 @@ function Forgot() {
             email,
             "g-recaptcha-response": valu
         }
-        if (token && email) {
+        if (token && email && bool) {
             dispatch(FgtCAThunk(data)).
                 then((res) => {
 
@@ -100,19 +104,19 @@ function Forgot() {
                 <p className="heading">Forgot Password?</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <div className='allForm'>
-            <p className="forgotText">We’ll send you a One Time Password on this email.</p>
-            <p className="regName">Email</p>
-            <input type="text" required className="regInputname" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <p id="wrongEmailLog1">Please enter a valid Email address</p>
-            <div id="recaptcha">
-                <ReCAPTCHA
-                    sitekey={key}
-                    onChange={onChange}
-                />
-            </div>
-            <button className="regButton" onClick={ForgotPassword}>Continue</button>
-            </div>
+            <form className='allForm' onSubmit={ForgotPassword}>
+                <p className="forgotText">We’ll send you a One Time Password on this email.</p>
+                <p className="regName">Email</p>
+                <input type="text" required className="regInputname" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <p id="wrongEmailLog1">Please enter a valid Email address</p>
+                <div id="recaptcha">
+                    <ReCAPTCHA
+                        sitekey={key}
+                        onChange={onChange}
+                    />
+                </div>
+                <button className="regButton" type="submit">Continue</button>
+            </form>
         </div>
         <ToastContainer />
         {(loader) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}

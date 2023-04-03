@@ -92,11 +92,6 @@
     .FAQ {
         padding-left: 6vw;
         padding-right: 5vw;
-    }
-}
-
-@media(max-width:510px) {
-    .FAQ {
         padding-bottom: 360px;
     }
 }
