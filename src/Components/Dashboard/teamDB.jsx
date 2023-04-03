@@ -391,7 +391,7 @@ function TeamDB() {
                     <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
                 </div>
 
-                {synopsis === '' || synopsis === undefined ? <>
+                {synopsis === '' || synopsis === null || synopsis === undefined ? <>
                     {(uplSyn.length == 0) ?
                         <label for="uploadSyn">
                             <div className="file_box">
@@ -421,7 +421,7 @@ function TeamDB() {
                         <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
                     </div>
 
-                    {paper === "" || paper === null ? <>
+                    {paper === "" || paper === null || paper === undefined ? <>
                         {(uplPaper.length == 0) ?
                             <label for="uploadFile">
                                 <div className="file_box">

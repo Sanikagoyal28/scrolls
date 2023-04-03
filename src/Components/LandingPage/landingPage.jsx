@@ -13,6 +13,7 @@ import "./landingPage.css"
 import "./timeline.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import "react-toastify/scss/_closeButton.scss"
 import { InstagramEmbed } from 'react-social-media-embed';
 import Navbar from "../Navbar/navbar";
 import mobTimeline from "../Assets/mob_timeline.svg"
@@ -53,9 +54,9 @@ function LandingPage() {
         fourteen: false,
     })
 
-    useEffect(()=>{
-        window.scroll(0,0)
-    },[])
+    useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
 
     useEffect(() => {
         if (step.step == 0) {
@@ -156,14 +157,14 @@ function LandingPage() {
         }
     }, [reducerReg.loading])
 
-    // useEffect(() => {
-    //     var x = "Successfully registeres, please check your mail for scrollid"
-    //     toast.success("Successfully registeres, please check your mail for scrollid", {
-    //         position: "top-right",
-    //         theme: "light",
-    //         autoClose: 15000,
-    //     });
-    // }, [])
+    useEffect(() => {
+        var x = "Successfully registeres, please check your mail for scrollid"
+        toast.success("Successfully registeres, please check your mail for scrollid", {
+            position: "top-right",
+            theme: "light",
+            autoClose: 15000,
+        });
+    }, [])
 
     return <>
 
@@ -300,7 +301,7 @@ function LandingPage() {
             </div>
         </Dialog>
         {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
-        <ToastContainer />
+        <ToastContainer bodyClassName="toastBody" />
     </>
 }
 
