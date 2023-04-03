@@ -48,7 +48,7 @@
 }
 
 .navScroll {
-    width: 10vw;
+    width: fit-content;
     font-family: 'Sora';
     font-style: normal;
     font-weight: 500;
@@ -471,7 +471,7 @@
 @media(max-width:1380px) {
     .navScroll {
         margin-top: 4px;
-        width: 16vw;
+        /* width: 16vw; */
     }
 
     #dropdown {
@@ -553,7 +553,7 @@
 
 @media(max-width:870px) {
     .navScroll {
-        width: 18vw;
+        /* width: 18vw; */
     }
 
     #moreDD2 {
@@ -573,7 +573,7 @@
     }
 
     .navScroll {
-        width: 20vw;
+        /* width: 20vw; */
     }
 
     .navRegister,
@@ -605,7 +605,7 @@
 
 @media(max-width:690px) {
     .navScroll {
-        width: 22vw;
+        /* width: 22vw; */
         font-size: 1.5rem;
     }
 
@@ -637,7 +637,7 @@
 
 @media(max-width:600px) {
     .navScroll {
-        width: 30vw;
+        /* width: 30vw; */
     }
 
     .navFlex1,
@@ -710,7 +710,7 @@
     }
 
     .navScroll {
-        width: 48vw;
+        /* width: 48vw; */
     }
 
     #liDropdown {
@@ -743,7 +743,7 @@
     }
 
     .navScroll {
-        width: 60vw;
+        /* width: 60vw; */
     }
 
     #uli {

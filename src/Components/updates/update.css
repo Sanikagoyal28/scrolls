@@ -75,3 +75,9 @@
         padding-bottom: 100px;
     }
 }
+
+@media(max-width:505px) {
+    .updates {
+        padding-bottom: 300px;
+    }
+}

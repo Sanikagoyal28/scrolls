@@ -13,7 +13,7 @@ function Footer() {
                 <div id="footFlex1">
                     <p className="footHead">Scrolls<span className="navDot">.</span></p>
                     <p className="footHead2">Any questions or remarks? Just write us a message.</p>
-                    <p id="formLink"><a target="_blank" href="https://forms.gle/B35DF1KuWqkqocSKA">Google Form</a></p>
+                    <p id="formLink"><a target="_blank" href="https://forms.gle/B35DF1KuWqkqocSKA">Query Form</a></p>
                 </div>
                 <div id="footFlex2">
                     {/* <div id="footFlex2Row"> */}

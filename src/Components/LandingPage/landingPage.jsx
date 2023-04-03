@@ -53,6 +53,10 @@ function LandingPage() {
         fourteen: false,
     })
 
+    useEffect(()=>{
+        window.scroll(0,0)
+    },[])
+
     useEffect(() => {
         if (step.step == 0) {
             setStepDialog({

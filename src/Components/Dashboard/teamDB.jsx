@@ -391,7 +391,7 @@ function TeamDB() {
                     <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
                 </div>
 
-                {synopsis === '' || synopsis === null ? <>
+                {synopsis === '' || synopsis === undefined ? <>
                     {(uplSyn.length == 0) ?
                         <label for="uploadSyn">
                             <div className="file_box">
