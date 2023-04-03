@@ -435,7 +435,7 @@
     #LEye,
     #TEye,
     #CEye {
-        left: 19.5vw;
+        left: 19vw;
     }
 
     #registerAs {
@@ -840,6 +840,10 @@
     .forgotPass {
         top: 298px;
     }
+
+    .asRegister {
+        margin-left: 8.1vw;
+    }
 }
 
 @media (max-width:870px) {
@@ -917,7 +921,9 @@
     .regContinue,
     .forgotText {
         width: 42vw;
-        /* margin-left: 9vw; */
+    }
+    .asRegister {
+        margin-left: 9vw;
     }
 
     .regName,
@@ -954,6 +960,10 @@
 
     .allForm {
         margin-left: 9vw;
+    }
+
+    .forgotPass {
+        right: 11vw;
     }
 }
 
@@ -1233,13 +1243,13 @@
         font-size: 1.45rem;
     }
 
-    #recaptcha {
-        /* margin-left: 22vw; */
-        /* margin-left: 8.4vw; */
-    }
-
     .otpInput {
         width: 8vw;
+    }
+
+    .regFlex {
+        margin-left: 3vw;
+        margin-right: 3vw;
     }
 }
 
@@ -1270,11 +1280,6 @@
         width: 67vw;
         height: 44px;
     }
-
-    .inputPwd {
-        /* margin-left: 4.6vw; */
-    }
-
 
     #LEye,
     #TEye,
@@ -1353,7 +1358,7 @@
     }
 
     .regFlex {
-        margin-right: 7vw;
+        margin-right: 9vw;
     }
 
     .asRegister,
@@ -1401,6 +1406,7 @@
     .otpInput {
         width: 9vw;
     }
+
     #recaptcha {
         margin-left: -7vw;
     }
@@ -1428,36 +1434,48 @@
     #caFgtpass {
         top: 318px;
     }
+
+    .regFlex {
+        margin-right: 10vw;
+    }
+
+    .cross {
+        width: 16px;
+    }
 }
 
 @media(max-width:360px) {
     #recaptcha {
-        /* margin-left: 16vw; */
+        margin-left: -13vw;
         /* margin-left: 0; */
     }
 
-    .forgotPass{
-        top:290px;
-        right:8vw;
+    .forgotPass {
+        top: 290px;
+        right: 8vw;
     }
 
     .otpInput {
         width: 11vw;
         margin-right: 2.5vw
     }
+    #caFgtpass {
+        top: 336px;
+    }
 }
 
-@media(max-width:340px){
-    #caFgtpass{
-        top:338px;
+@media(max-width:340px) {
+    #caFgtpass {
+        top: 338px;
     }
 }
 
 @media(max-width:325px) {
-    .forgotPass{
-        top:310px;
-        right:7vw;
+    .forgotPass {
+        top: 310px;
+        right: 7vw;
     }
+
     .regFlex {
         margin-left: 2vw;
         margin-right: 12vw;

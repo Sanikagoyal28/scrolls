@@ -108,7 +108,7 @@ function LoginTeam () {
                     <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
                 </div>
                 <form className='allForm' onSubmit={LogTeam} id="loginForm">
-                <p className="regName">Team ID/ Email ID</p>
+                <p className="regName">Team ID / Email ID</p>
                 <input required type="text" className="regInputname" placeholder="Enter your email" value={login1.email} onChange={(e) => setLogin1({ ...login1, email: e.target.value })} />
                 {/* <p id="wrongEmailLog1">Please enter a valid Email address</p> */}
                 <p className="regName">Password</p>

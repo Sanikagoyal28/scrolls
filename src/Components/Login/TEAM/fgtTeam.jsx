@@ -107,7 +107,7 @@ function ForgotTeam() {
 
             <form className='allForm' onSubmit={ForgotPassword} id="loginForm">
                 <p className="forgotText">We’ll send you a One Time Password on this email.</p>
-                <p className="regName">Email</p>
+                <p className="regName">Email ID</p>
                 <input type="text" className="regInputname" required placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <p id="wrongEmailLog1">Please enter a valid Email address</p>
                 <div id="recaptcha">
