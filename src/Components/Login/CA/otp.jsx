@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { dialog8, dialog0, dialog10 } from "../../../Redux/step";
 import { FgtCAThunk, OtpCAThunk } from "../../../Redux/loginSlice";
 import OtpField from "react-otp-field"
+import { faYinYang } from "@fortawesome/free-solid-svg-icons";
 
 function Otp() {
 
@@ -44,8 +45,15 @@ function Otp() {
             dispatch(OtpCAThunk(data)).
                 then((res) => {
 
+                    var y = res.payload.data.msg.replace(
+                        /\w\S*/g,
+                        function (txt) {
+                            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                        }
+                    );
+
                     if (res.payload.status == 400) {
-                        toast.error(`${res.payload.data.msg}`, {
+                        toast.error(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -53,7 +61,7 @@ function Otp() {
                     }
                     if (res.payload.status == 200) {
                         dispatch(dialog10())
-                        toast.success(`${res.payload.data.msg}`, {
+                        toast.success(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,

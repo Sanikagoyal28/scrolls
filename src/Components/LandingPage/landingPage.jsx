@@ -157,17 +157,6 @@ function LandingPage() {
         }
     }, [reducerReg.loading])
 
-    // useEffect(() => {
-    //     var x = "Successfully registeres, please check your mail for scrollid"
-    //     toast.success({x.toUpperCase()}, {
-    //         position: "top-right",
-    //         theme: "light",
-    //         autoClose: 15000,
-    //     });
-    // }, [])
-
-
-
     return <>
 
         {/* <div style={{ display: 'flex', justifyContent: 'center', zIndex:"20", position:'fixed' }}>
@@ -303,7 +292,7 @@ function LandingPage() {
             </div>
         </Dialog>
         {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
-        <ToastContainer bodyClassName="toastBody" />
+        <ToastContainer />
     </>
 }
 

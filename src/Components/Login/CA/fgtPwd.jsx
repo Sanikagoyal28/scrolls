@@ -26,16 +26,16 @@ function Forgot() {
         }
     }, [email]);
 
-      //captcha
+    //captcha
 
-      const [valu, setValu] = useState('')
-      const [token, setToken] = useState(false);
-      const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
-      function onChange(value) {
-          setValu(value)
-          setToken(true)
-      }
-  
+    const [valu, setValu] = useState('')
+    const [token, setToken] = useState(false);
+    const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
+    function onChange(value) {
+        setValu(value)
+        setToken(true)
+    }
+
 
     function ForgotPassword() {
 
@@ -48,16 +48,24 @@ function Forgot() {
         }
         localStorage.setItem("login_email", email)
 
-        const data ={
+        const data = {
             email,
             "g-recaptcha-response": valu
         }
-       
+
         if (token && email) {
             dispatch(FgtCAThunk(data)).
                 then((res) => {
+
+                    var y = res.payload.data.msg.replace(
+                        /\w\S*/g,
+                        function (txt) {
+                            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                        }
+                    );
+
                     if (res.payload.status == 400) {
-                        toast.error(`${res.payload.data.msg}`, {
+                        toast.error(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -65,7 +73,7 @@ function Forgot() {
                     }
                     if (res.payload.status == 201) {
                         dispatch(dialog9())
-                        toast.success(`${res.payload.data.msg}`, {
+                        toast.success(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -98,11 +106,11 @@ function Forgot() {
             <input type="text" required className="regInputname" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
             <p id="wrongEmailLog1">Please enter a valid Email address</p>
             <div id="recaptcha">
-                    <ReCAPTCHA
-                        sitekey={key}
-                        onChange={onChange}
-                    />
-                </div>
+                <ReCAPTCHA
+                    sitekey={key}
+                    onChange={onChange}
+                />
+            </div>
             <button className="regButton" onClick={ForgotPassword}>Continue</button>
         </div>
         <ToastContainer />

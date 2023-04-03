@@ -219,16 +219,24 @@ function Member() {
         if (token && input.name && input.email && input.pass && input.gender && input.mobile && input.course && input.college && input.year) {
             dispatch(RegMemberThunk(data)).
                 then((res) => {
+
+                    var y = res.payload.data.msg.replace(
+                        /\w\S*/g,
+                        function (txt) {
+                            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                        }
+                    );
+
                     if (res.payload.status === 201) {
                         dispatch(dialog0())
-                        toast.success(`${res.payload.data.msg}`, {
+                        toast.success(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
                         });
                     }
                     else {
-                        toast.error(`${res.payload.data.msg}`, {
+                        toast.error(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,

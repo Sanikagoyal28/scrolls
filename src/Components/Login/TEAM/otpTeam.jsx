@@ -41,8 +41,16 @@ function OtpTeam() {
         if (value) {
             dispatch(OtpTeamThunk(data)).
                 then((res) => {
+
+                    var y = res.payload.data.msg.replace(
+                        /\w\S*/g,
+                        function (txt) {
+                            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                        }
+                    );
+
                     if (res.payload.status == 400) {
-                        toast.error(`${res.payload.data.msg}`, {
+                        toast.error(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -50,7 +58,7 @@ function OtpTeam() {
                     }
                     if (res.payload.status == 200) {
                         dispatch(dialog14())
-                        toast.success(`${res.payload.data.msg}`, {
+                        toast.success(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,

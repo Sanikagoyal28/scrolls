@@ -51,8 +51,16 @@ function Login() {
         }
             dispatch(LoginCAThunk(data)).
                 then((res) => {
+
+                    var y = res.payload.data.msg.replace(
+                        /\w\S*/g,
+                        function (txt) {
+                            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                        }
+                    );
+
                     if (res.payload.status == 400) {
-                        toast.error(`${res.payload.data.msg}`, {
+                        toast.error(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -62,7 +70,7 @@ function Login() {
                         localStorage.setItem("CA_ID",res.payload.data.id)
                         dispatch(dialog0())
                         dispatch(setTitle("CA"))
-                        toast.success(`${res.payload.data.msg}`, {
+                        toast.success(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,

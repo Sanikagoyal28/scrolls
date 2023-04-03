@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from "react-redux"
 import { ResetTeamThunk } from "../../../Redux/loginSlice";
-import { dialog13 ,dialog0, dialog11 } from "../../../Redux/step";
+import { dialog13, dialog0, dialog11 } from "../../../Redux/step";
 
 function ResetTeam() {
 
@@ -71,8 +71,16 @@ function ResetTeam() {
         if (input.pass && input.confirmPass) {
             dispatch(ResetTeamThunk(data)).
                 then((res) => {
+
+                    var y = res.payload.data.msg.replace(
+                        /\w\S*/g,
+                        function (txt) {
+                            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                        }
+                    );
+
                     if (res.payload.status == 400) {
-                        toast.error(`${res.payload.data.msg}`, {
+                        toast.error(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -80,7 +88,7 @@ function ResetTeam() {
                     }
                     if (res.payload.status == 200) {
                         dispatch(dialog11())
-                        toast.success(`${res.payload.data.msg}`, {
+                        toast.success(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -98,23 +106,23 @@ function ResetTeam() {
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
             <form onSubmit={ResetPassword} id="loginForm">
-            <p className="regName">New Password</p>
-            {show1 ? (
-                <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow1} />
-            ) : (
-                <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow1} />
-            )}
-            <input type={show1 ? "text" : "password"} className="regInputname inputPwd" required placeholder="Enter password" value={input.pass} onChange={(e) => setInput({ ...input, pass: e.target.value })} />
-            <p id="WrongPwd1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
-            <p className="regName">Confirm Password</p>
-            {show2 ? (
-                <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow2} />
-            ) : (
-                <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow2} />
-            )}
-            <input type={show2 ? "text" : "password"} className="regInputname inputPwd" required placeholder="Enter password" value={input.confirmPass} onChange={(e) => setInput({ ...input, confirmPass: e.target.value })} />
-            <p id="WrongPwd2">Password entered in two fields must be same.</p>
-            <button className="regButton" type="submit" >Reset Password</button>
+                <p className="regName">New Password</p>
+                {show1 ? (
+                    <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow1} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow1} />
+                )}
+                <input type={show1 ? "text" : "password"} className="regInputname inputPwd" required placeholder="Enter password" value={input.pass} onChange={(e) => setInput({ ...input, pass: e.target.value })} />
+                <p id="WrongPwd1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p>
+                <p className="regName">Confirm Password</p>
+                {show2 ? (
+                    <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow2} />
+                ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow2} />
+                )}
+                <input type={show2 ? "text" : "password"} className="regInputname inputPwd" required placeholder="Enter password" value={input.confirmPass} onChange={(e) => setInput({ ...input, confirmPass: e.target.value })} />
+                <p id="WrongPwd2">Password entered in two fields must be same.</p>
+                <button className="regButton" type="submit" >Reset Password</button>
             </form>
         </div>
         <ToastContainer />

@@ -125,15 +125,15 @@ function CA2() {
         setCA({ ...ca, gender: gender })
     }
 
-      //captcha
+    //captcha
 
-      const [valu, setValu] = useState('')
-      const [token, setToken] = useState(false);
-      const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
-      function onChange(value) {
-          setValu(value)
-          setToken(true)
-      }
+    const [valu, setValu] = useState('')
+    const [token, setToken] = useState(false);
+    const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
+    function onChange(value) {
+        setValu(value)
+        setToken(true)
+    }
 
     function RegAsCA() {
         if (!token) {
@@ -154,7 +154,7 @@ function CA2() {
                 "course": ca.otherCourse,
                 "college": ca.college,
                 "year_of_study": ca.year,
-                "g-recaptcha-response":valu
+                "g-recaptcha-response": valu
             }
         }
         else {
@@ -167,14 +167,22 @@ function CA2() {
                 "course": ca.course,
                 "college": ca.college,
                 "year_of_study": ca.year,
-                "g-recaptcha-response":valu
+                "g-recaptcha-response": valu
             }
         }
         if (isCA && token) {
             dispatch(RegCAThunk(data)).
                 then((res) => {
+
+                    var y = res.payload.data.msg.replace(
+                        /\w\S*/g,
+                        function (txt) {
+                            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                        }
+                    );
+
                     if (res.payload.status === 201) {
-                        toast.success(`${res.payload.data.msg}`, {
+                        toast.success(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -182,7 +190,7 @@ function CA2() {
                         dispatch(dialog0())
                     }
                     else {
-                        toast.error(`${res.payload.data.msg}`, {
+                        toast.error(y, {
                             position: "top-right",
                             theme: "light",
                             autoClose: 5000,
@@ -212,7 +220,7 @@ function CA2() {
                 <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
                 <img className="cross" id="back" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form onSubmit={(e)=>e.preventDefault()}>
+            <form onSubmit={(e) => e.preventDefault()}>
                 <p className="regName">Name</p>
                 <input required type="text" className="regInputname" id="input" placeholder="Enter your name" value={ca.name} onChange={(e) => setCA({ ...ca, name: e.target.value })} />
                 <p id="wrongNameCA">Name must contain only alphabetic characters.</p>
