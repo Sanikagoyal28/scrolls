@@ -99,7 +99,7 @@ function ForgotTeam() {
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
 
-            <form onSubmit={ForgotPassword} id="loginForm">
+            <form className='allForm' onSubmit={ForgotPassword} id="loginForm">
                 <p className="forgotText">We’ll send you a One Time Password on this email.</p>
                 <p className="regName">Email</p>
                 <input type="text" className="regInputname" required placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />

@@ -41,7 +41,7 @@ function CA1() {
                             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
                         }
                     );
-                    
+
                     if (res.payload.status === 200) {
                         toast.success(y, {
                             position: "top-right",
@@ -91,10 +91,12 @@ function CA1() {
                 <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
                 <img className="cross" id="back" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <p className="regName">Email ID</p>
-            <input type="text" className="regInputname" placeholder="Enter your email" required value={caEemail} onChange={(e) => setCAEmail(e.target.value)} />
-            <p id="wrongCAEmail">Please enter a valid Email address</p>
-            <button className="regContinue" onClick={() => { CAEmailCheck() }}>Continue</button>
+            <div className="allForm">
+                <p className="regName">Email ID</p>
+                <input type="text" className="regInputname" placeholder="Enter your email" required value={caEemail} onChange={(e) => setCAEmail(e.target.value)} />
+                <p id="wrongCAEmail">Please enter a valid Email address</p>
+                <button className="regContinue" onClick={() => { CAEmailCheck() }}>Continue</button>
+            </div>
         </div>
         <ToastContainer />
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}

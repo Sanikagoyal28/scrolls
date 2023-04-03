@@ -106,7 +106,7 @@ function LoginTeam () {
                     <p className="heading" id="registerCA">Login as <span id="member">Team</span></p>
                     <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
                 </div>
-                <form onSubmit={LogTeam} id="loginForm">
+                <form className='allForm' onSubmit={LogTeam} id="loginForm">
                 <p className="regName">Team ID/ Email ID</p>
                 <input required type="text" className="regInputname" placeholder="Enter your email" value={login1.email} onChange={(e) => setLogin1({ ...login1, email: e.target.value })} />
                 {/* <p id="wrongEmailLog1">Please enter a valid Email address</p> */}

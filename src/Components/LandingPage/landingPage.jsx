@@ -249,14 +249,20 @@ function LandingPage() {
         <Footer />
 
         <div className="Dialogue1">
-            <Dialog open={stepDialog.one}>
+            <Dialog open={stepDialog.one} PaperProps={{
+                sx: {
+
+                    maxWidth: 1000
+                }
+            }}>
                 <Register />
             </Dialog>
         </div>
         <Dialog open={stepDialog.two} PaperProps={{
             sx: {
                 maxHeight: 1300,
-                marginTop: 94
+                marginTop: 94,
+                maxWidth: 1000
             }
         }} >
             <Member />
@@ -265,26 +271,36 @@ function LandingPage() {
         <Dialog open={stepDialog.three} PaperProps={{
             sx: {
                 maxHeight: 1100,
-                marginTop: 76
+                marginTop: 76,
+                maxWidth: 1000
             }
         }}>
             <Team />
         </Dialog>
 
-        <Dialog open={stepDialog.four}>
+        <Dialog open={stepDialog.four} PaperProps={{
+            sx: {
+                maxWidth: 1000
+            }
+        }}>
             <CA1 />
         </Dialog>
 
         <Dialog open={stepDialog.five} PaperProps={{
             sx: {
                 maxHeight: 1240,
-                marginTop: 94
+                marginTop: 94,
+                maxWidth: 1000
             }
         }} >
             <CA2 />
         </Dialog>
 
-        <Dialog open={soon} onClose={handleSoonClose}
+        <Dialog open={soon} onClose={handleSoonClose} PaperProps={{
+            sx: {
+                maxWidth: 1000
+            }
+        }}
             keepMounted >
             <div id="soonDialog">
                 <DialogTitle>{"Registrations will open soon"}</DialogTitle>

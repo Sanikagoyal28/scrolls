@@ -105,7 +105,7 @@ function Reset() {
                 <p className="heading">Reset Password</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form onSubmit={ResetPassword} id="loginForm">
+            <form className='allForm' onSubmit={ResetPassword} id="loginForm">
                 <p className="regName">New Password</p>
                 {show1 ? (
                     <FontAwesomeIcon icon={faEye} id="LEye" onClick={handleShow1} />

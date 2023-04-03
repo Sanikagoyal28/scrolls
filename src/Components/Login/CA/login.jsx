@@ -99,7 +99,7 @@ function Login() {
                 <p className="heading" id="registerCA">Login as <span id="member">Campus Ambassador</span></p>
                 <img className="cross" id="back" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form onSubmit={LoginCA1}>
+            <form className='allForm' onSubmit={LoginCA1}>
             <p className="regName">Email</p>
             <input type="text" className="regInputname" placeholder="Enter your email" required value={login1.email} onChange={(e) => setLogin1({ ...login1, email: e.target.value })} />
             <p id="wrongEmailLog1">Please enter a valid Email address</p>
@@ -110,7 +110,7 @@ function Login() {
                 <FontAwesomeIcon icon={faEyeSlash} id="LEye" onClick={handleShow1} />
             )}
             <input type={show1 ? "text" : "password"} className="regInputname inputPwd" required placeholder="Enter password" value={login1.password} onChange={(e) => setLogin1({ ...login1, password: e.target.value })} />
-            <p className="forgotPass" onClick={() => { dispatch(dialog8()) }}>Forgot Password ?</p>
+            <p className="forgotPass" id="caFgtpass" onClick={() => { dispatch(dialog8()) }}>Forgot Password ?</p>
             {/* <p id="wrongPwdLog1">Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</p> */}
             <button className="regContinue" type="submit" >Continue</button>
             </form>
