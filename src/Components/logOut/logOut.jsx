@@ -14,7 +14,6 @@ function LogOut() {
        dispatch(setTitle(""))
         dispatch(dialog0())
         naavigate('/')
-
     }
 
     function handleCancelLog() {

@@ -156,6 +156,15 @@ function LandingPage() {
         }
     }, [reducerReg.loading])
 
+    useEffect(() => {
+        var x = "Successfully registeres, please check your mail for scrollid"
+        toast.success("Successfully registeres, please check your mail for scrollid", {
+            position: "top-right",
+            theme: "light",
+            autoClose: 15000,
+        });
+    }, [])
+
     return <>
 
         {/* <div style={{ display: 'flex', justifyContent: 'center', zIndex:"20", position:'fixed' }}>

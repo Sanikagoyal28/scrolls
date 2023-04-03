@@ -786,11 +786,6 @@ body {
     .landFlex {
         left: 17vw;
     }
-
-    .footText {
-        top: 28px;
-    }
-
     #soonDialog {
         width: 36vw;
     }
@@ -798,6 +793,13 @@ body {
     .landRegister {
         width: 16vw;
     }
+}
+
+@media(max-width:1030px){
+    .footText {
+        top: 28px;
+    }
+
 }
 
 @media(max-width:950px) {
@@ -956,7 +958,7 @@ body {
     }
 
     .footFlexRow {
-        gap: 10px;
+        gap: 4px;
     }
 
     #soonDialog {

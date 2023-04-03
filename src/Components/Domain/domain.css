@@ -97,7 +97,7 @@ li::marker {
     }
 }
 
-@media(max-width:520px) {
+@media(max-width:510px) {
     .Domain {
         padding-bottom: 320px;
     }

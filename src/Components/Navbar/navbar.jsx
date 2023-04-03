@@ -258,7 +258,7 @@ function Navbar() {
         {/* {showD && */}
         <div id='uli'>
             <img src={cross} id='crossimg' onClick={close}></img>
-            <ul>
+            <ul id="uliList">
                 <NavLink to="/"><li>Home</li></NavLink>
                 <li onClick={() => setMobShow(prev => !prev)}>Domains <img src={dropdown} id="domainIcon" /></li>
                 {mobShow && <div id="liDropdown">
