@@ -10,21 +10,22 @@
     /* margin-lef+t:3vw; */
     /* margin-left: -5vw; */
     margin-bottom: 5vw;
+    margin-top: 48px;
 }
 
-.mob_timeline{
+.mob_timeline {
     display: none;
 }
 
 @media(max-width:700px) {
-    .timeline{
+    .timeline {
         display: none;
     }
 
-    .mob_timeline{
+    .mob_timeline {
         margin-top: -60px;
-        margin-left: 10vw;
+
         width: 80vw;
-        display: block ;
+        display: block;
     }
 }

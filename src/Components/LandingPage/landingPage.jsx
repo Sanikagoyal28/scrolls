@@ -133,12 +133,12 @@ function LandingPage() {
         function handleSize() {
             var w = window.innerWidth
             if (w < 531) {
-                console.log("compact")
+                // console.log("compact")
                 setSize(1400)
             }
             else {
                 setSize(1300)
-                console.log("normal")
+                // console.log("normal")
             }
         }
 
@@ -159,12 +159,14 @@ function LandingPage() {
 
     // useEffect(() => {
     //     var x = "Successfully registeres, please check your mail for scrollid"
-    //     toast.success("Successfully registeres, please check your mail for scrollid", {
+    //     toast.success({x.toUpperCase()}, {
     //         position: "top-right",
     //         theme: "light",
     //         autoClose: 15000,
     //     });
     // }, [])
+
+
 
     return <>
 
@@ -203,7 +205,7 @@ function LandingPage() {
                 </p>
             </div>
             <div className="landDomain">
-                <div id="domainBorder">
+                <div id="text1Border">
                     <p className="aboutScroll">Domains</p>
                 </div>
                 <div className="domainCards">
@@ -246,7 +248,7 @@ function LandingPage() {
                 </div>
             </div>
             <div className="landTimeline">
-                <div id="timelineBorder">
+                <div id="text1Border">
                     <p className="aboutScroll" id="timelineHeading">Timeline</p>
                 </div>
                 <div>

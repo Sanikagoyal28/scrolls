@@ -119,9 +119,11 @@ body {
 /* ABOUT US */
 
 .landAbout {
-    /* margin-top:590px; */
-    margin-left: 12vw;
     padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .aboutScroll {
@@ -144,7 +146,6 @@ body {
 }
 
 #text1Border {
-    margin-left: 28vw;
     display: block;
     border: 2px solid #FAC949;
     transform: rotate(-2deg);
@@ -157,7 +158,6 @@ body {
 
 .aboutHead {
     width: 41vw;
-    margin-left: 17vw;
     margin-top: 24px;
     font-family: 'Bahnschrift';
     font-style: normal;
@@ -171,7 +171,6 @@ body {
 .aboutText {
     width: 76vw;
     margin-top: 32px;
-    margin-left: 1vw;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -186,9 +185,13 @@ body {
 
 .landDomain {
     background: #F6F6F6;
-    padding-left: 10vw;
+    /* padding-left: 10vw; */
     padding-top: 50px;
     padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #domainBorder {
@@ -198,8 +201,6 @@ body {
     transform: rotate(-2deg);
     width: 16vw;
     height: 72px;
-    margin-left: 30vw;
-    /* position: relative; */
     z-index: 2;
     overflow: hidden;
 }
@@ -207,6 +208,8 @@ body {
 .domainCards {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .domainCard1 {
@@ -219,7 +222,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 6vw;
+    margin-right: 2vw;
+    margin-left: 2vw;
     margin-top: 50px;
     cursor: pointer;
     padding-left: 1.2vw;
@@ -252,7 +256,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-right: 6vw;
+    margin-right: 2vw;
+    margin-left: 2vw;
     margin-top: 50px;
     cursor: pointer;
     padding-left: 1.2vw;
@@ -437,8 +442,6 @@ body {
     text-align: center;
     position: relative;
     top: 45px;
-    /* margin-bottom: 16px; */
-    /* right: 36vw; */
 }
 
 .footText a {
@@ -494,10 +497,13 @@ body {
 .landTimeline {
     padding-bottom: 40px;
     padding-top: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 #timelineBorder {
-    margin-left: 38vw;
     display: block;
     border: 2px solid #FAC949;
     transform: rotate(-2deg);
@@ -532,23 +538,16 @@ body {
         height: 76px;
     }
 
-    #text1Border {
-        margin-left: 34vw;
-    }
-
     #domainBorder {
         width: 10vw;
-        margin-left: 34vw;
     }
 
     #timelineBorder {
         width: 10vw;
-        margin-left: 45vw;
     }
 
     .aboutHead {
         font-size: 1.5rem;
-        margin-left: 20vw;
         line-height: 24px;
     }
 
@@ -557,15 +556,12 @@ body {
         line-height: 30px;
     }
 
-    .landDomain {
-        padding-left: 10vw;
-    }
-
     .domainCard1,
     .domainCard2 {
         width: 22vw;
         height: 380px;
-        margin-right: 6vw;
+        margin-right: 3vw;
+        margin-left: 3vw;
         margin-top: 80px;
     }
 
@@ -641,18 +637,12 @@ body {
         font-size: 1.8rem;
     }
 
-    #text1Border {
-        margin-left: 31vw;
-    }
-
     #domainBorder {
         width: 15vw;
-        margin-left: 33vw;
     }
 
     #timelineBorder {
         width: 15vw;
-        margin-left: 45vw;
     }
 
     .landFooter {
@@ -664,17 +654,14 @@ body {
         width: 24vw;
     }
 
-    .landDomain {
-        padding-left: 8vw;
-    }
-    .footText{
-        top:66px;
+    .footText {
+        top: 66px;
     }
 }
 
-@media(max-width:1800px){
-    .footText{
-        top:45px;
+@media(max-width:1800px) {
+    .footText {
+        top: 45px;
     }
 }
 
@@ -688,12 +675,6 @@ body {
     }
 }
 
-@media(max-width:1420px) {
-    .aboutText {
-        margin-left: 0;
-    }
-
-}
 
 @media(max-width:1300px) {
     .footText {
@@ -721,10 +702,6 @@ body {
 
 @media (max-width:1150px) {
 
-    .landAbout {
-        margin-left: 13vw;
-    }
-
     .aboutScroll {
         font-size: 1.4rem;
     }
@@ -732,12 +709,8 @@ body {
     .domainCard1,
     .domainCard2 {
         width: 24vw;
-        margin-right: 4vw;
-
-    }
-
-    .landDomain {
-        padding-left: 10vw;
+        margin-right: 2vw;
+        margin-left: 2vw;
     }
 
     .footIcons {
@@ -746,10 +719,6 @@ body {
 
     .footSendicon {
         margin-left: 60vw;
-    }
-
-    #domainBorder {
-        margin-left: 32vw;
     }
 }
 
@@ -765,7 +734,6 @@ body {
 
     #domainBorder {
         width: 22vw;
-        margin-left: 32vw;
     }
 
     #timelineBorder {
@@ -786,6 +754,7 @@ body {
     .landFlex {
         left: 17vw;
     }
+
     #soonDialog {
         width: 36vw;
     }
@@ -795,7 +764,7 @@ body {
     }
 }
 
-@media(max-width:1030px){
+@media(max-width:1030px) {
     .footText {
         top: 28px;
     }
@@ -807,27 +776,16 @@ body {
         width: 18vw;
     }
 
-    .landDomain {
-        padding-left: 7vw;
-    }
-
-    #domainBorder {
-        margin-left: 39vw;
-    }
-
     .domainCard1,
     .domainCard2 {
         width: 26vw;
-        margin-right: 4vw;
+        margin-right: 2vw;
+        margin-left: 2vw;
         height: 260px;
     }
 
     #soonDialog {
         width: 38vw;
-    }
-
-    #domainBorder {
-        margin-left: 32vw;
     }
 }
 
@@ -852,10 +810,6 @@ body {
         width: 26vw;
     }
 
-    #text1Border {
-        margin-left: 25vw;
-    }
-
     #domainBorder {
         width: 24vw;
         /* margin-left: 37vw; */
@@ -863,7 +817,6 @@ body {
 
     #timelineBorder {
         width: 24vw;
-        margin-left: 38vw;
     }
 
     .landText1,
@@ -893,7 +846,7 @@ body {
 @media(max-width:800px) {
     .aboutHead {
         width: 50vw;
-        margin-left: 15vw;
+
     }
 
     .aboutText {
@@ -906,28 +859,21 @@ body {
         width: 28vw;
     }
 
-    #text1Border {
-        margin-left: 26vw;
-    }
-
     #domainBorder {
         width: 27vw;
-        margin-left: 26vw;
+
     }
 
     #timelineBorder {
         width: 27vw;
-        margin-left: 38vw;
+
     }
 
     .domainCard1,
     .domainCard2 {
         width: 34vw;
-        margin-right: 6vw;
-    }
-
-    .landDomain {
-        padding-left: 14vw;
+        margin-right: 3vw;
+        margin-left: 3vw;
     }
 
     .landText1 {
@@ -1007,7 +953,7 @@ body {
 
     .aboutHead {
         width: 60vw;
-        margin-left: 8vw;
+
     }
 
     .footHead {
@@ -1055,13 +1001,9 @@ body {
         font-size: 1.2rem;
     }
 
-    #text1Border {
-        margin-left: 23vw;
-    }
-
     .aboutHead {
         width: 60vw;
-        margin-left: 8vw;
+
     }
 
     .landText1 {
@@ -1114,32 +1056,18 @@ body {
         font-size: 3.5rem;
     }
 
-    .footText {
-        /* top: 20px; */
-    }
-
     #soonDialog {
         width: 54vw;
     }
 }
-
-@media(max-width:620px) {
-    .footText {
-        /* top: 20px; */
-    }
-}
-
 
 @media(max-width:600px) {
 
     .domainCard1,
     .domainCard2 {
         width: 40vw;
-        margin-right: 4vw;
-    }
-
-    .domainCards {
-        padding-left: 6vw;
+        margin-right: 2vw;
+        margin-left: 2vw;
     }
 
     .footHead {
@@ -1192,21 +1120,18 @@ body {
 
     #timelineBorder {
         width: 30vw;
-        margin-left: 35vw;
+
     }
 
     #domainBorder {
         width: 30vw;
-        margin-left: 35vw;
+
     }
 
     .footText {
         top: 44px;
     }
 
-    .landDomain {
-        padding-left: 2vw;
-    }
 }
 
 @media(max-width:564px) {
@@ -1241,8 +1166,8 @@ body {
     .domainCard1,
     .domainCard2 {
         width: 40vw;
-        margin-right: 4vw;
-
+        margin-right: 2vw;
+        margin-left: 2vw;
     }
 
     #text1Border,
@@ -1274,13 +1199,6 @@ body {
     }
 }
 
-@media(max-width:510px) {
-    .footText {
-        /* top: -10px; */
-    }
-}
-
-
 @media(max-width:505px) {
     .landRegister {
         width: 30vw;
@@ -1310,18 +1228,6 @@ body {
         margin-bottom: 40px;
     }
 
-    .landDomain {
-        padding-left: 4vw;
-    }
-
-    .landAbout {
-        margin-left: 10vw;
-    }
-
-    .aboutHead {
-        margin-left: 10vw;
-    }
-
     #text1Border,
     .aboutScroll {
         width: 38vw;
@@ -1330,12 +1236,11 @@ body {
 
     #domainBorder {
         width: 38vw;
-        margin-left: 26vw;
+
     }
 
     #timelineBorder {
         width: 38vw;
-        margin-left: 32vw;
     }
 
     #footer {
@@ -1421,13 +1326,10 @@ body {
         margin-top: 16px;
     }
 
-    #text1Border {
-        left: -4vw;
-    }
 
     #domainBorder {
         width: 42vw;
-        left: -6vw;
+
     }
 
     #timelineBorder {
@@ -1438,11 +1340,8 @@ body {
     .domainCard2 {
         width: 70vw;
         height: 240px;
-        margin-right: 4vw;
-    }
-
-    .domainCards {
-        padding-left: 12vw;
+        margin-right: 2vw;
+        margin-left: 2vw;
     }
 
     #soonDialog {
@@ -1481,7 +1380,7 @@ body {
     #domainBorder,
     #timelineBorder {
         width: 44vw;
-        left: -6vw;
+
     }
 
     #text1Border,
@@ -1498,23 +1397,17 @@ body {
 
     #domainBorder {
         width: 48vw;
-        margin-left: 23vw;
-
     }
 
     #timelineBorder {
         width: 48vw;
-        margin-left: 26vw;
+
     }
 
     #text1Border,
     .aboutScroll {
         width: 48vw;
         font-size: 1.3rem;
-    }
-
-    #text1Border {
-        margin-left: 20vw;
     }
 
     .footIcons {
@@ -1566,7 +1459,7 @@ body {
     #timelineBorder,
     #text1Border {
         width: 52vw;
-        left: -10vw;
+
     }
 
     #text1Border,
@@ -1594,9 +1487,5 @@ body {
         width: 56vw;
         font-size: 1.1rem;
         height: 64px;
-    }
-
-    #text1Border {
-        margin-left: 21vw;
     }
 }
