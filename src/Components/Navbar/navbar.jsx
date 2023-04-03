@@ -344,14 +344,20 @@ function Navbar() {
             </div>
         </div>
 
-        <Dialog open={stepDialog.one}>
+        <Dialog open={stepDialog.one} PaperProps={{
+            sx: {
+                maxHeight: 1300,
+                maxWidth: 1000
+            }
+        }}>
             <Register />
         </Dialog>
 
         <Dialog open={stepDialog.two} PaperProps={{
             sx: {
                 maxHeight: 1300,
-                marginTop: 94
+                marginTop: 94,
+                maxWidth: 1000
             }
         }} >
             <Member />
@@ -360,80 +366,86 @@ function Navbar() {
         <Dialog open={stepDialog.three} PaperProps={{
             sx: {
                 maxHeight: 1100,
-                marginTop: 76
+                marginTop: 76,
+                maxWidth: 1000
             }
         }}>
             <Team />
         </Dialog>
 
-        <Dialog open={stepDialog.four}>
+        <Dialog open={stepDialog.four} PaperProps={{
+            sx: {maxWidth: 1000}
+        }}>
             <CA1 />
         </Dialog>
 
         <Dialog open={stepDialog.five} PaperProps={{
             sx: {
                 maxHeight: 1240,
-                marginTop: 94
+                marginTop: 94,
+                maxWidth: 1000
             }
         }} >
             <CA2 />
         </Dialog>
 
         <Dialog open={stepDialog.six} PaperProps={{
-            sx: { maxHeight: 450 }
+            sx: { maxHeight: 450, maxWidth: 1000 }
         }}>
             <Login1 />
         </Dialog>
 
         <Dialog open={stepDialog.seven} PaperProps={{
-            sx: { maxHeight: 500 }
+            sx: { maxHeight: 500, maxWidth: 1000 }
         }}>
             <Login />
         </Dialog>
 
         <Dialog open={stepDialog.eight} PaperProps={{
-            sx: { maxHeight: 500 }
+            sx: { maxHeight: 500, maxWidth: 1000 }
         }}>
             <Forgot />
         </Dialog>
 
         <Dialog open={stepDialog.nine} PaperProps={{
-            sx: { maxHeight: 500 }
+            sx: { maxHeight: 500, maxWidth: 1000 }
         }}>
             <Otp />
         </Dialog>
 
         <Dialog open={stepDialog.ten} PaperProps={{
-            sx: { maxHeight: 500 }
+            sx: { maxHeight: 500, maxWidth: 1000 }
         }} >
             <Reset />
         </Dialog>
 
         <Dialog open={stepDialog.eleven} PaperProps={{
-            sx: { maxHeight: 500 }
+            sx: { maxHeight: 500, maxWidth: 1000 }
         }} >
             <LoginTeam />
         </Dialog>
 
         <Dialog open={stepDialog.twelve} PaperProps={{
-            sx: { maxHeight: 500 }
+            sx: { maxHeight: 500, maxWidth: 1000 }
         }}>
             <ForgotTeam />
         </Dialog>
 
         <Dialog open={stepDialog.thirteen} PaperProps={{
-            sx: { maxHeight: 500 }
+            sx: { maxHeight: 500, maxWidth: 1000 }
         }}>
             <OtpTeam />
         </Dialog>
 
         <Dialog open={stepDialog.fourteen} PaperProps={{
-            sx: { maxHeight: 500 }
+            sx: { maxHeight: 500, maxWidth: 1000 }
         }} >
             <ResetTeam />
         </Dialog>
 
-        <Dialog open={stepDialog.logout} >
+        <Dialog open={stepDialog.logout} PaperProps={{
+            sx: {maxWidth: 1000}
+        }}>
             <LogOut />
         </Dialog>
 
