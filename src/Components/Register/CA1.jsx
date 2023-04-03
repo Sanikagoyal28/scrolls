@@ -15,6 +15,7 @@ function CA1() {
 
     // ca registration
     const [loading, setLoading] = useState(false)
+    const [bool, setBool] = useState(false)
     const dispatch = useDispatch()
     const reducer = useSelector((s) => s.register)
     const rightemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -23,15 +24,18 @@ function CA1() {
     useEffect(() => {
         if (rightemail.test(caEemail)) {
             document.getElementById("wrongCAEmail").style.display = "none";
+            setBool(true)
         }
         else if (caEemail) {
             document.getElementById("wrongCAEmail").style.display = "block";
+            setBool(false)
         }
     }, [caEemail])
 
-    function CAEmailCheck() {
+    function CAEmailCheck(e) {
+        e.preventDefault();
         localStorage.setItem("email", caEemail)
-        if (caEemail) {
+        if (caEemail && bool) {
             dispatch(RegCACheck(caEemail)).
                 then((res) => {
 
@@ -91,12 +95,12 @@ function CA1() {
                 <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
                 <img className="cross" id="back" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <div className="allForm">
+            <form className="allForm" onSubmit={CAEmailCheck}>
                 <p className="regName">Email ID</p>
                 <input type="text" className="regInputname" placeholder="Enter your email" required value={caEemail} onChange={(e) => setCAEmail(e.target.value)} />
                 <p id="wrongCAEmail">Please enter a valid Email address</p>
-                <button className="regContinue" onClick={() => { CAEmailCheck() }}>Continue</button>
-            </div>
+                <button className="regContinue" type="submit">Continue</button>
+            </form>
         </div>
         <ToastContainer />
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
