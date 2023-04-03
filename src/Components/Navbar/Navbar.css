@@ -406,7 +406,7 @@
 
 #domainIcon {
     position: relative;
-    left: 12px;
+    /* left: 12px; */
     width: 12px;
     height: 12px;
     cursor: pointer;
