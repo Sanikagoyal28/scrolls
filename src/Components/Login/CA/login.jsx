@@ -91,7 +91,7 @@ function Login() {
                 <p className="heading" id="registerCA">Login as <span id="member">Campus Ambassador</span></p>
                 <img className="cross" id="back" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form onSubmit={LoginCA1}>
+            <form className='allForm' onSubmit={LoginCA1}>
             <p className="regName">Email</p>
             <input type="text" className="regInputname" placeholder="Enter your email" required value={login1.email} onChange={(e) => setLogin1({ ...login1, email: e.target.value })} />
             <p id="wrongEmailLog1">Please enter a valid Email address</p>

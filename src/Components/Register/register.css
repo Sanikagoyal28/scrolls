@@ -64,7 +64,7 @@
     font-size: 16px;
     line-height: 20px;
     color: #252525;
-    margin-left: 7vw;
+    /* margin-left: 7vw; */
     border: none;
     outline: none;
     margin-top: 32px;
@@ -177,7 +177,6 @@
     font-size: 16px;
     line-height: 20px;
     color: #000000;
-    margin-left: 7vw;
     margin-top: 16px;
     margin-bottom: 8px;
 }
@@ -189,7 +188,6 @@
     outline: none;
     border: 1px solid #D9D9D9;
     border-radius: 5px;
-    margin-left: 7vw;
     padding-left: 1vw;
     font-family: 'Montserrat';
     font-style: normal;
@@ -200,7 +198,6 @@
 }
 
 .genders {
-    margin-left: 7vw;
     display: flex;
     height: 50px;
 }
@@ -260,7 +257,7 @@
 }
 
 #recaptcha {
-    margin-left: 9vw;
+    margin-left: 2vw;
     margin-top: 20px;
 }
 
@@ -298,21 +295,21 @@
 #TEye,
 #CEye {
     position: relative;
-    top:2px;
+    top:1.5vw;
     /* top: 32px; */
-    left: 30vw;
+    left: 23vw;
     cursor: pointer;
     width:18px;
     height:18px;
     /* margin-top: -48px; */
 }
 
-#loginForm {
+/* #loginForm {
     margin-left: 0.5vw;
-}
+} */
 
 .inputPwd {
-    margin-left: 5.8vw;
+    /* margin-left: 5.8vw; */
     /* position: fixed; */
 }
 
@@ -327,7 +324,6 @@
     font-size: 16px;
     line-height: 20px;
     color: #252525;
-    margin-left: 7vw;
     border: none;
     outline: none;
     margin-top: 32px;
@@ -344,7 +340,7 @@
     color: #252525;
     text-decoration: underline;
     margin-top: 8px;
-    margin-left: 22.5vw;
+    /* margin-left: 22.5vw; */
     cursor: pointer;
 }
 
@@ -355,7 +351,7 @@
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.05em;
-    margin-left: 7vw;
+    /* margin-left: 7vw; */
     color: #252525;
     width: 25vw;
     margin-bottom: 8px;
@@ -413,21 +409,12 @@
 }
 
 @media(max-width:1540px) {
-    #recaptcha {
-        margin-left: 9vw;
-    }
 }
 
 @media(max-width:1460px) {
-    #recaptcha {
-        margin-left: 8.5vw;
-    }
 }
 
 @media(max-width:1370px) {
-    #recaptcha {
-        margin-left: 8.1vw;
-    }
 
     .forgotPass {
         margin-left: 22vw;
@@ -485,9 +472,6 @@
         margin-left: 24.6vw;
     }
 
-    #recaptcha {
-        margin-left: 9vw;
-    }
 }
 
 @media(max-width:1280px){
@@ -497,9 +481,6 @@
 }
 
 @media(max-width:1250px) {
-    #recaptcha {
-        margin-left: 8.5vw;
-    }
 }
 
 @media(max-width:1220px) {

@@ -154,6 +154,11 @@
     margin-top: 6px;
 }
 
+.allForm{
+    margin-left: 7vw;
+    display: flex;
+    flex-direction: column;
+}
 .navRegister,
 .liRegister {
     width: 8.5vw;

@@ -93,6 +93,7 @@ function Forgot() {
                 <p className="heading">Forgot Password?</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
+            <div className='allForm'>
             <p className="forgotText">We’ll send you a One Time Password on this email.</p>
             <p className="regName">Email</p>
             <input type="text" required className="regInputname" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -104,6 +105,7 @@ function Forgot() {
                     />
                 </div>
             <button className="regButton" onClick={ForgotPassword}>Continue</button>
+            </div>
         </div>
         <ToastContainer />
         {(loader) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}

@@ -83,9 +83,11 @@ function CA1 () {
                     <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
                     <img className="cross" id="back" src={cross} onClick={() => { dispatch(dialog0()) }} />
                 </div>
+                <div className="allForm">
                 <p className="regName">Email ID</p>
                 <input type="text" className="regInputname" placeholder="Enter your email" required value={caEemail} onChange={(e) => setCAEmail(e.target.value)} />
                 <p id="wrongCAEmail">Please enter a valid Email address</p>
+                </div>
                 <button className="regContinue" onClick={() => { CAEmailCheck() }}>Continue</button>
             </div>
             <ToastContainer />
