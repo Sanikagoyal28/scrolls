@@ -24,6 +24,15 @@ function Member() {
     const [isCorrect, setIsCorrect] = useState(false);
     const [show1, setShow1] = useState(false)
     const [show2, setShow2] = useState(false)
+    const boolen = {
+        one: false,
+        two: false,
+        three: false,
+        four: false,
+        five: false,
+        six: false
+    }
+    const [bool, setBool] = useState(boolen)
 
     const inputState = {
         name: '',
@@ -49,43 +58,43 @@ function Member() {
     useEffect(() => {
         if (rightName.test(input.name)) {
             document.getElementById("wrongName").style.display = "none";
-            setIsCorrect(true);
+            setBool({ ...bool, one: true })
         }
         else if (input.name) {
             document.getElementById("wrongName").style.display = "block";
-            setIsCorrect(false);
+            setBool({ ...bool, one: false })
         }
     }, [input.name]);
 
     useEffect(() => {
         if (rightemail.test(input.email)) {
             document.getElementById("wrongEmail").style.display = "none";
-            setIsCorrect(true)
+            setBool({ ...bool, two: true })
         }
         else if (input.email) {
             document.getElementById("wrongEmail").style.display = "block";
-            setIsCorrect(false)
+            setBool({ ...bool, two: false })
         }
     }, [input.email])
 
     useEffect(() => {
         if (rightpass.test(input.pass)) {
             document.getElementById("WrongPwd1").style.display = "none";
-            setIsCorrect(true)
+            setBool({ ...bool, three: true })
         } else if (input.pass) {
             document.getElementById("WrongPwd1").style.display = "block";
-            setIsCorrect(false)
+            setBool({ ...bool, three: false })
         }
     }, [input.pass]);
 
     useEffect(() => {
         if (input.pass || input.confirmPass) {
             if (input.pass == input.confirmPass) {
-                setIsCorrect(true)
+                setBool({ ...bool, four: true })
                 document.getElementById("WrongPwd2").style.display = "none";
             }
             else if (input.confirmPass) {
-                setIsCorrect(false)
+                setBool({ ...bool, four: false })
                 document.getElementById("WrongPwd2").style.display = "block";
             }
         }
@@ -94,10 +103,10 @@ function Member() {
     useEffect(() => {
         if (rightName.test(input.branch)) {
             document.getElementById("wrongBranch").style.display = "none";
-            setIsCorrect(true);
+         
         } else if (input.branch) {
             document.getElementById("wrongBranch").style.display = "block";
-            setIsCorrect(false);
+            
         }
     }, [input.branch]);
 
@@ -105,11 +114,11 @@ function Member() {
 
         if (isnum.test(input.mobile) && input.mobile.length == 10) {
             document.getElementById("wrongNum").style.display = "none";
-            setIsCorrect(true)
+            setBool({ ...bool, six: true })
         }
         else if (input.mobile) {
             document.getElementById("wrongNum").style.display = "block";
-            setIsCorrect(false)
+            setBool({ ...bool, six: false })
         }
     }, [input.mobile])
 
@@ -149,14 +158,9 @@ function Member() {
         setToken(true)
     }
 
-    function RegAsMember() {
-        if (!token) {
-            toast.error("Please verify the captcha", {
-                position: "top-right",
-                theme: "light",
-                autoClose: 5000,
-            });
-        }
+    function RegAsMember(e) {
+        e.preventDefault();
+
         var data;
         if (input.branch) {
             if (input.course == "others") {
@@ -216,35 +220,46 @@ function Member() {
                 }
             }
         }
-        if (token && input.name && input.email && input.pass && input.gender && input.mobile && input.course && input.college && input.year) {
-            dispatch(RegMemberThunk(data)).
-                then((res) => {
+        if (bool.one && bool.two && bool.three && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
 
-                    var y = res.payload.data.msg.replace(
-                        /\w\S*/g,
-                        function (txt) {
-                            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            if (!token) {
+                toast.error("Please verify the captcha", {
+                    position: "top-right",
+                    theme: "light",
+                    autoClose: 5000,
+                });
+            }
+
+            if (token) {
+                dispatch(RegMemberThunk(data)).
+                    then((res) => {
+
+                        var y = res.payload.data.msg.replace(
+                            /\w\S*/g,
+                            function (txt) {
+                                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                            }
+                        );
+
+                        if (res.payload.status === 201) {
+                            dispatch(dialog0())
+                            toast.success(y, {
+                                position: "top-right",
+                                theme: "light",
+                                autoClose: 5000,
+                            });
                         }
-                    );
-
-                    if (res.payload.status === 201) {
-                        dispatch(dialog0())
-                        toast.success(y, {
-                            position: "top-right",
-                            theme: "light",
-                            autoClose: 5000,
-                        });
-                    }
-                    else {
-                        toast.error(y, {
-                            position: "top-right",
-                            theme: "light",
-                            autoClose: 5000,
-                        });
-                    }
-                })
-                .catch((err) => {
-                })
+                        else {
+                            toast.error(y, {
+                                position: "top-right",
+                                theme: "light",
+                                autoClose: 5000,
+                            });
+                        }
+                    })
+                    .catch((err) => {
+                    })
+            }
         }
     }
 
@@ -284,7 +299,7 @@ function Member() {
                 <p className="heading">Register as <span id="member">Member</span></p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form className="allForm" onSubmit={(e) => e.preventDefault()}>
+            <form className="allForm" onSubmit={RegAsMember}>
                 <p className="regName">Name</p>
                 <input required type="text" className="regInputname" id="input" placeholder="Enter your name" value={input.name} onChange={(e) => setInput({ ...input, name: e.target.value })} />
                 <p id="wrongName">Name must contain only alphabetic characters.</p>
@@ -351,7 +366,7 @@ function Member() {
                         onChange={onChange}
                     />
                 </div>
-                <button className="regButton" onClick={() => { RegAsMember() }}>Register</button>
+                <button className="regButton" type="submit">Register</button>
             </form>
 
         </div>

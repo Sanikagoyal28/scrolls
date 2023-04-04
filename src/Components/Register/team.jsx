@@ -20,6 +20,8 @@ function Team() {
     const rightpass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$#!%*?&]{8,}$/;
     const [show1, setShow1] = useState(false)
     const [show2, setShow2] = useState(false)
+    const [bool, setBool] = useState(false)
+    const [bool1, setBool1] = useState(false)
 
     function handleShow1() {
         setShow1(!show1)
@@ -42,8 +44,10 @@ function Team() {
     useEffect(() => {
         if (rightpass.test(team.pass)) {
             document.getElementById("WrongPwdTeam1").style.display = "none";
+            setBool(true)
         } else if (team.pass) {
             document.getElementById("WrongPwdTeam1").style.display = "block";
+            setBool(false)
         }
     }, [team.pass]);
 
@@ -51,9 +55,11 @@ function Team() {
         if (team.pass || team.cPass) {
             if (team.pass == team.cPass) {
                 document.getElementById("WrongPwdTeam2").style.display = "none";
+                setBool1(true)
             }
             else {
                 document.getElementById("WrongPwdTeam2").style.display = "block";
+                setBool1(false)
             }
         }
     }, [team.cPass])
@@ -128,27 +134,29 @@ function Team() {
                 }
             }
         }
-        dispatch(RegTeamThunk(data)).
-            then((res) => {
-                if (res.payload.status === 201) {
-                    toast.success(`${res.payload.data.msg}`, {
-                        position: "top-right",
-                        theme: "light",
-                        autoClose: 5000,
-                    });
-                    dispatch(dialog0())
-                }
-                else {
-                    let x = Object.keys(res.payload.data)
-                    toast.error(`${res.payload.data[Object.keys(res.payload.data)[0]]}`, {
-                        position: "top-right",
-                        theme: "light",
-                        autoClose: 5000,
-                    });
-                }
-            })
-            .catch((err) => {
-            })
+        if (bool && bool1) {
+            dispatch(RegTeamThunk(data)).
+                then((res) => {
+                    if (res.payload.status === 201) {
+                        toast.success(`${res.payload.data.msg}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                        dispatch(dialog0())
+                    }
+                    else {
+                        let x = Object.keys(res.payload.data)
+                        toast.error(`${res.payload.data[Object.keys(res.payload.data)[0]]}`, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                })
+                .catch((err) => {
+                })
+        }
     }
 
     useEffect(() => {
@@ -198,15 +206,15 @@ function Team() {
                 <p id="WrongPwdTeam2">Password entered in two fields must be same.</p>
                 <div className="teamLeader">
                     <p className="regName">Team Leader's Scroll ID</p>
-                    <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size==2 || team.size==3)? true: false} value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
+                    <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size == 2 || team.size == 3) ? true : false} value={team.leaderId} onChange={(e) => { setTeam({ ...team, leaderId: e.target.value }) }} />
                 </div>
                 <div className="teamLeader">
                     <p className="regName">Member 2's Scroll ID</p>
-                    <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size==2 || team.size==3)? true: false} value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
+                    <input type="text" className="regInputname" placeholder="Enter ID" required={(team.size == 2 || team.size == 3) ? true : false} value={team.member2} onChange={(e) => { setTeam({ ...team, member2: e.target.value }) }} />
                 </div>
                 <div className="teamLeader">
                     <p className="regName">Member 3's Scroll ID</p>
-                    <input type="text" className="regInputname" placeholder="Enter ID" required={team.size==3 ? true: false} value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
+                    <input type="text" className="regInputname" placeholder="Enter ID" required={team.size == 3 ? true : false} value={team.member3} onChange={(e) => { setTeam({ ...team, member3: e.target.value }) }} />
                 </div>
                 <button className="regButton" type='submit'>Register</button>
             </form>

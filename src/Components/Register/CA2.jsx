@@ -33,6 +33,16 @@ function CA2() {
         setShow2(!show2)
     }
 
+    const boolen = {
+        one: false,
+        two: false,
+        three: false,
+        four: false,
+        five: false,
+        six: false
+    }
+    const [bool, setbool] = useState(boolen)
+
     const caState = {
         name: '',
         email: localStorage.getItem("email"),
@@ -50,20 +60,20 @@ function CA2() {
     useEffect(() => {
         if (rightName.test(ca.name)) {
             document.getElementById("wrongNameCA").style.display = "none";
-            setIsCA(true);
+            setbool({ ...bool, one: true });
         } else if (ca.name) {
             document.getElementById("wrongNameCA").style.display = "block";
-            setIsCA(false);
+            setbool({ ...bool, one: false });
         }
     }, [ca.name]);
 
     useEffect(() => {
         if (rightpass.test(ca.pass)) {
             document.getElementById("WrongPwdCA1").style.display = "none";
-            setIsCA(true);
+            setbool({ ...bool, two: true });
         } else if (ca.pass) {
             document.getElementById("WrongPwdCA1").style.display = "block";
-            setIsCA(false);
+            setbool({ ...bool, two: false });
         }
     }, [ca.pass]);
 
@@ -71,11 +81,11 @@ function CA2() {
         if (ca.pass) {
             if (ca.pass == ca.confirmPass) {
                 document.getElementById("WrongPwdCA2").style.display = "none";
-                setIsCA(true);
+                setbool({ ...bool, three: true });
             }
             else if (ca.confirmPass) {
                 document.getElementById("WrongPwdCA2").style.display = "block";
-                setIsCA(false);
+                setbool({ ...bool, three: false });;
             }
         }
     }, [ca.confirmPass])
@@ -93,11 +103,11 @@ function CA2() {
     useEffect(() => {
         if (isnum.test(ca.mobile) && ca.mobile.length == 10) {
             document.getElementById("wrongNumCA").style.display = "none";
-            setIsCA(true);
+            setbool({ ...bool, four: true });
         }
         else if (ca.mobile) {
             document.getElementById("wrongNumCA").style.display = "block";
-            setIsCA(false);
+            setbool({ ...bool, four: false });
         }
     }, [ca.mobile])
 
@@ -135,14 +145,9 @@ function CA2() {
         setToken(true)
     }
 
-    function RegAsCA() {
-        if (!token) {
-            toast.error("Please verify the captcha", {
-                position: "top-right",
-                theme: "light",
-                autoClose: 5000,
-            });
-        }
+    function RegAsCA(e) {
+        e.preventDefault();
+
         var data;
         if (ca.course == "others") {
             data = {
@@ -170,35 +175,45 @@ function CA2() {
                 "g-recaptcha-response": valu
             }
         }
-        if (isCA && token) {
-            dispatch(RegCAThunk(data)).
-                then((res) => {
+        if (bool.one && bool.two && bool.three && bool.four && ca.gender && ca.course && ca.college && ca.year) {
 
-                    var y = res.payload.data.msg.replace(
-                        /\w\S*/g,
-                        function (txt) {
-                            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            if (!token) {
+                toast.error("Please verify the captcha", {
+                    position: "top-right",
+                    theme: "light",
+                    autoClose: 5000,
+                });
+            }
+
+            if (token) {
+                dispatch(RegCAThunk(data)).
+                    then((res) => {
+                        var y = res.payload.data.msg.replace(
+                            /\w\S*/g,
+                            function (txt) {
+                                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                            }
+                        );
+
+                        if (res.payload.status === 201) {
+                            toast.success(y, {
+                                position: "top-right",
+                                theme: "light",
+                                autoClose: 5000,
+                            });
+                            dispatch(dialog0())
                         }
-                    );
-
-                    if (res.payload.status === 201) {
-                        toast.success(y, {
-                            position: "top-right",
-                            theme: "light",
-                            autoClose: 5000,
-                        });
-                        dispatch(dialog0())
-                    }
-                    else {
-                        toast.error(y, {
-                            position: "top-right",
-                            theme: "light",
-                            autoClose: 5000,
-                        });
-                    }
-                })
-                .catch((err) => {
-                })
+                        else {
+                            toast.error(y, {
+                                position: "top-right",
+                                theme: "light",
+                                autoClose: 5000,
+                            });
+                        }
+                    })
+                    .catch((err) => {
+                    })
+            }
         }
     }
 
@@ -220,7 +235,7 @@ function CA2() {
                 <p className="heading" id="registerCA">Register as <span id="member">Campus Ambassador</span></p>
                 <img className="cross" id="back" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form className="allForm" onSubmit={(e) => e.preventDefault()}>
+            <form className="allForm" onSubmit={RegAsCA}>
                 <p className="regName">Name</p>
                 <input required type="text" className="regInputname" id="input" placeholder="Enter your name" value={ca.name} onChange={(e) => setCA({ ...ca, name: e.target.value })} />
                 <p id="wrongNameCA">Name must contain only alphabetic characters.</p>
@@ -260,9 +275,9 @@ function CA2() {
                     <option value="MBA">MBA</option>
                     <option id="other" value="others">Others</option>
                 </select>
-                <input required type="text" id="otherCA" placeholder="Enter course name" value={ca.otherCourse} onChange={(e) => { setCA({ ...ca, otherCourse: e.target.value }) }} />
+                <input type="text" id="otherCA" placeholder="Enter course name" value={ca.otherCourse} onChange={(e) => { setCA({ ...ca, otherCourse: e.target.value }) }} />
                 <p className="regName">Branch</p>
-                <input required type="text" className="regInputname" placeholder="Enter your branch" value={ca.branch} onChange={(e) => { setCA({ ...ca, branch: e.target.value }) }} />
+                <input type="text" className="regInputname" placeholder="Enter your branch" value={ca.branch} onChange={(e) => { setCA({ ...ca, branch: e.target.value }) }} />
                 <p id="wrongBranchCA">Please enter a valid branch.</p>
                 <p className="regName">Year of study</p>
                 <select required className="regInputname" value={ca.year} onChange={(e) => { setCA({ ...ca, year: e.target.value }) }}>
@@ -283,7 +298,7 @@ function CA2() {
                         onChange={onChange}
                     />
                 </div>
-                <button className="regButton" onClick={RegAsCA}>Register</button>
+                <button className="regButton" type="submit">Register</button>
             </form>
         </div>
         <ToastContainer />
