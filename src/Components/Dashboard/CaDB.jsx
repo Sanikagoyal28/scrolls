@@ -20,12 +20,24 @@ function CaDB() {
     const [teams, setTeams] = useState([])
     const [leaderboard, setLeaderboard] = useState([])
 
-    useEffect(()=>{
-        window.scroll(0,0)
-    },[])
-    
+    useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
+
     useEffect(() => {
         dispatch(CADBThunk())
+            .then((res) => {
+                if (res.payload.status === 429) {
+                    toast.error("You have attempted too many times Today, please try again tomorrow", {
+                        position: "top-right",
+                        theme: "light",
+                        autoClose: 5000,
+                    });
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }, [])
 
     useEffect(() => {

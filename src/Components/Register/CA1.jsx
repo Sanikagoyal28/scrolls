@@ -70,6 +70,13 @@ function CA1() {
                         });
                         dispatch(dialog5())
                     }
+                    else if (res.payload.status === 429) {
+                        toast.error("You have attempted too many times Today, please try again tomorrow", {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
                 })
                 .catch((err) => {
 

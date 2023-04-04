@@ -164,6 +164,13 @@ function Team() {
                         });
                         dispatch(dialog0())
                     }
+                    else if (res.payload.status === 429) {
+                        toast.error("You have attempted too many times Today, please try again tomorrow", {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
                     else {
                         let x = Object.keys(res.payload.data)
                         toast.error(`${res.payload.data[Object.keys(res.payload.data)[0]]}`, {

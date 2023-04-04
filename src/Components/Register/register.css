@@ -170,7 +170,7 @@
     line-height: 20px;
     color: #000000;
     margin-top: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .regInputname {
@@ -278,7 +278,7 @@
     line-height: 12px;
     color: #B00020;
     margin-top: 4px;
-    width: 26vw;
+    width: 25vw;
     display: none;
     margin-bottom: 4px;
 }
@@ -529,7 +529,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        line-height: 20px;
+        line-height: 17px;
     }
 }
 
@@ -610,7 +610,7 @@
     #wrongEmailLog1,
     #wrongPwdLog1,
     .forgotText {
-        width: 28vw;
+        width: 27vw;
         font-size: 0.85rem;
     }
 
@@ -661,7 +661,7 @@
     #wrongEmailLog1,
     #wrongPwdLog1,
     .forgotText {
-        width: 28vw;
+        width: 27vw;
         font-size: 0.8rem;
     }
 
@@ -740,7 +740,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        width: 31vw;
+        width: 30vw;
     }
 
     #LEye,
@@ -809,7 +809,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        width: 34vw;
+        width: 33vw;
         font-size: 0.85rem;
     }
 
@@ -893,7 +893,7 @@
     #wrongEmailLog1,
     #wrongPwdLog1 {
         /* margin-left: 8.2vw; */
-        width: 37vw;
+        width: 36vw;
     }
 
     #LEye,
@@ -957,7 +957,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        width: 41vw;
+        width: 40vw;
         /* margin-left:8.8vw; */
     }
 
@@ -1019,7 +1019,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        width: 42vw;
+        width: 41vw;
     }
 
     #LEye,
@@ -1108,7 +1108,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        width: 46vw;
+        width: 45vw;
     }
 
     #registerCA {
@@ -1163,7 +1163,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        width: 52vw;
+        width: 51vw;
     }
 
     .regGender {
@@ -1248,7 +1248,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        width: 55vw;
+        width: 54vw;
         font-size: 0.8rem;
     }
 
@@ -1344,7 +1344,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        width: 64vw;
+        width: 63vw;
     }
 
     #recaptcha {

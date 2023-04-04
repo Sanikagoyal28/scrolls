@@ -84,6 +84,13 @@ function LoginTeam () {
                     });
                     navigate('/team_db')
                 }
+                if (res.payload.status === 429) {
+                    toast.error("You have attempted too many times Today, please try again tomorrow", {
+                        position: "top-right",
+                        theme: "light",
+                        autoClose: 5000,
+                    });
+                }
             })
         }
     }
