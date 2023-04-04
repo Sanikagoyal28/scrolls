@@ -34,9 +34,6 @@
 .timeline {
     /* display: flex; */
     /* justify-content: center; */
-    /* padding-left: 2vw; */
-    /* padding-right: 4vw; */
-    /* gap: 4px; */
 }
 
 .tl_group2 {
@@ -187,9 +184,9 @@
     }
 }
 
-@media(max-width:1360px) {
+@media(max-width:1350px) {
     #tl_image {
-        left: 110px;
+        left: 116px;
     }
 
     .tl_Head {

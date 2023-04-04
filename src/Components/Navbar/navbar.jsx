@@ -237,6 +237,13 @@ function Navbar() {
                     setDialogg(true);
                     setSoon(true)
                 }
+                if (res.payload.status === 429) {
+                    toast.error("You have attempted too many times Today, please try again tomorrow", {
+                        position: "top-right",
+                        theme: "light",
+                        autoClose: 5000,
+                    });
+                }
             })
             .catch((err) => {
                 console.log(err)
@@ -374,7 +381,7 @@ function Navbar() {
         </Dialog>
 
         <Dialog open={stepDialog.four} PaperProps={{
-            sx: {maxWidth: 1000}
+            sx: { maxWidth: 1000 }
         }}>
             <CA1 />
         </Dialog>
@@ -444,7 +451,7 @@ function Navbar() {
         </Dialog>
 
         <Dialog open={stepDialog.logout} PaperProps={{
-            sx: {maxWidth: 1000}
+            sx: { maxWidth: 1000 }
         }}>
             <LogOut />
         </Dialog>
