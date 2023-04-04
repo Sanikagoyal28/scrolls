@@ -32,8 +32,8 @@
 
 
 .timeline {
-    /* display: flex; */
-    /* justify-content: center; */
+    display: flex;
+    justify-content: center;
 }
 
 .tl_group2 {

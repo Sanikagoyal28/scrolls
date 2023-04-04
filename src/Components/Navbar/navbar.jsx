@@ -25,6 +25,8 @@ import "./Navbar.css"
 import LogOut from "../logOut/logOut";
 import { RegOpenThunk } from "../../Redux/registerSlice";
 import { Spinner } from "react-bootstrap";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Navbar() {
     const [dialogg, setDialogg] = useState(false)
@@ -464,6 +466,7 @@ function Navbar() {
             </div>
         </Dialog>
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
+        <ToastContainer />
     </>
 }
 
