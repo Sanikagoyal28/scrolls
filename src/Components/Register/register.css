@@ -232,7 +232,7 @@
     background: none;
     outline: none;
     border: none;
-    margin-left: 7vw;
+    /* margin-left: 7vw; */
     padding-left: 1vw;
     border-bottom: 1px solid #D9D9D9;
     margin-top: 12px;
@@ -274,13 +274,25 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 12px;
+    color: #B00020;
+    margin-top: 4px;
+    width: 26vw;
+    display: none;
+    margin-bottom: 4px;
+}
+
+.teamError {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
     font-size: 0.9rem;
     line-height: 16px;
     color: #B00020;
     margin-top: 4px;
     width: 26vw;
-    display: none;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 #LEye,
@@ -549,7 +561,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1 {
-        line-height: 18px;
+        line-height: 16px;
     }
 }
 
@@ -922,6 +934,7 @@
     .forgotText {
         width: 42vw;
     }
+
     .asRegister {
         margin-left: 9vw;
     }
@@ -1459,6 +1472,7 @@
         width: 11vw;
         margin-right: 2.5vw
     }
+
     #caFgtpass {
         top: 336px;
     }

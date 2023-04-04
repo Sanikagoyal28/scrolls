@@ -88,7 +88,7 @@ function CA2() {
                 setbool({ ...bool, three: false });;
             }
         }
-    }, [ca.confirmPass])
+    }, [ca.confirmPass, ca.pass])
 
     useEffect(() => {
         if (rightName.test(ca.branch)) {
@@ -134,6 +134,24 @@ function CA2() {
         }
         setCA({ ...ca, gender: gender })
     }
+    const [msg1, setMsg1] = useState('')
+    const [msg2, setMsg2] = useState('')
+    const [msg3, setMsg3] = useState('')
+    const [msg4, setMsg4] = useState('')
+    useEffect(() => {
+        if (ca.gender) {
+            setMsg1("")
+        }
+        if (ca.course) {
+            setMsg2("")
+        }
+        if (ca.college) {
+            setMsg3("")
+        }
+        if (ca.year) {
+            setMsg4("")
+        }
+    }, [ca.course, ca.gender, ca.college, ca.year])
 
     //captcha
 
@@ -147,6 +165,20 @@ function CA2() {
 
     function RegAsCA(e) {
         e.preventDefault();
+
+
+        if (!ca.gender) {
+            setMsg1("Chhose a gender")
+        }
+        else if (!ca.course) {
+            setMsg2("Select a course")
+        }
+        else if (!ca.college) {
+            setMsg3("Enter your College Name")
+        }
+        else if (!ca.year) {
+            setMsg4("Select a year of study")
+        }
 
         var data;
         if (ca.course == "others") {
@@ -261,11 +293,13 @@ function CA2() {
                     <button className="regGender" onClick={() => { chooseGenderCA(1, "F") }}>Female</button>
                     <button className="regGender" onClick={() => { chooseGenderCA(2, "O") }}>Others</button>
                 </div>
+                <p className="teamError">{msg1}</p>
                 <p className="regName">Mobile Number</p>
                 <input required type="text" className="regInputname" placeholder="Enter phone number" value={ca.mobile} onChange={(e) => setCA({ ...ca, mobile: e.target.value })} />
                 <p id="wrongNumCA">Number must contain only 10 numeric characters.</p>
                 <p className="regName">College Name</p>
                 <input required type="text" className="regInputname" placeholder="Enter your college name" value={ca.college} onChange={(e) => setCA({ ...ca, college: e.target.value })} />
+                <p className="teamError">{msg3}</p>
                 <p className="regName">Course</p>
                 <select required className="regInputname" value={ca.course} onChange={(e) => { setCA({ ...ca, course: e.target.value }) }} >
                     <option id="option">--select--</option>
@@ -276,6 +310,7 @@ function CA2() {
                     <option id="other" value="others">Others</option>
                 </select>
                 <input type="text" id="otherCA" placeholder="Enter course name" value={ca.otherCourse} onChange={(e) => { setCA({ ...ca, otherCourse: e.target.value }) }} />
+                <p className="teamError">{msg2}</p>
                 <p className="regName">Branch</p>
                 <input type="text" className="regInputname" placeholder="Enter your branch" value={ca.branch} onChange={(e) => { setCA({ ...ca, branch: e.target.value }) }} />
                 <p id="wrongBranchCA">Please enter a valid branch.</p>
@@ -292,6 +327,7 @@ function CA2() {
                         <option value="2">2</option>
                     </>}
                 </select>
+                <p className="teamError">{msg4}</p>
                 <div id="recaptcha">
                     <ReCAPTCHA
                         sitekey={key}

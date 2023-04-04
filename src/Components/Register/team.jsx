@@ -22,6 +22,7 @@ function Team() {
     const [show2, setShow2] = useState(false)
     const [bool, setBool] = useState(false)
     const [bool1, setBool1] = useState(false)
+    const [bool2, setBool2] = useState(false)
 
     function handleShow1() {
         setShow1(!show1)
@@ -62,7 +63,7 @@ function Team() {
                 setBool1(false)
             }
         }
-    }, [team.cPass])
+    }, [team.cPass, team.pass])
 
     useEffect(() => {
         if (team.size) {
@@ -79,8 +80,26 @@ function Team() {
         }
     }, [team.size])
 
+    const [msg, setMsg] = useState('')
+    useEffect(() => {
+        if (team.size) {
+            setMsg("")
+            setBool2(true)
+        }
+    }, [team.size])
+
     function RegAsTeam(e) {
         e.preventDefault();
+
+        if (!team.size) {
+            setMsg("Choose a Team Size")
+            setBool2(false)
+        }
+        else {
+            setMsg("")
+            setBool2(true)
+        }
+
         var data;
         if (team.referral) {
             if (team.size == 2) {
@@ -134,7 +153,7 @@ function Team() {
                 }
             }
         }
-        if (bool && bool1) {
+        if (bool && bool1 && bool2) {
             dispatch(RegTeamThunk(data)).
                 then((res) => {
                     if (res.payload.status === 201) {
@@ -186,6 +205,7 @@ function Team() {
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
+                <p className="teamError">{msg}</p>
                 <p className="regName">Referral Code</p>
                 <input type="text" className="regInputname" placeholder="Enter referral code" value={team.referral} onChange={(e) => { setTeam({ ...team, referral: e.target.value }) }} />
                 <p className="regName">Password</p>

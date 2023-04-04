@@ -103,10 +103,10 @@ function Member() {
     useEffect(() => {
         if (rightName.test(input.branch)) {
             document.getElementById("wrongBranch").style.display = "none";
-         
+
         } else if (input.branch) {
             document.getElementById("wrongBranch").style.display = "block";
-            
+
         }
     }, [input.branch]);
 
@@ -131,6 +131,25 @@ function Member() {
                 document.getElementById("otherOption").style.display = 'none'
         }
     }, [input.course])
+
+    const [msg1, setMsg1] = useState('')
+    const [msg2, setMsg2] = useState('')
+    const [msg3, setMsg3] = useState('')
+    const [msg4, setMsg4] = useState('')
+    useEffect(() => {
+        if (input.gender) {
+            setMsg1("")
+        }
+        if (input.course) {
+            setMsg2("")
+        }
+        if (input.college) {
+            setMsg3("")
+        }
+        if (input.year) {
+            setMsg4("")
+        }
+    }, [input.course, input.gender, input.college, input.year])
 
     function chooseGender(index, gender) {
         var l = document.getElementsByClassName("regGender")
@@ -160,6 +179,19 @@ function Member() {
 
     function RegAsMember(e) {
         e.preventDefault();
+
+        if (!input.gender) {
+            setMsg1("Chhose a gender")
+        }
+        else if (!input.course) {
+            setMsg2("Select a course")
+        }
+        else if (!input.college) {
+            setMsg3("Enter your College Name")
+        }
+        else if (!input.year) {
+            setMsg4("Select a year of study")
+        }
 
         var data;
         if (input.branch) {
@@ -220,7 +252,7 @@ function Member() {
                 }
             }
         }
-        if (bool.one && bool.two && bool.three && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
+        if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
 
             if (!token) {
                 toast.error("Please verify the captcha", {
@@ -328,11 +360,13 @@ function Member() {
                     <button className="regGender" onClick={() => { chooseGender(1, "F") }}>Female</button>
                     <button className="regGender" onClick={() => { chooseGender(2, "O") }}>Others</button>
                 </div>
+                <p className="teamError">{msg1}</p>
                 <p className="regName">Mobile Number</p>
                 <input required type="text" className="regInputname" placeholder="Enter phone number" value={input.mobile} onChange={(e) => setInput({ ...input, mobile: e.target.value })} />
                 <p id="wrongNum">Contact Number should be of 10 digit.</p>
                 <p className="regName">College Name</p>
                 <input required type="text" className="regInputname" placeholder="Enter your college name" value={input.college} onChange={(e) => setInput({ ...input, college: e.target.value })} />
+                <p className="teamError">{msg3}</p>
                 <p className="regName">Course</p>
                 <select required className="regInputname" value={input.course} onChange={(e) => { setInput({ ...input, course: e.target.value }) }} >
                     <option id="option">--select--</option>
@@ -343,6 +377,7 @@ function Member() {
                     <option id="other" value="others">Others</option>
                 </select>
                 <input type="text" id="otherOption" placeholder="Enter course name" value={input.otherCourse} onChange={(e) => { setInput({ ...input, otherCourse: e.target.value }) }} />
+                <p className="teamError">{msg2}</p>
                 <p className="regName">Branch</p>
                 <input type="text" className="regInputname" placeholder="Enter your branch" value={input.branch} onChange={(e) => { setInput({ ...input, branch: e.target.value }) }} />
                 <p id="wrongBranch">Please enter a valid branch.</p>
@@ -359,7 +394,7 @@ function Member() {
                         <option value="2">2</option>
                     </>}
                 </select>
-                {console.log(size)}
+                <p className="teamError">{msg4}</p>
                 <div id="recaptcha">
                     <ReCAPTCHA size="normal"
                         sitekey={key}
