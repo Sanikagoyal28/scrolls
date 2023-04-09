@@ -1,19 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    title:''
+    title: '',
+    processBool: false
 }
 
 const titleSlice = createSlice({
-    name:"title",
+    name: "title",
     initialState,
-    reducers:{
+    reducers: {
         setTitle: function (state, action) {
             // return action.payload
-           state.title = action.payload
+            state.title = action.payload
+        },
+        setProcess: function (state, action) {
+            state.processBool = true
         }
     }
 })
 
 export default titleSlice
-export const {setTitle} = titleSlice.actions
+export const { setTitle, setProcess } = titleSlice.actions

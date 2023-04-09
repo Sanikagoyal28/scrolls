@@ -479,7 +479,8 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1 ,
+    .teamError{
         width: 20vw;
         margin-bottom: 4px;
     }
@@ -560,7 +561,7 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1,.teamError {
         line-height: 16px;
     }
 }
@@ -609,7 +610,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1,
-    .forgotText {
+    .forgotText , .teamError{
         width: 27vw;
         font-size: 0.85rem;
     }
@@ -660,7 +661,7 @@
     #wrongNumCA,
     #wrongEmailLog1,
     #wrongPwdLog1,
-    .forgotText {
+    .forgotText , .teamError{
         width: 27vw;
         font-size: 0.8rem;
     }
@@ -739,7 +740,7 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1 , .teamError{
         width: 30vw;
     }
 
@@ -808,7 +809,7 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1, .teamError {
         width: 33vw;
         font-size: 0.85rem;
     }
@@ -891,7 +892,7 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1,.teamError {
         /* margin-left: 8.2vw; */
         width: 36vw;
     }
@@ -956,7 +957,7 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1, .teamError {
         width: 40vw;
         /* margin-left:8.8vw; */
     }
@@ -1018,7 +1019,7 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1, .teamError {
         width: 41vw;
     }
 
@@ -1107,7 +1108,7 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1, .teamError {
         width: 45vw;
     }
 
@@ -1162,7 +1163,7 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1, .teamError {
         width: 51vw;
     }
 
@@ -1247,7 +1248,7 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1, .teamError {
         width: 54vw;
         font-size: 0.8rem;
     }
@@ -1343,7 +1344,7 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1 , .teamError{
         width: 63vw;
     }
 
@@ -1408,7 +1409,7 @@
     #wrongBranchCA,
     #wrongNumCA,
     #wrongEmailLog1,
-    #wrongPwdLog1 {
+    #wrongPwdLog1 , .teamError{
         width: 58vw;
     }
 

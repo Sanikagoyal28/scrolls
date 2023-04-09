@@ -31,10 +31,10 @@
 }
 
 
-/* .timeline {
+.tl_timeline {
     display: flex;
     justify-content: center;
-} */
+}
 
 .tl_group2 {
     display: flex;
@@ -63,7 +63,7 @@
     width: 100%;
     color: black;
     position: absolute;
-    top: 210px;
+    top: 165px;
 }
 
 #tl_circle1 {
@@ -191,5 +191,115 @@
 
     .tl_Head {
         width: 18vw;
+    }
+}
+
+@media(max-width:1270px) {
+    #tl_image {
+        left: 122px;
+    }
+
+    .tl_Head {
+        width: 20vw;
+    }
+
+    .tl_Text {
+        /* left:2vw; */
+
+    }
+}
+
+
+@media(max-width:1200px) {
+    #tl_image {
+        left: 118px;
+        width: 110px;
+    }
+
+    #tl_circle2 {
+        width: 50px;
+        height: 50px;
+    }
+
+    .tl_Head {
+        /* width: 1vw; */
+    }
+
+    #linee {
+        top: 160px;
+    }
+}
+
+
+@media(max-width:1150px) {
+    #tl_image {
+        left: 126px;
+    }
+
+    .tl_Head {
+        width: 22vw;
+    }
+
+    #tl_group3 {
+        width: 350px;
+        /* overflow-x: hidden; */
+    }
+}
+
+@media(max-width:800px) {
+    .tl_timeline {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tl_group2 {
+        transform: rotate(-90deg);
+        margin-left: -8vw;
+    }
+
+    #tl_rotated_group {
+        transform: rotate(90deg);
+        margin-top: -180px;
+        margin-bottom: -100px;
+        margin-left: 10vw;
+    }
+
+    .tl_Head {
+        transform: rotate(90deg);
+        position: relative;
+        left: 10vw;
+        top: 10vw;
+        width: 20vw;
+        font-size: 1.2rem;
+    }
+
+    .tl_Text {
+        transform: rotate(90deg);
+        right: 15vw;
+        width: 12vw;
+        top: 12vw;
+    }
+
+    .tl_rotated_text {
+        transform: rotate(-90deg);
+    }
+
+    #tl_circle2 {
+        height: 56px;
+        width: 56px;
+    }
+
+    #tl_image {
+        width: 122px;
+        left: 116px;
+    }
+
+    .tl_image2 {
+        width: 122px;
+        position: relative;
+        transform: rotate(180deg);
+        left: 11px;
     }
 }

@@ -18,6 +18,7 @@ import Rules from "./Components/rules/Rules";
 import CA from "./Components/LandingPage/CA";
 import Error from "./Components/404/404";
 import Timeline from "./Components/LandingPage/timeline";
+import RegProcess from "./Components/RegProcess/RegProcess";
 
 function App() {
 
@@ -56,6 +57,7 @@ function App() {
         <Route path="/domain_management" exact element={<DomainManage />} />
         <Route path="/rules" exact element={<Rules />} />
         <Route path="/ca" exact element={<CA />} />
+        <Route path="/process" exact element={<RegProcess />} />
 
         <Route path="*" element={<Error />} />
         <Route path="/timeline" element={<Timeline />} />

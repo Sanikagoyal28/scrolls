@@ -1,0 +1,50 @@
+.regProcess {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 116px 8vw 40px 6vw;
+    margin-bottom: 240px;
+    overflow-x: visible;
+}
+
+#process {
+    margin-bottom: 40px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #000000;
+}
+
+.carousel {
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+.carousel>div {
+    width: 70vw;
+    margin: auto;
+    text-align: center;
+}
+
+.carouselImg {
+    width: 50vw;
+    /* height: 540px; */
+    /* margin-bottom: 16px; */
+    object-fit: contain;
+    margin-bottom: 24px;
+    border: 0.5px solid black;
+}
+
+@media(max-width:800px) {
+    .carouselImg {
+        width: 70vw;
+    }
+}
+
+@media(max-width:600px) {
+    .regProcess {
+        padding-bottom: 300px;
+    }
+}

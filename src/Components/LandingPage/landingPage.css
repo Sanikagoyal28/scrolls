@@ -515,6 +515,15 @@ body {
     overflow: hidden;
 }
 
+#processDialog{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    height: 200px;
+    padding-top:24px;
+    /* width: 30vw; */
+}
 
 @media(max-width:2500px) and (min-width:1500px) {
     .landText1 {

@@ -23,6 +23,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { RegOpenThunk } from "../../Redux/registerSlice";
 import { Spinner } from "react-bootstrap";
 import Footer from "../footer/footer";
+import { setProcess } from "../../Redux/heading";
 
 function LandingPage() {
 
@@ -35,7 +36,8 @@ function LandingPage() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const step = useSelector((s) => s.step)
-    const { title } = useSelector((s) => s.heading)
+    const { title, processBool } = useSelector((s) => s.heading)
+    console.log(title)
 
     const [stepDialog, setStepDialog] = useState({
         one: false,
@@ -135,22 +137,17 @@ function LandingPage() {
         setSoon(false)
     }
 
-    const [size, setSize] = useState('')
-    useEffect(() => {
-        function handleSize() {
-            var w = window.innerWidth
-            if (w < 531) {
-                // console.log("compact")
-                setSize(1400)
-            }
-            else {
-                setSize(1300)
-                // console.log("normal")
-            }
-        }
+    const [process, setProces] = useState(false)
 
-        window.addEventListener("resize", handleSize)
-        handleSize()
+    function handleProcess() {
+        setProces(false)
+    }
+    useEffect(() => {
+        dispatch(setProcess())
+        console.log(processBool)
+        if(!processBool){
+            setProces(true)
+        }
     }, [])
 
     useEffect(() => {
@@ -314,6 +311,21 @@ function LandingPage() {
                 <Button onClick={handleSoonClose}>Okay</Button>
             </div>
         </Dialog>
+
+        <Dialog open={process} onClose={handleProcess} PaperProps={{
+            sx: {
+                maxWidth: 1000,
+                marginTop: 0,
+                maxHeight: 400
+            }
+        }}
+            keepMounted >
+            <div id="processDialog">
+                <DialogTitle sx={{textAlign:"center"}}>Click here to know more about the Registration Process</DialogTitle>
+                <Button onClick={() => { navigate("/process") }}>Registration Process</Button>
+            </div>
+        </Dialog>
+
         {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
         <ToastContainer />
     </>
