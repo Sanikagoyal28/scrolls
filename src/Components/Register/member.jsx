@@ -172,7 +172,7 @@ function Member() {
 
     const [valu, setValu] = useState('')
     const [token, setToken] = useState(false);
-    const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
+    const key = "6LewZZElAAAAAHEzlrDLWbWZKWcZctcwq-iieY_M"
     function onChange(value) {
         setValu(value)
         setToken(true)
@@ -184,9 +184,12 @@ const recaptchaRef = createRef();
         await e.preventDefault();
 
         let flag = false;
+        let tokenValue = "";
         await recaptchaRef.current.execute()
         .then((res)=>{
             setValu(res)
+            tokenValue = res;
+            console.log(tokenValue)
             setToken(true)
             flag = true;
             console.log(res)
@@ -194,7 +197,7 @@ const recaptchaRef = createRef();
         .catch((err)=>{
             console.log(err)
             setToken(false)
-            flag = false
+            flag = false;
         })
 
         if (!input.gender) {
@@ -211,122 +214,248 @@ const recaptchaRef = createRef();
         }
 
         var data;
-        if (input.branch) {
-            if (input.course == "others") {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.otherCourse,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu,
-                    "branch": input.branch
-                }
-            }
-            else {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.course,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu,
-                    "branch": input.branch
-                }
-            }
-        }
-        else {
-            if (input.course == "others") {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.otherCourse,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu
-                }
-            }
-            else {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.course,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu
-                }
-            }
-        }
-        console.log(bool,input);
-        if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
-            console.log(flag);
-            if (!flag) {
-                toast.error("Please verify the captcha", {
-                    position: "top-right",
-                    theme: "light",
-                    autoClose: 5000,
-                });
-            }
+        console.log(tokenValue)
+        console.log(valu)
+        // if (input.branch) {
+        //     if (input.course == "others") {
+        //         data = {
+        //             "name": input.name,
+        //             "email": input.email,
+        //             "password": input.pass,
+        //             "gender": input.gender,
+        //             "mobile": input.mobile,
+        //             "course": input.otherCourse,
+        //             "college": input.college,
+        //             "year_of_study": input.year,
+        //             "g-recaptcha-response": valu,
+        //             "branch": input.branch
+        //         }
+        //     }
+        //     else {
+        //         data = {
+        //             "name": input.name,
+        //             "email": input.email,
+        //             "password": input.pass,
+        //             "gender": input.gender,
+        //             "mobile": input.mobile,
+        //             "course": input.course,
+        //             "college": input.college,
+        //             "year_of_study": input.year,
+        //             "g-recaptcha-response": valu,
+        //             "branch": input.branch
+        //         }
+        //     }
+        // }
+        // else {
+        //     if (input.course == "others") {
+        //         data = {
+        //             "name": input.name,
+        //             "email": input.email,
+        //             "password": input.pass,
+        //             "gender": input.gender,
+        //             "mobile": input.mobile,
+        //             "course": input.otherCourse,
+        //             "college": input.college,
+        //             "year_of_study": input.year,
+        //             "g-recaptcha-response": valu
+        //         }
+        //     }
+        //     else {
+        //         data = {
+        //             "name": input.name,
+        //             "email": input.email,
+        //             "password": input.pass,
+        //             "gender": input.gender,
+        //             "mobile": input.mobile,
+        //             "course": input.course,
+        //             "college": input.college,
+        //             "year_of_study": input.year,
+        //             "g-recaptcha-response": valu
+        //         }
+        //     }
+        // }
+        // console.log(bool,input);
+        // if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
+        //     console.log(flag);
+        //     if (!flag) {
+        //         toast.error("Please verify the captcha", {
+        //             position: "top-right",
+        //             theme: "light",
+        //             autoClose: 5000,
+        //         });
+        //     }
 
-            if (flag) {
-                console.log("Here I am")
+        //     if (flag) {
+        //         console.log(data)
 
-                dispatch(RegMemberThunk(data)).
-                    then((res) => {
-                        console.log("Here I am")
+        //         dispatch(RegMemberThunk(data)).
+        //             then((res) => {
+        //                 console.log("Here I am")
 
-                        var y = res.payload.data.msg.replace(
-                            /\w\S*/g,
-                            function (txt) {
-                                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-                            }
-                        );
+        //                 var y = res.payload.data.msg.replace(
+        //                     /\w\S*/g,
+        //                     function (txt) {
+        //                         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        //                     }
+        //                 );
 
-                        if (res.payload.status === 201) {
-                            dispatch(dialog0())
-                            toast.success(y, {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                            // setLoading(false)
-                        }
-                        else if (res.payload.status === 429) {
-                            toast.error("You have attempted too many times Today, please try again tomorrow", {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                        }
-                        else {
-                            toast.error(y, {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                        }
-                    })
-                    .catch((err) => {
-                    })
-            }
-        } else toast.error("Value Error ", {
-            position: "top-right",
-            theme: "light",
-            autoClose: 5000,
-        });
+        //                 if (res.payload.status === 201) {
+        //                     dispatch(dialog0())
+        //                     toast.success(y, {
+        //                         position: "top-right",
+        //                         theme: "light",
+        //                         autoClose: 5000,
+        //                     });
+        //                     // setLoading(false)
+        //                 }
+        //                 else if (res.payload.status === 429) {
+        //                     toast.error("You have attempted too many times Today, please try again tomorrow", {
+        //                         position: "top-right",
+        //                         theme: "light",
+        //                         autoClose: 5000,
+        //                     });
+        //                 }
+        //                 else {
+        //                     toast.error(y, {
+        //                         position: "top-right",
+        //                         theme: "light",
+        //                         autoClose: 5000,
+        //                     });
+        //                 }
+        //             })
+        //             .catch((err) => {
+        //             })
+        //     }
+        // } else toast.error("Value Error ", {
+        //     position: "top-right",
+        //     theme: "light",
+        //     autoClose: 5000,
+        // });
     }
+
+    useEffect(()=>{
+        console.log(valu)
+        if(valu != null || valu !=''){
+            var data;
+            console.log(valu)
+            if (input.branch) {
+                if (input.course == "others") {
+                    data = {
+                        "name": input.name,
+                        "email": input.email,
+                        "password": input.pass,
+                        "gender": input.gender,
+                        "mobile": input.mobile,
+                        "course": input.otherCourse,
+                        "college": input.college,
+                        "year_of_study": input.year,
+                        "g-recaptcha-response": valu,
+                        "branch": input.branch
+                    }
+                }
+                else {
+                    data = {
+                        "name": input.name,
+                        "email": input.email,
+                        "password": input.pass,
+                        "gender": input.gender,
+                        "mobile": input.mobile,
+                        "course": input.course,
+                        "college": input.college,
+                        "year_of_study": input.year,
+                        "g-recaptcha-response": valu,
+                        "branch": input.branch
+                    }
+                }
+            }
+            else {
+                if (input.course == "others") {
+                    data = {
+                        "name": input.name,
+                        "email": input.email,
+                        "password": input.pass,
+                        "gender": input.gender,
+                        "mobile": input.mobile,
+                        "course": input.otherCourse,
+                        "college": input.college,
+                        "year_of_study": input.year,
+                        "g-recaptcha-response": valu
+                    }
+                }
+                else {
+                    data = {
+                        "name": input.name,
+                        "email": input.email,
+                        "password": input.pass,
+                        "gender": input.gender,
+                        "mobile": input.mobile,
+                        "course": input.course,
+                        "college": input.college,
+                        "year_of_study": input.year,
+                        "g-recaptcha-response": valu
+                    }
+                }
+            }
+            console.log(bool,input);
+            if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
+                console.log(token);
+                if (!token) {
+                    toast.error("Please verify the captcha", {
+                        position: "top-right",
+                        theme: "light",
+                        autoClose: 5000,
+                    });
+                }
+    
+                if (token) {
+                    console.log(data)
+    
+                    dispatch(RegMemberThunk(data)).
+                        then((res) => {
+                            console.log("Here I am")
+    
+                            var y = res.payload.data.msg.replace(
+                                /\w\S*/g,
+                                function (txt) {
+                                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                                }
+                            );
+    
+                            if (res.payload.status === 201) {
+                                dispatch(dialog0())
+                                toast.success(y, {
+                                    position: "top-right",
+                                    theme: "light",
+                                    autoClose: 5000,
+                                });
+                                // setLoading(false)
+                            }
+                            else if (res.payload.status === 429) {
+                                toast.error("You have attempted too many times Today, please try again tomorrow", {
+                                    position: "top-right",
+                                    theme: "light",
+                                    autoClose: 5000,
+                                });
+                            }
+                            else {
+                                toast.error(y, {
+                                    position: "top-right",
+                                    theme: "light",
+                                    autoClose: 5000,
+                                });
+                            }
+                        })
+                        .catch((err) => {
+                        })
+                }
+            }
+            //  else toast.error("Value Error ", {
+            //     position: "top-right",
+            //     theme: "light",
+            //     autoClose: 5000,
+            // });
+        }
+    },[valu, token])
 
     useEffect(() => {
         if (reducer.loading) {
