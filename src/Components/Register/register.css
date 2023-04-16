@@ -253,6 +253,26 @@
     margin-top: 20px;
 }
 
+/* #recaptcha iframe{ */
+    /* min-width: 300px;
+    transform: scale(0.77);
+        -webkit-transform: scale(0.77);
+        transform-origin: 0 0;
+        -webkit-transform-origin: 0 0; */
+        /* width: 100% !important; */
+
+/* } */
+
+/* @media only screen and (max-width:500px){
+    #recaptcha *{
+        transform: scale(0.77);
+        -webkit-transform: scale(0.77);
+        transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+    }
+} */
+
+
 
 #wrongName,
 #wrongEmail,
