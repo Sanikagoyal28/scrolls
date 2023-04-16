@@ -410,7 +410,6 @@ function Member() {
                 </div>
                 <button className="regButton" type="submit">Register</button>
             </form>
-
         </div>
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         <ToastContainer />
