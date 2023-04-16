@@ -19,6 +19,7 @@ import CA from "./Components/LandingPage/CA";
 import Error from "./Components/404/404";
 import Timeline from "./Components/LandingPage/timeline";
 import RegProcess from "./Components/RegProcess/RegProcess";
+import "./App.css"
 
 function App() {
 
@@ -37,6 +38,27 @@ function App() {
       dispatch(setTitle(""))
     }
   }, [ca, team])
+
+  // $(function(){
+  //   function rescaleCaptcha(){
+  //     var width = $('.g-recaptcha').parent().width();
+  //     var scale;
+  //     if (width < 302) {
+  //       scale = width / 302;
+  //     } else{
+  //       scale = 1.0; 
+  //     }
+  
+  //     $('.g-recaptcha').css('transform', 'scale(' + scale + ')');
+  //     $('.g-recaptcha').css('-webkit-transform', 'scale(' + scale + ')');
+  //     $('.g-recaptcha').css('transform-origin', '0 0');
+  //     $('.g-recaptcha').css('-webkit-transform-origin', '0 0');
+  //   }
+  
+  //   rescaleCaptcha();
+  //   $( window ).resize(function() { rescaleCaptcha(); });
+  
+  // });
 
   return <>
     <BrowserRouter>

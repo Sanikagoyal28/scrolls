@@ -11,7 +11,8 @@ import { dialog0, dialog1 } from "../../Redux/step";
 import { RegMemberThunk } from "../../Redux/registerSlice";
 import { Spinner } from 'react-bootstrap';
 import ReCAPTCHA from "react-google-recaptcha";
-
+// import Recap from "./recap";
+import { createRef } from "react";
 function Member() {
 
     const [loading, setLoading] = useState(false)
@@ -177,8 +178,24 @@ function Member() {
         setToken(true)
     }
 
-    function RegAsMember(e) {
-        e.preventDefault();
+const recaptchaRef = createRef();
+
+    async function RegAsMember(e) {
+        await e.preventDefault();
+
+        let flag = false;
+        await recaptchaRef.current.execute()
+        .then((res)=>{
+            setValu(res)
+            setToken(true)
+            flag = true;
+            console.log(res)
+        })
+        .catch((err)=>{
+            console.log(err)
+            setToken(false)
+            flag = false
+        })
 
         if (!input.gender) {
             setMsg1("Chhose a gender")
@@ -252,9 +269,10 @@ function Member() {
                 }
             }
         }
+        console.log(bool,input);
         if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
-
-            if (!token) {
+            console.log(flag);
+            if (!flag) {
                 toast.error("Please verify the captcha", {
                     position: "top-right",
                     theme: "light",
@@ -262,9 +280,12 @@ function Member() {
                 });
             }
 
-            if (token) {
+            if (flag) {
+                console.log("Here I am")
+
                 dispatch(RegMemberThunk(data)).
                     then((res) => {
+                        console.log("Here I am")
 
                         var y = res.payload.data.msg.replace(
                             /\w\S*/g,
@@ -280,6 +301,7 @@ function Member() {
                                 theme: "light",
                                 autoClose: 5000,
                             });
+                            // setLoading(false)
                         }
                         else if (res.payload.status === 429) {
                             toast.error("You have attempted too many times Today, please try again tomorrow", {
@@ -299,7 +321,11 @@ function Member() {
                     .catch((err) => {
                     })
             }
-        }
+        } else toast.error("Value Error ", {
+            position: "top-right",
+            theme: "light",
+            autoClose: 5000,
+        });
     }
 
     useEffect(() => {
@@ -403,7 +429,9 @@ function Member() {
                 </select>
                 <p className="teamError">{msg4}</p>
                 <div id="recaptcha">
-                    <ReCAPTCHA size="normal"
+                    <ReCAPTCHA 
+                        size="invisible"
+                        ref={recaptchaRef}
                         sitekey={key}
                         onChange={onChange}
                     />
