@@ -215,6 +215,7 @@ function Member() {
     //         setTimeout(changeValu, 1000)
     //     }
     // })
+    const [load, setLoad] = useState(false)
 
     function RegAsMember(e) {
         e.preventDefault();
@@ -292,6 +293,7 @@ function Member() {
         }
 
         if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
+            setLoad(true)
             setCount(true)
             console.log(data)
             console.log(token)
@@ -453,7 +455,7 @@ function Member() {
     }, [valu])
 
     useEffect(() => {
-        if (reducer.loading) {
+        if (reducer.loading || load) {
             setLoading(true)
             document.body.style.opacity = 0.5;
         }
@@ -461,7 +463,7 @@ function Member() {
             setLoading(false)
             document.body.style.opacity = 1;
         }
-    }, [reducer.loading])
+    }, [reducer.loading, load])
 
     return <>
         <div className="register">

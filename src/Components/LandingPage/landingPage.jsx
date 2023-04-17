@@ -323,7 +323,7 @@ function LandingPage() {
             </div>
         </Dialog>
 
-        {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+        {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         <ToastContainer />
     </>
 }
