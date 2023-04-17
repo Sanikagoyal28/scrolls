@@ -230,116 +230,9 @@ function Member() {
             setBool({ ...bool, year: false })
         }
 
-        var data;
-        if (input.branch) {
-            if (input.course == "others") {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.otherCourse,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu,
-                    "branch": input.branch
-                }
-            }
-            else {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.course,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu,
-                    "branch": input.branch
-                }
-            }
-        }
-        else {
-            if (input.course == "others") {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.otherCourse,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu
-                }
-            }
-            else {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.course,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu
-                }
-            }
-        }
-
-        // console.log(bool)
         if (bool.one && bool.two && bool.four && bool.six && input.gender && bool.course && input.college && bool.year) {
             setLoad(true)
             setCount(true)
-
-            // if (!token) {
-            //     toast.error("Please verify the captcha", {
-            //         position: "top-right",
-            //         theme: "light",
-            //         autoClose: 5000,
-            //     });
-            // }
-
-            // if (token) {
-            //     dispatch(RegMemberThunk(data)).
-            //         then((res) => {
-            //             var y = res.payload.data.msg.replace(
-            //                 /\w\S*/g,
-            //                 function (txt) {
-            //                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            //                 }
-            //             );
-
-            //             if (res.payload.status === 201) {
-            //                 dispatch(dialog0())
-            //                 toast.success(y, {
-            //                     position: "top-right",
-            //                     theme: "light",
-            //                     autoClose: 5000,
-            //                 });
-            //             }
-            //             else if (res.payload.status === 429) {
-            //                 toast.error("You have attempted too many times Today, please try again tomorrow", {
-            //                     position: "top-right",
-            //                     theme: "light",
-            //                     autoClose: 5000,
-            //                 });
-            //             }
-            //             else {
-            //                 toast.error(y, {
-            //                     position: "top-right",
-            //                     theme: "light",
-            //                     autoClose: 5000,
-            //                 });
-            //             }
-            //         })
-            //         .catch((err) => {
-            //         })
-            // }
-            // setRefreshReCaptcha(r => !r)
         }
         else {
             toast.error("Please fill the details correctly", {
@@ -451,16 +344,36 @@ function Member() {
         }
     }, [valu])
 
+    const [timer, setTimer] = useState(14)
     useEffect(() => {
+        // console.log(timer)
         if (reducer.loading || load) {
-            setLoading(true)
-            document.body.style.opacity = 0.5;
+            const time =
+                timer > 0 && setInterval(() => {
+                    setTimer(timer - 1)
+                }, 1000)
+            return () => clearInterval(time)
+        }
+    }, [timer, reducer.loading, load])
+
+    useEffect(() => {
+        
+        if (timer > 0) {
+            if (reducer.loading || load) {
+                setLoading(true)
+                document.body.style.opacity = 0.5;
+            }
+            else {
+                setLoading(false)
+                document.body.style.opacity = 1;
+            }
         }
         else {
             setLoading(false)
             document.body.style.opacity = 1;
+            setLoad(false)
         }
-    }, [reducer.loading, load])
+    }, [reducer.loading, load, timer])
 
     return <>
         <div className="register">

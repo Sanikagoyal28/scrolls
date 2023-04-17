@@ -145,16 +145,34 @@ function ForgotTeam() {
         }
     }, [valu])
 
+    const [timer, setTimer] = useState(14)
     useEffect(() => {
         if (reducer.loading || load) {
-            setLoader(true)
-            document.body.style.opacity = 0.5;
+            const time =
+                timer > 0 && setInterval(() => {
+                    setTimer(timer - 1)
+                }, 1000)
+            return () => clearInterval(time)
+        }
+    }, [timer, reducer.loading, load])
+
+    useEffect(() => {
+        if (timer > 0) {
+            if (reducer.loading || load) {
+                setLoader(true)
+                document.body.style.opacity = 0.5;
+            }
+            else {
+                setLoader(false)
+                document.body.style.opacity = 1;
+            }
         }
         else {
             setLoader(false)
             document.body.style.opacity = 1;
+            setLoad(false)
         }
-    }, [reducer.loading, load])
+    }, [reducer.loading, load, timer])
 
     return <>
         <div className="register">

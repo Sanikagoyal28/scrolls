@@ -142,21 +142,38 @@ function LandingPage() {
     }
     useEffect(() => {
         dispatch(setProcess())
-        if(!processBool){
+        if (!processBool) {
             setProces(true)
         }
     }, [])
 
+    const [timer, setTimer] = useState(14)
     useEffect(() => {
         if (reducerReg.loading) {
-            setLoading(true)
-            document.body.style.opacity = 0.5;
+            const time =
+                timer > 0 && setInterval(() => {
+                    setTimer(timer - 1)
+                }, 1000)
+            return () => clearInterval(time)
+        }
+    }, [timer, reducerReg.loading])
+
+    useEffect(() => {
+        if (timer > 0) {
+            if (reducerReg.loading) {
+                setLoading(true)
+                document.body.style.opacity = 0.5;
+            }
+            else {
+                setLoading(false)
+                document.body.style.opacity = 1;
+            }
         }
         else {
             setLoading(false)
             document.body.style.opacity = 1;
         }
-    }, [reducerReg.loading])
+    }, [reducerReg.loading, timer])
 
     return <>
 
@@ -318,7 +335,7 @@ function LandingPage() {
         }}
             keepMounted >
             <div id="processDialog">
-                <DialogTitle sx={{textAlign:"center"}}>Click here to know more about the Registration Process</DialogTitle>
+                <DialogTitle sx={{ textAlign: "center" }}>Click here to know more about the Registration Process</DialogTitle>
                 <Button onClick={() => { navigate("/process") }}>Registration Process</Button>
             </div>
         </Dialog>

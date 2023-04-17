@@ -56,16 +56,33 @@ function ResetTeam() {
         }
     }, [input.confirmPass, input.pass])
 
+    const [timer, setTimer] = useState(14)
     useEffect(() => {
         if (reducer.loading) {
-            setLoader(true)
-            document.body.style.opacity = 0.5;
+            const time =
+                timer > 0 && setInterval(() => {
+                    setTimer(timer - 1)
+                }, 1000)
+            return () => clearInterval(time)
+        }
+    }, [timer, reducer.loading])
+
+    useEffect(() => {
+        if (timer > 0) {
+            if (reducer.loading) {
+                setLoader(true)
+                document.body.style.opacity = 0.5;
+            }
+            else {
+                setLoader(false)
+                document.body.style.opacity = 1;
+            }
         }
         else {
             setLoader(false)
             document.body.style.opacity = 1;
         }
-    }, [reducer.loading])
+    }, [reducer.loading, timer])
 
     function ResetPassword(e) {
         e.preventDefault()

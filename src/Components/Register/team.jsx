@@ -86,6 +86,9 @@ function Team() {
             setMsg("")
             setBool2(true)
         }
+        else {
+            setBool2(false)
+        }
     }, [team.size])
 
     function RegAsTeam(e) {
@@ -177,16 +180,35 @@ function Team() {
         }
     }
 
+    const [timer, setTimer] = useState(14)
     useEffect(() => {
+        // console.log(timer)
         if (reducer.loading) {
-            setLoading(true)
-            document.body.style.opacity = 0.5;
+            const time =
+                timer > 0 && setInterval(() => {
+                    setTimer(timer - 1)
+                }, 1000)
+            return () => clearInterval(time)
+        }
+    }, [timer, reducer.loading])
+
+    useEffect(() => {
+        if (timer > 0) {
+            if (reducer.loading) {
+                setLoading(true)
+                document.body.style.opacity = 0.5;
+            }
+            else {
+                setLoading(false)
+                document.body.style.opacity = 1;
+            }
         }
         else {
             setLoading(false)
             document.body.style.opacity = 1;
+
         }
-    }, [reducer.loading])
+    }, [reducer.loading, timer])
 
     return <>
         <div className="register">
@@ -200,7 +222,7 @@ function Team() {
                 <input required type="text" className="regInputname" placeholder="Enter team name" value={team.name} onChange={(e) => { setTeam({ ...team, name: e.target.value }) }} />
                 <p className="regName">Team Size</p>
                 <select required className="regInputname" value={team.size} onChange={(e) => { setTeam({ ...team, size: e.target.value }) }}>
-                    <option >--select--</option>
+                    <option value="" >--select--</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
