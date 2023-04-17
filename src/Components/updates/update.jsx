@@ -6,15 +6,17 @@ import "./update.css"
 
 function Update() {
 
-    useEffect(()=>{
-        window.scroll(0,0)
-    },[])
+    useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
 
     return <>
         <Navbar />
         <div className="updates">
             <p className="dashboard" id="update">Updates</p>
-            <UpdCard text="Registrations are live now" head="Registrations" />
+            <UpdCard text="Due to multiple requests with authentic reasons, the Last date for registration and synopsis submission have been extended till 21st April.
+Please be quick and in case of any issue contact us immediately." head="Registrations" />
+
             {/* <div className="updText">
                 <ul>
                     <li>1.  The ongoing conflict between Ukraine and Russia has had several impacts on the world economy. There are some possible effects on Energy prices, Trade, Tourism, </li>

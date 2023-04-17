@@ -513,7 +513,7 @@
         /* margin-left: 15vw; */
         position: absolute;
         right: 6vw;
-        top: 300px;
+        top: 280px;
         margin-bottom: 8px;
     }
 
@@ -591,7 +591,7 @@
 
     .forgotPass {
         right: 8vw;
-        top: 298px;
+        top: 278px;
     }
 }
 
@@ -785,7 +785,7 @@
     }
 
     .forgotPass {
-        top: 296px;
+        top: 276px;
     }
 }
 
@@ -876,7 +876,7 @@
     }
 
     .forgotPass {
-        top: 298px;
+        top: 278px;
     }
 
     .asRegister {
@@ -1386,7 +1386,7 @@
     }
 
     .forgotPass {
-        top: 294px;
+        top: 274px;
     }
 }
 
@@ -1498,7 +1498,7 @@
     }
 
     .forgotPass {
-        top: 290px;
+        top: 270px;
         right: 8vw;
     }
 
@@ -1520,7 +1520,7 @@
 
 @media(max-width:325px) {
     .forgotPass {
-        top: 310px;
+        top: 286px;
         right: 7vw;
     }
 

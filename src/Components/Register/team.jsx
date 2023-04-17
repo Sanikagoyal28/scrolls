@@ -101,58 +101,50 @@ function Team() {
         }
 
         var data;
-        if (team.referral) {
-            if (team.size == 2) {
-                data = {
-                    "name": team.name,
-                    "size": parseInt(team.size),
-                    "leader_id": parseInt(team.leaderId),
-                    "member_2": parseInt(team.member2),
-                    "referral_used": team.referral,
-                    "password": team.pass
-                }
-            }
-            if (team.size == 3) {
-                data = {
-                    "name": team.name,
-                    "size": parseInt(team.size),
-                    "leader_id": parseInt(team.leaderId),
-                    "member_2": parseInt(team.member2),
-                    "member_3": parseInt(team.member3),
-                    "referral_used": team.referral,
-                    "password": team.pass
-                }
-            }
-        }
-        else {
-            if (team.size == 1) {
-                data = {
-                    "name": team.name,
-                    "size": parseInt(team.size),
-                    "leader_id": parseInt(team.leaderId),
-                    "password": team.pass
-                }
-            }
-            if (team.size == 2) {
-                data = {
-                    "name": team.name,
-                    "size": parseInt(team.size),
-                    "leader_id": parseInt(team.leaderId),
-                    "member_2": parseInt(team.member2),
-                    "password": team.pass
-                }
-            }
-            if (team.size == 3) {
-                data = {
-                    "name": team.name,
-                    "size": parseInt(team.size),
-                    "leader_id": parseInt(team.leaderId),
-                    "member_2": parseInt(team.member2),
-                    "member_3": parseInt(team.member3),
-                    "password": team.pass
-                }
+        // if (team.referral) {
+        //     if (team.size == 2) {
+        //         data = {
+        //             "name": team.name,
+        //             "size": parseInt(team.size),
+        //             "leader_id": parseInt(team.leaderId),
+        //             "member_2": parseInt(team.member2),
+        //             // "referral_used": team.referral,
+        //             "password": team.pass
+        //         }
+        //     }
+        //     if (team.size == 3) {
+        //         data = {
+        //             "name": team.name,
+        //             "size": parseInt(team.size),
+        //             "leader_id": parseInt(team.leaderId),
+        //             "member_2": parseInt(team.member2),
+        //             "member_3": parseInt(team.member3),
+        //             // "referral_used": team.referral,
+        //             "password": team.pass
+        //         }
+        //     }
+        // }
+        // else {
+        if (team.size == 2) {
+            data = {
+                "name": team.name,
+                "size": parseInt(team.size),
+                "leader_id": parseInt(team.leaderId),
+                "member_2": parseInt(team.member2),
+                "password": team.pass
             }
         }
+        if (team.size == 3) {
+            data = {
+                "name": team.name,
+                "size": parseInt(team.size),
+                "leader_id": parseInt(team.leaderId),
+                "member_2": parseInt(team.member2),
+                "member_3": parseInt(team.member3),
+                "password": team.pass
+            }
+        }
+        // }
         if (bool && bool1 && bool2) {
             dispatch(RegTeamThunk(data)).
                 then((res) => {
@@ -213,8 +205,8 @@ function Team() {
                     <option value="3">3</option>
                 </select>
                 <p className="teamError">{msg}</p>
-                <p className="regName">Referral Code</p>
-                <input type="text" className="regInputname" placeholder="Enter referral code" value={team.referral} onChange={(e) => { setTeam({ ...team, referral: e.target.value }) }} />
+                {/* <p className="regName">Referral Code</p>
+                <input type="text" className="regInputname" placeholder="Enter referral code" value={team.referral} onChange={(e) => { setTeam({ ...team, referral: e.target.value }) }} /> */}
                 <p className="regName">Password</p>
                 {show1 ? (
                     <FontAwesomeIcon icon={faEye} id="TEye" onClick={handleShow1} />

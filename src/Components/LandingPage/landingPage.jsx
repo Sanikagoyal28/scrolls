@@ -37,7 +37,6 @@ function LandingPage() {
     const navigate = useNavigate()
     const step = useSelector((s) => s.step)
     const { title, processBool } = useSelector((s) => s.heading)
-    console.log(title)
 
     const [stepDialog, setStepDialog] = useState({
         one: false,
@@ -111,7 +110,6 @@ function LandingPage() {
     function RegOpen() {
         dispatch(RegOpenThunk())
             .then((res) => {
-                console.log(res)
                 if (res.payload.status === 200) {
                     setDialogg(true);
                     dispatch(dialog1())
@@ -144,7 +142,6 @@ function LandingPage() {
     }
     useEffect(() => {
         dispatch(setProcess())
-        console.log(processBool)
         if(!processBool){
             setProces(true)
         }
