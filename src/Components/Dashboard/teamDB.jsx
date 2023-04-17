@@ -82,7 +82,7 @@ function TeamDB() {
                 }
             })
             .catch((err) => {
-                console.log(err)
+                // console.log(err)
             })
     }, [])
     useEffect(() => {
@@ -167,7 +167,7 @@ function TeamDB() {
 
         //console form data
         for (const pair of fd.entries()) {
-            console.log(`${pair[0]}, ${pair[1]}`);
+            // console.log(`${pair[0]}, ${pair[1]}`);
         }
 
         dispatch(TeamDBDataThunk(fd)).

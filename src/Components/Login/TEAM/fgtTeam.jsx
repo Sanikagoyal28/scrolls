@@ -40,7 +40,7 @@ function ForgotTeam() {
     const key = "6Lc40yElAAAAAJuSuZ8MhKA4ZSB_gXoVmTWu6KWP"
 
     const onVerify = useCallback((token) => {
-        console.log(token)
+     
         setValu(token)
         setToken(true)
     });
@@ -108,7 +108,7 @@ function ForgotTeam() {
                 email,
                 "g-recaptcha-response": valu
             }
-            console.log(data)
+           
             dispatch(FgtTeamThunk(data)).
                 then((res) => {
                     setLoad(false)

@@ -127,7 +127,7 @@ function LandingPage() {
                 }
             })
             .catch((err) => {
-                console.log(err)
+                // console.log(err)
             })
     }
 

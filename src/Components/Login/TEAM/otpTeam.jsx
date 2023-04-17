@@ -42,7 +42,6 @@ function OtpTeam() {
         if (value) {
             dispatch(OtpTeamThunk(data)).
                 then((res) => {
-
                     var y = res.payload.data.msg.replace(
                         /\w\S*/g,
                         function (txt) {

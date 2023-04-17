@@ -35,7 +35,9 @@ function Member() {
         three: false,
         four: false,
         five: false,
-        six: false
+        six: false,
+        course: false,
+        year: false
     }
     const [bool, setBool] = useState(boolen)
 
@@ -145,12 +147,14 @@ function Member() {
         }
         if (input.course) {
             setMsg2("")
+            setBool({ ...bool, course: true })
         }
         if (input.college) {
             setMsg3("")
         }
         if (input.year) {
             setMsg4("")
+            setBool({ ...bool, year: true })
         }
     }, [input.course, input.gender, input.college, input.year])
 
@@ -175,7 +179,6 @@ function Member() {
     const [token, setToken] = useState(false);
     const key = "6Lc40yElAAAAAJuSuZ8MhKA4ZSB_gXoVmTWu6KWP"
     function onChange(value) {
-        // console.log(value)
         setValu(value)
         setToken(true)
     }
@@ -217,12 +220,14 @@ function Member() {
         }
         else if (!input.course) {
             setMsg2("Select a course")
+            setBool({ ...bool, course: false })
         }
         else if (!input.college) {
             setMsg3("Enter your College Name")
         }
         else if (!input.year) {
             setMsg4("Select a year of study")
+            setBool({ ...bool, year: false })
         }
 
         var data;
@@ -285,11 +290,10 @@ function Member() {
             }
         }
 
-        if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
+        // console.log(bool)
+        if (bool.one && bool.two && bool.four && bool.six && input.gender && bool.course && input.college && bool.year) {
             setLoad(true)
             setCount(true)
-            // console.log(data)
-            // console.log(token)
 
             // if (!token) {
             //     toast.error("Please verify the captcha", {
@@ -411,6 +415,7 @@ function Member() {
             // console.log(data)
             dispatch(RegMemberThunk(data)).
                 then((res) => {
+                    setLoad(false)
                     var y = res.payload.data.msg.replace(
                         /\w\S*/g,
                         function (txt) {
@@ -489,9 +494,9 @@ function Member() {
                 <p id="WrongPwd2">Password entered in two fields must be same.</p>
                 <p className="regName">Select your gender</p>
                 <div className="genders">
-                    <button className="regGender" onClick={() => { chooseGender(0, "M") }} >Male</button>
-                    <button className="regGender" onClick={() => { chooseGender(1, "F") }}>Female</button>
-                    <button className="regGender" onClick={() => { chooseGender(2, "O") }}>Others</button>
+                    <button type="button" className="regGender" onClick={() => { chooseGender(0, "M") }} >Male</button>
+                    <button type="button" className="regGender" onClick={() => { chooseGender(1, "F") }}>Female</button>
+                    <button type="button" className="regGender" onClick={() => { chooseGender(2, "O") }}>Others</button>
                 </div>
                 <p className="teamError">{msg1}</p>
                 <p className="regName">Mobile Number</p>
@@ -502,7 +507,7 @@ function Member() {
                 <p className="teamError">{msg3}</p>
                 <p className="regName">Course</p>
                 <select required className="regInputname" value={input.course} onChange={(e) => { setInput({ ...input, course: e.target.value }) }} >
-                    <option id="option">--select--</option>
+                    <option id="option" value="">--select--</option>
                     <option value="BE/BTech">BE/BTech</option>
                     <option value="MTech">M.Tech</option>
                     <option value="MCA">MCA</option>
@@ -516,7 +521,7 @@ function Member() {
                 <p id="wrongBranch">Please enter a valid branch.</p>
                 <p className="regName">Year of study</p>
                 <select required className="regInputname" value={input.year} onChange={(e) => { setInput({ ...input, year: e.target.value }) }}>
-                    <option >--select--</option>
+                    <option value="" >--select--</option>
                     {(input.course == "BE/BTech" || input.course == "others") ? <>
                         <option value="1">1</option>
                         <option value="2">2</option>

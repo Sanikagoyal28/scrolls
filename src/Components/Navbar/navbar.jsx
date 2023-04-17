@@ -209,7 +209,7 @@ function Navbar() {
 
     const [more, setMore] = useState(false)
     function handleMore() {
-        // console.log(more)
+       
         setMore(true)
         document.getElementById('moreDD').style.display = "flex";
     }
@@ -230,7 +230,7 @@ function Navbar() {
     function RegOpen() {
         dispatch(RegOpenThunk())
             .then((res) => {
-                console.log(res)
+                
                 if (res.payload.status === 200) {
                     setDialogg(true);
                     dispatch(dialog1())
@@ -248,7 +248,7 @@ function Navbar() {
                 }
             })
             .catch((err) => {
-                console.log(err)
+                // console.log(err)
             })
     }
 
