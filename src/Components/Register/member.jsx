@@ -11,6 +11,11 @@ import { dialog0, dialog1 } from "../../Redux/step";
 import { RegMemberThunk } from "../../Redux/registerSlice";
 import { Spinner } from 'react-bootstrap';
 import ReCAPTCHA from "react-google-recaptcha";
+import {
+    GoogleReCaptchaProvider,
+    GoogleReCaptcha
+} from 'react-google-recaptcha-v3';
+import { useCallback } from "react";
 
 function Member() {
 
@@ -169,17 +174,39 @@ function Member() {
 
     //captcha
 
+    const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
     const [valu, setValu] = useState('')
     const [token, setToken] = useState(false);
-    const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
+    const key = "6Lc40yElAAAAAJuSuZ8MhKA4ZSB_gXoVmTWu6KWP"
     function onChange(value) {
+        console.log(value)
         setValu(value)
         setToken(true)
     }
 
+    const onVerify = useCallback((token) => {
+        console.log(token)
+        setValu(token)
+        setToken(true)
+    });
+
+    const [count, setCount] = useState(false)
+
+    useEffect(() => {
+        if (valu != '')
+            setCount(false)
+    }, [valu])
+
+    
+
+    useEffect(()=>{
+        if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
+            setCount(true)
+        }
+    },[bool, input])
+
     function RegAsMember(e) {
         e.preventDefault();
-
         if (!input.gender) {
             setMsg1("Chhose a gender")
         }
@@ -254,18 +281,18 @@ function Member() {
         }
         if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
 
-            if (!token) {
-                toast.error("Please verify the captcha", {
-                    position: "top-right",
-                    theme: "light",
-                    autoClose: 5000,
-                });
-            }
+            console.log(data)
+            // if (!token) {
+            //     toast.error("Please verify the captcha", {
+            //         position: "top-right",
+            //         theme: "light",
+            //         autoClose: 5000,
+            //     });
+            // }
 
             if (token) {
                 dispatch(RegMemberThunk(data)).
                     then((res) => {
-
                         var y = res.payload.data.msg.replace(
                             /\w\S*/g,
                             function (txt) {
@@ -299,6 +326,7 @@ function Member() {
                     .catch((err) => {
                     })
             }
+            // setRefreshReCaptcha(r => !r)
         }
     }
 
@@ -312,24 +340,6 @@ function Member() {
             document.body.style.opacity = 1;
         }
     }, [reducer.loading])
-
-    const [size, setSize] = useState('')
-    useEffect(() => {
-        function handleSize() {
-            var w = window.innerWidth
-            if (w < 531) {
-                console.log("compact")
-                setSize("compact")
-            }
-            else {
-                setSize("normal")
-                console.log("normal")
-            }
-        }
-
-        window.addEventListener("resize", handleSize)
-        handleSize()
-    }, [])
 
     return <>
         <div className="register">
@@ -403,16 +413,24 @@ function Member() {
                 </select>
                 <p className="teamError">{msg4}</p>
                 <div id="recaptcha">
-                    <ReCAPTCHA size="normal"
+                    {count ?
+
+                        < GoogleReCaptchaProvider reCaptchaKey={key}>
+                            <GoogleReCaptcha onVerify={onVerify} />
+                        </GoogleReCaptchaProvider>
+                        : null
+                    }
+                    {/* <ReCAPTCHA size="normal"
                         sitekey={key}
                         onChange={onChange}
-                    />
+                    /> */}
                 </div>
                 <button className="regButton" type="submit">Register</button>
-            </form>
+            </form >
 
-        </div>
-        {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
+        </div >
+        {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null
+        }
         <ToastContainer />
     </>
 }
