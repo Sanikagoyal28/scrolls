@@ -346,7 +346,7 @@ function Member() {
         }
         else {
             console.log(bool, input)
-            toast.error("error", {
+            toast.error("Please fill the details correctly", {
                 position: "top-right",
                 theme: "light",
                 autoClose: 5000,
