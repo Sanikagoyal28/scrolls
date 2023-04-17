@@ -16,7 +16,6 @@ import {
     GoogleReCaptcha
 } from 'react-google-recaptcha-v3';
 import { useCallback } from "react";
-import { getListItemSecondaryActionClassesUtilityClass } from "@mui/material";
 
 function Member() {
 
@@ -117,7 +116,6 @@ function Member() {
     }, [input.branch]);
 
     useEffect(() => {
-
         if (isnum.test(input.mobile) && input.mobile.length == 10) {
             document.getElementById("wrongNum").style.display = "none";
             setBool({ ...bool, six: true })
@@ -127,7 +125,6 @@ function Member() {
             setBool({ ...bool, six: false })
         }
     }, [input.mobile])
-
 
     useEffect(() => {
         if (input.course) {
@@ -170,23 +167,21 @@ function Member() {
             }
         }
         setInput({ ...input, gender: gender })
-
     }
 
     //captcha
-
     const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
     const [valu, setValu] = useState('')
     const [token, setToken] = useState(false);
     const key = "6Lc40yElAAAAAJuSuZ8MhKA4ZSB_gXoVmTWu6KWP"
     function onChange(value) {
-        console.log(value)
+        // console.log(value)
         setValu(value)
         setToken(true)
     }
 
     const onVerify = useCallback((token) => {
-        console.log(token)
+        // console.log(token)
         setValu(token)
         setToken(true)
     });
@@ -196,8 +191,6 @@ function Member() {
     useEffect(() => {
         if (valu != '')
             setCount(false)
-        // else
-        //     setCount(true)
     }, [valu])
 
     // useEffect(() => {
@@ -295,8 +288,8 @@ function Member() {
         if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
             setLoad(true)
             setCount(true)
-            console.log(data)
-            console.log(token)
+            // console.log(data)
+            // console.log(token)
 
             // if (!token) {
             //     toast.error("Please verify the captcha", {
@@ -345,7 +338,6 @@ function Member() {
             // setRefreshReCaptcha(r => !r)
         }
         else {
-            console.log(bool, input)
             toast.error("Please fill the details correctly", {
                 position: "top-right",
                 theme: "light",
@@ -416,7 +408,7 @@ function Member() {
                 }
             }
 
-            console.log(data)
+            // console.log(data)
             dispatch(RegMemberThunk(data)).
                 then((res) => {
                     var y = res.payload.data.msg.replace(

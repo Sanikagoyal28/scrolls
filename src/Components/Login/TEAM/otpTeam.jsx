@@ -38,6 +38,7 @@ function OtpTeam() {
             "email": email,
             "otp": value
         }
+        localStorage.setItem("login_otp", value)
         if (value) {
             dispatch(OtpTeamThunk(data)).
                 then((res) => {

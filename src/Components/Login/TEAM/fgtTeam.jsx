@@ -8,7 +8,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { FgtTeamThunk } from "../../../Redux/loginSlice";
 import { dialog12, dialog0, dialog13, dialog11 } from "../../../Redux/step";
 import ReCAPTCHA from "react-google-recaptcha";
-
+import {
+    GoogleReCaptchaProvider,
+    GoogleReCaptcha
+} from 'react-google-recaptcha-v3';
+import { useCallback } from "react";
 
 function ForgotTeam() {
 
@@ -30,36 +34,84 @@ function ForgotTeam() {
     }, [email]);
 
     //captcha
-
     const [valu, setValu] = useState('')
     const [token, setToken] = useState(false);
-    const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
-    function onChange(value) {
-        setValu(value)
+    const [load, setLoad] = useState(false)
+    const key = "6Lc40yElAAAAAJuSuZ8MhKA4ZSB_gXoVmTWu6KWP"
+
+    const onVerify = useCallback((token) => {
+        console.log(token)
+        setValu(token)
         setToken(true)
-    }
+    });
+
+    const [count, setCount] = useState(false)
+
+    useEffect(() => {
+        if (valu != '')
+            setCount(false)
+    }, [valu])
 
 
     function ForgotPassword(e) {
         e.preventDefault();
+        
         if (bool) {
-            if (!token) {
-                toast.error("Please verify the captcha", {
-                    position: "top-right",
-                    theme: "light",
-                    autoClose: 5000,
-                });
-            }
+            setLoad(true)
+            setCount(true)
         }
 
         const data = {
             email,
             "g-recaptcha-response": valu
         }
-        localStorage.setItem("login_email", email)
-        if (token && email && bool) {
+        // localStorage.setItem("login_email", email)
+        // if (token && email && bool) {
+        //     dispatch(FgtTeamThunk(data)).
+        //         then((res) => {
+        //             var y = res.payload.data.msg.replace(
+        //                 /\w\S*/g,
+        //                 function (txt) {
+        //                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        //                 }
+        //             );
+
+        //             if (res.payload.status == 400) {
+        //                 toast.error(y, {
+        //                     position: "top-right",
+        //                     theme: "light",
+        //                     autoClose: 5000,
+        //                 });
+        //             }
+        //             if (res.payload.status == 201) {
+        //                 dispatch(dialog13())
+        //                 toast.success(y, {
+        //                     position: "top-right",
+        //                     theme: "light",
+        //                     autoClose: 5000,
+        //                 });
+        //             }
+        //             if (res.payload.status === 429) {
+        //                 toast.error("You have attempted too many times Today, please try again tomorrow", {
+        //                     position: "top-right",
+        //                     theme: "light",
+        //                     autoClose: 5000,
+        //                 });
+        //             }
+        //         })
+        // }
+    }
+
+    useEffect(() => {
+        if (valu != '') {
+            const data = {
+                email,
+                "g-recaptcha-response": valu
+            }
+            console.log(data)
             dispatch(FgtTeamThunk(data)).
                 then((res) => {
+                    setLoad(false)
                     var y = res.payload.data.msg.replace(
                         /\w\S*/g,
                         function (txt) {
@@ -91,10 +143,10 @@ function ForgotTeam() {
                     }
                 })
         }
-    }
+    }, [valu])
 
     useEffect(() => {
-        if (reducer.loading) {
+        if (reducer.loading || load) {
             setLoader(true)
             document.body.style.opacity = 0.5;
         }
@@ -102,7 +154,7 @@ function ForgotTeam() {
             setLoader(false)
             document.body.style.opacity = 1;
         }
-    }, [reducer.loading])
+    }, [reducer.loading, load])
 
     return <>
         <div className="register">
@@ -118,10 +170,13 @@ function ForgotTeam() {
                 <input type="text" className="regInputname" required placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <p id="wrongEmailLog1">Please enter a valid Email address</p>
                 <div id="recaptcha">
-                    <ReCAPTCHA
-                        sitekey={key}
-                        onChange={onChange}
-                    />
+                    {count ?
+
+                        < GoogleReCaptchaProvider reCaptchaKey={key}>
+                            <GoogleReCaptcha onVerify={onVerify} />
+                        </GoogleReCaptchaProvider>
+                        : null
+                    }
                 </div>
                 <button className="regButton" type="submit" >Continue</button>
             </form>
