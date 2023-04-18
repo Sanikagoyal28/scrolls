@@ -16,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import "react-toastify/scss/_closeButton.scss"
 import { InstagramEmbed } from 'react-social-media-embed';
 import Navbar from "../Navbar/navbar";
-import mobTimeline from "../Assets/mob_timeline.svg"
+// import mobTimeline from "../Assets/mob_timeline.svg"
 import timelineNew from "../Assets/timeline.svg"
 import timelinePhone from "../Assets/timelinePhone.svg"
 import { NavLink, useNavigate } from "react-router-dom";
