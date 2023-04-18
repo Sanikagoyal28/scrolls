@@ -520,8 +520,9 @@ body {
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
-    height: 200px;
+    height: fit-content;
     padding-top:24px;
+    padding-bottom:24px;
     /* width: 30vw; */
 }
 

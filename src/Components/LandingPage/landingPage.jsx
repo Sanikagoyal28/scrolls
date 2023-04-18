@@ -1,7 +1,7 @@
 import landImage from "../Assets/scroll_bg.svg"
 import domainLogo from "../Assets/domainLogo.svg"
 import { forwardRef, useEffect, useState } from "react";
-import { Button, Dialog, DialogTitle, Slide } from "@mui/material";
+import { Alert, Button, Dialog, DialogTitle, Slide, Typography } from "@mui/material";
 import { dialog0, dialog1, dialog6 } from "../../Redux/step";
 import Register from "../Register/Register";
 import Member from "../Register/member";
@@ -269,7 +269,6 @@ function LandingPage() {
         <div className="Dialogue1">
             <Dialog open={stepDialog.one} PaperProps={{
                 sx: {
-
                     maxWidth: 1000
                 }
             }}>
@@ -326,19 +325,29 @@ function LandingPage() {
             </div>
         </Dialog>
 
-        <Dialog open={process} onClose={handleProcess} PaperProps={{
-            sx: {
-                maxWidth: 1000,
-                marginTop: 0,
-                maxHeight: 400
-            }
-        }}
-            keepMounted >
-            <div id="processDialog">
-                <DialogTitle sx={{ textAlign: "center" }}>Click here to know more about the Registration Process</DialogTitle>
-                <Button onClick={() => { navigate("/process") }}>Registration Process</Button>
-            </div>
-        </Dialog>
+        <div style={{ position: "absolute", top: "40px", right: "20px" }} >
+            <Dialog open={process} onClose={handleProcess} PaperProps={{
+                sx: {
+                    maxWidth: 400,
+                    marginTop: 0,
+                    maxHeight: 500
+                }
+            }}
+                keepMounted >
+                <div id="processDialog">
+                    <DialogTitle sx={{ textAlign: "center" }}>Click here to know more about the Registration Process</DialogTitle>
+                    <Button onClick={() => { navigate("/process") }}>Registration Process</Button>
+                    <DialogTitle sx={{ textAlign: "center", fontSize: "0.9rem" }}> The Last date for registration and synopsis submission have been extended till 21st April.
+                        Please be quick and in case of any issue contact us immediately</DialogTitle>
+                </div>
+            </Dialog>
+        </div>
+
+        {/* <Alert severity="info">Click here to know more about the Registration Process
+            <Button onClick={() => { navigate("/process") }}>Registration Process</Button>
+            <Typography variant="h4"> The Last date for registration and synopsis submission have been extended till 21st April.
+                Please be quick and in case of any issue contact us immediately</Typography>
+        </Alert> */}
 
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         <ToastContainer />
