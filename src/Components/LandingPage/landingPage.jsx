@@ -335,19 +335,14 @@ function LandingPage() {
             }}
                 keepMounted >
                 <div id="processDialog">
-                    <DialogTitle sx={{ textAlign: "center" }}>Click here to know more about the Registration Process</DialogTitle>
+                <DialogTitle sx={{ textAlign: "center", marginBottom:0, paddingBottom:'8px' }}>The Last date for registration and synopsis submission have been extended till 21st April.</DialogTitle>
+                    <DialogTitle sx={{ textAlign: "center" , marginTop:0, paddingTop:0}}>Click here to know more about the Registration Process</DialogTitle>
                     <Button onClick={() => { navigate("/process") }}>Registration Process</Button>
-                    <DialogTitle sx={{ textAlign: "center", fontSize: "0.8rem" }}> The Last date for registration and synopsis submission have been extended till 21st April.
-                        Please be quick and in case of any issue contact us immediately</DialogTitle>
+                    {/* <DialogTitle sx={{ textAlign: "center", fontSize: "0.8rem" }}> The Last date for registration and synopsis submission have been extended till 21st April.
+                        Please be quick and in case of any issue contact us immediately</DialogTitle> */}
                 </div>
             </Dialog>
         </div>
-
-        {/* <Alert severity="info">Click here to know more about the Registration Process
-            <Button onClick={() => { navigate("/process") }}>Registration Process</Button>
-            <Typography variant="h4"> The Last date for registration and synopsis submission have been extended till 21st April.
-                Please be quick and in case of any issue contact us immediately</Typography>
-        </Alert> */}
 
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         <ToastContainer />
