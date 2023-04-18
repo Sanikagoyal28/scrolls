@@ -383,6 +383,7 @@ function TeamDB() {
                             <option id="option">--select--</option>
                             <option value="Cloud Computing">Cloud Computing</option>
                             <option value="Deep Learning">Deep Learning</option>
+                            <option value="Cryptocurrency (Blockchain)">Cryptocurrency (Blockchain)</option>
                             <option value="Machine Learning">Machine Learning</option>
                             <option value="Image Processing">Image Processing</option>
                             <option value="Neural Network">Neural Network</option>

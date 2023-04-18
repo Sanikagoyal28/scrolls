@@ -389,9 +389,9 @@ const recaptchaRef = createRef();
                 <p id="WrongPwd2">Password entered in two fields must be same.</p>
                 <p className="regName">Select your gender</p>
                 <div className="genders">
-                    <button className="regGender" onClick={() => { chooseGender(0, "M") }} >Male</button>
-                    <button className="regGender" onClick={() => { chooseGender(1, "F") }}>Female</button>
-                    <button className="regGender" onClick={() => { chooseGender(2, "O") }}>Others</button>
+                    <button type="button" className="regGender" onClick={() => { chooseGender(0, "M") }} >Male</button>
+                    <button type="button" className="regGender" onClick={() => { chooseGender(1, "F") }}>Female</button>
+                    <button type="button" className="regGender" onClick={() => { chooseGender(2, "O") }}>Others</button>
                 </div>
                 <p className="teamError">{msg1}</p>
                 <p className="regName">Mobile Number</p>
