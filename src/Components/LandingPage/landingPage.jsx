@@ -337,7 +337,7 @@ function LandingPage() {
                 <div id="processDialog">
                     <DialogTitle sx={{ textAlign: "center" }}>Click here to know more about the Registration Process</DialogTitle>
                     <Button onClick={() => { navigate("/process") }}>Registration Process</Button>
-                    <DialogTitle sx={{ textAlign: "center", fontSize: "0.9rem" }}> The Last date for registration and synopsis submission have been extended till 21st April.
+                    <DialogTitle sx={{ textAlign: "center", fontSize: "0.8rem" }}> The Last date for registration and synopsis submission have been extended till 21st April.
                         Please be quick and in case of any issue contact us immediately</DialogTitle>
                 </div>
             </Dialog>
