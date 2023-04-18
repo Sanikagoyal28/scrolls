@@ -16,7 +16,7 @@ function Register() {
             </div>
             <button className="asRegister" id="regMember" onClick={() => { dispatch(dialog2()) }} >Member</button>
             <button className="asRegister" onClick={() => { dispatch(dialog3()) }} >Team</button>
-            <button className="asRegister" id="CA" onClick={() => { dispatch(dialog4()) }} >Campus Ambassador</button>
+            {/* <button className="asRegister" id="CA" onClick={() => { dispatch(dialog4()) }} >Campus Ambassador</button> */}
         </div>
     </>
 }

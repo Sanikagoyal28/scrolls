@@ -82,7 +82,7 @@ function TeamDB() {
                 }
             })
             .catch((err) => {
-                console.log(err)
+                // console.log(err)
             })
     }, [])
     useEffect(() => {
@@ -167,7 +167,7 @@ function TeamDB() {
 
         //console form data
         for (const pair of fd.entries()) {
-            console.log(`${pair[0]}, ${pair[1]}`);
+            // console.log(`${pair[0]}, ${pair[1]}`);
         }
 
         dispatch(TeamDBDataThunk(fd)).
@@ -208,16 +208,33 @@ function TeamDB() {
             })
     }
 
+    const [timer, setTimer] = useState(14)
     useEffect(() => {
         if (reducer.loading) {
-            setLoading(true)
-            document.body.style.opacity = 0.5;
+            const time =
+                timer > 0 && setInterval(() => {
+                    setTimer(timer - 1)
+                }, 1000)
+            return () => clearInterval(time)
+        }
+    }, [timer, reducer.loading])
+
+    useEffect(() => {
+        if (timer > 0) {
+            if (reducer.loading) {
+                setLoading(true)
+                document.body.style.opacity = 0.5;
+            }
+            else {
+                setLoading(false)
+                document.body.style.opacity = 1;
+            }
         }
         else {
             setLoading(false)
             document.body.style.opacity = 1;
         }
-    }, [reducer.loading])
+    }, [reducer.loading, timer])
 
     function handleChange(e) {
         setUplPaper(e.target.files[0])

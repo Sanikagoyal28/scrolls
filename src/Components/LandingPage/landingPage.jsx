@@ -37,7 +37,6 @@ function LandingPage() {
     const navigate = useNavigate()
     const step = useSelector((s) => s.step)
     const { title, processBool } = useSelector((s) => s.heading)
-    console.log(title)
 
     const [stepDialog, setStepDialog] = useState({
         one: false,
@@ -111,7 +110,6 @@ function LandingPage() {
     function RegOpen() {
         dispatch(RegOpenThunk())
             .then((res) => {
-                console.log(res)
                 if (res.payload.status === 200) {
                     setDialogg(true);
                     dispatch(dialog1())
@@ -129,7 +127,7 @@ function LandingPage() {
                 }
             })
             .catch((err) => {
-                console.log(err)
+                // console.log(err)
             })
     }
 
@@ -144,22 +142,38 @@ function LandingPage() {
     }
     useEffect(() => {
         dispatch(setProcess())
-        console.log(processBool)
-        if(!processBool){
+        if (!processBool) {
             setProces(true)
         }
     }, [])
 
+    const [timer, setTimer] = useState(14)
     useEffect(() => {
         if (reducerReg.loading) {
-            setLoading(true)
-            document.body.style.opacity = 0.5;
+            const time =
+                timer > 0 && setInterval(() => {
+                    setTimer(timer - 1)
+                }, 1000)
+            return () => clearInterval(time)
+        }
+    }, [timer, reducerReg.loading])
+
+    useEffect(() => {
+        if (timer > 0) {
+            if (reducerReg.loading) {
+                setLoading(true)
+                document.body.style.opacity = 0.5;
+            }
+            else {
+                setLoading(false)
+                document.body.style.opacity = 1;
+            }
         }
         else {
             setLoading(false)
             document.body.style.opacity = 1;
         }
-    }, [reducerReg.loading])
+    }, [reducerReg.loading, timer])
 
     return <>
 
@@ -321,12 +335,12 @@ function LandingPage() {
         }}
             keepMounted >
             <div id="processDialog">
-                <DialogTitle sx={{textAlign:"center"}}>Click here to know more about the Registration Process</DialogTitle>
+                <DialogTitle sx={{ textAlign: "center" }}>Click here to know more about the Registration Process</DialogTitle>
                 <Button onClick={() => { navigate("/process") }}>Registration Process</Button>
             </div>
         </Dialog>
 
-        {(loading) ? <Spinner animation="border" variant="light" id="loadSpinner" /> : null}
+        {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         <ToastContainer />
     </>
 }

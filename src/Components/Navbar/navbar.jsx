@@ -209,7 +209,7 @@ function Navbar() {
 
     const [more, setMore] = useState(false)
     function handleMore() {
-        // console.log(more)
+       
         setMore(true)
         document.getElementById('moreDD').style.display = "flex";
     }
@@ -230,7 +230,7 @@ function Navbar() {
     function RegOpen() {
         dispatch(RegOpenThunk())
             .then((res) => {
-                console.log(res)
+                
                 if (res.payload.status === 200) {
                     setDialogg(true);
                     dispatch(dialog1())
@@ -248,7 +248,7 @@ function Navbar() {
                 }
             })
             .catch((err) => {
-                console.log(err)
+                // console.log(err)
             })
     }
 
@@ -401,10 +401,11 @@ function Navbar() {
         <Dialog open={stepDialog.six} PaperProps={{
             sx: { maxHeight: 450, maxWidth: 1000 }
         }}>
-            <Login1 />
+            <LoginTeam />
+            {/* <Login1 /> */}
         </Dialog>
 
-        <Dialog open={stepDialog.seven} PaperProps={{
+        {/* <Dialog open={stepDialog.seven} PaperProps={{
             sx: { maxHeight: 500, maxWidth: 1000 }
         }}>
             <Login />
@@ -426,13 +427,13 @@ function Navbar() {
             sx: { maxHeight: 500, maxWidth: 1000 }
         }} >
             <Reset />
-        </Dialog>
+        </Dialog> */}
 
-        <Dialog open={stepDialog.eleven} PaperProps={{
+        {/* <Dialog open={stepDialog.eleven} PaperProps={{
             sx: { maxHeight: 500, maxWidth: 1000 }
         }} >
             <LoginTeam />
-        </Dialog>
+        </Dialog> */}
 
         <Dialog open={stepDialog.twelve} PaperProps={{
             sx: { maxHeight: 500, maxWidth: 1000 }

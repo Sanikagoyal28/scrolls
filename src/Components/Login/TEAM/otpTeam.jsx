@@ -38,10 +38,10 @@ function OtpTeam() {
             "email": email,
             "otp": value
         }
+        localStorage.setItem("login_otp", value)
         if (value) {
             dispatch(OtpTeamThunk(data)).
                 then((res) => {
-
                     var y = res.payload.data.msg.replace(
                         /\w\S*/g,
                         function (txt) {
@@ -75,16 +75,33 @@ function OtpTeam() {
         }
     }
 
+    const [timerr, setTimerr] = useState(14)
     useEffect(() => {
         if (reducer.loading) {
-            setLoader(true)
-            document.body.style.opacity = 0.5;
+            const time =
+                timerr > 0 && setInterval(() => {
+                    setTimerr(timerr - 1)
+                }, 1000)
+            return () => clearInterval(time)
+        }
+    }, [timerr, reducer.loading])
+
+    useEffect(() => {
+        if (timerr > 0) {
+            if (reducer.loading) {
+                setLoader(true)
+                document.body.style.opacity = 0.5;
+            }
+            else {
+                setLoader(false)
+                document.body.style.opacity = 1;
+            }
         }
         else {
             setLoader(false)
             document.body.style.opacity = 1;
         }
-    }, [reducer.loading])
+    }, [reducer.loading, timerr])
 
     function ResendOtp() {
 
@@ -104,24 +121,24 @@ function OtpTeam() {
                 <p className="heading">OTP Verification</p>
                 <img className="cross" src={cross} onClick={() => { dispatch(dialog0()) }} />
             </div>
-            <form className='allForm' onSubmit={(e)=>e.preventDefault()} id="loginForm">
-            <p className="forgotText">Enter 4 digit OTP send to {email}</p>
-            <div className="otpInputFlex">
-                <OtpField className="otpInputFlex"
-                    value={value}
-                    onChange={setValue}
-                    numInputs={4}
-                    onChangeRegex={/^([0-9]{0,})$/}
-                    autoFocus
-                    isTypeNumber
-                    inputProps={{ className: 'otpInput', disabled: false }}
-                />
-            </div>
-            <div className="resend">
-                <p id='resendOtp' disabled={seconds !== 0 ? true : false} onClick={() => { ResendOtp() }}>Resend Otp</p>
-                <span id="timer">00:{seconds}</span>
-            </div>
-            <button className="regButton" onClick={Otp}>Continue</button>
+            <form className='allForm' onSubmit={(e) => e.preventDefault()} id="loginForm">
+                <p className="forgotText">Enter 4 digit OTP send to {email}</p>
+                <div className="otpInputFlex">
+                    <OtpField className="otpInputFlex"
+                        value={value}
+                        onChange={setValue}
+                        numInputs={4}
+                        onChangeRegex={/^([0-9]{0,})$/}
+                        autoFocus
+                        isTypeNumber
+                        inputProps={{ className: 'otpInput', disabled: false }}
+                    />
+                </div>
+                <div className="resend">
+                    <p id='resendOtp' disabled={seconds !== 0 ? true : false} onClick={() => { ResendOtp() }}>Resend Otp</p>
+                    <span id="timer">00:{seconds}</span>
+                </div>
+                <button className="regButton" onClick={Otp}>Continue</button>
             </form>
         </div>
 

@@ -11,8 +11,12 @@ import { dialog0, dialog1 } from "../../Redux/step";
 import { RegMemberThunk } from "../../Redux/registerSlice";
 import { Spinner } from 'react-bootstrap';
 import ReCAPTCHA from "react-google-recaptcha";
-// import Recap from "./recap";
-import { createRef } from "react";
+import {
+    GoogleReCaptchaProvider,
+    GoogleReCaptcha
+} from 'react-google-recaptcha-v3';
+import { useCallback } from "react";
+
 function Member() {
 
     const [loading, setLoading] = useState(false)
@@ -31,7 +35,9 @@ function Member() {
         three: false,
         four: false,
         five: false,
-        six: false
+        six: false,
+        course: false,
+        year: false
     }
     const [bool, setBool] = useState(boolen)
 
@@ -112,7 +118,6 @@ function Member() {
     }, [input.branch]);
 
     useEffect(() => {
-
         if (isnum.test(input.mobile) && input.mobile.length == 10) {
             document.getElementById("wrongNum").style.display = "none";
             setBool({ ...bool, six: true })
@@ -122,7 +127,6 @@ function Member() {
             setBool({ ...bool, six: false })
         }
     }, [input.mobile])
-
 
     useEffect(() => {
         if (input.course) {
@@ -143,12 +147,14 @@ function Member() {
         }
         if (input.course) {
             setMsg2("")
+            setBool({ ...bool, course: true })
         }
         if (input.college) {
             setMsg3("")
         }
         if (input.year) {
             setMsg4("")
+            setBool({ ...bool, year: true })
         }
     }, [input.course, input.gender, input.college, input.year])
 
@@ -165,197 +171,209 @@ function Member() {
             }
         }
         setInput({ ...input, gender: gender })
-
     }
 
     //captcha
-
+    const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
     const [valu, setValu] = useState('')
     const [token, setToken] = useState(false);
-    const key = "6LeZ8CElAAAAAPmAryGCBt-Y1bvEGF4VsITNJrAS"
+    const key = "6Lc40yElAAAAAJuSuZ8MhKA4ZSB_gXoVmTWu6KWP"
     function onChange(value) {
         setValu(value)
         setToken(true)
     }
 
-const recaptchaRef = createRef();
+    const onVerify = useCallback((token) => {
+        // console.log(token)
+        setValu(token)
+        setToken(true)
+    });
 
-    async function RegAsMember(e) {
-        await e.preventDefault();
+    const [count, setCount] = useState(false)
 
-        let flag = false;
-        await recaptchaRef.current.execute()
-        .then((res)=>{
-            setValu(res)
-            setToken(true)
-            flag = true;
-            console.log(res)
-        })
-        .catch((err)=>{
-            console.log(err)
-            setToken(false)
-            flag = false
-        })
+    useEffect(() => {
+        if (valu != '')
+            setCount(false)
+    }, [valu])
 
+    // useEffect(() => {
+    //     if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
+    //         setCount(true)
+    //     }
+    // }, [bool, input])
+
+    // change captcha value
+    // function changeValu() {
+    //     setValu('')
+    // }
+    // useEffect(() => {
+    //     if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
+    //         setTimeout(changeValu, 1000)
+    //     }
+    // })
+    const [load, setLoad] = useState(false)
+
+    function RegAsMember(e) {
+        e.preventDefault();
         if (!input.gender) {
             setMsg1("Chhose a gender")
         }
         else if (!input.course) {
             setMsg2("Select a course")
+            setBool({ ...bool, course: false })
         }
         else if (!input.college) {
             setMsg3("Enter your College Name")
         }
         else if (!input.year) {
             setMsg4("Select a year of study")
+            setBool({ ...bool, year: false })
         }
 
-        var data;
-        if (input.branch) {
-            if (input.course == "others") {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.otherCourse,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu,
-                    "branch": input.branch
-                }
-            }
-            else {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.course,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu,
-                    "branch": input.branch
-                }
-            }
+        if (bool.one && bool.two && bool.four && bool.six && input.gender && bool.course && input.college && bool.year) {
+            setLoad(true)
+            setCount(true)
         }
         else {
-            if (input.course == "others") {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.otherCourse,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu
-                }
-            }
-            else {
-                data = {
-                    "name": input.name,
-                    "email": input.email,
-                    "password": input.pass,
-                    "gender": input.gender,
-                    "mobile": input.mobile,
-                    "course": input.course,
-                    "college": input.college,
-                    "year_of_study": input.year,
-                    "g-recaptcha-response": valu
-                }
-            }
+            toast.error("Please fill the details correctly", {
+                position: "top-right",
+                theme: "light",
+                autoClose: 5000,
+            });
         }
-        console.log(bool,input);
-        if (bool.one && bool.two && bool.four && bool.six && input.gender && input.course && input.college && input.year) {
-            console.log(flag);
-            if (!flag) {
-                toast.error("Please verify the captcha", {
-                    position: "top-right",
-                    theme: "light",
-                    autoClose: 5000,
-                });
-            }
-
-            if (flag) {
-                console.log("Here I am")
-
-                dispatch(RegMemberThunk(data)).
-                    then((res) => {
-                        console.log("Here I am")
-
-                        var y = res.payload.data.msg.replace(
-                            /\w\S*/g,
-                            function (txt) {
-                                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-                            }
-                        );
-
-                        if (res.payload.status === 201) {
-                            dispatch(dialog0())
-                            toast.success(y, {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                            // setLoading(false)
-                        }
-                        else if (res.payload.status === 429) {
-                            toast.error("You have attempted too many times Today, please try again tomorrow", {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                        }
-                        else {
-                            toast.error(y, {
-                                position: "top-right",
-                                theme: "light",
-                                autoClose: 5000,
-                            });
-                        }
-                    })
-                    .catch((err) => {
-                    })
-            }
-        } else toast.error("Value Error ", {
-            position: "top-right",
-            theme: "light",
-            autoClose: 5000,
-        });
     }
 
     useEffect(() => {
-        if (reducer.loading) {
-            setLoading(true)
-            document.body.style.opacity = 0.5;
+        if (valu != '') {
+            var data;
+            if (input.branch) {
+                if (input.course == "others") {
+                    data = {
+                        "name": input.name,
+                        "email": input.email,
+                        "password": input.pass,
+                        "gender": input.gender,
+                        "mobile": input.mobile,
+                        "course": input.otherCourse,
+                        "college": input.college,
+                        "year_of_study": input.year,
+                        "g-recaptcha-response": valu,
+                        "branch": input.branch
+                    }
+                }
+                else {
+                    data = {
+                        "name": input.name,
+                        "email": input.email,
+                        "password": input.pass,
+                        "gender": input.gender,
+                        "mobile": input.mobile,
+                        "course": input.course,
+                        "college": input.college,
+                        "year_of_study": input.year,
+                        "g-recaptcha-response": valu,
+                        "branch": input.branch
+                    }
+                }
+            }
+            else {
+                if (input.course == "others") {
+                    data = {
+                        "name": input.name,
+                        "email": input.email,
+                        "password": input.pass,
+                        "gender": input.gender,
+                        "mobile": input.mobile,
+                        "course": input.otherCourse,
+                        "college": input.college,
+                        "year_of_study": input.year,
+                        "g-recaptcha-response": valu
+                    }
+                }
+                else {
+                    data = {
+                        "name": input.name,
+                        "email": input.email,
+                        "password": input.pass,
+                        "gender": input.gender,
+                        "mobile": input.mobile,
+                        "course": input.course,
+                        "college": input.college,
+                        "year_of_study": input.year,
+                        "g-recaptcha-response": valu
+                    }
+                }
+            }
+
+            // console.log(data)
+            dispatch(RegMemberThunk(data)).
+                then((res) => {
+                    setLoad(false)
+                    var y = res.payload.data.msg.replace(
+                        /\w\S*/g,
+                        function (txt) {
+                            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                        }
+                    );
+
+                    if (res.payload.status === 201) {
+                        dispatch(dialog0())
+                        toast.success(y, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                    else if (res.payload.status === 429) {
+                        toast.error("You have attempted too many times Today, please try again tomorrow", {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                    else {
+                        toast.error(y, {
+                            position: "top-right",
+                            theme: "light",
+                            autoClose: 5000,
+                        });
+                    }
+                })
+                .catch((err) => {
+                })
+        }
+    }, [valu])
+
+    const [timer, setTimer] = useState(14)
+    useEffect(() => {
+        // console.log(timer)
+        if (reducer.loading || load) {
+            const time =
+                timer > 0 && setInterval(() => {
+                    setTimer(timer - 1)
+                }, 1000)
+            return () => clearInterval(time)
+        }
+    }, [timer, reducer.loading, load])
+
+    useEffect(() => {
+        
+        if (timer > 0) {
+            if (reducer.loading || load) {
+                setLoading(true)
+                document.body.style.opacity = 0.5;
+            }
+            else {
+                setLoading(false)
+                document.body.style.opacity = 1;
+            }
         }
         else {
             setLoading(false)
             document.body.style.opacity = 1;
+            setLoad(false)
         }
-    }, [reducer.loading])
-
-    const [size, setSize] = useState('')
-    useEffect(() => {
-        function handleSize() {
-            var w = window.innerWidth
-            if (w < 531) {
-                console.log("compact")
-                setSize("compact")
-            }
-            else {
-                setSize("normal")
-                console.log("normal")
-            }
-        }
-
-        window.addEventListener("resize", handleSize)
-        handleSize()
-    }, [])
+    }, [reducer.loading, load, timer])
 
     return <>
         <div className="register">
@@ -402,7 +420,7 @@ const recaptchaRef = createRef();
                 <p className="teamError">{msg3}</p>
                 <p className="regName">Course</p>
                 <select required className="regInputname" value={input.course} onChange={(e) => { setInput({ ...input, course: e.target.value }) }} >
-                    <option id="option">--select--</option>
+                    <option id="option" value="">--select--</option>
                     <option value="BE/BTech">BE/BTech</option>
                     <option value="MTech">M.Tech</option>
                     <option value="MCA">MCA</option>
@@ -416,7 +434,7 @@ const recaptchaRef = createRef();
                 <p id="wrongBranch">Please enter a valid branch.</p>
                 <p className="regName">Year of study</p>
                 <select required className="regInputname" value={input.year} onChange={(e) => { setInput({ ...input, year: e.target.value }) }}>
-                    <option >--select--</option>
+                    <option value="" >--select--</option>
                     {(input.course == "BE/BTech" || input.course == "others") ? <>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -429,18 +447,24 @@ const recaptchaRef = createRef();
                 </select>
                 <p className="teamError">{msg4}</p>
                 <div id="recaptcha">
-                    <ReCAPTCHA 
-                        size="invisible"
-                        ref={recaptchaRef}
+                    {count ?
+
+                        < GoogleReCaptchaProvider reCaptchaKey={key}>
+                            <GoogleReCaptcha onVerify={onVerify} />
+                        </GoogleReCaptchaProvider>
+                        : null
+                    }
+                    {/* <ReCAPTCHA size="normal"
                         sitekey={key}
                         onChange={onChange}
-                    />
+                    /> */}
                 </div>
                 <button className="regButton" type="submit">Register</button>
-            </form>
+            </form >
 
-        </div>
-        {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
+        </div >
+        {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null
+        }
         <ToastContainer />
     </>
 }
