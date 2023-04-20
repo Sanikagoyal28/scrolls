@@ -172,7 +172,6 @@ function TeamDB() {
 
         dispatch(TeamDBDataThunk(fd)).
             then((res) => {
-
                 var y = res.payload.data.msg.replace(
                     /\w\S*/g,
                     function (txt) {
@@ -187,6 +186,12 @@ function TeamDB() {
                         autoClose: 5000,
                     });
                     dispatch(TeamDBThunk())
+                } else if (res.payload.status === 413) {
+                    toast.error("File is too large. Kindly upload the file in the size of 1MB", {
+                        position: "top-right",
+                        theme: "light",
+                        autoClose: 5000,
+                    });
                 }
                 else if (res.payload.status === 429) {
                     toast.error("You have attempted too many times Today, please try again tomorrow", {
@@ -205,6 +210,7 @@ function TeamDB() {
                 }
             })
             .catch((err) => {
+
             })
     }
 
@@ -433,7 +439,7 @@ function TeamDB() {
             <div className="dbFlex1">
                 <div className="dbFlex2">
                     <p className="dbHead">Synopsis</p>
-                    <p className="dbText">Note: You can upload the document (only PDF, DOCx) only once. Please carefully recheck your document while uploading.</p>
+                    <p className="dbText">Note: You can upload the document (only PDF, DOCx) of size less than or equals to 1MB only once. Please carefully recheck your document while uploading.</p>
                 </div>
 
                 {synopsis === '' || synopsis === null || synopsis === undefined ? <>

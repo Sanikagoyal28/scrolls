@@ -515,15 +515,25 @@ body {
     overflow: hidden;
 }
 
-#processDialog{
+#processDialog {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
     height: fit-content;
-    padding-top:24px;
-    padding-bottom:12px;
+    padding-top: 24px;
+    padding-bottom: 12px;
     /* width: 30vw; */
+}
+
+#alert {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    margin-right: 2vw;
+    z-index: 999;
+     width: 50vw;
+     height: fit-content;
 }
 
 @media(max-width:2500px) and (min-width:1500px) {
@@ -772,6 +782,9 @@ body {
     .landRegister {
         width: 16vw;
     }
+    #alert{
+        width: 30vw;
+    }
 }
 
 @media(max-width:1030px) {
@@ -832,6 +845,9 @@ body {
     .landText1,
     .landText2 {
         width: 70vw;
+    }
+    #alert{
+        width: 35vw;
     }
 }
 
@@ -1001,7 +1017,9 @@ body {
     #loginBg {
         height: 600px;
     }
-
+    #alert{
+        width: 40vw;
+    }
 }
 
 @media(max-width:700px) {
@@ -1083,33 +1101,6 @@ body {
         margin-right: 2vw;
         margin-left: 2vw;
     }
-
-    /* .footHead {
-        font-size: 1.3rem;
-    }
-
-    .landFooter {
-        padding-right: 1vw;
-        height: 270px;
-    }
-
-    #footFlex3 {
-        margin-left: -7.6vw;
-    }
-
-    #footFlex2 {
-        margin-left: -2vw;
-    }
-
-    .footHead2,
-    #telephone {
-        font-size: 0.82rem;
-    }
-
-    .footFlexRow>p,
-    .footFlexRow a p {
-        font-size: 0.68rem;
-    } */
 
     .landText1 {
         width: 86vw;
@@ -1206,6 +1197,11 @@ body {
     .footText {
         top: 32px;
     }
+    #alert{
+        width: 45vw;
+        margin-right: 0;
+        right:5vw;
+    }
 }
 
 @media(max-width:564px) {
@@ -1255,7 +1251,7 @@ body {
     }
 }
 
-@media(max-width:540px){
+@media(max-width:540px) {
     .footText {
         top: 12px;
     }
@@ -1312,6 +1308,9 @@ body {
 
     #timelineBorder {
         width: 38vw;
+    }
+    #alert{
+        width: 55vw;
     }
 }
 
@@ -1437,6 +1436,9 @@ body {
     .landText1 {
         font-size: 3rem;
     }
+    #alert{
+        width: 65vw;
+    }
 }
 
 @media(max-width:360px) {
@@ -1445,6 +1447,9 @@ body {
     .aboutScroll {
         width: 50vw;
         font-size: 1.25rem;
+    }
+    #alert{
+        width: 65vw;
     }
 }
 
