@@ -39,6 +39,7 @@ function LoginTeam() {
 
     function LogTeam(e) {
         e.preventDefault()
+        
         const data = {
             "team_id": login1.email,
             "password": login1.password

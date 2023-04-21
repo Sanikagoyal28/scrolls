@@ -65,7 +65,7 @@ function ForgotTeam() {
             email,
             "g-recaptcha-response": valu
         }
-        // localStorage.setItem("login_email", email)
+        localStorage.setItem("login_email", email)
         // if (token && email && bool) {
         //     dispatch(FgtTeamThunk(data)).
         //         then((res) => {
