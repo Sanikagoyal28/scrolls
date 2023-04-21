@@ -269,14 +269,14 @@ function LandingPage() {
 
         <div className="Dialogue1">
             <Dialog open={stepDialog.one} PaperProps={{
-            sx: {
-                maxHeight: 1100,
-                marginTop: 50,
-                maxWidth: 1000
-            }
-        }}>
-              <Team />
-                {/* <Register /> */}
+                sx: {
+                    maxHeight: 1300,
+                    // marginTop: 94,
+                    maxWidth: 1000
+                }
+            }}>
+                {/* <Team /> */}
+                <Register />
             </Dialog>
         </div>
         <Dialog open={stepDialog.two} PaperProps={{
@@ -288,7 +288,7 @@ function LandingPage() {
         }} >
             <Member />
         </Dialog>
-{/* 
+
         <Dialog open={stepDialog.three} PaperProps={{
             sx: {
                 maxHeight: 1100,
@@ -297,7 +297,7 @@ function LandingPage() {
             }
         }}>
             <Team />
-        </Dialog> */}
+        </Dialog>
 
         <Dialog open={stepDialog.four} PaperProps={{
             sx: {
@@ -339,8 +339,8 @@ function LandingPage() {
             }}
                 keepMounted >
                 {/* <div id="processDialog"> */}
-                    <img src={UpdateImage} />
-                    {/* <DialogTitle sx={{ textAlign: "center", marginBottom: 0, paddingBottom: '8px' }}>The Last date for registration and synopsis submission have been extended till 21st April.</DialogTitle>
+                <img src={UpdateImage} />
+                {/* <DialogTitle sx={{ textAlign: "center", marginBottom: 0, paddingBottom: '8px' }}>The Last date for registration and synopsis submission have been extended till 21st April.</DialogTitle>
                     <DialogTitle sx={{ textAlign: "center", marginTop: 0, paddingTop: 0 }}>Click here to know more about the Registration Process</DialogTitle>
                     <Button onClick={() => { navigate("/process") }}>Registration Process</Button> */}
                 {/* </div> */}
