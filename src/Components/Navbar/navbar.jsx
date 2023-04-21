@@ -355,16 +355,17 @@ function Navbar() {
 
         <Dialog open={stepDialog.one} PaperProps={{
             sx: {
-                maxHeight: 1300,
+                maxHeight: 1100,
+                marginTop: 50,
                 maxWidth: 1000
             }
         }}>
-            <Register />
+            <Team />
         </Dialog>
 
         <Dialog open={stepDialog.two} PaperProps={{
             sx: {
-                maxHeight: 1300,
+                maxHeight: 1100,
                 marginTop: 94,
                 maxWidth: 1000
             }
@@ -372,7 +373,7 @@ function Navbar() {
             <Member />
         </Dialog>
 
-        <Dialog open={stepDialog.three} PaperProps={{
+        {/* <Dialog open={stepDialog.three} PaperProps={{
             sx: {
                 maxHeight: 1100,
                 marginTop: 76,
@@ -380,7 +381,7 @@ function Navbar() {
             }
         }}>
             <Team />
-        </Dialog>
+        </Dialog> */}
 
         <Dialog open={stepDialog.four} PaperProps={{
             sx: { maxWidth: 1000 }
