@@ -327,7 +327,7 @@ function LandingPage() {
         </Dialog>
 
         <div style={{ position: "absolute", top: "40px", right: "20px" }} >
-            <Dialog open={true} onClose={handleProcess} PaperProps={{
+            <Dialog open={process} onClose={handleProcess} PaperProps={{
                 sx: {
                     maxWidth: 400,
                     marginTop: 0,
