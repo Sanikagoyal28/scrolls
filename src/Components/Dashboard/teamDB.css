@@ -279,11 +279,7 @@
 }
 
 .team_box_data {
-    /* display: flex; */
     width: 46vw;
-    /* padding-top: 9px; */
-    /* align-items: center; */
-    /* justify-content: space-around; */
     margin-top: 16px;
     margin-bottom: 12px;
 }
@@ -324,14 +320,12 @@ table {
     align-items: center;
     padding: 24px 1vw;
     z-index: 5;
-    /* position: fixed; */
 }
 
 #dialImg {
     width: 48px;
     height: 48px;
     margin-bottom: 16px;
-
 }
 
 #dialText1 {
@@ -351,8 +345,20 @@ table {
     font-size: 0.9rem;
     line-height: 17px;
     color: #252525;
-    text-align: justify;
+    text-align: center;
     margin-bottom: 0;
+}
+
+#dialText3 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.7rem;
+    line-height: 14px;
+    color: #252525;
+    text-align: center;
+    margin-bottom: 0;
+    display: none;
 }
 
 @media(max-width:2500px) and (min-width:1500px) {
@@ -714,9 +720,16 @@ table {
     .file_box {
         width: 28vw;
     }
+    #dialText1 {
+        font-size: 0.8rem;
+    }
 
     #dialText2 {
         display: none;
+    }
+
+    #dialText3 {
+        display: flex;
     }
 
     #dbDialog {

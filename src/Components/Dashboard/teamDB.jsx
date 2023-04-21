@@ -58,6 +58,7 @@ function TeamDB() {
     const [selected, setSelected] = useState(false)
     const [text1, setText1] = useState('')
     const [text2, setText2] = useState('')
+    const [text3, setText3] = useState('')
     const navigate = useNavigate()
     const fd = new FormData()
 
@@ -102,18 +103,22 @@ function TeamDB() {
         if (!selected && (synopsis === '' || synopsis === null)) {
             setImage(pending)
             setText1("Pending")
+            setText3("Synopsis is not submitted")
             setText2("Submit your Synopsis for Being eligible to submit paper.")
             document.getElementById('Paper').style.display = "none"
         }
         if (!selected && synopsis != '' && synopsis != null) {
-            setImage(fail)
+            // setImage(fail)
+            setImage(pending)
             setText1("Pending")
+            setText3("Synopsis is submitted")
             setText2("You cannot submit Paper until you are selected.")
             document.getElementById('Paper').style.display = "none"
         }
         if (selected) {
             setImage(success)
             setText1("Congratulations")
+            setText3("You can submit your Paper now")
             setText2("You are selected, you can submit your Paper now.")
             document.getElementById('Paper').style.display = "block"
         }
@@ -280,6 +285,7 @@ function TeamDB() {
             <img id="dialImg" src={image} />
             <p id="dialText1">{text1}</p>
             <p id="dialText2">{text2}</p>
+            <p id="dialText3">{text3}</p>
         </div>
         <div className="dbOuterDiv">
             <p className="dashboard">Dashboard</p>
