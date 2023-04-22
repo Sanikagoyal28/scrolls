@@ -271,12 +271,12 @@ function LandingPage() {
             <Dialog open={stepDialog.one} PaperProps={{
                 sx: {
                     maxHeight: 1300,
-                    // marginTop: 94,
+                    marginTop: 60,
                     maxWidth: 1000
                 }
             }}>
-                {/* <Team /> */}
-                <Register />
+                <Team />
+                {/* <Register /> */}
             </Dialog>
         </div>
         <Dialog open={stepDialog.two} PaperProps={{
@@ -289,7 +289,7 @@ function LandingPage() {
             <Member />
         </Dialog>
 
-        <Dialog open={stepDialog.three} PaperProps={{
+        {/* <Dialog open={stepDialog.three} PaperProps={{
             sx: {
                 maxHeight: 1100,
                 marginTop: 76,
@@ -297,7 +297,7 @@ function LandingPage() {
             }
         }}>
             <Team />
-        </Dialog>
+        </Dialog> */}
 
         <Dialog open={stepDialog.four} PaperProps={{
             sx: {
