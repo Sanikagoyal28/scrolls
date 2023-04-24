@@ -103,8 +103,8 @@ function TeamDB() {
         if (!selected && (synopsis === '' || synopsis === null)) {
             setImage(pending)
             setText1("Pending")
-            setText3("Synopsis is not submitted")
-            setText2("Submit your Synopsis for Being eligible to submit paper.")
+            setText3("Synopsis submission is closed now")
+            setText2("Synopsis submission is closed now")
             document.getElementById('Paper').style.display = "none"
         }
         if (!selected && synopsis != '' && synopsis != null) {
@@ -123,6 +123,15 @@ function TeamDB() {
             document.getElementById('Paper').style.display = "block"
         }
     }, [synopsis, selected])
+
+    useEffect(()=>{
+        if(synopsis==='' || synopsis===null || synopsis=== undefined){
+            document.getElementById('synopsis').style.display ="none";
+        }
+        else{
+            document.getElementById('synopsis').style.display ="block";
+        }
+    },[synopsis])
 
     function handleCancel() {
         if (domain === "" && topic === "") {
@@ -442,6 +451,7 @@ function TeamDB() {
 
             <hr className="dbHR2" />
 
+<div id="synopsis">
             <div className="dbFlex1">
                 <div className="dbFlex2">
                     <p className="dbHead">Synopsis</p>
@@ -468,8 +478,8 @@ function TeamDB() {
                 </>
                     : <div className="synopsis"><a href={`https://backend.scrollsakgec.in${synopsis}`}>{`https://backend.scrollsakgec.in${synopsis}`}</a></div>}
             </div>
-
             <hr className="dbHR2" />
+</div>
 
             <div id="Paper">
                 <div className="dbFlex1">
