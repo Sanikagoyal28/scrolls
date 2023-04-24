@@ -324,7 +324,7 @@ function LandingPage() {
         }}
             keepMounted >
             <div id="soonDialog">
-                <DialogTitle>{"Registrations will open soon"}</DialogTitle>
+                <DialogTitle>{"Registrations are closed now"}</DialogTitle>
                 <Button onClick={handleSoonClose}>Okay</Button>
             </div>
         </Dialog>
