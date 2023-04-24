@@ -104,7 +104,7 @@ function CaDB() {
                 {(teams != undefined && teams.length > 0) ? teams.map((t) => {
                     return <>
                         <tr className="team_box_data" cellSpacing="5">
-                            <td>Sanikaaaaaaa</td>
+                            <td>{t.name}</td>
                             <td>{t.leader}</td>
                         </tr>
                     </>

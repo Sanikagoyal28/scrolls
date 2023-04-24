@@ -319,14 +319,18 @@ function LandingPage() {
 
         <Dialog open={soon} onClose={handleSoonClose} PaperProps={{
             sx: {
-                maxWidth: 1000
+                maxWidth: 400,
+                maxHeight: 500, 
+                marginTop:0
             }
         }}
             keepMounted >
-            <div id="soonDialog">
-                <DialogTitle>{"Registrations will open soon"}</DialogTitle>
-                <Button onClick={handleSoonClose}>Okay</Button>
-            </div>
+            <div id="processDialog">
+                {/* <img src={UpdateImage} /> */}
+                <DialogTitle sx={{ textAlign: "center", marginBottom: 0, paddingBottom: '8px' }}>Registrations are closed now.</DialogTitle>
+                    <DialogTitle sx={{ textAlign: "center", marginTop: 0, paddingTop: 0 }}>Click here to view the results of Synopsis submission</DialogTitle>
+                    <Button onClick={() => { navigate("/result") }}>Results</Button>
+                </div>
         </Dialog>
 
         <div style={{ position: "absolute", top: "40px", right: "20px" }} >
@@ -338,12 +342,12 @@ function LandingPage() {
                 }
             }}
                 keepMounted >
-                {/* <div id="processDialog"> */}
-                <img src={UpdateImage} />
-                {/* <DialogTitle sx={{ textAlign: "center", marginBottom: 0, paddingBottom: '8px' }}>The Last date for registration and synopsis submission have been extended till 21st April.</DialogTitle>
-                    <DialogTitle sx={{ textAlign: "center", marginTop: 0, paddingTop: 0 }}>Click here to know more about the Registration Process</DialogTitle>
-                    <Button onClick={() => { navigate("/process") }}>Registration Process</Button> */}
-                {/* </div> */}
+                <div id="processDialog">
+                {/* <img src={UpdateImage} /> */}
+                <DialogTitle sx={{ textAlign: "center", marginBottom: 0, paddingBottom: '8px' }}>Registrations are closed now.</DialogTitle>
+                    <DialogTitle sx={{ textAlign: "center", marginTop: 0, paddingTop: 0 }}>Click here to view the results of Synopsis submission</DialogTitle>
+                    <Button onClick={() => { navigate("/result") }}>Results</Button>
+                </div>
             </Dialog>
         </div>
 

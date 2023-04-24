@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import menu from "../Assets/menu.svg"
 import cross from "../Assets/navCross.svg"
 import dropdown from "../Assets/dropdown.svg"
@@ -39,6 +39,7 @@ function Navbar() {
     const dispatch = useDispatch()
     const step = useSelector((s) => s.step)
     const { title } = useSelector((s) => s.heading)
+    const navigate = useNavigate();
 
     const [stepDialog, setStepDialog] = useState({
         one: false,
@@ -209,7 +210,7 @@ function Navbar() {
 
     const [more, setMore] = useState(false)
     function handleMore() {
-       
+
         setMore(true)
         document.getElementById('moreDD').style.display = "flex";
     }
@@ -230,7 +231,7 @@ function Navbar() {
     function RegOpen() {
         dispatch(RegOpenThunk())
             .then((res) => {
-                
+
                 if (res.payload.status === 200) {
                     setDialogg(true);
                     dispatch(dialog1())
@@ -282,6 +283,7 @@ function Navbar() {
                 </div>}
                 <NavLink to="/updates"><li>Updates</li></NavLink>
                 <NavLink to="/process"><li>How To Register</li></NavLink>
+                <NavLink to="/result"><li>Results</li></NavLink>
                 <NavLink to="/rules"><li>Rules</li></NavLink>
                 <NavLink to="/faq"><li>FAQs</li></NavLink>
                 <NavLink to="/team_db"><li id="team">Dashboard</li></NavLink>
@@ -307,6 +309,7 @@ function Navbar() {
         <div id="moreDD" onMouseOver={handleMore} onMouseLeave={closeDropdown} >
             <ul>
                 <NavLink to="/rules"><li>Rules</li></NavLink>
+                <NavLink to="/result"><li>Results</li></NavLink>
                 <NavLink to="/process"> <li>How To Register</li></NavLink>
                 <NavLink to="/faq"><li>FAQs</li></NavLink>
             </ul>
@@ -315,6 +318,7 @@ function Navbar() {
         <div id="moreDD2" onMouseOver={handleMore2} onMouseLeave={closeDropdown} >
             <ul>
                 <NavLink to="/rules"><li>Rules</li></NavLink>
+                <NavLink to="/result"><li>Results</li></NavLink>
                 <NavLink to="/process"> <li>How To Register</li></NavLink>
                 <NavLink to="/faq"><li>FAQs</li></NavLink>
             </ul>
@@ -328,6 +332,7 @@ function Navbar() {
                 <NavLink to="/updates"> <p className="navHead">Updates</p></NavLink>
                 <NavLink to="/rules"> <p id="navRule" className="navHead">Rules</p></NavLink>
                 <NavLink to="/process"> <p id="navCA" className="navHead">How To Register</p></NavLink>
+                <NavLink to="/result"> <p className="navHead" id="navCA">Results</p></NavLink>
                 <NavLink to="/faq"><p id="navCA" className="navHead">FAQs</p></NavLink>
                 <p className="navHead" id="navMore" onClick={handleMore} onMouseOver={handleMore}>More</p>
             </div>
@@ -339,6 +344,7 @@ function Navbar() {
                 {/* <NavLink to="/ca_db"><p className="navDbC" id="ca_db">Dashboard</p></NavLink> */}
                 <NavLink to="/rules"> <p id="navRule2" className="navHead">Rules</p></NavLink>
                 <NavLink to="/process"> <p id="navCA" className="navHead">How To Register</p></NavLink>
+                <NavLink to="/result"> <p className="navHead" id="navCA">Results</p></NavLink>
                 <NavLink to="/faq"><p id="navCA" className="navHead">FAQs</p></NavLink>
                 <p className="navHead" id="navMore2" onClick={handleMore2} onMouseOver={handleMore2}>More</p>
             </div>
@@ -360,7 +366,7 @@ function Navbar() {
                 maxWidth: 1000
             }
         }}>
-        <Team />
+            <Team />
             {/* <Register /> */}
         </Dialog>
 
@@ -407,36 +413,6 @@ function Navbar() {
             {/* <Login1 /> */}
         </Dialog>
 
-        {/* <Dialog open={stepDialog.seven} PaperProps={{
-            sx: { maxHeight: 500, maxWidth: 1000 }
-        }}>
-            <Login />
-        </Dialog>
-
-        <Dialog open={stepDialog.eight} PaperProps={{
-            sx: { maxHeight: 500, maxWidth: 1000 }
-        }}>
-            <Forgot />
-        </Dialog>
-
-        <Dialog open={stepDialog.nine} PaperProps={{
-            sx: { maxHeight: 500, maxWidth: 1000 }
-        }}>
-            <Otp />
-        </Dialog>
-
-        <Dialog open={stepDialog.ten} PaperProps={{
-            sx: { maxHeight: 500, maxWidth: 1000 }
-        }} >
-            <Reset />
-        </Dialog> */}
-
-        {/* <Dialog open={stepDialog.eleven} PaperProps={{
-            sx: { maxHeight: 500, maxWidth: 1000 }
-        }} >
-            <LoginTeam />
-        </Dialog> */}
-
         <Dialog open={stepDialog.twelve} PaperProps={{
             sx: { maxHeight: 500, maxWidth: 1000 }
         }}>
@@ -461,11 +437,19 @@ function Navbar() {
             <LogOut />
         </Dialog>
 
-        <Dialog open={soon} onClose={handleSoonClose}
+        <Dialog open={soon} onClose={handleSoonClose} PaperProps={{
+            sx: {
+                maxWidth: 400,
+                maxHeight: 500,
+                marginTop: 0
+            }
+        }}
             keepMounted >
-            <div id="soonDialog">
-                <DialogTitle>{"Registrations will open soon"}</DialogTitle>
-                <Button onClick={handleSoonClose}>Okay</Button>
+            <div id="processDialog">
+                {/* <img src={UpdateImage} /> */}
+                <DialogTitle sx={{ textAlign: "center", marginBottom: 0, paddingBottom: '8px' }}>Registrations are closed now.</DialogTitle>
+                <DialogTitle sx={{ textAlign: "center", marginTop: 0, paddingTop: 0 }}>Click here to view the results of Synopsis submission</DialogTitle>
+                <Button onClick={() => { navigate("/result") }}>Results</Button>
             </div>
         </Dialog>
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
