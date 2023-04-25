@@ -16,46 +16,28 @@ function TableComp(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="resTableRow">
-                        <td>Tbfjdbhjcjs</td>
-                        <td>Team Namcbhddddde</td>
-                        <td className="namee" >College Nasddddddddddddddddddddddme</td>
-                        <td>Domaindddddddddddddddddddddddddddddddddddd (Topiddddddddddddddddddddddddddddddddddddddc)</td>
-                        <td ><ul>
-                            <li>Aman Signhg</li>
-                            <li>fjdsfbh ssssssssssssssssssssskm</li>
-                        </ul></td>
-                    </tr>
-                </tbody>
-            </Table>
-            {/* <table className="resTable">
-                <tr className="resTableRow">
-                    <td>Team ID</td>
-                    <td>Team Name</td>
-                    <td>College Name</td>
-                    <td>Domain (Topic)</td>
-                    <td>Member's Name</td>
-                </tr>
-
-                <tr className="resTableRow" id="tableRow">
-                    <td>Tbfjdbhjcjs</td>
-                    <td>Team Namcbhddddde</td>
-                    <td>College Nasddddddddddddddddddddddme</td>
-                    <td>Domaindddddddddddddddddddddddddddddddddddd (Topiddddddddddddddddddddddddddddddddddddddc)</td>
-                    <td><ul>
-                        <li>Aman Signhg</li>
-                        <li>fjdsfbh ssssssssssssssssssssskm</li>
-                    </ul></td>
-                </tr>
-                {/* {(teams != undefined && teams.length > 0) ? teams.map((t) => {
+                    {props.data.length > 0 ? props.data.map((d) => {
                         return <>
-                            <tr className="team_box_data" cellSpacing="5">
-                                <td>Sanikaaaaaaa</td>
-                                <td>{t.leader}</td>
+                            <tr className="resTableRow">
+                                <td>{d.team_id}</td>
+                                <td>{d.name}</td>
+                                <td className="namee" >{d.college}</td>
+                                {/* {(d.domain === '' || d.domain === null || d.domain === undefined) && (d.topic === '' || d.topic === null || d.topic === undefined) ? null : */}
+                                    <td>{d.domain } ({d.topic})</td>
+                                {/* } */}
+                                <td ><ul>
+                                    <li>{d.leader_name}</li>
+                                    <li>{d.member_2_name}</li>
+                                    {(d.member_3_name != '' && d.member_3_name != null && d.member_3_name != undefined) ?
+                                        <li>{d.member_3_name}</li>
+                                        : null}
+                                </ul></td>
                             </tr>
                         </>
-                    }) : null} 
-            </table> */}
+                    })
+                        : null}
+                </tbody>
+            </Table>
         </div>
     </>
 }

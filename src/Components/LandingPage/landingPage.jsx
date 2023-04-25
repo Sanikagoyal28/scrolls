@@ -325,15 +325,13 @@ function LandingPage() {
             }
         }}
             keepMounted >
-            <div id="processDialog">
-                {/* <img src={UpdateImage} /> */}
-                <DialogTitle sx={{ textAlign: "center", marginBottom: 0, paddingBottom: '8px' }}>Registrations are closed now.</DialogTitle>
-                    <DialogTitle sx={{ textAlign: "center", marginTop: 0, paddingTop: 0 }}>Click here to view the results of Synopsis submission</DialogTitle>
-                    <Button onClick={() => { navigate("/result") }}>Results</Button>
-                </div>
+            <div id="soonDialog">
+                <DialogTitle>{"Registrations are closed now"}</DialogTitle>
+                <Button onClick={handleSoonClose}>Okay</Button>
+            </div>
         </Dialog>
 
-        <div style={{ position: "absolute", top: "40px", right: "20px" }} >
+        {/* <div style={{ position: "absolute", top: "40px", right: "20px" }} >
             <Dialog open={process} onClose={handleProcess} PaperProps={{
                 sx: {
                     maxWidth: 400,
@@ -343,13 +341,13 @@ function LandingPage() {
             }}
                 keepMounted >
                 <div id="processDialog">
-                {/* <img src={UpdateImage} /> */}
+                
                 <DialogTitle sx={{ textAlign: "center", marginBottom: 0, paddingBottom: '8px' }}>Registrations are closed now.</DialogTitle>
                     <DialogTitle sx={{ textAlign: "center", marginTop: 0, paddingTop: 0 }}>Click here to view the results of Synopsis submission</DialogTitle>
                     <Button onClick={() => { navigate("/result") }}>Results</Button>
                 </div>
             </Dialog>
-        </div>
+        </div> */}
 
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         <ToastContainer />

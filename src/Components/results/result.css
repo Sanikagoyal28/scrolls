@@ -68,6 +68,11 @@
     list-style-position: inside;
 }
 
+.resTableRow td ul li p {
+    margin:0;
+    display: inline;
+}
+
 @media (max-width: 1000px) {
     #RESULT {
         padding-right: 3vw;
@@ -84,7 +89,7 @@
         /* display: none; */
     }
     .resDiv{
-        width:120vw;
+        width:130vw;
     }
     .resHead{
         font-size: 1.1rem;
