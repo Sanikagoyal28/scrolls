@@ -178,10 +178,6 @@ function LandingPage() {
 
     return <>
 
-        {/* <div style={{ display: 'flex', justifyContent: 'center', zIndex:"20", position:'fixed' }}>
-            <InstagramEmbed url="https://www.instagram.com/p/CUbHfhpswxt/" width={328} />
-        </div> */}
-
         <Navbar />
         <div className="landingPage">
             <div className="landBlock1">
@@ -331,6 +327,24 @@ function LandingPage() {
                 <Button onClick={() => { navigate("/result") }}>Results</Button>
             </div>
         </Dialog>
+
+        <div style={{ position: "absolute", top: "40px", right: "20px" }} >
+            <Dialog open={process} onClose={handleProcess} PaperProps={{
+                sx: {
+                    maxWidth: 400,
+                    marginTop: 0,
+                    maxHeight: 500
+                }
+            }}
+                keepMounted >
+                <div id="processDialog">
+
+                    <DialogTitle sx={{ textAlign: "center", marginBottom: 0, paddingBottom: '8px' }}>Registrations are closed now.</DialogTitle>
+                    <DialogTitle sx={{ textAlign: "center", marginTop: 0, paddingTop: 0 }}>Click here to view the results of Synopsis submission</DialogTitle>
+                    <Button onClick={() => { navigate("/result") }}>Results</Button>
+                </div>
+            </Dialog>
+        </div>
 
         {(loading) ? <Spinner animation="border" variant="dark" id="loadSpinner" /> : null}
         <ToastContainer />
