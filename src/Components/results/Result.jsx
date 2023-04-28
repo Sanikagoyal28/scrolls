@@ -22,6 +22,7 @@ function Result() {
         ME_team: ''
     }
     const [selected, setSelected] = useState(team)
+    const [wait, setWait] = useState(team)
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         dispatch(ResultThunk())
@@ -33,7 +34,13 @@ function Result() {
             setSelected({
                 ...selected, MS_team: reducer.selectedTeam.msg.MS_team, CS_team: reducer.selectedTeam.msg.CS_team,
                 EN_team: reducer.selectedTeam.msg.EN_team, EC_team: reducer.selectedTeam.msg.EC_team,
-                CE_team: reducer.selectedTeam.msg.MS_team, ME_team: reducer.selectedTeam.msg.MS_team,
+                CE_team: reducer.selectedTeam.msg.CE_team, ME_team: reducer.selectedTeam.msg.ME_team,
+            })
+        }
+        if (reducer.waitlistedTeam != '' && reducer.waitlistedTeam != null && reducer.waitlistedTeam != undefined) {
+            setWait({
+                ...wait, MS_team: reducer.waitlistedTeam.MS_team, CS_team: reducer.waitlistedTeam.CS_team,
+                 EC_team: reducer.waitlistedTeam.EC_team
             })
         }
     }, [reducer])
@@ -70,12 +77,12 @@ function Result() {
         <Navbar />
         <div id="RESULT">
             <div id="resultHead">Result Declaration</div>
-            <TableComp name="Computer Science and Information Technology" data={selected.CS_team} />
-            <TableComp name="Civil Engineering" data={selected.CE_team} />
-            <TableComp name="Electrical and Electronics Engineering" data={selected.EN_team} />
-            <TableComp name="Electronics and Communication Engineering" data={selected.EC_team} />
-            <TableComp name="Mechanical Engineering" data={selected.ME_team} />
-            <TableComp name="Management Sciences" data={selected.MS_team} />
+            <TableComp name="Computer Science and Information Technology" data={selected.CS_team} wait={wait.CS_team} bool="true" />
+            <TableComp name="Civil Engineering" data={selected.CE_team} wait={wait.CE_team} bool="false" />
+            <TableComp name="Electrical and Electronics Engineering" data={selected.EN_team} wait={wait.EN_team} bool="false" />
+            <TableComp name="Electronics and Communication Engineering" data={selected.EC_team} wait={wait.EC_team} bool="true" />
+            <TableComp name="Mechanical Engineering" data={selected.ME_team} wait={wait.ME_team} bool="false" />
+            <TableComp name="Management Sciences" data={selected.MS_team} wait={wait.MS_team} bool="true" />
         </div>
         <Footer />
 

@@ -3,7 +3,8 @@ import Baseurl from "./Baseurl"
 
 const initialState = {
     selectedTeam: '',
-    loading:false
+    loading:false,
+    waitlistedTeam:''
 }
 
 const ResultThunk = createAsyncThunk('/result', async () => {
@@ -27,6 +28,7 @@ const ResultSlice = createSlice({
 
             state.loading = false;
             state.selectedTeam = action.payload.data
+            state.waitlistedTeam = action.payload.data.msg.waitlisted_teams
         })
         builder.addCase(ResultThunk.rejected, (state, action) => {
             state.loading = false;

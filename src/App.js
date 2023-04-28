@@ -79,7 +79,7 @@ function App() {
         <Route path="/domain_management" exact element={<DomainManage />} />
         <Route path="/rules" exact element={<Rules />} />
         <Route path="/process" exact element={<RegProcess />} />
-        {/* <Route path="/result" exact element={<Result />} /> */}
+        <Route path="/result" exact element={<Result />} />
         <Route path="*" element={<Error />} />
         <Route path="/timeline" element={<Timeline />} />
       </Routes>

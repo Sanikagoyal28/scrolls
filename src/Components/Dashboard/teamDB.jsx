@@ -56,6 +56,7 @@ function TeamDB() {
     const [uplPaper, setUplPaper] = useState([])
     const [image, setImage] = useState("")
     const [selected, setSelected] = useState(false)
+    const [wait, setWait] = useState(false)
     const [text1, setText1] = useState('')
     const [text2, setText2] = useState('')
     const [text3, setText3] = useState('')
@@ -92,6 +93,7 @@ function TeamDB() {
         setTopic(reducer.dataTeam.topic)
         setDomain(reducer.dataTeam.domain)
         setSelected(reducer.dataTeam.is_selected)
+        setWait(reducer.dataTeam.is_waitlisted)
         setPaper(reducer.dataTeam.paper)
         setSynopsis(reducer.dataTeam.synopsis)
         setLeader(reducer.dataTeam.leader_data)
@@ -113,6 +115,13 @@ function TeamDB() {
             setText1("Pending")
             setText3("Synopsis is submitted")
             setText2("You cannot submit Paper until you are selected.")
+            document.getElementById('Paper').style.display = "none"
+        }
+        if (wait) {
+            setImage(pending)
+            setText1("Pending")
+            setText3("You can submit your Paper now")
+            setText2("You are selected, you can submit your Paper now.")
             document.getElementById('Paper').style.display = "none"
         }
         if (selected) {

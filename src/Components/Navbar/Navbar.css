@@ -261,7 +261,7 @@
     color: #191919 !important;
     position: fixed;
     top: 50px;
-    left: 33vw;
+    left: 28vw;
     flex-direction: column;
     font-weight: 600;
     z-index: 8;
@@ -428,7 +428,7 @@
     }
 
     #dropdown {
-        left: 37.5vw;
+        left: 32vw;
     }
 
     #dropdown ul li {
@@ -442,7 +442,7 @@
 
 @media(max-width:2000px) and (min-width:1500px) {
     #dropdown {
-        left: 36vw;
+        left: 30vw;
     }
 
     #dropdown ul li {
@@ -451,9 +451,6 @@
 }
 
 @media(max-width:1700px) and (min-width:1500px) {
-    #dropdown {
-        left: 35vw;
-    }
 
     #dropdown ul li {
         width: 13vw;
@@ -466,7 +463,7 @@
     }
 
     #dropdown {
-        left: 35vw;
+        left: 27vw;
     }
 }
 
@@ -478,13 +475,14 @@
 
 @media(max-width:1100px) {
     .navFlexLogin {
-        margin-left: 4vw;
+        margin-left: 3vw;
+        gap:1.5vw;
     }
 }
 
 @media(max-width:1010px) {
     #dropdown {
-        left: 32vw;
+        left: 26vw;
     }
 
     #dropdown ul li {
@@ -496,7 +494,10 @@
 @media(max-width:980px) {
     .navFlexLogin {
         margin-left: 2vw;
-        gap: 1.5vw;
+        gap: 1.2vw;
+    }
+    .navFlexLogin p {
+        font-size: 0.9rem;
     }
 }
 
@@ -517,7 +518,7 @@
         color: #FFFFFF;
         cursor: pointer;
         z-index: 10;
-        margin-left: -6vw;
+        margin-left: -8vw;
     }
 
     #navMore2 {
@@ -525,7 +526,7 @@
         color: #FFFFFF;
         cursor: pointer;
         z-index: 10;
-        margin-left: -6vw;
+        margin-left: -8vw;
     }
 
     #moreDD ul,
@@ -541,7 +542,7 @@
     }
 
     #moreDD2 {
-        left: 66vw;
+        left: 64vw;
     }
 
     .navLogin {
@@ -563,19 +564,19 @@
 
 @media(max-width:870px) {
     #moreDD2 {
-        left: 68vw;
+        left: 64vw;
     }
 }
 
 @media(max-width:800px) {
     #moreDD2 {
-        left: 69vw;
+        left: 67vw;
     }
 }
 
 @media(max-width:760px) {
     #moreDD {
-        left: 60vw;
+        left: 58vw;
     }
 
     .navRegister,
@@ -597,11 +598,11 @@
     }
 
     #navMore2 {
-        margin-left: -5vw;
+        margin-left: -6.5vw;
     }
 
     #moreDD2 {
-        left: 70vw;
+        left: 68vw;
     }
 }
 

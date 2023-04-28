@@ -16,12 +16,10 @@
 }
 
 .resDiv {
-    /* background-color: #EEF1FF; */
-    border:2px solid #D9D9D9;
+    border: 2px solid #D9D9D9;
     padding: 16px 2vw;
     border-radius: 8px;
     margin-bottom: 32px;
-    overflow-x: scroll;
 }
 
 .resHead {
@@ -30,6 +28,17 @@
     font-weight: 600;
     font-size: 1.3rem;
     text-decoration: underline;
+}
+
+.resHead2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.12rem;
+    /* text-decoration: underline; */
+    text-align: center;
+    color: rgba(0, 0, 0, 0.9);
+    margin: 4px;
 }
 
 .resTable {
@@ -54,6 +63,10 @@
     margin-bottom: 0;
 }
 
+thead>tr>th {
+    text-align: center;
+}
+
 #tableRow>td {
     padding: 4px;
     font-size: 0.9rem;
@@ -62,15 +75,18 @@
 .resTableRow td ul {
     text-align: left;
     padding-left: 0;
+    padding-top: 8px;
 }
 
 .resTableRow td ul li {
     list-style-position: inside;
+    line-height: 20px;
 }
 
 .resTableRow td ul li p {
-    margin:0;
-    display: inline;
+    display: block;
+    margin-left: 16px;
+    margin-top: -20px;
 }
 
 @media (max-width: 1000px) {
@@ -82,25 +98,25 @@
 
 @media (max-width: 600px) {
     #RESULT {
-       margin-bottom:480px;
-       overflow: scroll;
+        margin-bottom: 480px;
+        /* overflow: scroll; */
     }
-    .namee{
-        /* display: none; */
+
+    .resTablee {
+        width: 130vw;
     }
-    .resDiv{
-        width:130vw;
-    }
-    .resHead{
+
+    .resHead {
         font-size: 1.1rem;
     }
-    #resultHead{
+
+    #resultHead {
         font-size: 1.5rem;
     }
 }
 
-@media (max-width: 400px){
-    .resDiv{
-        width:140vw;
+@media (max-width: 400px) {
+    .resTablee {
+        width: 140vw;
     }
 }
