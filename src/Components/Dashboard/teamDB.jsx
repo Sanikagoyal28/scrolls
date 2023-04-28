@@ -102,45 +102,51 @@ function TeamDB() {
     }, [reducer])
 
     useEffect(() => {
-        if (!selected && (synopsis === '' || synopsis === null)) {
-            setImage(pending)
-            setText1("Pending")
-            setText3("Synopsis submission is closed now")
-            setText2("Synopsis submission is closed now")
-            document.getElementById('Paper').style.display = "none"
-        }
-        if (!selected && synopsis != '' && synopsis != null) {
-            // setImage(fail)
-            setImage(pending)
-            setText1("Pending")
-            setText3("Synopsis is submitted")
-            setText2("You cannot submit Paper until you are selected.")
-            document.getElementById('Paper').style.display = "none"
-        }
-        if (wait) {
-            setImage(pending)
-            setText1("Pending")
-            setText3("You can submit your Paper now")
-            setText2("You are selected, you can submit your Paper now.")
+        // if (!selected && (synopsis === '' || synopsis === null)) {
+        //     setImage(pending)
+        //     setText1("Pending")
+        //     setText3("Synopsis submission is closed now")
+        //     setText2("Synopsis submission is closed now")
+        //     document.getElementById('Paper').style.display = "none"
+        // }
+        // if (!selected && synopsis != '' && synopsis != null) {
+        //     setImage(pending)
+        //     setText1("Pending")
+        //     setText3("Synopsis is submitted")
+        //     setText2("You cannot submit Paper until you are selected.")
+        //     document.getElementById('Paper').style.display = "none"
+        // }
+        if (!selected) {
+            setImage(fail)
+            setText1("Rejected")
+            setText3("You are not selected")
+            setText2("You are not selected")
             document.getElementById('Paper').style.display = "none"
         }
         if (selected) {
             setImage(success)
             setText1("Congratulations")
-            setText3("You can submit your Paper now")
+            setText3("You are selected")
             setText2("You are selected, you can submit your Paper now.")
             document.getElementById('Paper').style.display = "block"
         }
+        if (wait) {
+            setImage(pending)
+            setText1("Pending")
+            setText3("Wait for the results")
+            setText2("Wait for the results")
+            document.getElementById('Paper').style.display = "none"
+        }
     }, [synopsis, selected])
 
-    useEffect(()=>{
-        if(synopsis==='' || synopsis===null || synopsis=== undefined){
-            document.getElementById('synopsis').style.display ="none";
+    useEffect(() => {
+        if (synopsis === '' || synopsis === null || synopsis === undefined) {
+            document.getElementById('synopsis').style.display = "none";
         }
-        else{
-            document.getElementById('synopsis').style.display ="block";
+        else {
+            document.getElementById('synopsis').style.display = "block";
         }
-    },[synopsis])
+    }, [synopsis])
 
     function handleCancel() {
         if (domain === "" && topic === "") {
@@ -460,35 +466,35 @@ function TeamDB() {
 
             <hr className="dbHR2" />
 
-<div id="synopsis">
-            <div className="dbFlex1">
-                <div className="dbFlex2">
-                    <p className="dbHead">Synopsis</p>
-                    <p className="dbText">Note: You can upload the document (only PDF, DOCx) of size less than or equals to 1MB only once. Please carefully recheck your document while uploading.</p>
-                </div>
+            <div id="synopsis">
+                <div className="dbFlex1">
+                    <div className="dbFlex2">
+                        <p className="dbHead">Synopsis</p>
+                        <p className="dbText">Note: You can upload the document (only PDF, DOCx) of size less than or equals to 1MB only once. Please carefully recheck your document while uploading.</p>
+                    </div>
 
-                {synopsis === '' || synopsis === null || synopsis === undefined ? <>
-                    {(uplSyn.length == 0) ?
-                        <label for="uploadSyn">
-                            <div className="file_box">
-                                <label for="uploadSyn"><img src={file} onClick={() => { handleSynopsis() }} className="fileIcon" /></label>
-                                <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" disabled={((topic === '' && domain === '') && (uplDom === "" && uplTop === "") || (uplDom != "" && uplTop === "")) ? true : false} onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
-                                <label for="uploadSyn"><p className="uploadText">Click to upload</p></label>
+                    {synopsis === '' || synopsis === null || synopsis === undefined ? <>
+                        {(uplSyn.length == 0) ?
+                            <label for="uploadSyn">
+                                <div className="file_box">
+                                    <label for="uploadSyn"><img src={file} onClick={() => { handleSynopsis() }} className="fileIcon" /></label>
+                                    <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" disabled={((topic === '' && domain === '') && (uplDom === "" && uplTop === "") || (uplDom != "" && uplTop === "")) ? true : false} onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
+                                    <label for="uploadSyn"><p className="uploadText">Click to upload</p></label>
+                                </div>
+                            </label> : <div id="dbFiles">
+                                <div className="teamID_box">{uplSyn.name}</div>
+                                <div className="fileFlex">
+                                    <label for="uploadSyn" id="editFile">Edit</label>
+                                    <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" disabled={((topic === '' && domain === '') && (uplDom === "" && uplTop === "") || (uplDom != "" && uplTop === "")) ? true : false} onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
+                                    <p id="remove" onClick={() => { setUplSyn('') }}>Remove</p>
+                                </div>
                             </div>
-                        </label> : <div id="dbFiles">
-                            <div className="teamID_box">{uplSyn.name}</div>
-                            <div className="fileFlex">
-                                <label for="uploadSyn" id="editFile">Edit</label>
-                                <input type="file" id="uploadSyn" accept=".doc, .docx, .pdf" disabled={((topic === '' && domain === '') && (uplDom === "" && uplTop === "") || (uplDom != "" && uplTop === "")) ? true : false} onChange={(e) => { setUplSyn(e.target.files[0]) }} hidden />
-                                <p id="remove" onClick={() => { setUplSyn('') }}>Remove</p>
-                            </div>
-                        </div>
-                    }
-                </>
-                    : <div className="synopsis"><a href={`https://backend.scrollsakgec.in${synopsis}`}>{`https://backend.scrollsakgec.in${synopsis}`}</a></div>}
+                        }
+                    </>
+                        : <div className="synopsis"><a href={`https://backend.scrollsakgec.in${synopsis}`}>{`https://backend.scrollsakgec.in${synopsis}`}</a></div>}
+                </div>
+                <hr className="dbHR2" />
             </div>
-            <hr className="dbHR2" />
-</div>
 
             <div id="Paper">
                 <div className="dbFlex1">
