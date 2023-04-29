@@ -41,7 +41,6 @@ function TableComp(props) {
                             : null}
                     </tbody>
                 </Table>
-            </div>
             {props.wait.length > 0 ?
                 <>
                     <p className="resHead2">Waitlisted Teams</p>
@@ -78,6 +77,7 @@ function TableComp(props) {
                     </Table>
                 </> : null
             }
+            </div>
         </div>
     </>
 }
