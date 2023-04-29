@@ -41,43 +41,45 @@ function TableComp(props) {
                             : null}
                     </tbody>
                 </Table>
+            </div>
             {props.wait.length > 0 ?
                 <>
                     <p className="resHead2">Waitlisted Teams</p>
-                    <Table striped bordered hover className="resTablee">
-                        <thead>
-                            <tr>
-                                <th>Team ID</th>
-                                <th>Team Name</th>
-                                <th className="namee">College Name</th>
-                                <th>Domain (Topic)</th>
-                                <th>Member's Name</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {props.wait.length > 0 ? props.wait.map((d) => {
-                                return <>
-                                    <tr className="resTableRow">
-                                        <td>{d.team_id}</td>
-                                        <td>{d.name}</td>
-                                        <td className="namee" >{d.college}</td>
-                                        <td>{d.domain} ({d.topic})</td>
-                                        <td ><ul>
-                                            <li>{d.leader_name}</li>
-                                            <li>{d.member_2_name}</li>
-                                            {(d.member_3_name != '' && d.member_3_name != null && d.member_3_name != undefined) ?
-                                                <li>{d.member_3_name}</li>
-                                                : null}
-                                        </ul></td>
-                                    </tr>
-                                </>
-                            })
-                                : null}
-                        </tbody>
-                    </Table>
+                    <div style={{ overflowX: "auto" }}>
+                        <Table striped bordered hover className="resTablee">
+                            <thead>
+                                <tr>
+                                    <th>Team ID</th>
+                                    <th>Team Name</th>
+                                    <th className="namee">College Name</th>
+                                    <th>Domain (Topic)</th>
+                                    <th>Member's Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {props.wait.length > 0 ? props.wait.map((d) => {
+                                    return <>
+                                        <tr className="resTableRow">
+                                            <td>{d.team_id}</td>
+                                            <td>{d.name}</td>
+                                            <td className="namee" >{d.college}</td>
+                                            <td>{d.domain} ({d.topic})</td>
+                                            <td ><ul>
+                                                <li>{d.leader_name}</li>
+                                                <li>{d.member_2_name}</li>
+                                                {(d.member_3_name != '' && d.member_3_name != null && d.member_3_name != undefined) ?
+                                                    <li>{d.member_3_name}</li>
+                                                    : null}
+                                            </ul></td>
+                                        </tr>
+                                    </>
+                                })
+                                    : null}
+                            </tbody>
+                        </Table>
+                    </div>
                 </> : null
             }
-            </div>
         </div>
     </>
 }
