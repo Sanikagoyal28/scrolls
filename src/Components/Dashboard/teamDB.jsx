@@ -84,7 +84,6 @@ function TeamDB() {
                 }
             })
             .catch((err) => {
-                // console.log(err)
             })
     }, [])
     useEffect(() => {
@@ -194,11 +193,6 @@ function TeamDB() {
             }
         }
 
-        //console form data
-        for (const pair of fd.entries()) {
-            // console.log(`${pair[0]}, ${pair[1]}`);
-        }
-
         dispatch(TeamDBDataThunk(fd)).
             then((res) => {
                 var y = res.payload.data.msg.replace(
@@ -243,7 +237,7 @@ function TeamDB() {
             })
     }
 
-    const [timer, setTimer] = useState(14)
+    const [timer, setTimer] = useState(10)
     useEffect(() => {
         if (reducer.loading) {
             const time =
@@ -283,9 +277,6 @@ function TeamDB() {
                 autoClose: 5000,
             });
         }
-        else {
-            console.log("upload")
-        }
     }
 
     function handlePaper() {
@@ -295,9 +286,6 @@ function TeamDB() {
                 theme: "light",
                 autoClose: 5000,
             });
-        }
-        else {
-            console.log("true")
         }
     }
 

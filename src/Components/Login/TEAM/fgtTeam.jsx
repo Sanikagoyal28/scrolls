@@ -145,7 +145,7 @@ function ForgotTeam() {
         }
     }, [valu])
 
-    const [timer, setTimer] = useState(14)
+    const [timer, setTimer] = useState(10)
     useEffect(() => {
         if (reducer.loading || load) {
             const time =

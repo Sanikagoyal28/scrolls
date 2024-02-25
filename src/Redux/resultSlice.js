@@ -25,7 +25,6 @@ const ResultSlice = createSlice({
             state.loading = true;
         })
         builder.addCase(ResultThunk.fulfilled, (state, action) => {
-
             state.loading = false;
             state.selectedTeam = action.payload.data
             state.waitlistedTeam = action.payload.data.msg.waitlisted_teams

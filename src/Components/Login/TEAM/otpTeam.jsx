@@ -75,7 +75,7 @@ function OtpTeam() {
         }
     }
 
-    const [timerr, setTimerr] = useState(14)
+    const [timerr, setTimerr] = useState(10)
     useEffect(() => {
         if (reducer.loading) {
             const time =

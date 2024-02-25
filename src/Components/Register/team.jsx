@@ -180,9 +180,8 @@ function Team() {
         }
     }
 
-    const [timer, setTimer] = useState(14)
+    const [timer, setTimer] = useState(10)
     useEffect(() => {
-        // console.log(timer)
         if (reducer.loading) {
             const time =
                 timer > 0 && setInterval(() => {

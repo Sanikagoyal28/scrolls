@@ -36,7 +36,6 @@ function CaDB() {
                 }
             })
             .catch((err) => {
-                console.log(err)
             })
     }, [])
 

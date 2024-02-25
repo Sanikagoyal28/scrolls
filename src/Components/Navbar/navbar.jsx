@@ -229,28 +229,28 @@ function Navbar() {
 
     //open registration
     function RegOpen() {
-        dispatch(RegOpenThunk())
-            .then((res) => {
+        setSoon(true)
+        // dispatch(RegOpenThunk())
+        //     .then((res) => {
 
-                if (res.payload.status === 200) {
-                    setDialogg(true);
-                    dispatch(dialog1())
-                }
-                if (res.payload.status === 400) {
-                    setDialogg(true);
-                    setSoon(true)
-                }
-                if (res.payload.status === 429) {
-                    toast.error("You have attempted too many times Today, please try again tomorrow", {
-                        position: "top-right",
-                        theme: "light",
-                        autoClose: 5000,
-                    });
-                }
-            })
-            .catch((err) => {
-                // console.log(err)
-            })
+        //         if (res.payload.status === 200) {
+        //             setDialogg(true);
+        //             dispatch(dialog1())
+        //         }
+        //         if (res.payload.status === 400) {
+        //             setDialogg(true);
+        //             setSoon(true)
+        //         }
+        //         if (res.payload.status === 429) {
+        //             toast.error("You have attempted too many times Today, please try again tomorrow", {
+        //                 position: "top-right",
+        //                 theme: "light",
+        //                 autoClose: 5000,
+        //             });
+        //         }
+        //     })
+        //     .catch((err) => {
+        //     })
     }
 
     useEffect(() => {

@@ -184,7 +184,6 @@ function Member() {
     }
 
     const onVerify = useCallback((token) => {
-        // console.log(token)
         setValu(token)
         setToken(true)
     });
@@ -305,7 +304,6 @@ function Member() {
                 }
             }
 
-            // console.log(data)
             dispatch(RegMemberThunk(data)).
                 then((res) => {
                     setLoad(false)
@@ -344,9 +342,8 @@ function Member() {
         }
     }, [valu])
 
-    const [timer, setTimer] = useState(14)
+    const [timer, setTimer] = useState(10)
     useEffect(() => {
-        // console.log(timer)
         if (reducer.loading || load) {
             const time =
                 timer > 0 && setInterval(() => {
