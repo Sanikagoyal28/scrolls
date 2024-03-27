@@ -570,8 +570,8 @@ function Navbar() {
           },
         }}
       >
-        <Team />
-        {/* <Register /> */}
+        {/* <Team /> */}
+        <Register />
       </Dialog>
 
       <Dialog
@@ -587,15 +587,18 @@ function Navbar() {
         <Member />
       </Dialog>
 
-      {/* <Dialog open={stepDialog.three} PaperProps={{
-            sx: {
-                maxHeight: 1100,
-                marginTop: 76,
-                maxWidth: 1000
-            }
-        }}>
-            <Team />
-        </Dialog> */}
+      <Dialog
+        open={stepDialog.three}
+        PaperProps={{
+          sx: {
+            maxHeight: 1100,
+            marginTop: 76,
+            maxWidth: 1000,
+          },
+        }}
+      >
+        <Team />
+      </Dialog>
 
       <Dialog
         open={stepDialog.four}
