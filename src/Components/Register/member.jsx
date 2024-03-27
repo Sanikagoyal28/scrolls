@@ -445,7 +445,6 @@ function Member() {
                 <p className="teamError">{msg4}</p>
                 <div id="recaptcha">
                     {count ?
-
                         < GoogleReCaptchaProvider reCaptchaKey={key}>
                             <GoogleReCaptcha onVerify={onVerify} />
                         </GoogleReCaptchaProvider>

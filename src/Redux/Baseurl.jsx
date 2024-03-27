@@ -1,9 +1,9 @@
-import axios from "axios"
+import axios from "axios";
 
 export default axios.create({
-    baseURL:"https://backend.scrollsakgec.in/"
-})
+  baseURL: "https://ed7c-112-196-163-54.ngrok-free.app/",
+});
 
-//  baseURL:"https://web-production-f8d3.up.railway.app/" 
+//  baseURL:"https://web-production-f8d3.up.railway.app/"
 
-// 
+//
